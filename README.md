@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# E-commerce Fashion
 
-## Getting Started
+## Overview
 
-First, run the development server:
+- This document will overview about estimation for [NextJS Practice](https://docs.google.com/document/d/1o-OkMrSynpcOkqSiuXlx7OBC-hJSCX6nyticSFxiDZI/edit?usp=sharing). This practice will build a website about E-commerce Fashion.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Time line:
+
+- Timeline: ~ 13 days ( Mar 25, 2024 - Apr 11, 2024 )
+
+### Design
+
+- [E-commerce Fashion](<https://www.figma.com/file/OG5SXRWIqSK1dokjeOMdA0/eCommerce-Fashion-Website-(Community)?type=design&node-id=0%3A1&mode=design&t=UDWCI6YJpAbqOrX9-1>)
+
+### Editor
+
+- Visual Studio Code
+
+## Target
+
+Apply knowledge of NextJS below:
+
+- App router ( error, loading, pages, layout)
+- NextJS config
+- Optimize images, fonts
+- Client/server components
+- Streaming
+- Data Fetching
+- Dynamic import
+- Lazy loading
+- Authentication
+- Apply Pagespeed score > 98 score
+- Unit Test coverage should greater than 80%
+
+
+## Technical
+
+- NextJS (v14)
+- React (v18)
+- Chakra UI
+- Typescript ( ES6 syntax )
+- React Hook Form
+- React Query
+- Storybook.
+- Jest
+- React Testing Library
+- Json server auth
+- Vercel
+
+## Development Tools
+
+- Eslint
+- Prettier
+- Husky
+- CommitLint
+- Pre-commit
+
+## Development environment
+
+- Node: version 20.11.1
+- pnpm: version 7.32.2
+
+## Features
+
+Build application of Yara SkinCare Community with features below:
+
+- Login
+- Logout
+- View product list ( Pagination )
+- Sort product by name
+- Filter product by category, by product group, by brand
+- Search product by name
+- View product detail
+- Add to cart
+- View cart
+- Update cart ( Change quantity + Remove product )
+
+
+## Getting started
+
+- Clone repository (SSH)
+
+```
+git clone git@gitlab.asoft-python.com:ngoc.ngo/nextjs-training.git
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Change the path to the folder you just cloned to your computer
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+cd nextjs-training
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```
 
-## Learn More
+- Checkout branch
 
-To learn more about Next.js, take a look at the following resources:
+```
+git checkout e-commerce-fashion
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+- Install packages
 
-## Deploy on Vercel
+```
+pnpm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Run application
+
+```
+pnpm run dev
+
+```
+
+- Open browser with the link below
+
+```
+http://localhost:3000
+
+```
+
+## Getting started
+
+- Create file .env has the same level as .env.sample. After that, please contact me to get the key
