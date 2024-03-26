@@ -111,6 +111,20 @@ pnpm run storybook
 
 ```
 
+- Run test
+
+```
+pnpm run test
+
+```
+
+- Run check coverage
+
+```
+pnpm run test:coverage
+
+```
+
 - Run application
 
 ```
