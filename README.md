@@ -32,7 +32,6 @@ Apply knowledge of NextJS below:
 - Apply Pagespeed score > 98 score
 - Unit Test coverage should greater than 80%
 
-
 ## Technical
 
 - NextJS (v14)
@@ -75,7 +74,6 @@ Build application of Yara SkinCare Community with features below:
 - View cart
 - Update cart ( Change quantity + Remove product )
 
-
 ## Getting started
 
 - Clone repository (SSH)
@@ -103,6 +101,13 @@ git checkout e-commerce-fashion
 
 ```
 pnpm install
+
+```
+
+- Run storybook
+
+```
+pnpm run storybook
 
 ```
 
