@@ -10,7 +10,6 @@
     "format": "prettier --write \"**/*.+(html|css|ts|tsx)\"",
     "prepare": "husky install"
   },
-
   "lint-staged": {
     "*.{ts,tsx}": [
       "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
@@ -20,6 +19,11 @@
     ]
   },
   "dependencies": {
+    "@chakra-ui/next-js": "^2.2.0",
+    "@chakra-ui/react": "^2.8.2",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "framer-motion": "^11.0.20",
     "next": "14.1.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
