@@ -1,4 +1,5 @@
 export const borderRadius = {
+  none: '0px',
   base: '8px',
 };
 
