@@ -1,3 +1,6 @@
+const BASE = {
+  emperor: '#555555',
+};
 export const colors = {
-  // TODO: Update later
+  paragraph: BASE.emperor,
 };
