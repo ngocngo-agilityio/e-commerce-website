@@ -6,7 +6,7 @@ const BASE = {
   orient: '#024E82',
   opal: '#9DB9C1',
   redDamask: '#D6763C',
-  tuscany: '#b85e27',
+  tuscany: '#B85E27',
 };
 
 export const colors = {

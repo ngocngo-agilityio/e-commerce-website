@@ -47,18 +47,18 @@ export const Button = defineStyleConfig({
 
   sizes: {
     sm: {
-      px: '28px',
-      py: '18px',
+      px: 'lg',
+      py: 'md',
       fontSize: '2xl',
     },
     md: {
-      px: '36px',
-      py: '14px',
+      px: 'xl',
+      py: 'sm',
       fontSize: 'md',
     },
     lg: {
-      px: '36px',
-      py: '18px',
+      px: 'xl',
+      py: 'md',
       fontSize: 'xl',
     },
   },
