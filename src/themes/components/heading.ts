@@ -7,6 +7,7 @@ export const Heading = defineStyleConfig({
     fontWeight: 'bold',
     fontFamily: 'arimo',
   },
+
   sizes: {
     sm: {
       fontSize: 'xl',
@@ -21,6 +22,7 @@ export const Heading = defineStyleConfig({
       lineHeight: 'none',
     },
   },
+
   defaultProps: {
     size: 'md',
   },

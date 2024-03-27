@@ -9,6 +9,7 @@ export const Text = defineStyleConfig({
       fontFamily: 'lato',
     },
   },
+
   sizes: {
     '2xs': {
       fontSize: '2xs',
