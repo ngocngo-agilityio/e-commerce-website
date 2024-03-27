@@ -6,6 +6,7 @@ export const Text = defineStyleConfig({
     default: {
       color: 'paragraph',
       fontWeight: 'normal',
+      fontFamily: 'lato',
     },
   },
   sizes: {

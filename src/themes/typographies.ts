@@ -35,6 +35,7 @@ export const fontSizes = {
   '2xl': '20px',
   '3xl': '24px',
   '4xl': '36px',
+  '5xl': '48px',
 };
 
 export const lineHeights = {
