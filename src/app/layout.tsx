@@ -3,7 +3,8 @@ import { ChakraProvider } from '@chakra-ui/react';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 
-const inter = Inter({ subsets: ['latin'] });
+// Themes
+import { theme } from '@/themes';
 
 export const metadata: Metadata = {
   title: 'E-commerce Fashion',
@@ -18,8 +19,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ChakraProvider>{children}</ChakraProvider>
+      <body>
+        <ChakraProvider theme={theme}>{children}</ChakraProvider>
       </body>
     </html>
   );
