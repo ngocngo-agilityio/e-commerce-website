@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navigation component should match snapshot for Navigation 1`] = `
+<div>
+  <nav
+    class="css-7dibxd"
+  >
+    <a
+      href="#"
+    >
+      <span
+        class="chakra-text css-1fd5thk"
+      >
+        Home
+      </span>
+    </a>
+    <a
+      href="#"
+    >
+      <span
+        class="chakra-text css-1fd5thk"
+      >
+        About
+      </span>
+    </a>
+    <a
+      href="#"
+    >
+      <span
+        class="chakra-text css-1fd5thk"
+      >
+        Contact us
+      </span>
+    </a>
+  </nav>
+</div>
+`;
