@@ -36,4 +36,7 @@ export const colors = {
     bg: BASE.redDamask,
     hoverBg: BASE.tuscany,
   },
+
+  // Logo
+  logo: BASE.codGray,
 };

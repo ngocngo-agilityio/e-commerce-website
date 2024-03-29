@@ -1,5 +1,5 @@
 // Libs
-import { Lato, Arimo, Inter, Baloo_2 } from 'next/font/google';
+import { Lato, Arimo, Baloo_2 } from 'next/font/google';
 
 const lato = Lato({ subsets: ['latin'], weight: ['400'] });
 

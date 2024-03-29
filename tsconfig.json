@@ -18,8 +18,10 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"],
-      "@/themes": ["./src/themes"]
+      "@themes": ["./src/themes"],
+      "@components": ["./src/components"],
+      "@providers": ["./src/providers"],
+      "@constants": ["./src/constants"]
     }
   },
   "include": [
