@@ -1,10 +1,8 @@
 // Libs
-import { ChakraProvider } from '@chakra-ui/react';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
 
-// Themes
-import { theme } from '@/themes';
+// Providers
+import { ChakraUIProvider } from '@providers';
 
 export const metadata: Metadata = {
   title: 'E-commerce Fashion',
@@ -20,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ChakraProvider theme={theme}>{children}</ChakraProvider>
+        <ChakraUIProvider>{children}</ChakraUIProvider>
       </body>
     </html>
   );

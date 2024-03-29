@@ -22,16 +22,19 @@ const config: Config = {
   coverageProvider: 'v8',
 
   // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-  // moduleNameMapper: {},
+  moduleNameMapper: {
+    '@components': '<rootDir>/src/components',
+    '@constants': '<rootDir>/src/constants',
+    '@themes': '<rootDir>/src/themes',
+    '@providers': '<rootDir>/src/providers',
+  },
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
 
   // A map from regular expressions to paths to transformers
   transform: {
-    '^.+\\.(t|j)sx?$': 'ts-jest',
-    '.+\\.(css|svg|webp|styl|less|sass|scss|png|jpg|otf|ttf|woff|woff2)$':
-      'jest-transform-stub',
+    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
   },
 
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
