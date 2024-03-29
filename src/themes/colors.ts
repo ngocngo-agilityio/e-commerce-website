@@ -7,6 +7,7 @@ const BASE = {
   opal: '#9DB9C1',
   redDamask: '#D6763C',
   tuscany: '#B85E27',
+  black: '#000000',
 };
 
 export const colors = {
@@ -39,4 +40,9 @@ export const colors = {
 
   // Logo
   logo: BASE.codGray,
+
+  // Navigation
+  navigation: {
+    color: BASE.black,
+  },
 };
