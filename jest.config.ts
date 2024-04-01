@@ -19,6 +19,8 @@ const config: Config = {
     '!**/*.stories.tsx',
     '!src/assets/**',
     '!src/themes/**',
+    '!src/types/**',
+    '!src/constants/**',
     '!src/components/index.ts',
   ],
 
