@@ -1,6 +1,4 @@
-import React from 'react';
 import type { Preview } from '@storybook/react';
-import { ChakraProvider } from '@chakra-ui/react';
 import { AppRouterContext } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
 // Themes
@@ -17,14 +15,10 @@ const preview: Preview = {
     nextRouter: {
       Provider: AppRouterContext.Provider,
     },
+    chakra: {
+      theme,
+    },
   },
-  decorators: [
-    (Story) => (
-      <ChakraProvider theme={theme}>
-        <Story />
-      </ChakraProvider>
-    ),
-  ],
 };
 
 export default preview;
