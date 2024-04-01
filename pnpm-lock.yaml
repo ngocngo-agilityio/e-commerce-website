@@ -40,6 +40,7 @@ specifiers:
   react-dom: ^18.2.0
   storybook: ^8.0.4
   ts-node: ^10.9.2
+  tsconfig-paths-webpack-plugin: ^4.1.0
   typescript: ^5
 
 dependencies:
@@ -84,6 +85,7 @@ devDependencies:
   prettier: 3.2.5
   storybook: 8.0.4_biqbaboplfbrettd7655fr4n2y
   ts-node: 10.9.2_3gszlplltwxq26q56hnekbvdpe
+  tsconfig-paths-webpack-plugin: 4.1.0
   typescript: 5.4.3
 
 packages:

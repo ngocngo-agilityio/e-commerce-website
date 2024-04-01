@@ -27,6 +27,7 @@ const config: Config = {
     '@constants': '<rootDir>/src/constants',
     '@themes': '<rootDir>/src/themes',
     '@providers': '<rootDir>/src/providers',
+    '@assets': '<rootDir>/src/assets',
   },
 
   // The test environment that will be used for testing
