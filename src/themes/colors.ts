@@ -51,4 +51,7 @@ export const colors = {
     hoverColor: BASE.white,
     hoverBg: BASE.orient,
   },
+
+  // Shopping Cart
+  shoppingCart: { color: BASE.white, bg: BASE.orient },
 };
