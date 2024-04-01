@@ -8,6 +8,8 @@ const BASE = {
   redDamask: '#D6763C',
   tuscany: '#B85E27',
   black: '#000000',
+  alabaster: '#FBFBFB',
+  mercury: '#E8E8E8',
 };
 
 export const colors = {
@@ -54,4 +56,16 @@ export const colors = {
 
   // Shopping Cart
   shoppingCart: { color: BASE.white, bg: BASE.orient },
+
+  // Footer
+  footer: {
+    bg: BASE.alabaster,
+    text: BASE.codGray,
+  },
+
+  // Divider
+  divider: BASE.mercury,
+
+  // Input
+  borderInput: BASE.codGray,
 };
