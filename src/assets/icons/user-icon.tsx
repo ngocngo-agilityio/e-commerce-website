@@ -4,8 +4,8 @@ import { Icon } from '@chakra-ui/react';
 const UserIcon = (): JSX.Element => (
   <Icon
     xmlns="http://www.w3.org/2000/svg"
-    width="24"
-    height="25"
+    width="24px"
+    height="25px"
     viewBox="0 0 24 25"
     fill="none"
   >

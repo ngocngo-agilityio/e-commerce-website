@@ -29,7 +29,7 @@ const ShoppingCart = ({
             w="20px"
             h="20px"
             top="-5px"
-            left="50px"
+            left="15px"
           >
             <Text fontSize="2xs" fontWeight="bold" color="shoppingCart.color">
               {cartItemQuantity}
