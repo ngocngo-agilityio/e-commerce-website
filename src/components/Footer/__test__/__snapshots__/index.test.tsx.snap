@@ -1,0 +1,371 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should match snapshot for Footer 1`] = `
+<div>
+  <footer
+    class="css-18bdxg7"
+  >
+    <div
+      class="chakra-container css-0"
+    >
+      <div
+        class="css-1eepplo"
+      >
+        <div
+          class="css-1hnm2jq"
+        >
+          <div
+            class="css-0"
+          >
+            <p
+              class="chakra-text css-1h9aq40"
+            >
+              Company info
+            </p>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                About us
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Latest Posts
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Contact Us
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Shop
+              </p>
+            </a>
+          </div>
+          <div
+            class="css-0"
+          >
+            <p
+              class="chakra-text css-1h9aq40"
+            >
+              Help links
+            </p>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Tracking
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Order Status
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Delivery 
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Shipping Info
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                FAQ
+              </p>
+            </a>
+          </div>
+          <div
+            class="css-0"
+          >
+            <p
+              class="chakra-text css-1h9aq40"
+            >
+              Useful links
+            </p>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Special Offers
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Gift Cards
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Advertising
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-1ovweji"
+              >
+                Term Of Use
+              </p>
+            </a>
+          </div>
+        </div>
+        <div
+          class="css-0"
+        >
+          <p
+            class="chakra-text css-1h9aq40"
+          >
+            get in the know
+          </p>
+          <div
+            class="chakra-stack css-1igwmid"
+          >
+            <input
+              class="chakra-input css-dnva2j"
+              placeholder="Enter email"
+            />
+            <svg
+              class="chakra-icon css-ixdrjp"
+              focusable="false"
+              viewBox="0 0 48 48"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M27.9062 23.5312L21.8438 29.625C21.5312 29.9062 21.0625 29.9062 20.7812 29.625L20.0625 28.9062C19.7812 28.625 19.7812 28.1562 20.0625 27.8438L24.875 23L20.0625 18.1875C19.7812 17.875 19.7812 17.4062 20.0625 17.125L20.7812 16.4062C21.0625 16.125 21.5312 16.125 21.8438 16.4062L27.9062 22.5C28.1875 22.7812 28.1875 23.25 27.9062 23.5312Z"
+                fill="#555555"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <hr
+        aria-orientation="horizontal"
+        class="chakra-divider css-1upb9tn"
+      />
+      <div
+        class="css-152pghs"
+      >
+        <div
+          class="css-0"
+        >
+          <p
+            class="chakra-text css-4a4c1p"
+          >
+            © 2020 NorthStar eCommerce
+          </p>
+          <div
+            class="chakra-stack css-1hyr0v9"
+          >
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-4a4c1p"
+              >
+                Privacy Policy
+              </p>
+            </a>
+            <a
+              href="#"
+            >
+              <p
+                class="chakra-text css-4a4c1p"
+              >
+                Terms & Conditions
+              </p>
+            </a>
+          </div>
+        </div>
+        <div
+          class="chakra-stack css-1ski9r"
+        >
+          <a
+            href="#"
+          >
+            <svg
+              class="chakra-icon css-5uo5c5"
+              focusable="false"
+              viewBox="0 0 56 34"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="url(#pattern0)"
+                height="34"
+                width="56"
+              />
+              <defs>
+                <pattern
+                  height="1"
+                  id="pattern0"
+                  patternContentUnits="objectBoundingBox"
+                  width="1"
+                >
+                  <use
+                    transform="matrix(0.0155678 0 0 0.025641 0.00961538 0)"
+                    xlink:href="#image0_713_273"
+                  />
+                </pattern>
+                <image
+                  height="39"
+                  id="image0_713_273"
+                  width="63"
+                  xlink:href="data:image/png;base64,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"
+                />
+              </defs>
+            </svg>
+          </a>
+          <a
+            href="#"
+          >
+            <svg
+              class="chakra-icon css-5uo5c5"
+              focusable="false"
+              viewBox="0 0 56 34"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="url(#pattern0)"
+                height="34"
+                width="56"
+              />
+              <pattern
+                height="1"
+                id="pattern0"
+                patternContentUnits="objectBoundingBox"
+                width="1"
+              >
+                <use
+                  transform="matrix(0.015873 0 0 0.0261438 0 -0.00980392)"
+                  xlink:href="#image0_713_274"
+                />
+              </pattern>
+              <image
+                height="39"
+                id="image0_713_274"
+                width="63"
+                xlink:href="data:image/png;base64,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"
+              />
+            </svg>
+          </a>
+          <a
+            href="#"
+          >
+            <svg
+              class="chakra-icon css-5uo5c5"
+              focusable="false"
+              viewBox="0 0 56 34"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="url(#pattern0)"
+                height="34"
+                width="56"
+              />
+              <pattern
+                height="1"
+                id="pattern0"
+                patternContentUnits="objectBoundingBox"
+                width="1"
+              >
+                <use
+                  transform="matrix(0.015873 0 0 0.0261438 0 -0.00980392)"
+                  xlink:href="#image0_713_275"
+                />
+              </pattern>
+              <image
+                height="39"
+                id="image0_713_275"
+                width="63"
+                xlink:href="data:image/png;base64,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"
+              />
+            </svg>
+          </a>
+          <a
+            href="#"
+          >
+            <svg
+              class="chakra-icon css-5uo5c5"
+              focusable="false"
+              viewBox="0 0 56 34"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect
+                fill="url(#pattern0)"
+                height="34"
+                width="56"
+              />
+              <pattern
+                height="1"
+                id="pattern0"
+                patternContentUnits="objectBoundingBox"
+                width="1"
+              >
+                <use
+                  transform="matrix(0.015873 0 0 0.0261438 0 -0.00980392)"
+                  xlink:href="#image0_713_276"
+                />
+              </pattern>
+              <image
+                height="39"
+                id="image0_713_276"
+                width="63"
+                xlink:href="data:image/png;base64,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"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+</div>
+`;
