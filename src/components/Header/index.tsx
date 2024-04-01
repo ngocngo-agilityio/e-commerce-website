@@ -1,5 +1,10 @@
-import { HamburgerIcon } from '@assets';
+// Libs
 import { Box, Container, Flex, HStack } from '@chakra-ui/react';
+
+// Assets
+import { HamburgerIcon } from '@assets';
+
+// Components
 import { Logo, Navigation, ShoppingCart, UserProfile } from '@components';
 
 const Header = (): JSX.Element => {

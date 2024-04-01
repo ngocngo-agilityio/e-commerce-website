@@ -10,7 +10,7 @@ exports[`ShoppingCart component should match snapshot for ShoppingCart 1`] = `
       href="/cart"
     >
       <svg
-        class="chakra-icon css-144l79h"
+        class="chakra-icon css-1t7rsys"
         focusable="false"
         viewBox="0 0 24 25"
         xmlns="http://www.w3.org/2000/svg"
