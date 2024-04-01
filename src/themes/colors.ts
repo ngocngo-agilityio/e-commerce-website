@@ -45,4 +45,10 @@ export const colors = {
   navigation: {
     color: BASE.black,
   },
+
+  // Menu
+  menu: {
+    hoverColor: BASE.white,
+    hoverBg: BASE.orient,
+  },
 };
