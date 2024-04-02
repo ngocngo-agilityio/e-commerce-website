@@ -10,6 +10,8 @@ const BASE = {
   black: '#000000',
   alabaster: '#FBFBFB',
   mercury: '#E8E8E8',
+  submarine: '#B7BFC5',
+  orange: '#FF5B19',
 };
 
 export const colors = {
@@ -67,5 +69,17 @@ export const colors = {
   divider: BASE.mercury,
 
   // Input
-  borderInput: BASE.codGray,
+  placeholderInput: BASE.submarine,
+  valueInput: BASE.codGray,
+
+  // Flushed Input
+  flushedInput: {
+    border: BASE.codGray,
+  },
+
+  // OutLine Input
+  outlineInput: {
+    borderColor: BASE.submarine,
+    focusBorder: BASE.orange,
+  },
 };
