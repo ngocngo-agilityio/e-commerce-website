@@ -7,3 +7,4 @@ export { default as Footer } from './Footer';
 export { default as SearchInput } from './SearchInput';
 export { default as Sort } from './Sort';
 export { default as SelectSize } from './SelectSize';
+export { default as Filter } from './Filter';
