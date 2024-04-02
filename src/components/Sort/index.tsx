@@ -1,5 +1,5 @@
 // Libs
-import { memo } from 'react';
+import { memo, useState, MouseEvent, useCallback } from 'react';
 import {
   Input,
   InputGroup,
@@ -32,8 +32,20 @@ const Sort = ({
   placeholder = 'Sort by',
   onChange,
 }: Props): JSX.Element => {
+  const [selectedOption, setSelectedOption] = useState('');
+
+  const handleOnChange = useCallback(
+    (e: MouseEvent<HTMLButtonElement>) => {
+      const value = e.currentTarget.value;
+
+      setSelectedOption(value);
+      onChange(value);
+    },
+    [onChange],
+  );
+
   return (
-    <Menu size="base">
+    <Menu closeOnSelect={false} size="base">
       <MenuButton>
         <InputGroup maxW="245px">
           <Input
@@ -49,12 +61,12 @@ const Sort = ({
       </MenuButton>
 
       <MenuList>
-        <RadioGroup onChange={onChange} defaultValue={defaultValue}>
+        <RadioGroup value={selectedOption} defaultValue={defaultValue}>
           {options.map((item) => {
             const { value, label } = item || {};
 
             return (
-              <MenuItem key={value}>
+              <MenuItem key={value} value={value} onClick={handleOnChange}>
                 <Radio value={value} colorScheme="orange">
                   {label}
                 </Radio>

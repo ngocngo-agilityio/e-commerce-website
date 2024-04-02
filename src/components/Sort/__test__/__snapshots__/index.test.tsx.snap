@@ -120,6 +120,7 @@ exports[`Sort component should match snapshot for Sort 1`] = `
           role="menuitem"
           tabindex="-1"
           type="button"
+          value="1"
         >
           <label
             class="chakra-radio css-1nqw95c"
@@ -150,6 +151,7 @@ exports[`Sort component should match snapshot for Sort 1`] = `
           role="menuitem"
           tabindex="-1"
           type="button"
+          value="2"
         >
           <label
             class="chakra-radio css-1nqw95c"
