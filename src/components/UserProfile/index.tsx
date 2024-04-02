@@ -16,7 +16,7 @@ const UserProfile = ({ onLogout }: UserProfileProps): JSX.Element => {
         <UserIcon />
       </MenuButton>
 
-      <MenuList>
+      <MenuList p="10px">
         <MenuItem onClick={onLogout}>Logout</MenuItem>
       </MenuList>
     </Menu>
