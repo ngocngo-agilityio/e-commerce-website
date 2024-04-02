@@ -11,6 +11,7 @@ import {
   Radio,
   RadioGroup,
 } from '@chakra-ui/react';
+import isEqual from 'react-fast-compare';
 
 // Assets
 import { FilterIcon } from '@assets';
@@ -66,4 +67,4 @@ const Sort = ({
   );
 };
 
-export default memo(Sort);
+export default memo(Sort, isEqual);
