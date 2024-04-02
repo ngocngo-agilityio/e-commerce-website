@@ -16,11 +16,9 @@ const SearchIcon = (): JSX.Element => {
           fill="#FF5B19"
         />
       </g>
-      {/* <defs> */}
       <clipPath id="clip0_590_644">
         <rect width="24" height="24" fill="white" />
       </clipPath>
-      {/* </defs> */}
     </Icon>
   );
 };
