@@ -26,7 +26,7 @@ interface Props {
 }
 
 const Sort = ({
-  options,
+  options = [],
   defaultValue,
   placeholder = 'Sort by',
   onChange,
