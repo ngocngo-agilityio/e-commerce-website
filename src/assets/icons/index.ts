@@ -6,3 +6,4 @@ export { default as MasterCardIcon } from './mastercard-icon';
 export { default as PaypalIcon } from './paypal-icon';
 export { default as VisaElectronIcon } from './visa-electron-icon';
 export { default as ArrowRightIcon } from './arrow-right-icon';
+export { default as SearchIcon } from './search-icon';

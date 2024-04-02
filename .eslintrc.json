@@ -3,9 +3,14 @@
     "next/core-web-vitals",
     "prettier",
     "plugin:prettier/recommended",
-    "plugin:storybook/recommended"
+    "plugin:storybook/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
-  "rules": {
-    "no-unused-vars": "error"
-  }
+  "plugins": [
+    "eslint-plugin-storybook",
+    "react",
+    "@typescript-eslint",
+    "react-refresh"
+  ]
 }
