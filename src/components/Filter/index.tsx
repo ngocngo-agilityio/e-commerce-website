@@ -1,6 +1,9 @@
 // Libs
-import { memo, useState, MouseEvent, useCallback } from 'react';
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 import {
+  Checkbox,
+  CheckboxGroup,
   Input,
   InputGroup,
   InputRightElement,
@@ -8,42 +11,27 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
-  Radio,
-  RadioGroup,
 } from '@chakra-ui/react';
-import isEqual from 'react-fast-compare';
 
 // Assets
 import { FilterIcon } from '@assets';
 
 // Types
-import { SortOption } from '@types';
+import { FilterOption } from '@types';
 
 interface Props {
-  options: SortOption[];
-  defaultValue?: string;
+  options: FilterOption[];
   placeholder?: string;
-  onChange: (value: string) => void;
+  defaultValue?: string[];
+  onChange: (value: string[]) => void;
 }
 
-const Sort = ({
+const Filter = ({
   options = [],
+  placeholder = 'Filters',
   defaultValue,
-  placeholder = 'Sort by',
   onChange,
 }: Props): JSX.Element => {
-  const [selectedOption, setSelectedOption] = useState('');
-
-  const handleOnChange = useCallback(
-    (e: MouseEvent<HTMLButtonElement>) => {
-      const value = e.currentTarget.value;
-
-      setSelectedOption(value);
-      onChange(value);
-    },
-    [onChange],
-  );
-
   return (
     <Menu closeOnSelect={false} size="base">
       <MenuButton>
@@ -61,22 +49,26 @@ const Sort = ({
       </MenuButton>
 
       <MenuList>
-        <RadioGroup value={selectedOption} defaultValue={defaultValue}>
+        <CheckboxGroup onChange={onChange} defaultValue={defaultValue}>
           {options.map((item) => {
             const { value, label } = item || {};
 
             return (
-              <MenuItem key={value} value={value} onClick={handleOnChange}>
-                <Radio value={value} colorScheme="orange">
+              <MenuItem key={value}>
+                <Checkbox
+                  value={value}
+                  colorScheme="orange"
+                  textTransform="capitalize"
+                >
                   {label}
-                </Radio>
+                </Checkbox>
               </MenuItem>
             );
           })}
-        </RadioGroup>
+        </CheckboxGroup>
       </MenuList>
     </Menu>
   );
 };
 
-export default memo(Sort, isEqual);
+export default memo(Filter, isEqual);
