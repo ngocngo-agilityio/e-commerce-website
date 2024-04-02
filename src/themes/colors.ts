@@ -12,6 +12,7 @@ const BASE = {
   mercury: '#E8E8E8',
   submarine: '#B7BFC5',
   orange: '#FF5B19',
+  gallery: '#EBEBEB',
 };
 
 export const colors = {
@@ -35,6 +36,13 @@ export const colors = {
     color: BASE.white,
   },
 
+  // Select Button
+  selectBtn: {
+    text: BASE.codGray,
+    bg: BASE.alabaster,
+    border: BASE.gallery,
+  },
+
   // Checkout button
   checkoutBtn: {
     color: BASE.white,
@@ -54,6 +62,8 @@ export const colors = {
   menu: {
     hoverColor: BASE.white,
     hoverBg: BASE.orient,
+    border: BASE.gallery,
+    text: BASE.codGray,
   },
 
   // Shopping Cart

@@ -43,6 +43,17 @@ export const Button = defineStyleConfig({
         bg: 'checkoutBtn.bg',
       },
     },
+    selectBtn: {
+      w: '210px',
+      h: '48px',
+      color: 'selectBtn.text',
+      bg: 'selectBtn.bg',
+      borderWidth: '1px',
+      borderColor: 'selectBtn.border',
+      fontSize: 'xl',
+      px: '16px',
+      textAlign: 'left',
+    },
   },
 
   sizes: {
