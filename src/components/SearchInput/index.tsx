@@ -1,5 +1,5 @@
 // Libs
-import { ChangeEvent, memo, useCallback } from 'react';
+import { ChangeEvent, memo } from 'react';
 import {
   Input,
   InputGroup,
@@ -21,15 +21,7 @@ const SearchInput = ({
   placeholder = 'Search Here....',
   onChange,
   ...rest
-}: Props) => {
-  // Handle when typing value
-  const handleOnChange = useCallback(
-    (e: ChangeEvent<HTMLInputElement>) => {
-      onChange(e);
-    },
-    [onChange],
-  );
-
+}: Props): JSX.Element => {
   return (
     <InputGroup>
       <Input
@@ -40,7 +32,7 @@ const SearchInput = ({
         borderRadius="base"
         pr="80px"
         value={value}
-        onChange={handleOnChange}
+        onChange={onChange}
         {...rest}
       />
       <InputRightElement
