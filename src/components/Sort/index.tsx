@@ -1,3 +1,5 @@
+'use client';
+
 // Libs
 import { memo, useState, MouseEvent, useCallback } from 'react';
 import {

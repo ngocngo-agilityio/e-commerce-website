@@ -1,8 +1,12 @@
 // Libs
 import type { Metadata } from 'next';
+import { Box } from '@chakra-ui/react';
 
 // Providers
 import { ChakraUIProvider } from '@providers';
+
+// Components
+import { Header, Footer } from '@components';
 
 export const metadata: Metadata = {
   title: 'E-commerce Fashion',
@@ -18,7 +22,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ChakraUIProvider>{children}</ChakraUIProvider>
+        <ChakraUIProvider>
+          <Header />
+          <Box minHeight="calc(100vh - 99px - 490px)">{children}</Box>
+          <Footer />
+        </ChakraUIProvider>
       </body>
     </html>
   );

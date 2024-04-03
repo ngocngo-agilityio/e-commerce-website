@@ -1,3 +1,5 @@
+'use client';
+
 // Libs
 import { memo } from 'react';
 import { Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
@@ -6,10 +8,13 @@ import { Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
 import { UserIcon } from '@assets';
 
 interface UserProfileProps {
-  onLogout: () => void;
+  // onLogout: () => void;
 }
 
-const UserProfile = ({ onLogout }: UserProfileProps): JSX.Element => {
+const UserProfile = ({}: UserProfileProps): JSX.Element => {
+  // TODO: Update later
+  const handleLogout = () => {};
+
   return (
     <Menu>
       <MenuButton aria-label="profile-menu">
@@ -17,7 +22,7 @@ const UserProfile = ({ onLogout }: UserProfileProps): JSX.Element => {
       </MenuButton>
 
       <MenuList p="10px">
-        <MenuItem onClick={onLogout}>Logout</MenuItem>
+        <MenuItem onClick={handleLogout}>Logout</MenuItem>
       </MenuList>
     </Menu>
   );
