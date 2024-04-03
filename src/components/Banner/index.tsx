@@ -1,5 +1,4 @@
 // Libs
-import { memo } from 'react';
 import { Box, Button, Container, Flex, Heading } from '@chakra-ui/react';
 
 // Constants
@@ -43,4 +42,4 @@ const SaleBanner = (): JSX.Element => {
   );
 };
 
-export default memo(SaleBanner);
+export default SaleBanner;

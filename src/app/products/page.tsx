@@ -3,12 +3,18 @@ import { Suspense } from 'react';
 import { Box, Container, Heading, Text } from '@chakra-ui/react';
 
 // Components
-import { Banner, ProductList, SkeletonProductList } from '@components';
+import {
+  Banner,
+  ProductList,
+  SkeletonProductList,
+  ProductListActions,
+} from '@components';
 
 const Products = (): JSX.Element => {
   return (
     <Box as="main">
       <Banner />
+
       <Container py="43px">
         <Heading as="h2" size="md" textAlign="center">
           Discover NEW Arrivals
@@ -16,6 +22,8 @@ const Products = (): JSX.Element => {
         <Text textAlign="center" size="2xl" lineHeight="48px">
           Recently added shirts!
         </Text>
+
+        <ProductListActions />
 
         <Suspense fallback={<SkeletonProductList />}>
           <ProductList />

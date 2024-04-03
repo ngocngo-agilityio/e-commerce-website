@@ -1,6 +1,4 @@
 // Libs
-import { memo } from 'react';
-import isEqual from 'react-fast-compare';
 import { Wrap, WrapItem, Text } from '@chakra-ui/react';
 
 // Types
@@ -43,4 +41,4 @@ const ProductList = (): JSX.Element => {
   );
 };
 
-export default memo(ProductList, isEqual);
+export default ProductList;
