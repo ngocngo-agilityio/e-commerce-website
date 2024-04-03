@@ -25,7 +25,8 @@
       "@assets": ["./src/assets"],
       "@types": ["./src/types"],
       "@utils": ["./src/utils"],
-      "@mocks": ["./src/mocks"]
+      "@mocks": ["./src/mocks"],
+      "@services": ["./src/services"]
     }
   },
   "include": [
