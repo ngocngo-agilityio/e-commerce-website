@@ -92,4 +92,7 @@ export const colors = {
     borderColor: BASE.submarine,
     focusBorder: BASE.orange,
   },
+
+  // Price
+  price: BASE.orient,
 };
