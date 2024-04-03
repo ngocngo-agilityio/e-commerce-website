@@ -6,18 +6,20 @@ import { Wrap, WrapItem, Text } from '@chakra-ui/react';
 // Types
 import { Product } from '@types';
 
+// Mocks
+import { PRODUCT_LIST } from '@mocks';
+
 // Components
 import { ProductCard } from '@components';
 
-interface Props {
-  data: Product[];
-}
+const ProductList = (): JSX.Element => {
+  // TODO: Update later - Fetch products at here
+  const data: Product[] = PRODUCT_LIST;
 
-const ProductList = ({ data = [] }: Props): JSX.Element => {
   return (
     <>
       {data.length > 0 ? (
-        <Wrap spacingY="48px" spacingX="20px">
+        <Wrap justify="space-between" spacingY="48px">
           {data.map((product) => {
             const { id, name, image, price } = product || {};
 
