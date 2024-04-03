@@ -40,6 +40,7 @@ const config: Config = {
     '@utils': '<rootDir>/src/utils',
     '@mocks': '<rootDir>/src/mocks',
     '@services': '<rootDir>/src/services',
+    '@apis': '<rootDir>/src/apis',
   },
 
   // The test environment that will be used for testing

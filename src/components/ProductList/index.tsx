@@ -1,18 +1,15 @@
 // Libs
 import { Wrap, WrapItem, Text } from '@chakra-ui/react';
 
-// Types
-import { Product } from '@types';
-
-// Mocks
-import { PRODUCT_LIST } from '@mocks';
+// Apis
+import { getProductList } from '@apis';
 
 // Components
 import { ProductCard } from '@components';
 
-const ProductList = (): JSX.Element => {
+const ProductList = async () => {
   // TODO: Update later - Fetch products at here
-  const data: Product[] = PRODUCT_LIST;
+  const { data } = await getProductList();
 
   return (
     <>
