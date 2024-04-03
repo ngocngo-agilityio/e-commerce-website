@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 // Constants
-import { APP_ROUTERS } from '@constants';
+import { APP_ROUTERS, FALL_BACK_IMAGE } from '@constants';
 
 // Utils
 import { formatCurrency } from '@utils';
@@ -33,8 +33,7 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
               src={image}
               alt="Product Image"
               border-radius="none"
-              // TODO: Update later
-              placeholder="data:image/..."
+              placeholder={FALL_BACK_IMAGE}
               fill
               priority
             />
