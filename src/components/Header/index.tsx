@@ -9,9 +9,6 @@ import { Logo, Navigation, ShoppingCart, UserProfile } from '@components';
 
 const Header = (): JSX.Element => {
   // TODO: Update later
-  const handleLogout = () => {};
-
-  // TODO: Update later
   const cartItemQuantity = 1;
 
   return (
@@ -29,7 +26,7 @@ const Header = (): JSX.Element => {
         </HStack>
 
         <HStack spacing="25px" alignContent="center">
-          <UserProfile onLogout={handleLogout} />
+          <UserProfile />
           <ShoppingCart cartItemQuantity={cartItemQuantity} />
 
           <Box cursor="pointer">

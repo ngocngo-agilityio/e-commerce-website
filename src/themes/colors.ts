@@ -95,4 +95,7 @@ export const colors = {
 
   // Price
   price: BASE.orient,
+
+  // Banner
+  bannerHeading: BASE.white,
 };

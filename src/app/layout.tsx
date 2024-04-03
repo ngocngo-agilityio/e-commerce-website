@@ -1,8 +1,15 @@
 // Libs
 import type { Metadata } from 'next';
+import { Box } from '@chakra-ui/react';
 
 // Providers
 import { ChakraUIProvider } from '@providers';
+
+// Constants
+import { HEADER_HEIGHT, FOOTER_HEIGHT } from '@constants';
+
+// Components
+import { Header, Footer } from '@components';
 
 export const metadata: Metadata = {
   title: 'E-commerce Fashion',
@@ -18,7 +25,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ChakraUIProvider>{children}</ChakraUIProvider>
+        <ChakraUIProvider>
+          <Header />
+          {/* 
+            This Box component ensures that the content area takes up at least 
+            the height of the viewport minus the heights of the header and footer 
+          */}
+          <Box minHeight={`calc(100vh - ${HEADER_HEIGHT} -${FOOTER_HEIGHT})`}>
+            {children}
+          </Box>
+          <Footer />
+        </ChakraUIProvider>
       </body>
     </html>
   );

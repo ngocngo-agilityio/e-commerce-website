@@ -1,3 +1,5 @@
+'use client';
+
 // Libs
 import { useCallback, MouseEvent, useState, memo } from 'react';
 import isEqual from 'react-fast-compare';
