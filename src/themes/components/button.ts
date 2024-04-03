@@ -32,6 +32,12 @@ export const Button = defineStyleConfig({
       bgColor: 'transparent',
       borderWidth: '5px',
       borderColor: 'outlineBtn.border',
+      _hover: {
+        bg: 'transparent',
+      },
+      _active: {
+        bg: 'transparent',
+      },
     },
     checkoutBtn: {
       color: 'checkoutBtn.color',
@@ -58,19 +64,19 @@ export const Button = defineStyleConfig({
 
   sizes: {
     sm: {
-      px: 'lg',
-      py: 'md',
+      paddingInline: 'lg',
+      paddingBlock: 'md',
       fontSize: '2xl',
     },
     md: {
-      px: 'xl',
-      py: 'sm',
+      paddingInline: 'xl',
+      paddingBlock: 'sm',
       fontSize: 'md',
     },
     lg: {
-      px: 'xl',
-      py: 'md',
-      fontSize: 'xl',
+      paddingInline: 'xl',
+      paddingBlock: 'md',
+      fontSize: '2xl',
     },
   },
 
