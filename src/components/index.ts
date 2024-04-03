@@ -9,3 +9,4 @@ export { default as Sort } from './Sort';
 export { default as SelectSize } from './SelectSize';
 export { default as Filter } from './Filter';
 export { default as ProductCard } from './ProductCard';
+export { default as ProductList } from './ProductList';
