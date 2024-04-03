@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProductCard component should match snapshot for ProductCard 1`] = `
+<div>
+  <div
+    class="chakra-card css-1q48h5o"
+  >
+    <div
+      class="chakra-card__body css-0"
+    >
+      <a
+        href="/products/product-detail/1"
+      >
+        <div
+          class="css-1o95iny"
+        >
+          <img
+            alt="Product Image"
+            border-radius="none"
+            data-nimg="fill"
+            decoding="async"
+            fetchpriority="high"
+            sizes="100vw"
+            src="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=3840&q=75"
+            srcset="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=3840&q=75 3840w"
+            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent; background-size: cover; background-position: 50% 50%; background-repeat: no-repeat; background-image: url(data:image/...);"
+          />
+        </div>
+      </a>
+      <div
+        class="css-1t52rxu"
+      >
+        <a
+          href="/products/product-detail/1"
+        >
+          <h3
+            class="chakra-heading css-atiazo"
+          >
+            Plain White Shirt
+          </h3>
+        </a>
+        <span
+          class="chakra-text css-1y1bi4h"
+        >
+          $29.00
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+`;

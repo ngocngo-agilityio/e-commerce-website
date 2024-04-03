@@ -7,11 +7,18 @@ import Image from 'next/image';
 // Constants
 import { APP_ROUTERS } from '@constants';
 
-const ProductCard = (): JSX.Element => {
-  const image =
-    'https://firebasestorage.googleapis.com/v0/b/ecommerce-fashion-16e2e.appspot.com/o/plain-white-shirt-1.webp?alt=media';
-  const name = 'Plain White Shirt';
-  const price = '$29.00';
+// Utils
+import { formatCurrency } from '@utils';
+
+interface Props {
+  id: string;
+  name: string;
+  image: string;
+  price: number;
+}
+
+const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
+  const formattedPrice = useMemo(() => formatCurrency(price), [price]);
 
   return (
     <Card
@@ -20,36 +27,39 @@ const ProductCard = (): JSX.Element => {
       _hover={{ transform: 'scale(1.05)' }}
     >
       <CardBody>
-        <Link href={'#'}>
+        <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id)}>
           <Box w="295px" h="342px" position="relative">
             <Image
               src={image}
               alt="Product Image"
               border-radius="none"
+              // TODO: Update later
+              placeholder="data:image/..."
               fill
               priority
             />
           </Box>
         </Link>
-        <Flex mt="xs" justifyContent="space-between">
-          <Heading as="h3" size="xs" color="productCard">
-            <Link href={''}>{name}</Link>
-          </Heading>
-          <Flex alignItems="end">
-            <Text
-              size="sm"
-              fontWeight="medium"
-              ml="16px"
-              whiteSpace="nowrap"
-              color="productCard"
+        <Flex flexDir="column" alignItems="center" pt="16px">
+          <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id)}>
+            <Heading
+              as="h3"
+              fontSize="xl"
+              lineHeight="tall"
+              fontFamily="baloo"
+              fontWeight="bold"
             >
-              {price}
-            </Text>
-          </Flex>
+              {name}
+            </Heading>
+          </Link>
+
+          <Text mt="6px" as="span" size="xl" color="price">
+            {formattedPrice}
+          </Text>
         </Flex>
       </CardBody>
     </Card>
   );
 };
 
-export default ProductCard;
+export default memo(ProductCard);

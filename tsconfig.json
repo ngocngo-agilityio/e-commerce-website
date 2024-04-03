@@ -23,7 +23,9 @@
       "@providers": ["./src/providers"],
       "@constants": ["./src/constants"],
       "@assets": ["./src/assets"],
-      "@types": ["./src/types"]
+      "@types": ["./src/types"],
+      "@utils": ["./src/utils"],
+      "@mocks": ["./src/mocks"]
     }
   },
   "include": [

@@ -37,6 +37,8 @@ const config: Config = {
     '@themes': '<rootDir>/src/themes',
     '@providers': '<rootDir>/src/providers',
     '@assets': '<rootDir>/src/assets',
+    '@utils': '<rootDir>/src/utils',
+    '@mocks': '<rootDir>/src/mocks',
   },
 
   // The test environment that will be used for testing
