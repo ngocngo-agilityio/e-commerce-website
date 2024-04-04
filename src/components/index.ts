@@ -12,5 +12,4 @@ export { default as ProductCard } from './ProductCard';
 export { default as ProductList } from './ProductList';
 export { default as Banner } from './Banner';
 export { default as SkeletonProductList } from './Skeleton/SkeletonProductList';
-export { default as ProductListActions } from './ProductListActions';
 export { default as ErrorBoundary } from './ErrorBoundary';

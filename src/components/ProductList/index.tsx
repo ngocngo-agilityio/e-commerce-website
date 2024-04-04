@@ -1,22 +1,19 @@
 // Libs
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 import { Wrap, WrapItem, Text } from '@chakra-ui/react';
 
-// Apis
-import { getProductList } from '@apis';
+// Types
+import { Product } from '@types';
 
 // Components
 import { ProductCard } from '@components';
 
 interface Props {
-  searchValue: string;
+  data: Product[];
 }
 
-const ProductList = async ({ searchValue }: Props) => {
-  const queryConfig = { name: searchValue };
-
-  // Fetch data for product list
-  const { data } = await getProductList(queryConfig);
-
+const ProductList = ({ data = [] }: Props): JSX.Element => {
   return (
     <>
       {data.length > 0 ? (
@@ -44,4 +41,4 @@ const ProductList = async ({ searchValue }: Props) => {
   );
 };
 
-export default ProductList;
+export default memo(ProductList, isEqual);

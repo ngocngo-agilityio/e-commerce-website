@@ -6,12 +6,11 @@ import { Box, Container, Heading, Text } from '@chakra-ui/react';
 import { getCategoryList } from '@apis';
 
 // Components
-import {
-  Banner,
-  ProductList,
-  SkeletonProductList,
-  ProductListActions,
-} from '@components';
+import { Banner, SkeletonProductList } from '@components';
+
+// Sections
+import ProductList from './ProductList';
+import ProductListActions from './ProductListActions';
 
 interface Props {
   searchParams?: {
@@ -21,6 +20,7 @@ interface Props {
 
 const Products = async ({ searchParams }: Props) => {
   const { name = '' } = searchParams || {};
+
   // Fetch data for category list
   const { data: categories } = await getCategoryList();
 

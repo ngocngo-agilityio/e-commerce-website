@@ -11,6 +11,9 @@ import { useDebounceCallback } from 'usehooks-ts';
 // Assets
 import { SearchIcon } from '@assets';
 
+// Constants
+import { SEARCH_DEBOUNCE_TIME } from '@constants';
+
 interface Props extends InputProps {
   defaultValue?: string;
   placeholder?: string;
@@ -27,7 +30,7 @@ const SearchInput = ({
     (e: React.ChangeEvent<HTMLInputElement>) => {
       onChange(e);
     },
-    500,
+    SEARCH_DEBOUNCE_TIME,
   );
 
   return (
