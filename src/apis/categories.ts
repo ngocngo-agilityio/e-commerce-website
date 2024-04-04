@@ -10,9 +10,9 @@ import { Category } from '@types';
 export const getCategoryList = async () => {
   try {
     const res = await HttpRequestService.get<Category[]>(API_PATH.CATEGORIES);
-    const data = res.data || [];
+    const { data } = res || {};
 
-    return { data };
+    return { data: data || [] };
   } catch (error) {
     throw error;
   }
