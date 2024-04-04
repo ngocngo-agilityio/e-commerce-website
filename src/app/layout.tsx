@@ -31,7 +31,7 @@ export default function RootLayout({
             This Box component ensures that the content area takes up at least 
             the height of the viewport minus the heights of the header and footer 
           */}
-          <Box minHeight={`calc(100vh - ${HEADER_HEIGHT} -${FOOTER_HEIGHT})`}>
+          <Box minHeight={`calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT})`}>
             {children}
           </Box>
           <Footer />

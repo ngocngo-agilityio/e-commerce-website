@@ -3,7 +3,7 @@
 // Components
 import { ErrorBoundary } from '@components';
 
-const ErrorProducts = ({
+const Error = ({
   error,
   reset,
 }: {
@@ -13,4 +13,4 @@ const ErrorProducts = ({
   return <ErrorBoundary error={error} reset={reset} />;
 };
 
-export default ErrorProducts;
+export default Error;

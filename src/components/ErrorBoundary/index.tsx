@@ -10,6 +10,11 @@ interface ErrorProps {
 }
 
 const ErrorBoundary = ({ error, reset }: ErrorProps) => {
+  // Attempt to recover by trying to re-render the segment
+  const handleReset = () => {
+    reset();
+  };
+
   useEffect(() => {
     // Log the error to an error reporting service
     console.error(error);
@@ -18,14 +23,7 @@ const ErrorBoundary = ({ error, reset }: ErrorProps) => {
   return (
     <Flex flexDir="column" alignItems="center" gap="50px">
       <Heading>Something went wrong!</Heading>
-      <Button
-        onClick={
-          // Attempt to recover by trying to re-render the segment
-          () => reset()
-        }
-      >
-        Try again
-      </Button>
+      <Button onClick={handleReset}>Try again</Button>
     </Flex>
   );
 };
