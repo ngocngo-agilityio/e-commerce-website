@@ -2,6 +2,9 @@
 import { Suspense } from 'react';
 import { Box, Container, Heading, Text } from '@chakra-ui/react';
 
+// Apis
+import { getCategoryList } from '@apis';
+
 // Components
 import {
   Banner,
@@ -10,7 +13,9 @@ import {
   ProductListActions,
 } from '@components';
 
-const Products = (): JSX.Element => {
+const Products = async () => {
+  const { data: categories } = await getCategoryList();
+
   return (
     <Box as="main">
       <Banner />
@@ -23,7 +28,7 @@ const Products = (): JSX.Element => {
           Recently added shirts!
         </Text>
 
-        <ProductListActions />
+        <ProductListActions categories={categories} />
 
         <Suspense fallback={<SkeletonProductList />}>
           <ProductList />

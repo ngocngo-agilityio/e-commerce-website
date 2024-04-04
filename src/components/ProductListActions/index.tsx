@@ -1,12 +1,20 @@
 'use client';
 
 // Libs
+import { memo } from 'react';
 import { Flex, Box } from '@chakra-ui/react';
+
+// Types
+import { Category } from '@types';
 
 // Components
 import { SearchInput, Filter, Sort } from '@components';
 
-const ProductListActions = (): JSX.Element => {
+interface Props {
+  categories: Category[];
+}
+
+const ProductListActions = ({ categories }: Props): JSX.Element => {
   // TODO: Update later
   const searchValue = '';
   const handleOnSearch = () => {};
@@ -19,10 +27,10 @@ const ProductListActions = (): JSX.Element => {
         <SearchInput value={searchValue} onChange={handleOnSearch} />
       </Box>
 
-      <Filter options={[]} onChange={handleOnFilter} />
+      <Filter options={categories} onChange={handleOnFilter} />
       <Sort options={[]} onChange={handleOnSort} />
     </Flex>
   );
 };
 
-export default ProductListActions;
+export default memo(ProductListActions);

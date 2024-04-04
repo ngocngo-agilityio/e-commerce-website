@@ -8,13 +8,12 @@ import { getProductList } from '@apis';
 import { ProductCard } from '@components';
 
 const ProductList = async () => {
-  // TODO: Update later - Fetch products at here
   const { data } = await getProductList();
 
   return (
     <>
       {data.length > 0 ? (
-        <Wrap justify="space-between" spacingY="48px">
+        <Wrap spacingX="44px" spacingY="48px">
           {data.map((product) => {
             const { id, name, image, price } = product || {};
 
