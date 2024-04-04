@@ -34,7 +34,7 @@ const Sort = ({
   placeholder = 'Sort by',
   onChange,
 }: Props): JSX.Element => {
-  const [selectedOption, setSelectedOption] = useState('');
+  const [selectedOption, setSelectedOption] = useState(defaultValue);
 
   const handleOnChange = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
@@ -63,7 +63,7 @@ const Sort = ({
       </MenuButton>
 
       <MenuList>
-        <RadioGroup value={selectedOption} defaultValue={defaultValue}>
+        <RadioGroup value={selectedOption}>
           {options.map((item) => {
             const { value, label } = item || {};
 
