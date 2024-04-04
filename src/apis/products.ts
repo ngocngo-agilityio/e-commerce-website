@@ -5,9 +5,26 @@ import { HttpRequestService } from '@services';
 import { API_PATH } from '@constants';
 import { Product } from '@types';
 
-export const getProductList = async () => {
+interface Configs {
+  name?: string;
+}
+
+export const getProductList = async (
+  queryConfig?: Configs,
+): Promise<{ data: Product[] }> => {
+  const queryParams = {
+    name_like: queryConfig?.name,
+  };
+
+  const configs = {
+    params: queryParams,
+  };
+
   try {
-    const res = await HttpRequestService.get<Product[]>(API_PATH.PRODUCTS);
+    const res = await HttpRequestService.get<Product[]>(
+      API_PATH.PRODUCTS,
+      configs,
+    );
     const { data } = res || {};
 
     return { data: data || [] };
