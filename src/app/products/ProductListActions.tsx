@@ -25,9 +25,10 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
+
   const { name, order } = getSearchParams(searchParams);
 
-  const handleOnSearch = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleSearchProducts = (e: ChangeEvent<HTMLInputElement>) => {
     const params = new URLSearchParams(searchParams);
     const value = e.target.value;
 
@@ -40,7 +41,7 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  const handleOnSort = (value: string) => {
+  const handleSortProducts = (value: string) => {
     const params = new URLSearchParams(searchParams);
 
     if (value) {
@@ -52,20 +53,35 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
     replace(`${pathname}?${params.toString()}`);
   };
 
-  // TODO: Update later
-  const handleOnFilter = () => {};
+  const handleFilterProducts = (categoryIds: string[]) => {
+    const params = new URLSearchParams(searchParams);
+
+    console.log('categoryIds', categoryIds);
+
+    if (categoryIds) {
+      params.set('categoryIds', categoryIds.toString());
+    } else {
+      params.delete('categoryIds');
+    }
+
+    replace(`${pathname}?${params.toString()}`);
+  };
 
   return (
     <Flex py="24px" gap="20px">
       <Box maxW="239px">
-        <SearchInput defaultValue={name} onChange={handleOnSearch} />
+        <SearchInput defaultValue={name} onChange={handleSearchProducts} />
       </Box>
 
-      <Filter options={categories} onChange={handleOnFilter} />
+      <Filter
+        options={categories}
+        defaultValue={[]}
+        onChange={handleFilterProducts}
+      />
       <Sort
         options={SORT_OPTIONS}
         defaultValue={order}
-        onChange={handleOnSort}
+        onChange={handleSortProducts}
       />
     </Flex>
   );

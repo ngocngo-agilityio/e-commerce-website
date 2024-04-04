@@ -10,6 +10,7 @@ import { ProductList } from '@components';
 interface Props {
   searchValue?: string;
   sortDirection?: string;
+  categoryIds?: string;
 }
 
 const Products = async ({
