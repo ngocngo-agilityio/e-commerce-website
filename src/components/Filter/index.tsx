@@ -17,10 +17,10 @@ import {
 import { FilterIcon } from '@assets';
 
 // Types
-import { FilterOption } from '@types';
+import { Category } from '@types';
 
 interface Props {
-  options: FilterOption[];
+  options: Category[];
   placeholder?: string;
   defaultValue?: string[];
   onChange: (value: string[]) => void;
@@ -51,16 +51,16 @@ const Filter = ({
       <MenuList>
         <CheckboxGroup onChange={onChange} defaultValue={defaultValue}>
           {options.map((item) => {
-            const { value, label } = item || {};
+            const { id, name } = item || {};
 
             return (
-              <MenuItem key={value}>
+              <MenuItem key={id}>
                 <Checkbox
-                  value={value}
+                  value={id}
                   colorScheme="orange"
                   textTransform="capitalize"
                 >
-                  {label}
+                  {name}
                 </Checkbox>
               </MenuItem>
             );

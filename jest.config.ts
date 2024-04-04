@@ -39,6 +39,8 @@ const config: Config = {
     '@assets': '<rootDir>/src/assets',
     '@utils': '<rootDir>/src/utils',
     '@mocks': '<rootDir>/src/mocks',
+    '@services': '<rootDir>/src/services',
+    '@apis': '<rootDir>/src/apis',
   },
 
   // The test environment that will be used for testing

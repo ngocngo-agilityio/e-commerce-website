@@ -1,23 +1,19 @@
 // Libs
 import { Wrap, WrapItem, Text } from '@chakra-ui/react';
 
-// Types
-import { Product } from '@types';
-
-// Mocks
-import { PRODUCT_LIST } from '@mocks';
+// Apis
+import { getProductList } from '@apis';
 
 // Components
 import { ProductCard } from '@components';
 
-const ProductList = (): JSX.Element => {
-  // TODO: Update later - Fetch products at here
-  const data: Product[] = PRODUCT_LIST;
+const ProductList = async () => {
+  const { data } = await getProductList();
 
   return (
     <>
       {data.length > 0 ? (
-        <Wrap justify="space-between" spacingY="48px">
+        <Wrap spacingX="44px" spacingY="48px">
           {data.map((product) => {
             const { id, name, image, price } = product || {};
 
