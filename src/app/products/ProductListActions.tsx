@@ -11,6 +11,9 @@ import { Category } from '@types';
 // Utils
 import { getSearchParams } from '@utils';
 
+// Constants
+import { SORT_OPTIONS } from '@constants';
+
 // Components
 import { SearchInput, Filter, Sort } from '@components';
 
@@ -22,7 +25,7 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-  const { name } = getSearchParams(searchParams);
+  const { name, order } = getSearchParams(searchParams);
 
   const handleOnSearch = (e: ChangeEvent<HTMLInputElement>) => {
     const params = new URLSearchParams(searchParams);
@@ -37,9 +40,20 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
     replace(`${pathname}?${params.toString()}`);
   };
 
+  const handleOnSort = (value: string) => {
+    const params = new URLSearchParams(searchParams);
+
+    if (value) {
+      params.set('order', value);
+    } else {
+      params.delete('order');
+    }
+
+    replace(`${pathname}?${params.toString()}`);
+  };
+
   // TODO: Update later
   const handleOnFilter = () => {};
-  const handleOnSort = () => {};
 
   return (
     <Flex py="24px" gap="20px">
@@ -48,7 +62,11 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
       </Box>
 
       <Filter options={categories} onChange={handleOnFilter} />
-      <Sort options={[]} onChange={handleOnSort} />
+      <Sort
+        options={SORT_OPTIONS}
+        defaultValue={order}
+        onChange={handleOnSort}
+      />
     </Flex>
   );
 };

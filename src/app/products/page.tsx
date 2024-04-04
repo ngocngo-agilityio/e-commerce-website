@@ -15,11 +15,12 @@ import ProductListActions from './ProductListActions';
 interface Props {
   searchParams?: {
     name?: string;
+    order?: string;
   };
 }
 
 const Products = async ({ searchParams }: Props) => {
-  const { name = '' } = searchParams || {};
+  const { name, order } = searchParams || {};
 
   // Fetch data for category list
   const { data: categories } = await getCategoryList();
@@ -39,7 +40,7 @@ const Products = async ({ searchParams }: Props) => {
         <ProductListActions categories={categories} />
 
         <Suspense fallback={<SkeletonProductList />}>
-          <ProductList searchValue={name} />
+          <ProductList searchValue={name} sortDirection={order} />
         </Suspense>
       </Container>
     </Box>

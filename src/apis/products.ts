@@ -7,6 +7,8 @@ import { Product } from '@types';
 
 interface Configs {
   name?: string;
+  sortDirection?: string;
+  sortBy?: string;
 }
 
 export const getProductList = async (
@@ -14,6 +16,8 @@ export const getProductList = async (
 ): Promise<{ data: Product[] }> => {
   const queryParams = {
     name_like: queryConfig?.name,
+    _order: queryConfig?.sortDirection,
+    _sort: queryConfig?.sortBy,
   };
 
   const configs = {
