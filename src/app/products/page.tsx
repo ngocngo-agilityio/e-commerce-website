@@ -13,7 +13,15 @@ import {
   ProductListActions,
 } from '@components';
 
-const Products = async () => {
+interface Props {
+  searchParams?: {
+    name?: string;
+  };
+}
+
+const Products = async ({ searchParams }: Props) => {
+  const { name = '' } = searchParams || {};
+  // Fetch data for category list
   const { data: categories } = await getCategoryList();
 
   return (
@@ -31,7 +39,7 @@ const Products = async () => {
         <ProductListActions categories={categories} />
 
         <Suspense fallback={<SkeletonProductList />}>
-          <ProductList />
+          <ProductList searchValue={name} />
         </Suspense>
       </Container>
     </Box>

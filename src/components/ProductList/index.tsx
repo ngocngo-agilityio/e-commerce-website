@@ -7,8 +7,15 @@ import { getProductList } from '@apis';
 // Components
 import { ProductCard } from '@components';
 
-const ProductList = async () => {
-  const { data } = await getProductList();
+interface Props {
+  searchValue: string;
+}
+
+const ProductList = async ({ searchValue }: Props) => {
+  const queryConfig = { name: searchValue };
+
+  // Fetch data for product list
+  const { data } = await getProductList(queryConfig);
 
   return (
     <>

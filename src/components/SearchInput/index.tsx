@@ -6,22 +6,30 @@ import {
   InputProps,
   InputRightElement,
 } from '@chakra-ui/react';
+import { useDebounceCallback } from 'usehooks-ts';
 
 // Assets
 import { SearchIcon } from '@assets';
 
 interface Props extends InputProps {
-  value: string;
+  defaultValue?: string;
   placeholder?: string;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }
 
 const SearchInput = ({
-  value,
+  defaultValue,
   placeholder = 'Search Here....',
   onChange,
   ...rest
 }: Props): JSX.Element => {
+  const handleOnChange = useDebounceCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      onChange(e);
+    },
+    500,
+  );
+
   return (
     <InputGroup>
       <Input
@@ -31,8 +39,8 @@ const SearchInput = ({
         size="base"
         borderRadius="base"
         pr="80px"
-        value={value}
-        onChange={onChange}
+        defaultValue={defaultValue}
+        onChange={handleOnChange}
         {...rest}
       />
       <InputRightElement
