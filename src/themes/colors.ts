@@ -98,4 +98,12 @@ export const colors = {
 
   // Banner
   bannerHeading: BASE.white,
+
+  // Pagination:
+  pagination: {
+    color: BASE.white,
+    bg: BASE.redDamask,
+    hoverBg: BASE.tuscany,
+    activeBg: BASE.orange,
+  },
 };

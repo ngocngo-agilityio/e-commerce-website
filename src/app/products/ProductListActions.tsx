@@ -36,7 +36,8 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
   const handleSearchProducts = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
-      const updatedParams = updateSearchParams(searchParams, 'name', value);
+      let updatedParams = updateSearchParams(searchParams, 'name', value);
+      updatedParams = updateSearchParams(updatedParams, 'page', '1');
 
       replace(`${pathname}?${updatedParams.toString()}`);
     },
@@ -56,11 +57,12 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
     (categoryIds: string[]) => {
       const values = categoryIds.filter((item) => item !== '');
 
-      const updatedParams = updateSearchParams(
+      let updatedParams = updateSearchParams(
         searchParams,
         'categoryIds',
         values.toString(),
       );
+      updatedParams = updateSearchParams(updatedParams, 'page', '1');
 
       replace(`${pathname}?${updatedParams.toString()}`);
     },

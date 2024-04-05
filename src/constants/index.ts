@@ -6,3 +6,4 @@ export * from './api';
 export * from './messages';
 export * from './search';
 export * from './sort';
+export * from './pagination';
