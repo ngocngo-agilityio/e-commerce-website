@@ -16,11 +16,13 @@ interface Props {
   searchParams?: {
     name?: string;
     order?: string;
+    categoryIds?: string;
   };
 }
 
 const Products = async ({ searchParams }: Props) => {
-  const { name, order } = searchParams || {};
+  const { name, order, categoryIds } = searchParams || {};
+  const ids = categoryIds?.split(',');
 
   // Fetch data for category list
   const { data: categories } = await getCategoryList();
@@ -40,7 +42,11 @@ const Products = async ({ searchParams }: Props) => {
         <ProductListActions categories={categories} />
 
         <Suspense fallback={<SkeletonProductList />}>
-          <ProductList searchValue={name} sortDirection={order} />
+          <ProductList
+            searchValue={name}
+            sortDirection={order}
+            categoryIds={ids}
+          />
         </Suspense>
       </Container>
     </Box>

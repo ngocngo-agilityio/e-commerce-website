@@ -1,7 +1,7 @@
 'use client';
 
 // Libs
-import { ChangeEvent, memo } from 'react';
+import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 import { Flex, Box } from '@chakra-ui/react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
@@ -9,7 +9,7 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { Category } from '@types';
 
 // Utils
-import { getSearchParams } from '@utils';
+import { getSearchParams, updateSearchParams } from '@utils';
 
 // Constants
 import { SORT_OPTIONS } from '@constants';
@@ -25,47 +25,63 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
-  const { name, order } = getSearchParams(searchParams);
 
-  const handleOnSearch = (e: ChangeEvent<HTMLInputElement>) => {
-    const params = new URLSearchParams(searchParams);
-    const value = e.target.value;
+  const { name, order, categoryIds = '' } = getSearchParams(searchParams);
 
-    if (value) {
-      params.set('name', value);
-    } else {
-      params.delete('name');
-    }
+  const filterDefaultValue = useMemo(
+    () => categoryIds.split(','),
+    [categoryIds],
+  );
 
-    replace(`${pathname}?${params.toString()}`);
-  };
+  const handleSearchProducts = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      const updatedParams = updateSearchParams(searchParams, 'name', value);
 
-  const handleOnSort = (value: string) => {
-    const params = new URLSearchParams(searchParams);
+      replace(`${pathname}?${updatedParams.toString()}`);
+    },
+    [pathname, replace, searchParams],
+  );
 
-    if (value) {
-      params.set('order', value);
-    } else {
-      params.delete('order');
-    }
+  const handleSortProducts = useCallback(
+    (value: string) => {
+      const updatedParams = updateSearchParams(searchParams, 'order', value);
 
-    replace(`${pathname}?${params.toString()}`);
-  };
+      replace(`${pathname}?${updatedParams.toString()}`);
+    },
+    [pathname, replace, searchParams],
+  );
 
-  // TODO: Update later
-  const handleOnFilter = () => {};
+  const handleFilterProducts = useCallback(
+    (categoryIds: string[]) => {
+      const values = categoryIds.filter((item) => item !== '');
+
+      const updatedParams = updateSearchParams(
+        searchParams,
+        'categoryIds',
+        values.toString(),
+      );
+
+      replace(`${pathname}?${updatedParams.toString()}`);
+    },
+    [pathname, replace, searchParams],
+  );
 
   return (
     <Flex py="24px" gap="20px">
       <Box maxW="239px">
-        <SearchInput defaultValue={name} onChange={handleOnSearch} />
+        <SearchInput defaultValue={name} onChange={handleSearchProducts} />
       </Box>
 
-      <Filter options={categories} onChange={handleOnFilter} />
+      <Filter
+        options={categories}
+        defaultValue={filterDefaultValue}
+        onChange={handleFilterProducts}
+      />
       <Sort
         options={SORT_OPTIONS}
         defaultValue={order}
-        onChange={handleOnSort}
+        onChange={handleSortProducts}
       />
     </Flex>
   );

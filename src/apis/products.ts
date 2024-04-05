@@ -9,6 +9,7 @@ interface Configs {
   name?: string;
   sortDirection?: string;
   sortBy?: string;
+  categoryIds?: string[];
 }
 
 export const getProductList = async (
@@ -18,6 +19,7 @@ export const getProductList = async (
     name_like: queryConfig?.name,
     _order: queryConfig?.sortDirection,
     _sort: queryConfig?.sortBy,
+    categoryIds_like: queryConfig?.categoryIds,
   };
 
   const configs = {

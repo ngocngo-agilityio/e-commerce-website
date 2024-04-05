@@ -56,7 +56,7 @@ const Filter = ({
             return (
               <MenuItem key={id}>
                 <Checkbox
-                  value={id}
+                  value={id.toString()}
                   colorScheme="orange"
                   textTransform="capitalize"
                 >
