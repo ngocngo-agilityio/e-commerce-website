@@ -17,11 +17,12 @@ interface Props {
     name?: string;
     order?: string;
     categoryIds?: string;
+    page?: string;
   };
 }
 
 const Products = async ({ searchParams }: Props) => {
-  const { name, order, categoryIds } = searchParams || {};
+  const { name, order, categoryIds, page } = searchParams || {};
   const ids = categoryIds?.split(',');
 
   // Fetch data for category list
@@ -46,6 +47,7 @@ const Products = async ({ searchParams }: Props) => {
             searchValue={name}
             sortDirection={order}
             categoryIds={ids}
+            currentPage={page}
           />
         </Suspense>
       </Container>

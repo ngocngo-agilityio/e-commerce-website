@@ -13,3 +13,4 @@ export { default as ProductList } from './ProductList';
 export { default as Banner } from './Banner';
 export { default as SkeletonProductList } from './Skeleton/SkeletonProductList';
 export { default as ErrorBoundary } from './ErrorBoundary';
+export { default as Pagination } from './Pagination';

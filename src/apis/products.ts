@@ -10,16 +10,20 @@ interface Configs {
   sortDirection?: string;
   sortBy?: string;
   categoryIds?: string[];
+  page?: string;
+  limit?: number;
 }
 
 export const getProductList = async (
   queryConfig?: Configs,
-): Promise<{ data: Product[] }> => {
+): Promise<{ data: Product[]; total: number }> => {
   const queryParams = {
     name_like: queryConfig?.name,
     _order: queryConfig?.sortDirection,
     _sort: queryConfig?.sortBy,
     categoryIds_like: queryConfig?.categoryIds,
+    _page: queryConfig?.page,
+    _limit: queryConfig?.limit,
   };
 
   const configs = {
@@ -31,9 +35,9 @@ export const getProductList = async (
       API_PATH.PRODUCTS,
       configs,
     );
-    const { data } = res || {};
+    const { data, headers } = res || {};
 
-    return { data: data || [] };
+    return { data: data || [], total: headers['x-total-count'] || 0 };
   } catch (error) {
     throw error;
   }
