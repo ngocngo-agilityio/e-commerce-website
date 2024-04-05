@@ -1,7 +1,7 @@
 'use client';
 
 // Libs
-import { ChangeEvent, memo } from 'react';
+import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 import { Flex, Box } from '@chakra-ui/react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 
@@ -9,7 +9,7 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { Category } from '@types';
 
 // Utils
-import { getSearchParams } from '@utils';
+import { getSearchParams, updateSearchParams } from '@utils';
 
 // Constants
 import { SORT_OPTIONS } from '@constants';
@@ -26,46 +26,46 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
   const pathname = usePathname();
   const { replace } = useRouter();
 
-  const { name, order } = getSearchParams(searchParams);
+  const { name, order, categoryIds = '' } = getSearchParams(searchParams);
 
-  const handleSearchProducts = (e: ChangeEvent<HTMLInputElement>) => {
-    const params = new URLSearchParams(searchParams);
-    const value = e.target.value;
+  const filterDefaultValue = useMemo(
+    () => categoryIds.split(','),
+    [categoryIds],
+  );
 
-    if (value) {
-      params.set('name', value);
-    } else {
-      params.delete('name');
-    }
+  const handleSearchProducts = useCallback(
+    (e: ChangeEvent<HTMLInputElement>) => {
+      const value = e.target.value;
+      const updatedParams = updateSearchParams(searchParams, 'name', value);
 
-    replace(`${pathname}?${params.toString()}`);
-  };
+      replace(`${pathname}?${updatedParams.toString()}`);
+    },
+    [pathname, replace, searchParams],
+  );
 
-  const handleSortProducts = (value: string) => {
-    const params = new URLSearchParams(searchParams);
+  const handleSortProducts = useCallback(
+    (value: string) => {
+      const updatedParams = updateSearchParams(searchParams, 'order', value);
 
-    if (value) {
-      params.set('order', value);
-    } else {
-      params.delete('order');
-    }
+      replace(`${pathname}?${updatedParams.toString()}`);
+    },
+    [pathname, replace, searchParams],
+  );
 
-    replace(`${pathname}?${params.toString()}`);
-  };
+  const handleFilterProducts = useCallback(
+    (categoryIds: string[]) => {
+      const values = categoryIds.filter((item) => item !== '');
 
-  const handleFilterProducts = (categoryIds: string[]) => {
-    const params = new URLSearchParams(searchParams);
+      const updatedParams = updateSearchParams(
+        searchParams,
+        'categoryIds',
+        values.toString(),
+      );
 
-    console.log('categoryIds', categoryIds);
-
-    if (categoryIds) {
-      params.set('categoryIds', categoryIds.toString());
-    } else {
-      params.delete('categoryIds');
-    }
-
-    replace(`${pathname}?${params.toString()}`);
-  };
+      replace(`${pathname}?${updatedParams.toString()}`);
+    },
+    [pathname, replace, searchParams],
+  );
 
   return (
     <Flex py="24px" gap="20px">
@@ -75,7 +75,7 @@ const ProductListActions = ({ categories }: Props): JSX.Element => {
 
       <Filter
         options={categories}
-        defaultValue={[]}
+        defaultValue={filterDefaultValue}
         onChange={handleFilterProducts}
       />
       <Sort

@@ -10,17 +10,19 @@ import { ProductList } from '@components';
 interface Props {
   searchValue?: string;
   sortDirection?: string;
-  categoryIds?: string;
+  categoryIds?: string[];
 }
 
 const Products = async ({
   searchValue,
   sortDirection,
+  categoryIds,
 }: Props): Promise<JSX.Element> => {
   const queryConfig = {
     name: searchValue,
     sortDirection,
     sortBy: sortDirection && SORT_BY.NAME,
+    categoryIds: categoryIds,
   };
 
   // Fetch data for product list
