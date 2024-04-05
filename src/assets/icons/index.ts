@@ -9,3 +9,4 @@ export { default as ArrowRightIcon } from './arrow-right-icon';
 export { default as SearchIcon } from './search-icon';
 export { default as FilterIcon } from './filter-icon';
 export { default as AngleDownIcon } from './angle-down-icon';
+export { default as StarIcon } from './star-icon';

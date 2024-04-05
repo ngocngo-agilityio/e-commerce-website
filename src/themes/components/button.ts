@@ -8,6 +8,7 @@ export const Button = defineStyleConfig({
     lineHeight: 'none',
     fontSize: 'xl',
     borderRadius: 'none',
+    width: 'fit-content',
   },
 
   variants: {
@@ -69,9 +70,10 @@ export const Button = defineStyleConfig({
       fontSize: '2xl',
     },
     md: {
-      paddingInline: 'xl',
-      paddingBlock: 'sm',
+      px: '36px',
+      py: '18px',
       fontSize: 'md',
+      height: '48px',
     },
     lg: {
       paddingInline: 'xl',

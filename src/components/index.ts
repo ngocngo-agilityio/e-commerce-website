@@ -14,3 +14,4 @@ export { default as Banner } from './Banner';
 export { default as SkeletonProductList } from './Skeleton/SkeletonProductList';
 export { default as ErrorBoundary } from './ErrorBoundary';
 export { default as Pagination } from './Pagination';
+export { default as Rating } from './Rating';
