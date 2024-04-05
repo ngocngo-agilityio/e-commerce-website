@@ -95,6 +95,7 @@ export const colors = {
 
   // Price
   price: BASE.orient,
+  discountedPrice: '#818181',
 
   // Banner
   bannerHeading: BASE.white,
@@ -105,5 +106,11 @@ export const colors = {
     bg: BASE.redDamask,
     hoverBg: BASE.tuscany,
     activeBg: BASE.orange,
+  },
+
+  // Product detail
+  productDetail: {
+    categoryTitle: BASE.black,
+    reviewNumber: BASE.black,
   },
 };
