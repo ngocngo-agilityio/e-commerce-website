@@ -31,6 +31,14 @@ export const Input = defineStyleConfig({
         },
       },
     },
+    quantity: {
+      field: {
+        fontSize: 'xl',
+        border: '2px solid',
+        color: '#555555',
+        borderRadius: 'none',
+      },
+    },
   },
 
   sizes: {

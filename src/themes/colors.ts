@@ -13,6 +13,8 @@ const BASE = {
   submarine: '#B7BFC5',
   orange: '#FF5B19',
   gallery: '#EBEBEB',
+  silver: '#BEBEBE',
+  gray: '#818181',
 };
 
 export const colors = {
@@ -48,6 +50,12 @@ export const colors = {
     color: BASE.white,
     bg: BASE.redDamask,
     hoverBg: BASE.tuscany,
+  },
+
+  // CancelModalBtn:
+  cancelModalBtn: {
+    color: BASE.codGray,
+    border: BASE.codGray,
   },
 
   // Logo
@@ -93,9 +101,12 @@ export const colors = {
     focusBorder: BASE.orange,
   },
 
+  // Quantity Input
+  quantityInputBorder: BASE.gallery,
+
   // Price
   price: BASE.orient,
-  discountedPrice: '#818181',
+  discountedPrice: BASE.gray,
 
   // Banner
   bannerHeading: BASE.white,
@@ -113,4 +124,13 @@ export const colors = {
     categoryTitle: BASE.black,
     reviewNumber: BASE.black,
   },
+
+  // Table
+  headerCellText: BASE.codGray,
+  bodyCellText: BASE.emperor,
+  removeProduct: BASE.silver,
+
+  // Breadcrumb
+  breadcrumb: BASE.emperor,
+  currentPageBreadcrumb: BASE.codGray,
 };
