@@ -6,3 +6,6 @@ export { Container } from './container';
 export { Divider } from './divider';
 export { Input } from './input';
 export { Card } from './card';
+export { Table } from './table';
+export { Modal } from './modal';
+export { Breadcrumb } from './breadcrumb';

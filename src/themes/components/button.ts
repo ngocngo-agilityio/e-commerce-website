@@ -15,6 +15,7 @@ export const Button = defineStyleConfig({
     solid: {
       color: 'solidBtn.color',
       bg: 'solidBtn.bg',
+      borderWidth: '1px',
       _hover: {
         bg: 'solidBtn.hoverBg',
         _disabled: {
@@ -49,6 +50,7 @@ export const Button = defineStyleConfig({
       _active: {
         bg: 'checkoutBtn.bg',
       },
+      textTransform: 'uppercase',
     },
     selectBtn: {
       w: '210px',
@@ -61,9 +63,26 @@ export const Button = defineStyleConfig({
       px: '16px',
       textAlign: 'left',
     },
+    cancelModal: {
+      color: 'cancelModalBtn.color',
+      bgColor: 'transparent',
+      borderWidth: '1px',
+      borderColor: 'cancelModalBtn.border',
+      _hover: {
+        bg: 'transparent',
+      },
+      _active: {
+        bg: 'transparent',
+      },
+    },
   },
 
   sizes: {
+    xs: {
+      paddingInline: '22px',
+      paddingBlock: '16px',
+      fontSize: 'sm',
+    },
     sm: {
       paddingInline: 'lg',
       paddingBlock: 'md',

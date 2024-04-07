@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@ajna/pagination': ^1.4.19
+  '@chakra-ui/anatomy': ^2.2.2
   '@chakra-ui/icons': ^2.1.1
   '@chakra-ui/next-js': ^2.2.0
   '@chakra-ui/react': ^2.8.2
@@ -53,6 +54,7 @@ specifiers:
 
 dependencies:
   '@ajna/pagination': 1.4.19_wpbgupy2nmisgkgnktiymmwqcq
+  '@chakra-ui/anatomy': 2.2.2
   '@chakra-ui/icons': 2.1.1_react@18.2.0
   '@chakra-ui/next-js': 2.2.0_krxyeoiuhbzczjqxdtv65cprxy
   '@chakra-ui/react': 2.8.2_iwicahtgibbz5t5pogs64o4vt4
