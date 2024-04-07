@@ -30,7 +30,7 @@ const SelectSize = ({ options = [], onChange }: Props): JSX.Element => {
   const handleOnChange = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
       const value = e.currentTarget.value;
-      const selectedOption = options.find((item) => item.value === value);
+      const selectedOption = options.find((item) => item.id == value);
 
       setSelectedOption(selectedOption);
       onChange(selectedOption);
@@ -41,23 +41,23 @@ const SelectSize = ({ options = [], onChange }: Props): JSX.Element => {
   return (
     <Menu size="sm">
       <MenuButton as={Button} variant="selectBtn" rightIcon={<AngleDownIcon />}>
-        {selectedOption?.label || 'Select Size'}
+        {selectedOption?.size || 'Select Size'}
       </MenuButton>
       <MenuList>
         {options.map((item) => {
-          const { value, label, code } = item || {};
+          const { id, size, symbol } = item || {};
 
           return (
             <MenuItem
-              key={value}
-              value={value}
+              key={id}
+              value={id.toString()}
               borderBottom="1px"
               borderColor="menu.border"
               onClick={handleOnChange}
             >
               <Flex justifyContent="space-between" w="full">
-                <Text color="menu.text">{label}</Text>
-                <Text color="menu.text">{code}</Text>
+                <Text color="menu.text">{size}</Text>
+                <Text color="menu.text">{symbol}</Text>
               </Flex>
             </MenuItem>
           );

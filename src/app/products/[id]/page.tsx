@@ -2,6 +2,12 @@
 import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 
+// Apis
+import { getProductDetail, getCategoryList, getTagList } from '@apis';
+
+// Utils
+import { formatCurrency } from '@utils';
+
 // Constants
 import { FALL_BACK_IMAGE } from '@constants';
 
@@ -12,23 +18,41 @@ import { Rating } from '@components';
 import SelectSize from './SelectSize';
 import AddToCard from './AddToCard';
 
-const ProductDetail = (): JSX.Element => {
-  const image =
-    'https://firebasestorage.googleapis.com/v0/b/ecommerce-fashion-16e2e.appspot.com/o/plain-white-shirt-1.webp?alt=media';
+interface Props {
+  params: { id: string };
+}
 
-  const name = 'Plain White Shirt';
-  const introduction =
-    'A classic t-shirt never goes out of style. This is our most premium collection of shirt. This plain white shirt is made up of pure cotton and has a premium finish.';
-  const rating = 4;
-  const reviewNumber = 15;
-  const originalPrice = '$69.00';
-  const discountedPrice = '$59.00';
-  const sizes = [
-    { value: '1', label: 'Small', code: 'S' },
-    { value: '2', label: 'Medium', code: 'M' },
-    { value: '3', label: 'Large', code: 'L' },
-    { value: '4', label: 'Extra Large', code: 'XL' },
-  ];
+const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
+  const { id: productId } = params || {};
+
+  // Fetch data for product details
+  const { data: product } = await getProductDetail(productId);
+
+  const {
+    name,
+    image,
+    introduction,
+    rating,
+    voteNumber,
+    price,
+    discount,
+    sizes,
+    categoryIds,
+    tagIds,
+  } = product || {};
+
+  // Fetch data for categories
+  const { data: categoryList = [] } = await getCategoryList({
+    ids: categoryIds,
+  });
+
+  // Fetch data for tags
+  const { data: tagList = [] } = await getTagList({ ids: tagIds });
+
+  const originalPrice = formatCurrency(price);
+  const discountedPrice = formatCurrency(discount);
+  const categories = categoryList.map((item) => item.name).join(', ');
+  const tags = tagList.map((item) => item.name).join(', ');
 
   return (
     <Container>
@@ -50,7 +74,7 @@ const ProductDetail = (): JSX.Element => {
           <Flex mt="20px" gap="5px">
             <Rating rating={rating} />
             <Text size="md" color="productDetail.reviewNumber">
-              ({reviewNumber})
+              ({voteNumber})
             </Text>
           </Flex>
           <Flex gap="14px" mt="25px">
@@ -76,7 +100,7 @@ const ProductDetail = (): JSX.Element => {
               Category:&nbsp;
             </Text>
             <Text size="md" lineHeight="24px">
-              Women, Polo, Casual
+              {categories}
             </Text>
           </Flex>
           <Flex>
@@ -89,7 +113,7 @@ const ProductDetail = (): JSX.Element => {
               Tags:&nbsp;
             </Text>
             <Text size="md" lineHeight="24px">
-              Modern, Design, cotton
+              {tags}
             </Text>
           </Flex>
         </Flex>

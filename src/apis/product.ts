@@ -5,6 +5,11 @@ import { HttpRequestService } from '@services';
 import { API_PATH } from '@constants';
 import { Product } from '@types';
 
+interface ProductDataResponse extends Product {
+  categoryIds: string[];
+  tagIds: string[];
+}
+
 interface Configs {
   name?: string;
   sortDirection?: string;
@@ -16,7 +21,7 @@ interface Configs {
 
 export const getProductList = async (
   queryConfig?: Configs,
-): Promise<{ data: Product[]; total: number }> => {
+): Promise<{ data: ProductDataResponse[]; total: number }> => {
   const queryParams = {
     name_like: queryConfig?.name,
     _order: queryConfig?.sortDirection,
@@ -31,13 +36,28 @@ export const getProductList = async (
   };
 
   try {
-    const res = await HttpRequestService.get<Product[]>(
+    const res = await HttpRequestService.get<ProductDataResponse[]>(
       API_PATH.PRODUCTS,
       configs,
     );
     const { data, headers } = res || {};
 
     return { data: data || [], total: headers['x-total-count'] || 0 };
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const getProductDetail = async (
+  id: string,
+): Promise<{ data: ProductDataResponse }> => {
+  try {
+    const res = await HttpRequestService.get<ProductDataResponse>(
+      `${API_PATH.PRODUCTS}/${id}`,
+    );
+    const { data } = res || {};
+
+    return { data };
   } catch (error) {
     throw error;
   }
