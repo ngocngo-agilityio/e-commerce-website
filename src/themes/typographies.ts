@@ -26,6 +26,7 @@ export const fonts = {
 
 export const fontWeights = {
   normal: 400,
+  medium: 500,
   bold: 700,
   extrabold: 800,
 };

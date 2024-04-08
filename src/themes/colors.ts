@@ -133,4 +133,8 @@ export const colors = {
   // Breadcrumb
   breadcrumb: BASE.emperor,
   currentPageBreadcrumb: BASE.codGray,
+
+  // Counter
+  counterBg: BASE.redDamask,
+  counterText: BASE.white,
 };

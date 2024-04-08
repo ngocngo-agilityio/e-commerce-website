@@ -2,7 +2,7 @@
 
 // Libs
 import { memo, useCallback, useMemo, useState } from 'react';
-import { Box, Input, Td, Tr } from '@chakra-ui/react';
+import { Box, Td, Tr } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -14,6 +14,7 @@ import { formatCurrency } from '@utils';
 import { APP_ROUTERS } from '@constants';
 
 // Components
+import { Counter } from '@components';
 const ConfirmModal = dynamic(() => import('../../ConfirmModal'));
 
 interface Props {
@@ -23,6 +24,7 @@ interface Props {
   price: number;
   quantity: number;
   onRemoveProduct: (id: string) => void;
+  onQuantityChange: (id: string, quantity: number) => void;
 }
 
 const CartItem = ({
@@ -32,6 +34,7 @@ const CartItem = ({
   price = 0,
   quantity = 1,
   onRemoveProduct,
+  onQuantityChange,
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -51,6 +54,13 @@ const CartItem = ({
     onRemoveProduct(id);
     setIsOpen(false);
   }, [id, onRemoveProduct]);
+
+  const handleQuantityChange = useCallback(
+    (quantity: number) => {
+      onQuantityChange(id, quantity);
+    },
+    [id, onQuantityChange],
+  );
 
   return (
     <>
@@ -76,13 +86,9 @@ const CartItem = ({
         </Td>
         <Td>{formattedPrice}</Td>
         <Td>
-          <Input
-            variant="quantity"
-            defaultValue={quantity}
-            w="53px"
-            h="42px"
-            textAlign="center"
-            borderColor="quantityInputBorder"
+          <Counter
+            initialQuantity={quantity}
+            onQuantityChange={handleQuantityChange}
           />
         </Td>
         <Td>{formattedTotal}</Td>
