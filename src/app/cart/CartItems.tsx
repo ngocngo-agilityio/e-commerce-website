@@ -5,7 +5,7 @@ import { useCallback, useMemo } from 'react';
 import { Box, Flex, Heading, Text, Divider, Button } from '@chakra-ui/react';
 
 // Apis
-import { updateCartItemQuantity } from '@apis';
+import { updateCartItemQuantity, removeCartItem } from '@apis';
 
 // Hooks
 import { useCustomToast } from '@hooks';
@@ -28,15 +28,23 @@ const CartItems = (): JSX.Element => {
   const total = useMemo(() => calculateTotalPrice(cartItems), [cartItems]);
   const formattedTotal = useMemo(() => formatCurrency(total), [total]);
 
-  // TODO: Update later
-  const handleRemoveProduct = () => {};
+  const handleRemoveCartItem = useCallback(
+    async (cartId: string) => {
+      const { error } = await removeCartItem(cartId);
+
+      if (error) {
+        showToast(error);
+      }
+    },
+    [showToast],
+  );
 
   // TODO: Update later
   const handleCheckout = () => {};
 
   const handleChangeQuantity = useCallback(
-    async (id: string, quantity: number) => {
-      const { error } = await updateCartItemQuantity({ quantity, cartId: id });
+    async (cartId: string, quantity: number) => {
+      const { error } = await updateCartItemQuantity({ quantity, cartId });
 
       if (error) {
         showToast(error);
@@ -49,7 +57,7 @@ const CartItems = (): JSX.Element => {
     <>
       <CartTable
         cart={cartItems}
-        onRemoveProduct={handleRemoveProduct}
+        onCartItemRemove={handleRemoveCartItem}
         onQuantityChange={handleChangeQuantity}
       />
       <Heading mt="83px" mb="38px">

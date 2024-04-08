@@ -14,13 +14,13 @@ import CartItem from './CartItem';
 
 interface Props {
   cart: ICartItem[];
-  onRemoveProduct: (id: string) => void;
-  onQuantityChange: (id: string, quantity: number) => void;
+  onCartItemRemove: (cartId: string) => void;
+  onQuantityChange: (cartId: string, quantity: number) => void;
 }
 
 const CartTable = ({
   cart = [],
-  onRemoveProduct,
+  onCartItemRemove,
   onQuantityChange,
 }: Props): JSX.Element => {
   return (
@@ -38,7 +38,7 @@ const CartTable = ({
                 image={image}
                 price={price}
                 quantity={quantity}
-                onRemoveProduct={onRemoveProduct}
+                onRemoveProduct={onCartItemRemove}
                 onQuantityChange={onQuantityChange}
               />
             );

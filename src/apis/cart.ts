@@ -99,3 +99,18 @@ export const updateCartItemQuantity = async ({
     return { error: ERROR_MESSAGES.UPDATE_QUANTITY };
   }
 };
+
+export const removeCartItem = async (
+  cartId: string,
+): Promise<{ error: string }> => {
+  try {
+    const path = `${API_PATH.CARTS}/${cartId}`;
+    await HttpRequestService.delete(path);
+
+    revalidatePath(APP_ROUTERS.CART_PAGE);
+
+    return { error: '' };
+  } catch (error) {
+    return { error: ERROR_MESSAGES.REMOVE_CART_ITEM };
+  }
+};
