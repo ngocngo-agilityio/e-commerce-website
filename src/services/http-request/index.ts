@@ -65,6 +65,19 @@ class HttpRequest {
       throw errorMessage;
     }
   }
+
+  async delete<T>(endpoint: string, configs?: AxiosRequestConfig): Promise<T> {
+    try {
+      const url = `${this.baseURL}${endpoint}`;
+      const res = await axios.delete(url, configs);
+
+      return res.data;
+    } catch (error) {
+      const errorMessage: string = getErrorMessageFromApi(error);
+
+      throw errorMessage;
+    }
+  }
 }
 
 export const HttpRequestService = new HttpRequest();
