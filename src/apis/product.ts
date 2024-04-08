@@ -1,3 +1,5 @@
+'use server';
+
 // Services
 import { HttpRequestService } from '@services';
 

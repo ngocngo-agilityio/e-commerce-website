@@ -1,10 +1,16 @@
 'use client';
 
 // Libs
-import { useMemo } from 'react';
+import { useCallback, useMemo } from 'react';
 import { Box, Flex, Heading, Text, Divider, Button } from '@chakra-ui/react';
 
+// Apis
+import { updateCartItemQuantity } from '@apis';
+
 // Hooks
+import { useCustomToast } from '@hooks';
+
+// Stores
 import { useCartStore } from '@stores';
 
 // Utils
@@ -14,6 +20,8 @@ import { formatCurrency, calculateTotalPrice } from '@utils';
 import { CartTable } from '@components';
 
 const CartItems = (): JSX.Element => {
+  const { showToast } = useCustomToast();
+
   // Cart store
   const cartItems = useCartStore((state) => state.cartItems);
 
@@ -26,9 +34,24 @@ const CartItems = (): JSX.Element => {
   // TODO: Update later
   const handleCheckout = () => {};
 
+  const handleChangeQuantity = useCallback(
+    async (id: string, quantity: number) => {
+      const { error } = await updateCartItemQuantity({ quantity, cartId: id });
+
+      if (error) {
+        showToast(error);
+      }
+    },
+    [showToast],
+  );
+
   return (
     <>
-      <CartTable cart={cartItems} onRemoveProduct={handleRemoveProduct} />
+      <CartTable
+        cart={cartItems}
+        onRemoveProduct={handleRemoveProduct}
+        onQuantityChange={handleChangeQuantity}
+      />
       <Heading mt="83px" mb="38px">
         Cart Totals
       </Heading>
