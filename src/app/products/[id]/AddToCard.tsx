@@ -47,7 +47,7 @@ const AddToCard = ({ sizes, product }: Props): JSX.Element => {
 
       const { error } = await addToCart({
         product,
-        quantity: 1,
+        quantity: existingCartItems ? existingCartItems?.quantity + 1 : 1,
         cartId: existingCartItems?.id || '',
       });
 

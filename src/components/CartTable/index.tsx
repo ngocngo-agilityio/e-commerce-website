@@ -3,7 +3,7 @@
 // Libs
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
-import { Table, Tbody } from '@chakra-ui/react';
+import { Table, Tbody, Td, Tr } from '@chakra-ui/react';
 
 // Types
 import { CartItem as ICartItem } from '@types';
@@ -22,20 +22,28 @@ const CartTable = ({ cart = [], onRemoveProduct }: Props): JSX.Element => {
     <Table>
       <CartTableHeader />
       <Tbody>
-        {cart.map((item) => {
-          const { id, name, image, price, quantity } = item || {};
-          return (
-            <CartItem
-              key={id}
-              id={id.toString()}
-              name={name}
-              image={image}
-              price={price}
-              quantity={quantity}
-              onRemoveProduct={onRemoveProduct}
-            />
-          );
-        })}
+        {cart.length > 0 ? (
+          cart.map((item) => {
+            const { id, name, image, price, quantity } = item || {};
+            return (
+              <CartItem
+                key={id}
+                id={id.toString()}
+                name={name}
+                image={image}
+                price={price}
+                quantity={quantity}
+                onRemoveProduct={onRemoveProduct}
+              />
+            );
+          })
+        ) : (
+          <Tr>
+            <Td colSpan={6} textAlign="center" borderBottom="none">
+              No products in your cart
+            </Td>
+          </Tr>
+        )}
       </Tbody>
     </Table>
   );
