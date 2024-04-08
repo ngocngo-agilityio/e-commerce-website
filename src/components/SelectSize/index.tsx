@@ -53,7 +53,7 @@ const SelectSize = ({ options = [], onChange }: Props): JSX.Element => {
           return (
             <MenuItem
               key={id}
-              value={id.toString()}
+              value={id?.toString()}
               borderBottom="1px"
               borderColor="menu.border"
               onClick={handleOnChange}
