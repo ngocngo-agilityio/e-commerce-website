@@ -1,4 +1,3 @@
-import { Tag } from './../types/category';
 // Services
 import { HttpRequestService } from '@services';
 
@@ -6,7 +5,7 @@ import { HttpRequestService } from '@services';
 import { API_PATH } from '@constants';
 
 // Types
-import { Category } from '@types';
+import { Category, Tag } from '@types';
 
 interface Configs {
   ids?: string[];

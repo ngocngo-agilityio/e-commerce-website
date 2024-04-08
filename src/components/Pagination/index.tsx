@@ -58,6 +58,7 @@ const Pagination = ({ pagesQuantity }: Props): JSX.Element => {
       >
         <>
           <PaginationPrevious
+            variant="outline"
             bg="pagination.color"
             color="pagination.bg"
             _hover={{ bg: 'pagination.color', color: 'pagination.hoverBg' }}
@@ -100,6 +101,7 @@ const Pagination = ({ pagesQuantity }: Props): JSX.Element => {
           </PaginationPageGroup>
 
           <PaginationNext
+            variant="outline"
             bg="pagination.color"
             color="pagination.bg"
             _hover={{ bg: 'pagination.color', color: 'pagination.hoverBg' }}
