@@ -33,7 +33,7 @@ const AddToCard = ({ sizes, product }: Props): JSX.Element => {
   const { showToast } = useCustomToast();
   const cartItems = useCartStore((state) => state.cartItems);
 
-  const handleSelectSize = useCallback((size?: SizeOption) => {
+  const handleSelectSize = useCallback((size: SizeOption) => {
     setSelectedSize(size);
   }, []);
 
@@ -51,10 +51,10 @@ const AddToCard = ({ sizes, product }: Props): JSX.Element => {
         cartId: existingCartItems?.id || '',
       });
 
-      if (!error) {
-        showToast(SUCCESS_MESSAGES.ADD_CART, 'success');
-      } else {
+      if (error) {
         showToast(error);
+      } else {
+        showToast(SUCCESS_MESSAGES.ADD_CART, 'success');
       }
     }
   };

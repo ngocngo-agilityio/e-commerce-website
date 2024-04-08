@@ -21,7 +21,7 @@ import { SizeOption } from '@types';
 
 interface Props {
   options: SizeOption[];
-  onChange: (selectedOption: SizeOption | undefined) => void;
+  onChange: (selectedOption: SizeOption) => void;
 }
 
 const SelectSize = ({ options = [], onChange }: Props): JSX.Element => {
@@ -33,7 +33,10 @@ const SelectSize = ({ options = [], onChange }: Props): JSX.Element => {
       const selectedOption = options.find((item) => item.id == value);
 
       setSelectedOption(selectedOption);
-      onChange(selectedOption);
+
+      if (selectedOption) {
+        onChange(selectedOption);
+      }
     },
     [onChange, options],
   );

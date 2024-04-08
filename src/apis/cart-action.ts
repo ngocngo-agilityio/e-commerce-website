@@ -1,5 +1,8 @@
 'use server';
 
+// Libs
+import { revalidatePath } from 'next/cache';
+
 // Services
 import { HttpRequestService } from '@services';
 import { addItem, updateQuantity } from './cart';
@@ -9,7 +12,6 @@ import { CartItem, Product } from '@types';
 
 // Constants
 import { API_PATH, APP_ROUTERS, ERROR_MESSAGES } from '@constants';
-import { revalidatePath } from 'next/cache';
 
 interface AddToCartAction {
   product: Product;
@@ -23,6 +25,9 @@ export const addToCart = async ({
   cartId,
 }: AddToCartAction): Promise<{ error: string }> => {
   try {
+    /* If this product does not already exist in the cart, add it to the cart 
+       Else update quantity for this product in the cart
+    */
     if (!cartId) {
       const { id: productId, name, image, price } = product || {};
       const data = {
