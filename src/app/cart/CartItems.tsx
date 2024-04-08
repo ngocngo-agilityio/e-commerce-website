@@ -8,7 +8,7 @@ import { Box, Flex, Heading, Text, Divider, Button } from '@chakra-ui/react';
 import { useCartStore } from '@stores';
 
 // Utils
-import { formatCurrency } from '@utils';
+import { formatCurrency, calculateTotalPrice } from '@utils';
 
 // Components
 import { CartTable } from '@components';
@@ -17,17 +17,7 @@ const CartItems = (): JSX.Element => {
   // Cart store
   const cartItems = useCartStore((state) => state.cartItems);
 
-  const total = useMemo(
-    () =>
-      cartItems.reduce((acc, cartItem) => {
-        const { price = 0, quantity = 1 } = cartItem || {};
-        const itemPrice = price * quantity;
-
-        return acc + itemPrice;
-      }, 0),
-    [cartItems],
-  );
-
+  const total = useMemo(() => calculateTotalPrice(cartItems), [cartItems]);
   const formattedTotal = useMemo(() => formatCurrency(total), [total]);
 
   // TODO: Update later
