@@ -22,7 +22,6 @@ interface Props {
   image: string;
   price: number;
   quantity: number;
-  total: number;
   onRemoveProduct: (id: string) => void;
 }
 
@@ -32,12 +31,14 @@ const CartItem = ({
   image,
   price,
   quantity,
-  total,
   onRemoveProduct,
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const formattedPrice = formatCurrency(price);
+
+  // TODO: Update later
+  const total = 59;
   const formattedTotal = formatCurrency(total);
 
   const handleOpenConfirmModal = useCallback(() => {

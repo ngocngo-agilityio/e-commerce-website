@@ -1,5 +1,10 @@
+'use client';
+
 // Libs
 import { Box, Container, Flex, HStack } from '@chakra-ui/react';
+
+// Stores
+import { useCartStore } from '@stores';
 
 // Assets
 import { HamburgerIcon } from '@assets';
@@ -8,8 +13,9 @@ import { HamburgerIcon } from '@assets';
 import { Logo, Navigation, ShoppingCart, UserProfile } from '@components';
 
 const Header = (): JSX.Element => {
-  // TODO: Update later
-  const cartItemQuantity = 1;
+  // Cart Store
+  const cartItems = useCartStore((state) => state.cartItems);
+  const cartItemQuantity = cartItems.length || 0;
 
   return (
     <Container as="header">

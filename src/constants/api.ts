@@ -4,4 +4,5 @@ export const API_PATH = {
   PRODUCTS: '/products',
   CATEGORIES: '/categories',
   TAGS: '/tags',
+  CARTS: '/carts',
 };

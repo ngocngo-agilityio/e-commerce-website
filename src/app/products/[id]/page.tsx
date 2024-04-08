@@ -15,7 +15,6 @@ import { FALL_BACK_IMAGE } from '@constants';
 import { Rating } from '@components';
 
 // Sections
-import SelectSize from './SelectSize';
 import AddToCard from './AddToCard';
 
 interface Props {
@@ -88,8 +87,7 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
           <Text mt="26px" mb="70px">
             {introduction}
           </Text>
-          <SelectSize sizes={sizes} />
-          <AddToCard />
+          <AddToCard sizes={sizes} product={product} />
           <Flex>
             <Text
               as="span"
