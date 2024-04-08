@@ -38,8 +38,6 @@ class HttpRequest {
     configs?: AxiosRequestConfig,
   ): Promise<T> {
     try {
-      console.log('endpoint', endpoint);
-
       const url = `${this.baseURL}${endpoint}`;
       const res = await axios.post(url, body, configs);
 

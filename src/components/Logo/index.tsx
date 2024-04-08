@@ -8,7 +8,7 @@ import { APP_ROUTERS } from '@constants';
 const Logo = (): JSX.Element => {
   return (
     <Heading as="h1" fontFamily="lato" color="logo" fontWeight="normal">
-      <Link href={APP_ROUTERS.HOME_PAGE}>NorthStar</Link>
+      <Link href={APP_ROUTERS.PRODUCTS}>NorthStar</Link>
     </Heading>
   );
 };

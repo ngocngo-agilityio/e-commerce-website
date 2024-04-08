@@ -8,8 +8,8 @@ import { ChakraUIProvider } from '@providers';
 // Constants
 import { HEADER_HEIGHT, FOOTER_HEIGHT } from '@constants';
 
-// Components
-import { Header, Footer } from '@components';
+// Sections
+import MainLayout from './MainLayout';
 
 export const metadata: Metadata = {
   title: 'E-commerce Fashion',
@@ -26,15 +26,17 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <ChakraUIProvider>
-          <Header />
-          {/* 
+          <MainLayout>
+            {/* 
             This Box component ensures that the content area takes up at least 
             the height of the viewport minus the heights of the header and footer 
           */}
-          <Box minHeight={`calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT})`}>
-            {children}
-          </Box>
-          <Footer />
+            <Box
+              minHeight={`calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT})`}
+            >
+              {children}
+            </Box>
+          </MainLayout>
         </ChakraUIProvider>
       </body>
     </html>

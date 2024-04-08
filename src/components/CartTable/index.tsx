@@ -23,7 +23,7 @@ const CartTable = ({ cart = [], onRemoveProduct }: Props): JSX.Element => {
       <CartTableHeader />
       <Tbody>
         {cart.map((item) => {
-          const { id, name, image, price, quantity, total } = item || {};
+          const { id, name, image, price, quantity } = item || {};
           return (
             <CartItem
               key={id}
@@ -32,7 +32,6 @@ const CartTable = ({ cart = [], onRemoveProduct }: Props): JSX.Element => {
               image={image}
               price={price}
               quantity={quantity}
-              total={total}
               onRemoveProduct={onRemoveProduct}
             />
           );

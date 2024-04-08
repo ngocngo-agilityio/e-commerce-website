@@ -17,3 +17,4 @@ export { default as Pagination } from './Pagination';
 export { default as Rating } from './Rating';
 export { default as CartTable } from './CartTable';
 export { default as ConfirmModal } from './ConfirmModal';
+export { default as CartStateManager } from './CartStateManager';

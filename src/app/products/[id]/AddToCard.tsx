@@ -8,6 +8,15 @@ import { Button } from '@chakra-ui/react';
 // Actions
 import { addToCart } from '@apis';
 
+// Stores
+import { useCartStore } from '@stores';
+
+// Hooks
+import { useCustomToast } from '@hooks';
+
+// Constants
+import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '@constants';
+
 // Types
 import { SizeOption, Product } from '@types';
 
@@ -21,6 +30,8 @@ interface Props {
 
 const AddToCard = ({ sizes, product }: Props): JSX.Element => {
   const [selectedSize, setSelectedSize] = useState<SizeOption>();
+  const { showToast } = useCustomToast();
+  const cartItems = useCartStore((state) => state.cartItems);
 
   const handleSelectSize = useCallback((size?: SizeOption) => {
     setSelectedSize(size);
@@ -28,18 +39,22 @@ const AddToCard = ({ sizes, product }: Props): JSX.Element => {
 
   const handleAddToCard = async () => {
     if (!selectedSize) {
-      // TODO:  Update later
-      console.log('Have not selected size');
+      showToast(ERROR_MESSAGES.SELECT_SIZE);
     } else {
-      const cartItems = localStorage.getItem('cart') || [];
+      const existingCartItems = cartItems.find(
+        (item) => item.productId == product.id,
+      );
 
-      console.log('cartItems', cartItems);
+      const { error } = await addToCart({
+        product,
+        quantity: 1,
+        cartId: existingCartItems?.id || '',
+      });
 
-      if (cartItems.length) {
-        console.log('cartItems.length');
+      if (!error) {
+        showToast(SUCCESS_MESSAGES.ADD_CART, 'success');
       } else {
-        const { error } = await addToCart({ product, quantity: 1 });
-        console.log('>>>>>>>>>>>>>>error', error);
+        showToast(error);
       }
     }
   };
