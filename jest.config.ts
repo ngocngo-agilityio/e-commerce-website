@@ -41,6 +41,8 @@ const config: Config = {
     '@mocks': '<rootDir>/src/mocks',
     '@services': '<rootDir>/src/services',
     '@apis': '<rootDir>/src/apis',
+    '@hooks': '<rootDir>/src/hooks',
+    '@stores': '<rootDir>/src/stores',
   },
 
   // The test environment that will be used for testing

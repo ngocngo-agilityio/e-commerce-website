@@ -9,6 +9,8 @@ const mockProps = {
   onChange: jest.fn(),
 };
 
+jest.useFakeTimers();
+
 describe('SearchInput component', () => {
   test('should render SearchInput successfully', () => {
     const { container } = render(<SearchInput {...mockProps} />);
@@ -28,6 +30,8 @@ describe('SearchInput component', () => {
     const searchInput = screen.getByPlaceholderText('Search Here....');
 
     fireEvent.change(searchInput, { target: { value: 'test' } });
+
+    jest.advanceTimersByTime(1000);
 
     expect(mockProps.onChange).toHaveBeenCalled();
   });
