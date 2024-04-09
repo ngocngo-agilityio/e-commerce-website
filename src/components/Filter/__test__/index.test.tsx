@@ -6,9 +6,9 @@ import Filter from '..';
 
 const mockProps = {
   options: [
-    { value: '1', label: 'Women' },
-    { value: '2', label: 'Man' },
-    { value: '3', label: 'Casual' },
+    { id: '1', name: 'Women' },
+    { id: '2', name: 'Man' },
+    { id: '3', name: 'Casual' },
   ],
   onChange: jest.fn(),
 };
@@ -32,7 +32,7 @@ describe('Filter component', () => {
     const filterBtn = screen.getByPlaceholderText('Filters');
 
     fireEvent.click(filterBtn);
-    fireEvent.click(screen.getByText(mockProps.options[0].label));
+    fireEvent.click(screen.getByText(mockProps.options[0].name));
 
     expect(mockProps.onChange).toHaveBeenCalled();
   });

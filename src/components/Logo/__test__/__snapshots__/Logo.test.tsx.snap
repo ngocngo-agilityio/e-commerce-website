@@ -6,7 +6,7 @@ exports[`Logo component should match snapshot for Logo 1`] = `
     class="chakra-heading css-jouhmg"
   >
     <a
-      href="/"
+      href="/products"
     >
       NorthStar
     </a>

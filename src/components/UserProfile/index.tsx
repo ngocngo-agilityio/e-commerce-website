@@ -2,28 +2,17 @@
 
 // Libs
 import { memo } from 'react';
-import { Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import { Menu, MenuButton } from '@chakra-ui/react';
 
 // Icons
 import { UserIcon } from '@assets';
 
-interface UserProfileProps {
-  // onLogout: () => void;
-}
-
-const UserProfile = ({}: UserProfileProps): JSX.Element => {
-  // TODO: Update later
-  const handleLogout = () => {};
-
+const UserProfile = (): JSX.Element => {
   return (
     <Menu>
       <MenuButton aria-label="profile-menu">
         <UserIcon />
       </MenuButton>
-
-      <MenuList p="10px">
-        <MenuItem onClick={handleLogout}>Logout</MenuItem>
-      </MenuList>
     </Menu>
   );
 };

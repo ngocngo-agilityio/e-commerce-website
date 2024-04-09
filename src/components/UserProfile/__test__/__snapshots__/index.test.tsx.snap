@@ -3,12 +3,12 @@
 exports[`UserProfile components should match snapshot for UserProfile 1`] = `
 <div>
   <button
-    aria-controls="menu-list-:r4:"
+    aria-controls="menu-list-:r3:"
     aria-expanded="false"
     aria-haspopup="menu"
     aria-label="profile-menu"
     class="chakra-menu__menu-button css-1eqi7qs"
-    id="menu-button-:r4:"
+    id="menu-button-:r3:"
   >
     <span
       class="css-xl71ch"
@@ -36,29 +36,5 @@ exports[`UserProfile components should match snapshot for UserProfile 1`] = `
       </svg>
     </span>
   </button>
-  <div
-    class="css-0"
-    style="visibility: hidden; position: absolute; min-width: max-content; inset: 0 auto auto 0;"
-  >
-    <div
-      aria-orientation="vertical"
-      class="chakra-menu__menu-list css-1844mlb"
-      id="menu-list-:r4:"
-      role="menu"
-      style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
-      tabindex="-1"
-    >
-      <button
-        class="chakra-menu__menuitem css-1k756t9"
-        data-index="0"
-        id="menu-list-:r4:-menuitem-:r5:"
-        role="menuitem"
-        tabindex="-1"
-        type="button"
-      >
-        Logout
-      </button>
-    </div>
-  </div>
 </div>
 `;

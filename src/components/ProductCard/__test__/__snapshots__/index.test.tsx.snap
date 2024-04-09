@@ -9,7 +9,7 @@ exports[`ProductCard component should match snapshot for ProductCard 1`] = `
       class="chakra-card__body css-0"
     >
       <a
-        href="/products/product-detail/1"
+        href="/products/1"
       >
         <div
           class="css-1o95iny"
@@ -31,7 +31,7 @@ exports[`ProductCard component should match snapshot for ProductCard 1`] = `
         class="css-1t52rxu"
       >
         <a
-          href="/products/product-detail/1"
+          href="/products/1"
         >
           <h3
             class="chakra-heading css-atiazo"
