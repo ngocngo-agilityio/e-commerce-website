@@ -82,7 +82,12 @@ const CartItems = (): JSX.Element => {
         </Flex>
       </Box>
 
-      <Button variant="checkoutBtn" fontSize="20px" w="262px" h="58px" onClick={handleCheckout}>
+      <Button
+        variant="checkoutBtn"
+        fontSize="20px"
+        w="262px"
+        h="58px"
+        onClick={handleCheckout}>
         Proceed to Checkout
       </Button>
     </>
