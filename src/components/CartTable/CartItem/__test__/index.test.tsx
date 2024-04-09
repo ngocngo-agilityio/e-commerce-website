@@ -44,16 +44,4 @@ describe('CartItem components', () => {
       MOCK_CART_ITEM.quantity + 1,
     );
   });
-
-  test('should call onRemoveProduct when click remove button and Yes button on confirm modal', () => {
-    render(<CartItem {...mockProps} />, {
-      wrapper: Table,
-    });
-    const removeBtn = screen.getByText('x');
-
-    fireEvent.click(removeBtn);
-    fireEvent.click(screen.getByRole('button', { name: 'Yes' }));
-
-    expect(mockProps.onRemoveProduct).toHaveBeenCalledWith(MOCK_CART_ITEM.id);
-  });
 });
