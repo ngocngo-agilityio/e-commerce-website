@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SaleBanner components should match snapshot for SaleBanner 1`] = `
+<div>
+  <div
+    class="css-1xt0cvq"
+  >
+    <div
+      class="chakra-container css-0"
+    >
+      <div
+        class="css-ckyhk3"
+      >
+        <div
+          class="css-cpk5wh"
+        >
+          <h2
+            class="chakra-heading css-rrcadk"
+          >
+            stylist picks beat the heat
+          </h2>
+          <button
+            class="chakra-button css-1u2i1wc"
+            type="button"
+          >
+            SHOP NOW
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

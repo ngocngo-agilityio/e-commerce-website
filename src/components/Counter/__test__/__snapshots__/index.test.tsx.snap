@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Counter component should match snapshot for Counter 1`] = `
+<div>
+  <div
+    class="css-wpwawf"
+  >
+    <div
+      class="css-1en42kf"
+    >
+      <button
+        class="chakra-button css-15ey06b"
+        type="button"
+      >
+        -
+      </button>
+    </div>
+    <div
+      class="css-1en42kf"
+    >
+      <span
+        class="chakra-text css-uh9d7y"
+      >
+        2
+      </span>
+    </div>
+    <div
+      class="css-1en42kf"
+    >
+      <button
+        class="chakra-button css-d83nk5"
+        type="button"
+      >
+        +
+      </button>
+    </div>
+  </div>
+</div>
+`;

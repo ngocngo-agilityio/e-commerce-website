@@ -46,7 +46,7 @@ const CartTable = ({
         ) : (
           <Tr>
             <Td colSpan={6} textAlign="center" borderBottom="none">
-              No products in your cart
+              No products in your cart.
             </Td>
           </Tr>
         )}

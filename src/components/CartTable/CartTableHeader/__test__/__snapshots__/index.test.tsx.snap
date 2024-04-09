@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartItem components should match snapshot for CartTableHeader 1`] = `
+<div>
+  <table
+    class="chakra-table css-0"
+  >
+    <thead
+      class="css-0"
+    >
+      <tr
+        class="css-0"
+      >
+        <th
+          class="css-0"
+        />
+        <th
+          class="css-0"
+        />
+        <th
+          class="css-0"
+        >
+          Product
+        </th>
+        <th
+          class="css-0"
+        >
+          Price
+        </th>
+        <th
+          class="css-0"
+        >
+          Quantity
+        </th>
+        <th
+          class="css-0"
+        >
+          Total
+        </th>
+      </tr>
+    </thead>
+  </table>
+</div>
+`;
