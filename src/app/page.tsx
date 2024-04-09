@@ -1,6 +1,6 @@
 import { Heading } from '@chakra-ui/react';
 
-export const Home = () => {
+const Home = () => {
   return <Heading>Home Page</Heading>;
 };
 
