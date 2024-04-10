@@ -44,7 +44,7 @@ export const getProductList = async (
     );
     const { data, headers } = res || {};
 
-    return { data: data || [], total: headers['x-total-count'] || 0 };
+    return { data: data || [], total: headers?.['x-total-count'] || 0 };
   } catch (error) {
     throw error;
   }
