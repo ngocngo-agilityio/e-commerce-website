@@ -230,6 +230,7 @@ exports[`Footer component should match snapshot for Footer 1`] = `
           class="chakra-stack css-1ski9r"
         >
           <a
+            aria-label="visa"
             href="#"
           >
             <svg
