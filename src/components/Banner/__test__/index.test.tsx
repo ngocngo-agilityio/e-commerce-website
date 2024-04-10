@@ -5,7 +5,7 @@ import { render } from '@testing-library/react';
 import SaleBanner from '..';
 
 describe('SaleBanner components', () => {
-  test('should render CartTableHeader successfully', () => {
+  test('should render SaleBanner successfully', () => {
     const { container } = render(<SaleBanner />);
 
     expect(container).toBeInTheDocument();
