@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pagination component renders pagination with correct number of pages 1`] = `
+<div>
+  <div
+    class="css-gmuwbf"
+  >
+    <button
+      aria-disabled="true"
+      aria-label="Previous page"
+      class="chakra-button pagination-previous css-17l7k1p"
+      disabled=""
+      type="button"
+    >
+      <svg
+        class="chakra-icon css-onkibi"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <g
+          fill="currentColor"
+        >
+          <path
+            d="M10.416,12a2.643,2.643,0,0,1,.775-1.875L20.732.584a1.768,1.768,0,0,1,2.5,2.5l-8.739,8.739a.25.25,0,0,0,0,.354l8.739,8.739a1.768,1.768,0,0,1-2.5,2.5l-9.541-9.541A2.643,2.643,0,0,1,10.416,12Z"
+          />
+          <path
+            d="M.25,12a2.643,2.643,0,0,1,.775-1.875L10.566.584a1.768,1.768,0,0,1,2.5,2.5L4.327,11.823a.25.25,0,0,0,0,.354l8.739,8.739a1.768,1.768,0,0,1-2.5,2.5L1.025,13.875A2.643,2.643,0,0,1,.25,12Z"
+          />
+        </g>
+      </svg>
+    </button>
+    <ol
+      class="chakra-stack pagination-page-group css-1x343b"
+      style="display: flex; gap: 10px;"
+    >
+      <li
+        class="css-k008qs"
+      >
+        <button
+          aria-current="true"
+          aria-disabled="false"
+          aria-label="Current page, page 1"
+          class="chakra-button pagination-page css-1w7mo73"
+          type="button"
+        >
+          1
+        </button>
+      </li>
+      <li
+        class="css-k008qs"
+      >
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          aria-label="Go to page 2"
+          class="chakra-button pagination-page css-1unf5x4"
+          type="button"
+        >
+          2
+        </button>
+      </li>
+      <li
+        class="css-k008qs"
+      >
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          aria-label="Go to page 3"
+          class="chakra-button pagination-page css-1unf5x4"
+          type="button"
+        >
+          3
+        </button>
+      </li>
+      <li
+        class="css-k008qs"
+      >
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          aria-label="Go to page 4"
+          class="chakra-button pagination-page css-1unf5x4"
+          type="button"
+        >
+          4
+        </button>
+      </li>
+      <li
+        class="css-k008qs"
+      >
+        <button
+          aria-current="false"
+          aria-disabled="false"
+          aria-label="Go to page 5"
+          class="chakra-button pagination-page css-1unf5x4"
+          type="button"
+        >
+          5
+        </button>
+      </li>
+    </ol>
+    <button
+      aria-disabled="false"
+      aria-label="Next page"
+      class="chakra-button pagination-next css-17l7k1p"
+      type="button"
+    >
+      <svg
+        class="chakra-icon css-onkibi"
+        focusable="false"
+        viewBox="0 0 24 24"
+      >
+        <g
+          fill="currentColor"
+        >
+          <path
+            d="M13.584,12a2.643,2.643,0,0,1-.775,1.875L3.268,23.416a1.768,1.768,0,0,1-2.5-2.5l8.739-8.739a.25.25,0,0,0,0-.354L.768,3.084a1.768,1.768,0,0,1,2.5-2.5l9.541,9.541A2.643,2.643,0,0,1,13.584,12Z"
+          />
+          <path
+            d="M23.75,12a2.643,2.643,0,0,1-.775,1.875l-9.541,9.541a1.768,1.768,0,0,1-2.5-2.5l8.739-8.739a.25.25,0,0,0,0-.354L10.934,3.084a1.768,1.768,0,0,1,2.5-2.5l9.541,9.541A2.643,2.643,0,0,1,23.75,12Z"
+          />
+        </g>
+      </svg>
+    </button>
+  </div>
+</div>
+`;
