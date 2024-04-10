@@ -15,6 +15,7 @@ const BASE = {
   gallery: '#EBEBEB',
   silver: '#BEBEBE',
   gray: '#818181',
+  lightOrange: 'rgba(214, 118, 60, 0.38)',
 };
 
 export const colors = {
@@ -137,4 +138,8 @@ export const colors = {
   // Counter
   counterBg: BASE.redDamask,
   counterText: BASE.white,
+
+  // Rating
+  filledStar: BASE.redDamask,
+  emptyStar: BASE.lightOrange,
 };
