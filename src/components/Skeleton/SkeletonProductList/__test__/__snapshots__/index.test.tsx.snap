@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonProductList component should match snapshot for SkeletonProductList 1`] = `
+<div>
+  <div
+    class="chakra-wrap css-0"
+  >
+    <ul
+      class="chakra-wrap__list css-9slbke"
+    >
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <div
+          class="chakra-skeleton css-o3zgzc"
+        />
+      </li>
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <div
+          class="chakra-skeleton css-o3zgzc"
+        />
+      </li>
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <div
+          class="chakra-skeleton css-o3zgzc"
+        />
+      </li>
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <div
+          class="chakra-skeleton css-o3zgzc"
+        />
+      </li>
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <div
+          class="chakra-skeleton css-o3zgzc"
+        />
+      </li>
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <div
+          class="chakra-skeleton css-o3zgzc"
+        />
+      </li>
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <div
+          class="chakra-skeleton css-o3zgzc"
+        />
+      </li>
+      <li
+        class="chakra-wrap__listitem css-1yp4ln"
+      >
+        <div
+          class="chakra-skeleton css-o3zgzc"
+        />
+      </li>
+    </ul>
+  </div>
+</div>
+`;
