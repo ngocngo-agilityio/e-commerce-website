@@ -266,6 +266,7 @@ exports[`Footer component should match snapshot for Footer 1`] = `
             </svg>
           </a>
           <a
+            aria-label="mastercard"
             href="#"
           >
             <svg
@@ -299,6 +300,7 @@ exports[`Footer component should match snapshot for Footer 1`] = `
             </svg>
           </a>
           <a
+            aria-label="paypal"
             href="#"
           >
             <svg
@@ -332,6 +334,7 @@ exports[`Footer component should match snapshot for Footer 1`] = `
             </svg>
           </a>
           <a
+            aria-label="visa-electron"
             href="#"
           >
             <svg
