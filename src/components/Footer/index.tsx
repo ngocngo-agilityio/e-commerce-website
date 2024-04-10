@@ -106,14 +106,14 @@ const Footer = (): JSX.Element => {
             <Link href="#" aria-label="visa">
               <VisaIcon />
             </Link>
-            <Link href="#">
-              <MasterCardIcon aria-label="mastercard" />
+            <Link href="#" aria-label="mastercard">
+              <MasterCardIcon />
             </Link>
-            <Link href="#">
-              <PaypalIcon aria-label="paypal" />
+            <Link href="#" aria-label="paypal">
+              <PaypalIcon />
             </Link>
-            <Link href="#">
-              <VisaElectronIcon aria-label="visa-electron" />
+            <Link href="#" aria-label="visa-electron">
+              <VisaElectronIcon />
             </Link>
           </HStack>
         </Flex>
