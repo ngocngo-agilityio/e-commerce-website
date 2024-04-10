@@ -77,7 +77,7 @@ const CartItem = ({
           </Box>
         </Td>
         <Td>
-          <Box w="48px" h="48px" pos="relative">
+          <Box w="48px" h="56px" pos="relative">
             <Image src={image} alt="Product Image" fill priority />
           </Box>
         </Td>

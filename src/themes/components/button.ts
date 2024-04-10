@@ -51,6 +51,7 @@ export const Button = defineStyleConfig({
         bg: 'checkoutBtn.bg',
       },
       textTransform: 'uppercase',
+      fontSize: 'xl',
     },
     selectBtn: {
       w: '210px',
