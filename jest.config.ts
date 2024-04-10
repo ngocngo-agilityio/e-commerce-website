@@ -20,10 +20,13 @@ const config: Config = {
     '!src/assets/**',
     '!src/themes/**',
     '!src/types/**',
+    '!src/mocks/**',
     '!src/constants/**',
     '!src/components/index.ts',
     '!src/utils/index.ts',
     '!src/stores/index.ts',
+    '!src/services/index.ts',
+    '!src/hooks/index.ts',
   ],
 
   // The directory where Jest should output its coverage files
