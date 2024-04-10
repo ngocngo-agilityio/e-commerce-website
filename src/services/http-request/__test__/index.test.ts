@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 // Constants
-import { ERROR_MESSAGES } from '@constants';
+import { ERROR_MESSAGES, BASE_URL } from '@constants';
 
 // Services
 import { HttpRequestService } from '../index';
@@ -35,7 +35,7 @@ describe('HttpRequest', () => {
 
       const response = await httpRequest.get<string>(endpoint);
 
-      expect(axios.get).toHaveBeenCalledWith(`${endpoint}`, {});
+      expect(axios.get).toHaveBeenCalledWith(`${BASE_URL}${endpoint}`, {});
       expect(response).toEqual(expectedResponse);
     });
 
@@ -76,7 +76,11 @@ describe('HttpRequest', () => {
         typeof expectedResponseData
       >(endpoint, body);
 
-      expect(axios.post).toHaveBeenCalledWith(endpoint, body, undefined);
+      expect(axios.post).toHaveBeenCalledWith(
+        `${BASE_URL}${endpoint}`,
+        body,
+        undefined,
+      );
       expect(response).toEqual(expectedResponseData);
     });
 
@@ -118,7 +122,11 @@ describe('HttpRequest', () => {
         typeof expectedResponseData
       >(endpoint, body);
 
-      expect(axios.patch).toHaveBeenCalledWith(endpoint, body, undefined);
+      expect(axios.patch).toHaveBeenCalledWith(
+        `${BASE_URL}${endpoint}`,
+        body,
+        undefined,
+      );
       expect(response).toEqual(expectedResponseData);
     });
 
@@ -157,7 +165,10 @@ describe('HttpRequest', () => {
       const response =
         await httpRequest.delete<typeof expectedResponseData>(endpoint);
 
-      expect(axios.delete).toHaveBeenCalledWith(endpoint, undefined);
+      expect(axios.delete).toHaveBeenCalledWith(
+        `${BASE_URL}${endpoint}`,
+        undefined,
+      );
       expect(response).toEqual(expectedResponseData);
     });
 
