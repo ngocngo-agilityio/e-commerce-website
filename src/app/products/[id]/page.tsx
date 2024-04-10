@@ -56,7 +56,7 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
   return (
     <Container>
       <Flex pr="82px" pt="30px" pb="100px" gap="48px" wrap="wrap">
-        <Box w="550px" h="685px" position="relative">
+        <Box w="550px" h="637px" position="relative">
           <Image
             src={image}
             alt="Product Image"

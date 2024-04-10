@@ -1,4 +1,5 @@
 // Libs
+import dynamic from 'next/dynamic';
 import { Stack } from '@chakra-ui/react';
 
 // Apis
@@ -8,7 +9,9 @@ import { getProductList } from '@apis';
 import { PRODUCT_PER_PAGE, SORT_BY } from '@constants';
 
 // Components
-import { Pagination, ProductList } from '@components';
+import { ProductList } from '@components';
+
+const Pagination = dynamic(() => import('../../components/Pagination'));
 
 interface Props {
   searchValue?: string;
