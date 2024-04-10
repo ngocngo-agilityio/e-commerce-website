@@ -2,18 +2,18 @@
 import { AxiosResponse } from 'axios';
 
 // Apis
-import { getProductDetail, getProductList } from '../product';
+import { getCategoryList, getTagList } from '../category';
 
 // Services
 import { HttpRequestService } from '@services';
 
 // Mocks
-import { MOCK_PRODUCT_LIST } from '@mocks';
+import { MOCK_CATEGORIES, MOCK_TAGS } from '@mocks';
 
 jest.mock('@services');
 
-describe('Products apis', () => {
-  describe('getProductList', () => {
+describe('Categories apis', () => {
+  describe('getCategoryList', () => {
     const queryConfig = {
       name: 'test',
       sortDirection: 'desc',
@@ -23,9 +23,9 @@ describe('Products apis', () => {
       limit: 10,
     };
 
-    test('getProductList success', async () => {
+    test('getCategoryList success', async () => {
       const expectedResponse = {
-        data: MOCK_PRODUCT_LIST,
+        data: MOCK_CATEGORIES,
         status: 200,
         statusText: 'OK',
         headers: {},
@@ -37,12 +37,12 @@ describe('Products apis', () => {
         >
       ).mockResolvedValue(expectedResponse);
 
-      const response = await getProductList(queryConfig);
+      const response = await getCategoryList(queryConfig);
 
       expect(response.data).toEqual(expectedResponse.data);
     });
 
-    test('getProductList response is empty object', async () => {
+    test('getCategoryList response is empty object', async () => {
       const expectedResponse = null as unknown as AxiosResponse;
 
       (
@@ -51,12 +51,12 @@ describe('Products apis', () => {
         >
       ).mockResolvedValue(expectedResponse);
 
-      const response = await getProductList(queryConfig);
+      const response = await getCategoryList(queryConfig);
 
       expect(response).toBeNull;
     });
 
-    test('getProductList is failed', async () => {
+    test('getCategoryList is failed', async () => {
       const errorMessage = 'Failed to get data';
       const error = new Error(errorMessage);
 
@@ -67,19 +67,26 @@ describe('Products apis', () => {
       ).mockRejectedValue(error);
 
       try {
-        await getProductList(queryConfig);
+        await getCategoryList(queryConfig);
       } catch (error) {
         expect(error).toEqual(error);
       }
     });
   });
 
-  describe('getProductDetail', () => {
-    const id = '1';
+  describe('getTagList', () => {
+    const queryConfig = {
+      name: 'test',
+      sortDirection: 'desc',
+      sortBy: 'name',
+      categoryIds: ['1'],
+      page: '1',
+      limit: 10,
+    };
 
-    test('getProductDetail success', async () => {
+    test('getTagList success', async () => {
       const expectedResponse = {
-        data: MOCK_PRODUCT_LIST[0],
+        data: MOCK_TAGS,
         status: 200,
         statusText: 'OK',
         headers: {},
@@ -91,12 +98,12 @@ describe('Products apis', () => {
         >
       ).mockResolvedValue(expectedResponse);
 
-      const response = await getProductDetail(id);
+      const response = await getTagList(queryConfig);
 
       expect(response.data).toEqual(expectedResponse.data);
     });
 
-    test('getProductDetail response is empty object', async () => {
+    test('getTagList response is empty object', async () => {
       const expectedResponse = null as unknown as AxiosResponse;
 
       (
@@ -105,12 +112,12 @@ describe('Products apis', () => {
         >
       ).mockResolvedValue(expectedResponse);
 
-      const response = await getProductDetail(id);
+      const response = await getTagList(queryConfig);
 
       expect(response).toBeNull;
     });
 
-    test('getProductDetail is failed', async () => {
+    test('getTagList is failed', async () => {
       const errorMessage = 'Failed to get data';
       const error = new Error(errorMessage);
 
@@ -121,7 +128,7 @@ describe('Products apis', () => {
       ).mockRejectedValue(error);
 
       try {
-        await getProductDetail(id);
+        await getTagList(queryConfig);
       } catch (error) {
         expect(error).toEqual(error);
       }
