@@ -70,7 +70,7 @@ const AddToCard = ({ sizes, product }: Props): JSX.Element => {
         mb="32px"
         onClick={handleAddToCard}
       >
-        Add to card
+        Add to cart
       </Button>
     </>
   );

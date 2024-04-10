@@ -262,7 +262,7 @@ exports[`ProductDetail page should match snapshot for ProductDetail page 1`] = `
           class="chakra-button css-1ubjg5m"
           type="button"
         >
-          Add to card
+          Add to cart
         </button>
         <div
           class="css-k008qs"

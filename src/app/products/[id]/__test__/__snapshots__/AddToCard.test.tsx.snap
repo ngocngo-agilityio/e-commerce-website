@@ -145,7 +145,7 @@ exports[`AddToCard should match snapshot for AddToCard page 1`] = `
     class="chakra-button css-1ubjg5m"
     type="button"
   >
-    Add to card
+    Add to cart
   </button>
 </div>
 `;
