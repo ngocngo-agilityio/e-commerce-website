@@ -1,9 +1,10 @@
 // Libs
+import { Suspense } from 'react';
 import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 
 // Apis
-import { getProductDetail, getCategoryList, getTagList } from '@apis';
+import { getProductDetail } from '@apis';
 
 // Utils
 import { formatCurrency } from '@utils';
@@ -16,6 +17,8 @@ import { Rating } from '@components';
 
 // Sections
 import AddToCard from './AddToCard';
+import Categories from './Categories';
+import Tags from './Tags';
 
 interface Props {
   params: { id: string };
@@ -40,18 +43,8 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
     tagIds,
   } = product || {};
 
-  // Fetch data for categories
-  const { data: categoryList = [] } = await getCategoryList({
-    ids: categoryIds,
-  });
-
-  // Fetch data for tags
-  const { data: tagList = [] } = await getTagList({ ids: tagIds });
-
   const originalPrice = formatCurrency(price);
   const discountedPrice = formatCurrency(discount);
-  const categories = categoryList.map((item) => item.name).join(', ');
-  const tags = tagList.map((item) => item.name).join(', ');
 
   return (
     <Container>
@@ -87,33 +80,18 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
           <Text mt="26px" mb="70px">
             {introduction}
           </Text>
+
           <AddToCard sizes={sizes} product={product} />
-          <Flex>
-            <Text
-              as="span"
-              size="md"
-              lineHeight="24px"
-              color="productDetail.categoryTitle"
-            >
-              Category:&nbsp;
-            </Text>
-            <Text size="md" lineHeight="24px">
-              {categories}
-            </Text>
-          </Flex>
-          <Flex>
-            <Text
-              as="span"
-              size="md"
-              lineHeight="24px"
-              color="productDetail.categoryTitle"
-            >
-              Tags:&nbsp;
-            </Text>
-            <Text size="md" lineHeight="24px">
-              {tags}
-            </Text>
-          </Flex>
+
+          {/* TODO: Update later */}
+          <Suspense fallback={<Text>Loading...</Text>}>
+            <Categories categoryIds={categoryIds} />
+          </Suspense>
+
+          {/* TODO: Update later */}
+          <Suspense fallback={<Text>Loading...</Text>}>
+            <Tags tagIds={tagIds} />
+          </Suspense>
         </Flex>
       </Flex>
     </Container>

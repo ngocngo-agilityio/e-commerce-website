@@ -15,7 +15,10 @@ const Rating = ({ rating }: Props): JSX.Element => {
       {Array(5)
         .fill('')
         .map((_, i) => (
-          <StarIcon key={i} color={i < rating ? 'filledStar' : 'emptyStar'} />
+          <StarIcon
+            key={i}
+            color={i < rating ? '#D6763C' : 'rgba(214, 118, 60, 0.38)'}
+          />
         ))}
     </Box>
   );
