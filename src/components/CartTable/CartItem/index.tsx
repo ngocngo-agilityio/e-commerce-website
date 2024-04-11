@@ -77,9 +77,13 @@ const CartItem = ({
           </Box>
         </Td>
         <Td>
-          <Box w="48px" h="56px" pos="relative">
-            <Image src={image} alt="Product Image" fill priority />
-          </Box>
+          <Image
+            src={image}
+            alt="Product Image"
+            width={48}
+            height={56}
+            priority
+          />
         </Td>
         <Td style={{ fontWeight: 'bold' }}>
           <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id)}>{name}</Link>
