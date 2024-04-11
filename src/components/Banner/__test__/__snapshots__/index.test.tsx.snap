@@ -3,10 +3,10 @@
 exports[`SaleBanner components should match snapshot for SaleBanner 1`] = `
 <div>
   <div
-    class="css-0"
+    class="chakra-container css-1t87sz9"
   >
     <div
-      class="chakra-container css-1lpp5i2"
+      class="chakra-container css-3w6ije"
     >
       <div
         class="css-cpk5wh"
@@ -25,13 +25,14 @@ exports[`SaleBanner components should match snapshot for SaleBanner 1`] = `
       </div>
       <img
         alt="Banner Image"
-        data-nimg="fill"
+        data-nimg="1"
         decoding="async"
         fetchpriority="high"
-        sizes="100vw"
+        height="648"
         src="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=3840&q=75"
-        srcset="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=3840&q=75 3840w"
-        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent; z-index: -1;"
+        srcset="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1920&q=75 1x, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=3840&q=75 2x"
+        style="color: transparent; position: absolute; z-index: -1; justify-items: center; left: 0px;"
+        width="1367"
       />
     </div>
   </div>

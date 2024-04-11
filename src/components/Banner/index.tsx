@@ -1,20 +1,14 @@
 // Libs
 import Image from 'next/image';
-import { Box, Button, Container, Flex, Heading } from '@chakra-ui/react';
+import { Button, Container, Flex, Heading } from '@chakra-ui/react';
 
 // Constants
 import { BANNER_BG } from '@constants';
 
 const SaleBanner = (): JSX.Element => {
   return (
-    <Box>
-      <Container
-        display="flex"
-        justifyContent="end"
-        h="648px"
-        maxW="1367px"
-        pos="relative"
-      >
+    <Container pos="relative" maxW="1367px">
+      <Container display="flex" justifyContent="end" h="648px">
         <Flex w="40%" flexDir="column" alignItems="center" pr="39px" pt="202px">
           <Heading
             size="lg"
@@ -39,12 +33,18 @@ const SaleBanner = (): JSX.Element => {
         <Image
           src={BANNER_BG}
           alt="Banner Image"
-          style={{ position: 'absolute', zIndex: -1 }}
-          fill
+          style={{
+            position: 'absolute',
+            zIndex: -1,
+            justifyItems: 'center',
+            left: 0,
+          }}
+          height={648}
+          width={1367}
           priority
         />
       </Container>
-    </Box>
+    </Container>
   );
 };
 

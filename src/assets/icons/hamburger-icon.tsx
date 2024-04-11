@@ -12,23 +12,23 @@ const HamburgerIcon = (): JSX.Element => (
     <path
       d="M3 12.4761H21"
       stroke="#1D1D1D"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M3 6.47607H21"
       stroke="#1D1D1D"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M3 18.4761H21"
       stroke="#1D1D1D"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </Icon>
 );
