@@ -1,6 +1,6 @@
 // Libs
 import { Suspense } from 'react';
-import { Box, Container, Flex, Heading, Text } from '@chakra-ui/react';
+import { Container, Flex, Heading, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 
 // Apis
@@ -49,15 +49,14 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
   return (
     <Container>
       <Flex pr="82px" pt="30px" pb="100px" gap="48px" wrap="wrap">
-        <Box w="550px" h="637px" position="relative">
-          <Image
-            src={image}
-            alt="Product Image"
-            placeholder={FALL_BACK_IMAGE}
-            fill
-            priority
-          />
-        </Box>
+        <Image
+          src={image}
+          alt="Product Image"
+          placeholder={FALL_BACK_IMAGE}
+          width={550}
+          height={637}
+          priority
+        />
 
         <Flex flexDir="column" flex={1}>
           <Heading size="md" lineHeight="48px" mt="48px">
