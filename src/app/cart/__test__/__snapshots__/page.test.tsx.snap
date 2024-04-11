@@ -16,7 +16,7 @@ exports[`Cart page should match snapshot for Cart page 1`] = `
           class="chakra-breadcrumb__list-item css-18biwo"
         >
           <a
-            href="/products"
+            href="/"
           >
             Home
           </a>

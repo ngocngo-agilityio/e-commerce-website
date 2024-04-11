@@ -15,7 +15,7 @@ exports[`Header component should match snapshot for Header 1`] = `
           class="chakra-heading css-jouhmg"
         >
           <a
-            href="/products"
+            href="/"
           >
             NorthStar
           </a>
