@@ -1,5 +1,5 @@
 // Libs
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 
 // Apis
 import { getCategoryList, getProductDetail, getTagList } from '@apis';
@@ -26,13 +26,25 @@ jest.mock('@apis');
   data: MOCK_TAGS,
 });
 
+jest.mock('../Tags', () => ({
+  __esModule: true,
+  default: () => <div>Tags</div>,
+}));
+
+jest.mock('../Categories', () => ({
+  __esModule: true,
+  default: () => <div>Categories</div>,
+}));
+
 describe('ProductDetail page', () => {
   test('should render ProductDetail page successfully', async () => {
     const productDetailPage = await ProductDetail({ params: { id: '2' } });
 
     render(productDetailPage);
 
-    expect(screen.getByText(MOCK_PRODUCT_LIST[0].name)).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByText(MOCK_PRODUCT_LIST[0].name)).toBeInTheDocument();
+    });
   });
 
   test('should match snapshot for ProductDetail page', async () => {
@@ -40,6 +52,8 @@ describe('ProductDetail page', () => {
 
     const { container } = render(productDetailPage);
 
-    expect(container).toMatchSnapshot();
+    await waitFor(() => {
+      expect(container).toMatchSnapshot();
+    });
   });
 });
