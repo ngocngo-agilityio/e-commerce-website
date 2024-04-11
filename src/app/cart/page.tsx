@@ -13,7 +13,7 @@ const Cart = (): JSX.Element => {
     <Container pt="67px" pb="106px">
       <Breadcrumb mb="70px">
         <BreadcrumbItem>
-          <Link href={APP_ROUTERS.PRODUCTS}>Home</Link>
+          <Link href={APP_ROUTERS.HOME_PAGE}>Home</Link>
         </BreadcrumbItem>
         <BreadcrumbItem isCurrentPage color="currentPageBreadcrumb">
           <Link href={APP_ROUTERS.CART_PAGE}>Cart</Link>
