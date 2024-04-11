@@ -1,9 +1,6 @@
 // Libs
 import { fireEvent, render, screen } from '@testing-library/react';
 
-// Apis
-// import { getCategoryList, getProductDetail, getTagList } from '@apis';
-
 // Mocks
 import { MOCK_PRODUCT_LIST, MOCK_PRODUCT_SIZES } from '@mocks';
 
