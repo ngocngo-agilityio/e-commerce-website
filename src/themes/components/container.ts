@@ -5,7 +5,7 @@ export const Container = defineStyleConfig({
   sizes: {
     lg: {
       w: 'full',
-      maxWidth: '1346px',
+      maxWidth: '1272px',
     },
   },
   defaultProps: {

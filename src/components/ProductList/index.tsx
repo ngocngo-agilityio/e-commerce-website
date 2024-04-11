@@ -17,7 +17,7 @@ const ProductList = ({ data = [] }: Props): JSX.Element => {
   return (
     <>
       {data.length > 0 ? (
-        <Wrap spacingX="44px" spacingY="48px">
+        <Wrap spacingX="20px" spacingY="48px">
           {data.map((product) => {
             const { id, name, image, price } = product || {};
 
