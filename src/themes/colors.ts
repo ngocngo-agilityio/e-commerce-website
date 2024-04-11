@@ -15,6 +15,7 @@ const BASE = {
   gallery: '#EBEBEB',
   silver: '#BEBEBE',
   gray: '#818181',
+  cornflowerBlue: '#FFFFFF80',
 };
 
 export const colors = {
@@ -137,4 +138,7 @@ export const colors = {
   // Counter
   counterBg: BASE.redDamask,
   counterText: BASE.white,
+
+  //Loading indicator
+  loadingIndicatorBg: BASE.cornflowerBlue,
 };

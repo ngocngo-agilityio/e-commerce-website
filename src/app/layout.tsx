@@ -33,6 +33,7 @@ export default function RootLayout({
           */}
             <Box
               minHeight={`calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT})`}
+              pos="relative"
             >
               {children}
             </Box>

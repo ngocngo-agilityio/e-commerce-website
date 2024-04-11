@@ -13,7 +13,7 @@ import { formatCurrency } from '@utils';
 import { FALL_BACK_IMAGE } from '@constants';
 
 // Components
-import { Rating } from '@components';
+import { Rating, SkeletonProductCategories } from '@components';
 
 // Sections
 import AddToCard from './AddToCard';
@@ -82,13 +82,11 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
 
           <AddToCard sizes={sizes} product={product} />
 
-          {/* TODO: Update later */}
-          <Suspense fallback={<Text>Loading...</Text>}>
+          <Suspense fallback={<SkeletonProductCategories />}>
             <Categories categoryIds={categoryIds} />
           </Suspense>
 
-          {/* TODO: Update later */}
-          <Suspense fallback={<Text>Loading...</Text>}>
+          <Suspense fallback={<SkeletonProductCategories />}>
             <Tags tagIds={tagIds} />
           </Suspense>
         </Flex>
