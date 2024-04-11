@@ -35,7 +35,6 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
               border-radius="none"
               placeholder={FALL_BACK_IMAGE}
               fill
-              priority
             />
           </Box>
         </Link>
