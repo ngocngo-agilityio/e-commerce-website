@@ -6,7 +6,7 @@ exports[`Navigation component should match snapshot for Navigation 1`] = `
     class="css-7dibxd"
   >
     <a
-      href="#"
+      href="/"
     >
       <span
         class="chakra-text css-1fd5thk"

@@ -20,3 +20,4 @@ export { default as CartTable } from './CartTable';
 export { default as ConfirmModal } from './ConfirmModal';
 export { default as CartStateManager } from './CartStateManager';
 export { default as Counter } from './Counter';
+export { default as LoadingIndicator } from './LoadingIndicator';

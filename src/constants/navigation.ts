@@ -1,8 +1,11 @@
 //  Types
 import { MenuItem, Menu } from '@types';
 
+// Constants
+import { APP_ROUTERS } from './routes';
+
 export const NAVIGATION = [
-  { title: 'Home', path: '#' },
+  { title: 'Home', path: APP_ROUTERS.HOME_PAGE },
   { title: 'About', path: '#' },
   { title: 'Contact us', path: '#' },
 ];

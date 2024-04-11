@@ -20,20 +20,17 @@ exports[`CartItem components should match snapshot for CartItem 1`] = `
       <td
         class="css-0"
       >
-        <div
-          class="css-1bdr4yj"
-        >
-          <img
-            alt="Product Image"
-            data-nimg="fill"
-            decoding="async"
-            fetchpriority="high"
-            sizes="100vw"
-            src="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=3840&q=75"
-            srcset="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=3840&q=75 3840w"
-            style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; color: transparent;"
-          />
-        </div>
+        <img
+          alt="Product Image"
+          data-nimg="1"
+          decoding="async"
+          fetchpriority="high"
+          height="56"
+          src="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=96&q=75"
+          srcset="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=48&q=75 1x, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=96&q=75 2x"
+          style="color: transparent;"
+          width="48"
+        />
       </td>
       <td
         class="css-0"
