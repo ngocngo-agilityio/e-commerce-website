@@ -1,4 +1,4 @@
-import { getSearchParams, updateSearchParams } from '../param-url';
+import { getSearchParams, updateSearchParams } from '../paramUrl';
 
 describe('getSearchParams', () => {
   test('returns an empty object when searchParams is empty', () => {
