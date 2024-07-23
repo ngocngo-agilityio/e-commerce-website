@@ -1,9 +1,11 @@
 // Libs
-import { Breadcrumb, BreadcrumbItem, Container } from '@chakra-ui/react';
-import Link from 'next/link';
+import { Container } from '@chakra-ui/react';
 
 // Constants
-import { APP_ROUTERS } from '@constants';
+import { CART_PAGE_BREADCRUMB } from '@constants';
+
+// Components
+import { Breadcrumb } from '@components';
 
 // Sections
 import CartItems from './CartItems';
@@ -11,15 +13,7 @@ import CartItems from './CartItems';
 const Cart = (): JSX.Element => {
   return (
     <Container pt="67px" pb="106px">
-      <Breadcrumb mb="70px">
-        <BreadcrumbItem>
-          <Link href={APP_ROUTERS.HOME_PAGE}>Home</Link>
-        </BreadcrumbItem>
-        <BreadcrumbItem isCurrentPage color="currentPageBreadcrumb">
-          <Link href={APP_ROUTERS.CART_PAGE}>Cart</Link>
-        </BreadcrumbItem>
-      </Breadcrumb>
-
+      <Breadcrumb breadcrumb={CART_PAGE_BREADCRUMB} />
       <CartItems />
     </Container>
   );

@@ -1,5 +1,5 @@
 //  Types
-import { MenuItem, Menu } from '@types';
+import { MenuItem, Menu, IBreadcrumbItem } from '@types';
 
 // Constants
 import { APP_ROUTERS } from './routes';
@@ -36,4 +36,9 @@ export const FOOTER_MENU: Menu[] = [
   { heading: 'Company info', items: COMPANY_INFO },
   { heading: 'Help links', items: HELP_LINKS },
   { heading: 'Useful links', items: USEFUL_LINKS },
+];
+
+export const CART_PAGE_BREADCRUMB: IBreadcrumbItem[] = [
+  { label: 'Home', href: APP_ROUTERS.HOME_PAGE },
+  { label: 'Cart', href: APP_ROUTERS.CART_PAGE, isCurrentPage: true },
 ];
