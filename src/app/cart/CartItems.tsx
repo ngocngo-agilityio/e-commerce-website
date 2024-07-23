@@ -54,7 +54,7 @@ const CartItems = (): JSX.Element => {
   );
 
   return (
-    <>
+    <Box mt="70px">
       <CartTable
         cart={cartItems}
         onCartItemRemove={handleRemoveCartItem}
@@ -85,7 +85,7 @@ const CartItems = (): JSX.Element => {
       <Button variant="checkoutBtn" w="262px" h="58px" onClick={handleCheckout}>
         Proceed to Checkout
       </Button>
-    </>
+    </Box>
   );
 };
 
