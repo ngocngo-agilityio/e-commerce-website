@@ -1,13 +1,14 @@
-'use server';
-
 // Services
-import { HttpRequestService } from '@services';
+import { httpClient } from '@services';
 
 // Constants
 import { API_PATH } from '@constants';
 
 // Types
 import { Category, Tag } from '@types';
+
+// Utils
+import { formatUrlWithQuery } from '@utils';
 
 interface Configs {
   ids?: string[];
@@ -31,15 +32,11 @@ export const getCategoryList = async (
       _limit: queryConfig?.limit,
     };
 
-    const configs = {
-      params: queryParams,
-    };
+    const endpoint = formatUrlWithQuery(API_PATH.CATEGORIES, queryParams);
 
-    const res = await HttpRequestService.get<Category[]>(
-      API_PATH.CATEGORIES,
-      configs,
-    );
-    const { data } = res || {};
+    const { data } = await httpClient.getRequest<Category[]>({
+      endpoint,
+    });
 
     return { data: data || [] };
   } catch (error) {
@@ -60,12 +57,9 @@ export const getTagList = async (
       _limit: queryConfig?.limit,
     };
 
-    const configs = {
-      params: queryParams,
-    };
+    const endpoint = formatUrlWithQuery(API_PATH.TAGS, queryParams);
 
-    const res = await HttpRequestService.get<Tag[]>(API_PATH.TAGS, configs);
-    const { data } = res || {};
+    const { data } = await httpClient.getRequest<Tag[]>({ endpoint });
 
     return { data: data || [] };
   } catch (error) {
