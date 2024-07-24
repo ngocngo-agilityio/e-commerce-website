@@ -18,7 +18,6 @@ export { default as Pagination } from './Pagination';
 export { default as Rating } from './Rating';
 export { default as CartTable } from './CartTable';
 export { default as ConfirmModal } from './ConfirmModal';
-export { default as CartStateManager } from './CartStateManager';
 export { default as Counter } from './Counter';
 export { default as LoadingIndicator } from './LoadingIndicator';
 export { default as Breadcrumb } from './Breadcrumb';

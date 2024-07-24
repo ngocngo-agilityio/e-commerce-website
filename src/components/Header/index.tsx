@@ -1,10 +1,5 @@
-'use client';
-
 // Libs
 import { Box, Container, HStack } from '@chakra-ui/react';
-
-// Stores
-import { useCartStore } from '@stores';
 
 // Assets
 import { HamburgerIcon } from '@assets';
@@ -12,9 +7,12 @@ import { HamburgerIcon } from '@assets';
 // Components
 import { Logo, Navigation, ShoppingCart, UserProfile } from '@components';
 
-const Header = (): JSX.Element => {
-  // Cart Store
-  const cartItems = useCartStore((state) => state.cartItems);
+import { getCartItems } from '@apis';
+
+const Header = async (): Promise<JSX.Element> => {
+  // Get my cart
+  const { data: cartItems } = await getCartItems();
+
   const cartItemQuantity = cartItems.length || 0;
 
   return (

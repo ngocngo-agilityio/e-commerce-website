@@ -1,5 +1,8 @@
 // Libs
-import { Container } from '@chakra-ui/react';
+import { Container, Spinner } from '@chakra-ui/react';
+
+// Apis
+import { preloadGetCartItems } from '@apis';
 
 // Constants
 import { CART_PAGE_BREADCRUMB } from '@constants';
@@ -8,13 +11,20 @@ import { CART_PAGE_BREADCRUMB } from '@constants';
 import { Breadcrumb } from '@components';
 
 // Sections
-import CartItems from './CartItems';
+import { CartItems } from '@sections';
+import { Suspense } from 'react';
 
 const Cart = (): JSX.Element => {
+  preloadGetCartItems();
+
   return (
     <Container pt="67px" pb="106px">
       <Breadcrumb breadcrumb={CART_PAGE_BREADCRUMB} />
-      <CartItems />
+
+      {/* TODO: Update later. Using Skeleton instead of Spinner */}
+      <Suspense fallback={<Spinner />}>
+        <CartItems />
+      </Suspense>
     </Container>
   );
 };

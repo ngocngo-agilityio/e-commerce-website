@@ -1,10 +1,10 @@
-'use server';
+// 'use server';
 
 // Libs
 import { revalidatePath } from 'next/cache';
 
 // Services
-import { HttpRequestService } from '@services';
+import { httpClient, HttpRequestService } from '@services';
 
 // Types
 import { CartItem, Product } from '@types';
@@ -73,13 +73,19 @@ export const addToCart = async ({
 
 export const getCartItems = async (): Promise<{ data: CartItem[] }> => {
   try {
-    const res = await HttpRequestService.get<CartItem[]>(API_PATH.CARTS);
-    const { data } = res || {};
+    const { data } = await httpClient.getRequest<CartItem[]>({
+      endpoint: API_PATH.CARTS,
+      configOptions: { next: { tags: [API_PATH.CARTS] } },
+    });
 
     return { data: data || [] };
   } catch (error) {
     throw error;
   }
+};
+
+export const preloadGetCartItems = (): void => {
+  getCartItems();
 };
 
 export const updateCartItemQuantity = async ({

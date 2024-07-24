@@ -115,6 +115,8 @@ class HttpClient {
     endpoint,
     configOptions,
   }: TRequest): Promise<ResponseData<T>> {
+    console.log('endpoint', endpoint);
+
     const res = await fetch(this.baseApi + endpoint, configOptions);
 
     if (!res?.ok) {
