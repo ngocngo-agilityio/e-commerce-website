@@ -7,7 +7,7 @@ exports[`Cart page should match snapshot for Cart page 1`] = `
   >
     <nav
       aria-label="breadcrumb"
-      class="chakra-breadcrumb css-7wlyfr"
+      class="chakra-breadcrumb css-0"
     >
       <ol
         class="chakra-breadcrumb__list css-70qvj9"
@@ -21,11 +21,9 @@ exports[`Cart page should match snapshot for Cart page 1`] = `
             Home
           </a>
           <span
-            class="css-t4q1nq"
+            class="css-0"
             role="presentation"
-          >
-            /
-          </span>
+          />
         </li>
         <li
           class="chakra-breadcrumb__list-item css-plisa0"
@@ -35,126 +33,134 @@ exports[`Cart page should match snapshot for Cart page 1`] = `
           >
             Cart
           </a>
+          <span
+            class="css-0"
+            role="presentation"
+          />
         </li>
       </ol>
     </nav>
-    <table
-      class="chakra-table css-0"
+    <div
+      class="css-fj59pj"
     >
-      <thead
-        class="css-0"
+      <table
+        class="chakra-table css-0"
       >
-        <tr
+        <thead
           class="css-0"
         >
-          <th
-            class="css-0"
-          />
-          <th
-            class="css-0"
-          />
-          <th
+          <tr
             class="css-0"
           >
-            Product
-          </th>
-          <th
+            <th
+              class="css-0"
+            />
+            <th
+              class="css-0"
+            />
+            <th
+              class="css-0"
+            >
+              Product
+            </th>
+            <th
+              class="css-0"
+            >
+              Price
+            </th>
+            <th
+              class="css-0"
+            >
+              Quantity
+            </th>
+            <th
+              class="css-0"
+            >
+              Total
+            </th>
+          </tr>
+        </thead>
+        <tbody
+          class="css-0"
+        >
+          <tr
             class="css-0"
           >
-            Price
-          </th>
-          <th
-            class="css-0"
+            <td
+              class="css-rtu7mb"
+              colspan="6"
+            >
+              No products in your cart.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <h2
+        class="chakra-heading css-1k51fm5"
+      >
+        Cart Totals
+      </h2>
+      <div
+        class="css-3u1iq8"
+      >
+        <div
+          class="css-19y425s"
+        >
+          <p
+            class="chakra-text css-0"
           >
-            Quantity
-          </th>
-          <th
-            class="css-0"
+            Subtotal
+          </p>
+          <p
+            class="chakra-text css-0"
+          >
+            $0.00
+          </p>
+        </div>
+        <hr
+          aria-orientation="horizontal"
+          class="chakra-divider css-1upb9tn"
+        />
+        <div
+          class="css-19y425s"
+        >
+          <p
+            class="chakra-text css-0"
+          >
+            ShippingFree
+          </p>
+          <p
+            class="chakra-text css-0"
+          >
+            FREE!!!
+          </p>
+        </div>
+        <hr
+          aria-orientation="horizontal"
+          class="chakra-divider css-1upb9tn"
+        />
+        <div
+          class="css-19y425s"
+        >
+          <p
+            class="chakra-text css-19q2mny"
           >
             Total
-          </th>
-        </tr>
-      </thead>
-      <tbody
-        class="css-0"
-      >
-        <tr
-          class="css-0"
-        >
-          <td
-            class="css-rtu7mb"
-            colspan="6"
+          </p>
+          <p
+            class="chakra-text css-0"
           >
-            No products in your cart.
-          </td>
-        </tr>
-      </tbody>
-    </table>
-    <h2
-      class="chakra-heading css-1k51fm5"
-    >
-      Cart Totals
-    </h2>
-    <div
-      class="css-3u1iq8"
-    >
-      <div
-        class="css-19y425s"
-      >
-        <p
-          class="chakra-text css-0"
-        >
-          Subtotal
-        </p>
-        <p
-          class="chakra-text css-0"
-        >
-          $0.00
-        </p>
+            $0.00
+          </p>
+        </div>
       </div>
-      <hr
-        aria-orientation="horizontal"
-        class="chakra-divider css-1upb9tn"
-      />
-      <div
-        class="css-19y425s"
+      <button
+        class="chakra-button css-70vipg"
+        type="button"
       >
-        <p
-          class="chakra-text css-0"
-        >
-          ShippingFree
-        </p>
-        <p
-          class="chakra-text css-0"
-        >
-          FREE!!!
-        </p>
-      </div>
-      <hr
-        aria-orientation="horizontal"
-        class="chakra-divider css-1upb9tn"
-      />
-      <div
-        class="css-19y425s"
-      >
-        <p
-          class="chakra-text css-19q2mny"
-        >
-          Total
-        </p>
-        <p
-          class="chakra-text css-0"
-        >
-          $0.00
-        </p>
-      </div>
+        Proceed to Checkout
+      </button>
     </div>
-    <button
-      class="chakra-button css-70vipg"
-      type="button"
-    >
-      Proceed to Checkout
-    </button>
   </div>
 </div>
 `;
