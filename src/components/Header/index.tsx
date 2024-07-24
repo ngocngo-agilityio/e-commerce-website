@@ -1,7 +1,7 @@
 'use client';
 
 // Libs
-import { Box, Container, Flex, HStack } from '@chakra-ui/react';
+import { Box, Container, HStack } from '@chakra-ui/react';
 
 // Stores
 import { useCartStore } from '@stores';
@@ -18,28 +18,28 @@ const Header = (): JSX.Element => {
   const cartItemQuantity = cartItems.length || 0;
 
   return (
-    <Container as="header">
-      <Flex
-        alignContent="center"
-        wrap="wrap"
-        justifyContent="space-between"
-        pt="34px"
-        pb="16px"
-      >
-        <HStack spacing="150px" wrap="wrap">
-          <Logo />
-          <Navigation />
-        </HStack>
+    <Container
+      as="header"
+      display="flex"
+      alignContent="center"
+      flexWrap="wrap"
+      justifyContent="space-between"
+      pt="34px"
+      pb="16px"
+    >
+      <HStack spacing="150px" wrap="wrap">
+        <Logo />
+        <Navigation />
+      </HStack>
 
-        <HStack spacing="25px" alignContent="center">
-          <UserProfile />
-          <ShoppingCart cartItemQuantity={cartItemQuantity} />
+      <HStack spacing="25px" alignContent="center">
+        <UserProfile />
+        <ShoppingCart cartItemQuantity={cartItemQuantity} />
 
-          <Box cursor="pointer">
-            <HamburgerIcon />
-          </Box>
-        </HStack>
-      </Flex>
+        <Box cursor="pointer">
+          <HamburgerIcon />
+        </Box>
+      </HStack>
     </Container>
   );
 };

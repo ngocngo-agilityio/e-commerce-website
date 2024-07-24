@@ -47,49 +47,54 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
   const discountedPrice = formatCurrency(discount);
 
   return (
-    <Container>
-      <Flex pr="82px" pt="30px" pb="100px" gap="48px" wrap="wrap">
-        <Image
-          src={image}
-          alt="Product Image"
-          placeholder={FALL_BACK_IMAGE}
-          width={550}
-          height={637}
-          priority
-        />
+    <Container
+      display="flex"
+      pr="98px"
+      pt="30px"
+      pb="100px"
+      gap="48px"
+      flexWrap="wrap"
+    >
+      <Image
+        src={image}
+        alt="Product Image"
+        placeholder={FALL_BACK_IMAGE}
+        width={550}
+        height={637}
+        priority
+      />
 
-        <Flex flexDir="column" flex={1}>
-          <Heading size="md" lineHeight="48px" mt="48px">
-            {name}
-          </Heading>
-          <Flex mt="20px" gap="5px">
-            <Rating rating={rating} />
-            <Text size="md" color="productDetail.reviewNumber">
-              ({voteNumber})
-            </Text>
-          </Flex>
-          <Flex gap="14px" mt="25px">
-            <Text as="del" size="3xl" color="discountedPrice">
-              {originalPrice}
-            </Text>
-            <Text size="3xl" color="price">
-              {discountedPrice}
-            </Text>
-          </Flex>
-          <Text mt="26px" mb="70px">
-            {introduction}
+      <Flex flexDir="column" flex={1}>
+        <Heading size="md" lineHeight="48px" mt="48px">
+          {name}
+        </Heading>
+        <Flex mt="20px" gap="5px">
+          <Rating rating={rating} />
+          <Text size="md" color="productDetail.reviewNumber">
+            ({voteNumber})
           </Text>
-
-          <AddToCard sizes={sizes} product={product} />
-
-          <Suspense fallback={<SkeletonProductCategories />}>
-            <Categories categoryIds={categoryIds} />
-          </Suspense>
-
-          <Suspense fallback={<SkeletonProductCategories />}>
-            <Tags tagIds={tagIds} />
-          </Suspense>
         </Flex>
+        <Flex gap="14px" mt="25px">
+          <Text as="del" size="3xl" color="discountedPrice">
+            {originalPrice}
+          </Text>
+          <Text size="3xl" color="price">
+            {discountedPrice}
+          </Text>
+        </Flex>
+        <Text mt="26px" mb="70px">
+          {introduction}
+        </Text>
+
+        <AddToCard sizes={sizes} product={product} />
+
+        <Suspense fallback={<SkeletonProductCategories />}>
+          <Categories categoryIds={categoryIds} />
+        </Suspense>
+
+        <Suspense fallback={<SkeletonProductCategories />}>
+          <Tags tagIds={tagIds} />
+        </Suspense>
       </Flex>
     </Container>
   );
