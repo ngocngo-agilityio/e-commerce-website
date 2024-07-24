@@ -37,3 +37,26 @@ export const updateSearchParams = (
 
   return params;
 };
+
+/**
+ * Formats a URL with query parameters
+ * @param endpoint - The base API endpoint
+ * @param query - An object containing query parameter
+ * @returns - The formatted URL with query parameters
+ */
+export const formatUrlWithQuery = (
+  endpoint: string,
+  query: Record<string, string | string[] | number | undefined>,
+): string => {
+  const params = new URLSearchParams(
+    Object.entries(query)
+      .filter(([, value]) => value !== undefined)
+      .flatMap(([key, value]) =>
+        Array.isArray(value)
+          ? value.map((val) => [key, val])
+          : [[key, String(value)]],
+      ),
+  );
+
+  return params.toString() ? `${endpoint}?${params.toString()}` : endpoint;
+};
