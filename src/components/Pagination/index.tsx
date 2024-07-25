@@ -44,7 +44,7 @@ const Pagination = ({ pagesQuantity }: Props): JSX.Element => {
         page.toString(),
       );
 
-      replace(`${pathname}?${updatedParams.toString()}`);
+      replace(`${pathname}?${updatedParams.toString()}`, { scroll: false });
     },
     [pathname, replace, searchParams, setCurrentPage],
   );

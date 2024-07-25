@@ -27,7 +27,7 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
       _hover={{ transform: 'scale(1.05)' }}
     >
       <CardBody>
-        <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id)}>
+        <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id)} scroll={true}>
           <Image
             src={image}
             alt="Product Image"
@@ -36,9 +36,8 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
             width={295}
             height={342}
           />
-        </Link>
-        <Flex flexDir="column" alignItems="center" pt="16px">
-          <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id)}>
+
+          <Flex flexDir="column" alignItems="center" pt="16px">
             <Heading
               as="h3"
               fontSize="xl"
@@ -48,12 +47,11 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
             >
               {name}
             </Heading>
-          </Link>
-
-          <Text mt="6px" as="span" size="xl" color="price">
-            {formattedPrice}
-          </Text>
-        </Flex>
+            <Text mt="6px" as="span" size="xl" color="price">
+              {formattedPrice}
+            </Text>
+          </Flex>
+        </Link>
       </CardBody>
     </Card>
   );
