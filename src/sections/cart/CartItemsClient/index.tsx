@@ -4,33 +4,39 @@
 import { useCallback, useMemo } from 'react';
 import { Box, Flex, Heading, Text, Divider, Button } from '@chakra-ui/react';
 
-// Apis
-import { updateCartItemQuantity, removeCartItem } from '@apis';
+// Actions
+import { updateCartItemQuantity, removeCartItem } from '@actions';
 
 // Hooks
 import { useCustomToast } from '@hooks';
 
-// Stores
-import { useCartStore } from '@stores';
+// Types
+import { CartItem } from '@types';
 
 // Utils
-import { formatCurrency, calculateTotalPrice } from '@utils';
+import { calculateTotalPrice, formatCurrency } from '@utils';
 
 // Components
 import { CartTable } from '@components';
 
-const CartItems = (): JSX.Element => {
+interface CartItemClientProps {
+  cartItems: CartItem[];
+}
+
+const CartItemsClient = ({ cartItems }: CartItemClientProps): JSX.Element => {
   const { showToast } = useCustomToast();
 
-  // Cart store
-  const cartItems = useCartStore((state) => state.cartItems);
-
   const total = useMemo(() => calculateTotalPrice(cartItems), [cartItems]);
-  const formattedTotal = useMemo(() => formatCurrency(total), [total]);
+  const formattedTotal = formatCurrency(total);
+
+  // TODO: Update later
+  const handleCheckout = () => {};
 
   const handleRemoveCartItem = useCallback(
     async (cartId: string) => {
-      const { error } = await removeCartItem(cartId);
+      const res = await removeCartItem(cartId);
+
+      const { error } = res || {};
 
       if (error) {
         showToast(error);
@@ -39,12 +45,11 @@ const CartItems = (): JSX.Element => {
     [showToast],
   );
 
-  // TODO: Update later
-  const handleCheckout = () => {};
-
   const handleChangeQuantity = useCallback(
     async (cartId: string, quantity: number) => {
-      const { error } = await updateCartItemQuantity({ quantity, cartId });
+      const res = await updateCartItemQuantity({ quantity, cartId });
+
+      const { error } = res || {};
 
       if (error) {
         showToast(error);
@@ -89,4 +94,4 @@ const CartItems = (): JSX.Element => {
   );
 };
 
-export default CartItems;
+export default CartItemsClient;

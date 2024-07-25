@@ -16,7 +16,7 @@ import { FALL_BACK_IMAGE } from '@constants';
 import { Rating, SkeletonProductCategories } from '@components';
 
 // Sections
-import AddToCard from './AddToCard';
+import { AddCartAction } from '@sections';
 import Categories from './Categories';
 import Tags from './Tags';
 
@@ -86,7 +86,10 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
           {introduction}
         </Text>
 
-        <AddToCard sizes={sizes} product={product} />
+        {/* TODO: Update later */}
+        <Suspense fallback={<>Skeleton..........</>}>
+          <AddCartAction sizes={sizes} product={product} />
+        </Suspense>
 
         <Suspense fallback={<SkeletonProductCategories />}>
           <Categories categoryIds={categoryIds} />

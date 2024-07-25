@@ -1,4 +1,5 @@
 // Libs
+import { Suspense } from 'react';
 import { Container, Spinner } from '@chakra-ui/react';
 
 // Apis
@@ -12,7 +13,6 @@ import { Breadcrumb } from '@components';
 
 // Sections
 import { CartItems } from '@sections';
-import { Suspense } from 'react';
 
 const Cart = (): JSX.Element => {
   preloadGetCartItems();

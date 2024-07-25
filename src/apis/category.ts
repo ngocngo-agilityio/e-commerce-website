@@ -59,7 +59,9 @@ export const getTagList = async (
 
     const endpoint = formatUrlWithQuery(API_PATH.TAGS, queryParams);
 
-    const { data } = await httpClient.getRequest<Tag[]>({ endpoint });
+    const { data } = await httpClient.getRequest<Tag[]>({
+      endpoint,
+    });
 
     return { data: data || [] };
   } catch (error) {

@@ -30,7 +30,8 @@
       "@apis": ["./src/apis"],
       "@hooks": ["./src/hooks"],
       "@stores": ["./src/stores"],
-      "@sections": ["./src/sections"]
+      "@sections": ["./src/sections"],
+      "@actions": ["./src/actions"]
     }
   },
   "include": [

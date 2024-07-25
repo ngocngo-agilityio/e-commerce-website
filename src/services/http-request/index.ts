@@ -99,7 +99,7 @@ type TDeleteRequest<T> = TRequest & {
   body?: T;
 };
 
-type ResponseData<T> = {
+export type ResponseData<T> = {
   totalCount: number;
   data: T;
 };
@@ -115,8 +115,6 @@ class HttpClient {
     endpoint,
     configOptions,
   }: TRequest): Promise<ResponseData<T>> {
-    console.log('endpoint', endpoint);
-
     const res = await fetch(this.baseApi + endpoint, configOptions);
 
     if (!res?.ok) {
@@ -172,6 +170,21 @@ class HttpClient {
   }: TPutRequest<T>): Promise<ResponseData<K>> {
     const options: RequestInit = {
       method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+      ...configOptions,
+    };
+
+    return this.request<K>({ endpoint, configOptions: options });
+  }
+
+  async patchRequest<T, K>({
+    endpoint,
+    body,
+    configOptions,
+  }: TPutRequest<T>): Promise<ResponseData<K>> {
+    const options: RequestInit = {
+      method: 'PATCH',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body),
       ...configOptions,
