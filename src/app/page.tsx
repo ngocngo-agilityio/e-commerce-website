@@ -2,11 +2,12 @@
 import { Suspense } from 'react';
 import { Box, Container, Heading, Text } from '@chakra-ui/react';
 
-// Apis
-import { getCategoryList } from '@apis';
-
 // Components
-import { Banner, SkeletonProductList } from '@components';
+import {
+  Banner,
+  SkeletonProductList,
+  SkeletonProductsActions,
+} from '@components';
 
 // Sections
 import { ProductList, ProductListActions } from '@sections';
@@ -20,12 +21,14 @@ interface Props {
   };
 }
 
-const Products = async ({ searchParams }: Props) => {
-  const { name, order, categoryIds, page } = searchParams || {};
+const Products = ({ searchParams }: Props) => {
+  const {
+    name = '',
+    order = '',
+    categoryIds = '',
+    page = '1',
+  } = searchParams || {};
   const ids = categoryIds?.split(',');
-
-  // Fetch data for category list
-  const { data: categories } = await getCategoryList();
 
   return (
     <Box as="main">
@@ -39,9 +42,14 @@ const Products = async ({ searchParams }: Props) => {
           Recently added shirts!
         </Text>
 
-        <ProductListActions categories={categories} />
+        <Suspense fallback={<SkeletonProductsActions />}>
+          <ProductListActions />
+        </Suspense>
 
-        <Suspense fallback={<SkeletonProductList />}>
+        <Suspense
+          key={name + order + categoryIds + page}
+          fallback={<SkeletonProductList />}
+        >
           <ProductList
             searchValue={name}
             sortDirection={order}

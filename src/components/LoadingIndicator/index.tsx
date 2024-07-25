@@ -5,7 +5,7 @@ const LoadingIndicator = (): JSX.Element => {
   return (
     <Box
       style={{
-        position: 'absolute',
+        position: 'fixed',
         top: 0,
         left: 0,
         width: '100%',
@@ -13,14 +13,15 @@ const LoadingIndicator = (): JSX.Element => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'loadingIndicatorBg',
+        backgroundColor: 'black',
+        opacity: 0.7,
         zIndex: 9999,
       }}
     >
       <SpinnerChakraUI
         size="lg"
         thickness="4px"
-        speed="0.65s"
+        speed="0.8s"
         color="blue.500"
       />
     </Box>
