@@ -8,7 +8,7 @@ import { getCategoryList } from '@apis';
 import { MOCK_CATEGORIES } from '@mocks';
 
 // Components
-import Categories from '../Categories';
+import Categories from '../../../../sections/product-detail/Categories';
 
 jest.mock('@apis');
 
