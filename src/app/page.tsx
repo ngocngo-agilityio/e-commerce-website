@@ -9,8 +9,7 @@ import { getCategoryList } from '@apis';
 import { Banner, SkeletonProductList } from '@components';
 
 // Sections
-import ProductList from './products/ProductList';
-import ProductListActions from './products/ProductListActions';
+import { ProductList, ProductListActions } from '@sections';
 
 interface Props {
   searchParams?: {

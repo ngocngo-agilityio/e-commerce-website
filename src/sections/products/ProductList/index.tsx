@@ -11,7 +11,7 @@ import { PRODUCT_PER_PAGE, SORT_BY } from '@constants';
 // Components
 import { ProductList } from '@components';
 
-const Pagination = dynamic(() => import('../../components/Pagination'));
+const Pagination = dynamic(() => import('@components/Pagination'));
 
 interface Props {
   searchValue?: string;

@@ -16,9 +16,7 @@ import { FALL_BACK_IMAGE } from '@constants';
 import { Rating, SkeletonProductCategories } from '@components';
 
 // Sections
-import { AddCartAction } from '@sections';
-import Categories from './Categories';
-import Tags from './Tags';
+import { AddCartAction, Categories, Tags } from '@sections';
 
 interface Props {
   params: { id: string };
