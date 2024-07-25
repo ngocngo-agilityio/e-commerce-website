@@ -29,7 +29,9 @@
       "@services": ["./src/services"],
       "@apis": ["./src/apis"],
       "@hooks": ["./src/hooks"],
-      "@stores": ["./src/stores"]
+      "@stores": ["./src/stores"],
+      "@sections": ["./src/sections"],
+      "@actions": ["./src/actions"]
     }
   },
   "include": [

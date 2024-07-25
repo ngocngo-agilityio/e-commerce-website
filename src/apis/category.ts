@@ -34,11 +34,13 @@ export const getCategoryList = async (
 
     const endpoint = formatUrlWithQuery(API_PATH.CATEGORIES, queryParams);
 
-    const { data } = await httpClient.getRequest<Category[]>({
+    const res = await httpClient.getRequest<Category[]>({
       endpoint,
     });
 
-    return { data: data || [] };
+    const { data = [] } = res || {};
+
+    return { data };
   } catch (error) {
     throw error;
   }
@@ -59,9 +61,13 @@ export const getTagList = async (
 
     const endpoint = formatUrlWithQuery(API_PATH.TAGS, queryParams);
 
-    const { data } = await httpClient.getRequest<Tag[]>({ endpoint });
+    const res = await httpClient.getRequest<Tag[]>({
+      endpoint,
+    });
 
-    return { data: data || [] };
+    const { data = [] } = res || {};
+
+    return { data };
   } catch (error) {
     throw error;
   }

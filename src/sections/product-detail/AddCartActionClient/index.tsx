@@ -6,10 +6,7 @@ import isEqual from 'react-fast-compare';
 import { Button } from '@chakra-ui/react';
 
 // Actions
-import { addToCart } from '@apis';
-
-// Stores
-import { useCartStore } from '@stores';
+import { addToCart } from '@actions';
 
 // Hooks
 import { useCustomToast } from '@hooks';
@@ -18,7 +15,7 @@ import { useCustomToast } from '@hooks';
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '@constants';
 
 // Types
-import { SizeOption, Product } from '@types';
+import { SizeOption, Product, CartItem } from '@types';
 
 // Components
 import { SelectSize as SelectSizeComponent } from '@components';
@@ -26,38 +23,46 @@ import { SelectSize as SelectSizeComponent } from '@components';
 interface Props {
   sizes: SizeOption[];
   product: Product;
+  cartItems?: CartItem[];
 }
 
-const AddToCard = ({ sizes, product }: Props): JSX.Element => {
+const AddToCartActionClient = ({
+  sizes,
+  product,
+  cartItems = [],
+}: Props): JSX.Element => {
   const [selectedSize, setSelectedSize] = useState<SizeOption>();
   const { showToast } = useCustomToast();
-  const cartItems = useCartStore((state) => state.cartItems);
 
   const handleSelectSize = useCallback((size: SizeOption) => {
     setSelectedSize(size);
   }, []);
 
-  const handleAddToCard = async () => {
+  const handleAddToCard = useCallback(async () => {
     if (!selectedSize) {
       showToast(ERROR_MESSAGES.SELECT_SIZE);
-    } else {
-      const existingCartItems = cartItems.find(
-        (item) => item.productId == product.id,
-      );
 
-      const { error } = await addToCart({
-        product,
-        quantity: existingCartItems ? existingCartItems?.quantity + 1 : 1,
-        cartId: existingCartItems?.id || '',
-      });
-
-      if (error) {
-        showToast(error);
-      } else {
-        showToast(SUCCESS_MESSAGES.ADD_CART, 'success');
-      }
+      return;
     }
-  };
+
+    const existingCartItems = cartItems.find(
+      (item) => item.productId == product.id,
+    );
+
+    const res = await addToCart({
+      product,
+      quantity: existingCartItems ? existingCartItems?.quantity + 1 : 1,
+      cartId: existingCartItems?.id || '',
+    });
+
+    const { error } = res || {};
+
+    if (error) {
+      showToast(error);
+    } else {
+      showToast(SUCCESS_MESSAGES.ADD_CART, 'success');
+    }
+  }, [cartItems, product, selectedSize, showToast]);
 
   return (
     <>
@@ -76,4 +81,4 @@ const AddToCard = ({ sizes, product }: Props): JSX.Element => {
   );
 };
 
-export default memo(AddToCard, isEqual);
+export default memo(AddToCartActionClient, isEqual);
