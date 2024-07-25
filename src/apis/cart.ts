@@ -9,12 +9,14 @@ import { API_PATH } from '@constants';
 
 export const getCartItems = async (): Promise<{ data: CartItem[] }> => {
   try {
-    const { data } = await httpClient.getRequest<CartItem[]>({
+    const res = await httpClient.getRequest<CartItem[]>({
       endpoint: API_PATH.CARTS,
       configOptions: { next: { tags: [API_PATH.CARTS] } },
     });
 
-    return { data: data || [] };
+    const { data = [] } = res || {};
+
+    return { data };
   } catch (error) {
     throw error;
   }

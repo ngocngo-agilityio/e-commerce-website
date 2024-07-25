@@ -39,15 +39,15 @@ export const getProductList = async (
 
     const endpoint = formatUrlWithQuery(API_PATH.PRODUCTS, queryParams);
 
-    const { data, totalCount } = await httpClient.getRequest<
-      ProductDataResponse[]
-    >({
+    const res = await httpClient.getRequest<ProductDataResponse[]>({
       endpoint,
     });
 
+    const { data = [], totalCount = 0 } = res || {};
+
     return {
-      data: data || [],
-      total: totalCount || 0,
+      data,
+      total: totalCount,
     };
   } catch (error) {
     throw error;
@@ -58,9 +58,11 @@ export const getProductDetail = async (
   id: string,
 ): Promise<{ data: ProductDataResponse }> => {
   try {
-    const { data } = await httpClient.getRequest<ProductDataResponse>({
+    const res = await httpClient.getRequest<ProductDataResponse>({
       endpoint: `${API_PATH.PRODUCTS}/${id}`,
     });
+
+    const { data } = res || {};
 
     return { data };
   } catch (error) {
