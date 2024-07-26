@@ -1,8 +1,8 @@
 // Libs
-import { Box } from '@chakra-ui/react';
+import { Skeleton } from '@chakra-ui/react';
 
 const SkeletonProductCategories = (): JSX.Element => {
-  return <Box w="600px" h="24px" />;
+  return <Skeleton w="600px" h="24px" />;
 };
 
 export default SkeletonProductCategories;

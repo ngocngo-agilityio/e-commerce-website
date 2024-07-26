@@ -1,7 +1,7 @@
 'use client';
 
 // Libs
-import { memo, useState, useCallback } from 'react';
+import { memo, useState, useCallback, useTransition } from 'react';
 import isEqual from 'react-fast-compare';
 import { Button } from '@chakra-ui/react';
 
@@ -33,6 +33,7 @@ const AddToCartActionClient = ({
 }: Props): JSX.Element => {
   const [selectedSize, setSelectedSize] = useState<SizeOption>();
   const { showToast } = useCustomToast();
+  const [isSubmitting, startTransition] = useTransition();
 
   const handleSelectSize = useCallback((size: SizeOption) => {
     setSelectedSize(size);
@@ -49,19 +50,21 @@ const AddToCartActionClient = ({
       (item) => item.productId == product.id,
     );
 
-    const res = await addToCart({
-      product,
-      quantity: existingCartItems ? existingCartItems?.quantity + 1 : 1,
-      cartId: existingCartItems?.id || '',
+    startTransition(async () => {
+      const res = await addToCart({
+        product,
+        quantity: existingCartItems ? existingCartItems?.quantity + 1 : 1,
+        cartId: existingCartItems?.id || '',
+      });
+
+      const { error } = res || {};
+
+      if (error) {
+        showToast(error);
+      } else {
+        showToast(SUCCESS_MESSAGES.ADD_CART, 'success');
+      }
     });
-
-    const { error } = res || {};
-
-    if (error) {
-      showToast(error);
-    } else {
-      showToast(SUCCESS_MESSAGES.ADD_CART, 'success');
-    }
   }, [cartItems, product, selectedSize, showToast]);
 
   return (
@@ -73,6 +76,8 @@ const AddToCartActionClient = ({
         textTransform="uppercase"
         mt="36px"
         mb="32px"
+        isDisabled={isSubmitting}
+        isLoading={isSubmitting}
         onClick={handleAddToCard}
       >
         Add to cart
