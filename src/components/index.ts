@@ -23,3 +23,4 @@ export { default as ConfirmModal } from './ConfirmModal';
 export { default as Counter } from './Counter';
 export { default as LoadingIndicator } from './LoadingIndicator';
 export { default as Breadcrumb } from './Breadcrumb';
+export { default as SkeletonCartItems } from './Skeleton/SkeletonCartItems';
