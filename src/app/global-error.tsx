@@ -10,7 +10,13 @@ const GlobalError = ({
   error: Error & { digest?: string };
   reset: () => void;
 }) => {
-  return <ErrorBoundary error={error} reset={reset} />;
+  return (
+    <html>
+      <body>
+        <ErrorBoundary error={error} reset={reset} />
+      </body>
+    </html>
+  );
 };
 
 export default GlobalError;

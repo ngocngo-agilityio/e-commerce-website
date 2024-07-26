@@ -22,10 +22,6 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  setTimeout(() => {
-    throw new Error('Failed');
-  }, 2000);
-
   return (
     <html lang="en">
       <body>
