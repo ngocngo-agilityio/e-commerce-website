@@ -24,44 +24,48 @@ const Footer = (): JSX.Element => {
   return (
     <Box as="footer" bg="footer.bg">
       <Container>
-        <Flex pt="65px" pb="115px" justifyContent="space-between">
-          <Flex gap="210px" wrap="wrap">
-            {FOOTER_MENU.map((item, index) => {
-              const { heading, items } = item;
+        <Flex
+          pt="65px"
+          pb="115px"
+          wrap="wrap"
+          gap="50px"
+          justifyContent="space-between"
+        >
+          {FOOTER_MENU.map((item, index) => {
+            const { heading, items } = item;
 
-              return (
-                <Box key={`${heading}-${index}`}>
-                  <Text
-                    size="xs"
-                    fontFamily="arimo"
-                    fontWeight="bold"
-                    color="footer.text"
-                    textTransform="uppercase"
-                    mb="26px"
-                  >
-                    {heading}
-                  </Text>
+            return (
+              <Box key={`${heading}-${index}`}>
+                <Text
+                  size="xs"
+                  fontFamily="arimo"
+                  fontWeight="bold"
+                  color="footer.text"
+                  textTransform="uppercase"
+                  mb="26px"
+                >
+                  {heading}
+                </Text>
 
-                  {items.map((subMenu, index) => {
-                    const { title, path } = subMenu;
+                {items.map((subMenu, index) => {
+                  const { title, path } = subMenu;
 
-                    return (
-                      <Link key={`${title}-${index}`} href={path}>
-                        <Text
-                          size="xl"
-                          lineHeight="28px"
-                          color="footer.text"
-                          textTransform="capitalize"
-                        >
-                          {title}
-                        </Text>
-                      </Link>
-                    );
-                  })}
-                </Box>
-              );
-            })}
-          </Flex>
+                  return (
+                    <Link key={`${title}-${index}`} href={path}>
+                      <Text
+                        size="xl"
+                        lineHeight="28px"
+                        color="footer.text"
+                        textTransform="capitalize"
+                      >
+                        {title}
+                      </Text>
+                    </Link>
+                  );
+                })}
+              </Box>
+            );
+          })}
 
           <Box>
             <Text
@@ -75,7 +79,7 @@ const Footer = (): JSX.Element => {
               get in the know
             </Text>
             <HStack>
-              <Input placeholder="Enter email" variant="flushed" w="247px" />
+              <Input placeholder="Enter email" variant="flushed" maxW="247px" />
               <ArrowRightIcon />
             </HStack>
           </Box>
@@ -83,7 +87,13 @@ const Footer = (): JSX.Element => {
 
         <Divider />
 
-        <Flex pt="30px" pb="42px" justifyContent="space-between">
+        <Flex
+          pt="30px"
+          pb="42px"
+          justifyContent="space-between"
+          flexDir={{ base: 'column', md: 'row' }}
+          gap={{ base: '20px', md: 0 }}
+        >
           <Box>
             <Text fontSize="md" lineHeight="28px" color="footer.text">
               © 2020 NorthStar eCommerce
@@ -102,7 +112,7 @@ const Footer = (): JSX.Element => {
             </HStack>
           </Box>
 
-          <HStack spacing="16px">
+          <Flex gap="16px" wrap="wrap">
             <Link href="#" aria-label="visa">
               <VisaIcon />
             </Link>
@@ -115,7 +125,7 @@ const Footer = (): JSX.Element => {
             <Link href="#" aria-label="visa-electron">
               <VisaElectronIcon />
             </Link>
-          </HStack>
+          </Flex>
         </Flex>
       </Container>
     </Box>
