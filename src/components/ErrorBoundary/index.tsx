@@ -1,8 +1,11 @@
 'use client';
 
-import { Button, Flex, Heading } from '@chakra-ui/react';
 // Libs
 import { useEffect } from 'react';
+import { Button, Heading, Text, VStack } from '@chakra-ui/react';
+
+// Constants
+import { FOOTER_HEIGHT, HEADER_HEIGHT } from '@constants';
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -21,10 +24,15 @@ const ErrorBoundary = ({ error, reset }: ErrorProps) => {
   }, [error]);
 
   return (
-    <Flex flexDir="column" alignItems="center" gap="50px">
+    <VStack
+      justifyContent="center"
+      gap="50px"
+      minHeight={`calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT})`}
+    >
       <Heading>Something went wrong!</Heading>
+      <Text color="red">{error?.message}</Text>
       <Button onClick={handleReset}>Try again</Button>
-    </Flex>
+    </VStack>
   );
 };
 
