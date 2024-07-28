@@ -1,6 +1,6 @@
 // Libs
 import { useMemo, memo } from 'react';
-import { Card, CardBody, Heading, Flex, Text } from '@chakra-ui/react';
+import { Card, CardBody, Heading, Flex, Text, Box } from '@chakra-ui/react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -22,20 +22,22 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
 
   return (
     <Card
-      w="295px"
+      maxW="295px"
       transition="transform 0.3s ease-in-out"
       _hover={{ transform: 'scale(1.05)' }}
     >
       <CardBody>
         <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id)} scroll={true}>
-          <Image
-            src={image}
-            alt="Product Image"
-            border-radius="none"
-            placeholder={FALL_BACK_IMAGE}
-            width={295}
-            height={342}
-          />
+          <Box width="100%" pos="relative" aspectRatio="295 / 342">
+            <Image
+              src={image}
+              alt="Product Image"
+              border-radius="none"
+              placeholder={FALL_BACK_IMAGE}
+              objectFit="cover"
+              fill
+            />
+          </Box>
 
           <Flex flexDir="column" alignItems="center" pt="16px">
             <Heading

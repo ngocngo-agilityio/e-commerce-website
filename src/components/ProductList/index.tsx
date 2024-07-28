@@ -1,7 +1,7 @@
 // Libs
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
-import { Wrap, WrapItem, Text } from '@chakra-ui/react';
+import { Text, Grid, GridItem } from '@chakra-ui/react';
 
 // Types
 import { Product } from '@types';
@@ -17,12 +17,17 @@ const ProductList = ({ data = [] }: Props): JSX.Element => {
   return (
     <>
       {data.length > 0 ? (
-        <Wrap spacingX="20px" spacingY="48px">
+        <Grid
+          templateRows="repeat(2, 1fr)"
+          templateColumns="repeat(4, 1fr)"
+          rowGap="48px"
+          columnGap="20px"
+        >
           {data.map((product) => {
             const { id, name, image, price } = product || {};
 
             return (
-              <WrapItem key={id}>
+              <GridItem key={id}>
                 <ProductCard
                   key={id}
                   id={id}
@@ -30,10 +35,10 @@ const ProductList = ({ data = [] }: Props): JSX.Element => {
                   image={image}
                   price={price}
                 />
-              </WrapItem>
+              </GridItem>
             );
           })}
-        </Wrap>
+        </Grid>
       ) : (
         <Text textAlign="center">No products in list</Text>
       )}
