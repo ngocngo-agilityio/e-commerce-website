@@ -18,9 +18,9 @@ const ProductList = ({ data = [] }: Props): JSX.Element => {
     <>
       {data.length > 0 ? (
         <Grid
-          templateRows="repeat(2, 1fr)"
-          templateColumns="repeat(4, 1fr)"
-          rowGap="48px"
+          templateRows={{ base: 'repeat(8, 1fr)', md: 'repeat(2, 1fr)' }}
+          templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)' }}
+          rowGap={{ base: '20px', md: '48px' }}
           columnGap="20px"
         >
           {data.map((product) => {

@@ -22,36 +22,43 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
 
   return (
     <Card
-      maxW="295px"
+      maxW={{ base: '100%', md: '295px' }}
       transition="transform 0.3s ease-in-out"
-      _hover={{ transform: 'scale(1.05)' }}
+      _hover={{ transform: 'scale(1.02)' }}
     >
       <CardBody>
         <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id)} scroll={true}>
-          <Box width="100%" pos="relative" aspectRatio="295 / 342">
-            <Image
-              src={image}
-              alt="Product Image"
-              border-radius="none"
-              placeholder={FALL_BACK_IMAGE}
-              objectFit="cover"
-              fill
-            />
-          </Box>
-
-          <Flex flexDir="column" alignItems="center" pt="16px">
-            <Heading
-              as="h3"
-              fontSize="xl"
-              lineHeight="tall"
-              fontFamily="baloo"
-              fontWeight="bold"
+          <Flex flexDir={{ base: 'row', md: 'column' }} gap="16px">
+            <Box
+              width={{ base: '30%', md: '100%' }}
+              pos="relative"
+              aspectRatio="295 / 342"
             >
-              {name}
-            </Heading>
-            <Text mt="6px" as="span" size="xl" color="price">
-              {formattedPrice}
-            </Text>
+              <Image
+                src={image}
+                alt="Product Image"
+                border-radius="none"
+                placeholder={FALL_BACK_IMAGE}
+                fill
+                objectFit="cover"
+                sizes="(max-width: 768px), 22vw"
+              />
+            </Box>
+
+            <Flex flexDir="column" alignItems={{ base: 'start', md: 'center' }}>
+              <Heading
+                as="h3"
+                fontSize="xl"
+                lineHeight="tall"
+                fontFamily="baloo"
+                fontWeight="bold"
+              >
+                {name}
+              </Heading>
+              <Text mt="6px" as="span" size="xl" color="price">
+                {formattedPrice}
+              </Text>
+            </Flex>
           </Flex>
         </Link>
       </CardBody>
