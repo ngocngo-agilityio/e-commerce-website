@@ -49,7 +49,7 @@ const Sort = ({
   return (
     <Menu closeOnSelect={false} size="base">
       <MenuButton>
-        <InputGroup maxW="245px">
+        <InputGroup w={{ base: 'full', md: '245px' }}>
           <Input
             variant="outline"
             size="base"
