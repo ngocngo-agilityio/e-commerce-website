@@ -41,7 +41,7 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
                 placeholder={FALL_BACK_IMAGE}
                 fill
                 objectFit="cover"
-                sizes="(max-width: 768px), 22vw"
+                sizes="(max-width: 768px) 25vw, 22vw"
               />
             </Box>
 

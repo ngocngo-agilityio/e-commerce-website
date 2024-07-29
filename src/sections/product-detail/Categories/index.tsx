@@ -5,7 +5,7 @@ import { Flex, Text } from '@chakra-ui/react';
 import { getCategoryList } from '@apis';
 
 interface Props {
-  categoryIds: string[];
+  categoryIds: number[];
 }
 
 const Categories = async ({ categoryIds }: Props): Promise<JSX.Element> => {

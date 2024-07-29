@@ -30,7 +30,7 @@ const SelectSize = ({ options = [], onChange }: Props): JSX.Element => {
   const handleOnChange = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
       const value = e.currentTarget.value;
-      const selectedOption = options.find((item) => item.id == value);
+      const selectedOption = options.find((item) => item.id === +value);
 
       setSelectedOption(selectedOption);
 
@@ -53,7 +53,7 @@ const SelectSize = ({ options = [], onChange }: Props): JSX.Element => {
           return (
             <MenuItem
               key={id}
-              value={id?.toString()}
+              value={id}
               borderBottom="1px"
               borderColor="menu.border"
               onClick={handleOnChange}

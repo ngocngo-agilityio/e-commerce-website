@@ -11,7 +11,7 @@ import { Category, Tag } from '@types';
 import { formatUrlWithQuery } from '@utils';
 
 interface Configs {
-  ids?: string[];
+  ids?: number[];
   name?: string;
   sortDirection?: string;
   sortBy?: string;

@@ -1,5 +1,5 @@
 export interface SizeOption {
-  id: string;
+  id: number;
   size: string;
   symbol: string;
 }

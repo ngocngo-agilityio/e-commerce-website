@@ -1,6 +1,14 @@
 // Libs
 import { Suspense } from 'react';
-import { Container, Flex, Heading, Text } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Text,
+} from '@chakra-ui/react';
 import Image from 'next/image';
 
 // Apis
@@ -49,57 +57,59 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
   const discountedPrice = formatCurrency(discount);
 
   return (
-    <Container
-      display="flex"
-      pr="98px"
-      pt="30px"
-      pb="100px"
-      gap="48px"
-      flexWrap="wrap"
-    >
-      <Image
-        src={image}
-        alt="Product Image"
-        placeholder={FALL_BACK_IMAGE}
-        width={550}
-        height={637}
-        priority
-      />
+    <Container pr={{ md: '30px', lg: '98px' }} pt="30px" pb="100px">
+      <Grid
+        templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(2, 1fr)' }}
+        gap={{ md: 6, lg: 12 }}
+      >
+        <GridItem>
+          <Box w="full" aspectRatio="550/637" pos="relative">
+            <Image
+              src={image}
+              alt="Product Image"
+              placeholder={FALL_BACK_IMAGE}
+              fill
+              sizes="(max-width: 768px) 50vw, 100vw"
+              priority
+            />
+          </Box>
+        </GridItem>
 
-      <Flex flexDir="column" flex={1}>
-        <Heading size="md" lineHeight="48px" mt="48px">
-          {name}
-        </Heading>
-        <Flex mt="20px" gap="5px">
-          <Rating rating={rating} />
-          <Text size="md" color="productDetail.reviewNumber">
-            ({voteNumber})
+        <GridItem display="flex" flexDir="column">
+          <Heading size="md" lineHeight="48px" mt={{ base: 8, md: 6, lg: 12 }}>
+            {name}
+          </Heading>
+          <Flex mt="20px" gap="5px">
+            <Rating rating={rating} />
+            <Text size="md" color="productDetail.reviewNumber">
+              ({voteNumber})
+            </Text>
+          </Flex>
+          <Flex gap="14px" mt="25px">
+            <Text as="del" size="3xl" color="discountedPrice">
+              {originalPrice}
+            </Text>
+            <Text size="3xl" color="price">
+              {discountedPrice}
+            </Text>
+          </Flex>
+          <Text mt="26px" mb={{ base: '35px', lg: '70px' }}>
+            {introduction}
           </Text>
-        </Flex>
-        <Flex gap="14px" mt="25px">
-          <Text as="del" size="3xl" color="discountedPrice">
-            {originalPrice}
-          </Text>
-          <Text size="3xl" color="price">
-            {discountedPrice}
-          </Text>
-        </Flex>
-        <Text mt="26px" mb="70px">
-          {introduction}
-        </Text>
 
-        <Suspense fallback={<SkeletonAddCartAction />}>
-          <AddCartAction sizes={sizes} product={product} />
-        </Suspense>
+          <Suspense fallback={<SkeletonAddCartAction />}>
+            <AddCartAction sizes={sizes} product={product} />
+          </Suspense>
 
-        <Suspense fallback={<SkeletonProductCategories />}>
-          <Categories categoryIds={categoryIds} />
-        </Suspense>
+          <Suspense fallback={<SkeletonProductCategories />}>
+            <Categories categoryIds={categoryIds} />
+          </Suspense>
 
-        <Suspense fallback={<SkeletonProductCategories />}>
-          <Tags tagIds={tagIds} />
-        </Suspense>
-      </Flex>
+          <Suspense fallback={<SkeletonProductCategories />}>
+            <Tags tagIds={tagIds} />
+          </Suspense>
+        </GridItem>
+      </Grid>
     </Container>
   );
 };
