@@ -69,6 +69,7 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
               alt="Product Image"
               placeholder={FALL_BACK_IMAGE}
               fill
+              objectFit="cover"
               sizes="(max-width: 768px) 50vw, 100vw"
               priority
             />

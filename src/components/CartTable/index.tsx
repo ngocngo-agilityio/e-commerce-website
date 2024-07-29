@@ -3,7 +3,7 @@
 // Libs
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
-import { Table, Tbody, Td, Tr } from '@chakra-ui/react';
+import { Show, Table, Tbody, Td, Tr } from '@chakra-ui/react';
 
 // Types
 import { CartItem as ICartItem } from '@types';
@@ -25,7 +25,10 @@ const CartTable = ({
 }: Props): JSX.Element => {
   return (
     <Table>
-      <CartTableHeader />
+      <Show above="md">
+        <CartTableHeader />
+      </Show>
+
       <Tbody>
         {cart.length > 0 ? (
           cart.map((item) => {

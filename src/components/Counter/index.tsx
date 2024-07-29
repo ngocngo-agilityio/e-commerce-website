@@ -3,30 +3,44 @@
 // Libs
 import { useState, useCallback, memo, useMemo } from 'react';
 import { Flex, Center, Text, Button } from '@chakra-ui/react';
+import { AddIcon, MinusIcon } from '@chakra-ui/icons';
+import { useDebounceCallback } from 'usehooks-ts';
+
+// Constants
+import { COUNTER_DEBOUNCE_TIME } from '@constants';
 
 interface Props {
   initialQuantity: number;
   onQuantityChange: (qty: number) => void;
+  debounceTime?: number;
 }
 
-const Counter = ({ initialQuantity, onQuantityChange }: Props): JSX.Element => {
+const Counter = ({
+  initialQuantity,
+  debounceTime = COUNTER_DEBOUNCE_TIME,
+  onQuantityChange,
+}: Props): JSX.Element => {
   const [quantity, setQuantity] = useState(initialQuantity);
 
   const isDecrementDisable = useMemo(() => {
     return quantity === 1;
   }, [quantity]);
 
+  const handleQuantityChange = useDebounceCallback((quantity: number) => {
+    onQuantityChange(quantity);
+  }, debounceTime);
+
   const handleChange = useCallback(
     (step: number) => {
       setQuantity((prevQuantity) => {
         const updateCount = prevQuantity + step;
 
-        onQuantityChange(updateCount);
+        handleQuantityChange(updateCount);
 
         return updateCount;
       });
     },
-    [onQuantityChange],
+    [handleQuantityChange],
   );
 
   const handleDecrement = useCallback(() => {
@@ -38,34 +52,50 @@ const Counter = ({ initialQuantity, onQuantityChange }: Props): JSX.Element => {
   }, [handleChange]);
 
   return (
-    <Flex justify="space-between" bg="counterBg" w="90px" h="30px">
-      <Center flex={1}>
-        <Button
-          variant="unstyled"
+    <Flex
+      justify="space-between"
+      w={{ base: '75px', md: '90px' }}
+      h={{ base: '28px', md: '34px' }}
+      border="1px"
+      borderColor="counterBorder"
+      borderRadius={{ base: '4px', md: '8px' }}
+    >
+      <Button
+        variant="unstyled"
+        minW={5}
+        w={{ base: '25px', md: '30px' }}
+        h={{ base: '28px', md: '34px' }}
+        onClick={handleDecrement}
+        isDisabled={isDecrementDisable}
+      >
+        <MinusIcon boxSize={2} />
+      </Button>
+
+      <Center
+        w={{ base: '25px', md: '30px' }}
+        h={{ base: '28px', md: '34px' }}
+        borderInline="1px"
+        borderColor="counterBorder"
+      >
+        <Text
+          as="span"
           color="counterText"
           fontWeight="medium"
-          fontSize="2xl"
-          onClick={handleDecrement}
-          isDisabled={isDecrementDisable}
+          fontSize={{ base: 'md', md: 'xl' }}
         >
-          -
-        </Button>
-      </Center>
-      <Center flex={1}>
-        <Text as="span" color="counterText" fontWeight="medium">
           {quantity}
         </Text>
       </Center>
-      <Center flex={1}>
-        <Button
-          variant="unstyled"
-          color="counterText"
-          fontWeight="medium"
-          onClick={handleIncrement}
-        >
-          +
-        </Button>
-      </Center>
+
+      <Button
+        minW={5}
+        w={{ base: '25px', md: '30px' }}
+        h={{ base: '28px', md: '34px' }}
+        variant="unstyled"
+        onClick={handleIncrement}
+      >
+        <AddIcon boxSize={2} />
+      </Button>
     </Flex>
   );
 };
