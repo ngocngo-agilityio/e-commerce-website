@@ -136,9 +136,14 @@ export const colors = {
   currentPageBreadcrumb: BASE.codGray,
 
   // Counter
-  counterBg: BASE.redDamask,
-  counterText: BASE.white,
+  counterText: BASE.codGray,
+  counterBorder: BASE.submarine,
 
   //Loading indicator
   loadingIndicatorBg: BASE.cornflowerBlue,
+
+  // Cart
+  cart: {
+    totalAmount: BASE.codGray,
+  },
 };

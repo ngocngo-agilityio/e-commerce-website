@@ -65,10 +65,10 @@ const CartItemsClient = ({ cartItems }: CartItemClientProps): JSX.Element => {
         onCartItemRemove={handleRemoveCartItem}
         onQuantityChange={handleChangeQuantity}
       />
-      <Heading mt="83px" mb="38px">
+      <Heading mt="83px" mb="38px" fontSize={{ base: '3xl', md: '4xl' }}>
         Cart Totals
       </Heading>
-      <Box w="531px" mb="41px">
+      <Box w={{ base: 'full', md: '531px' }} mb="41px">
         <Flex justifyContent="space-between" py="17px">
           <Text>Subtotal</Text>
           <Text>{formattedTotal}</Text>
@@ -87,7 +87,13 @@ const CartItemsClient = ({ cartItems }: CartItemClientProps): JSX.Element => {
         </Flex>
       </Box>
 
-      <Button variant="checkoutBtn" w="262px" h="58px" onClick={handleCheckout}>
+      <Button
+        variant="checkoutBtn"
+        w={{ base: '200px', md: '262px' }}
+        h={{ base: '40px', md: '58px' }}
+        fontSize={{ base: 'md', md: 'xl' }}
+        onClick={handleCheckout}
+      >
         Proceed to Checkout
       </Button>
     </Box>

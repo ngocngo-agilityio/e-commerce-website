@@ -2,7 +2,7 @@
 
 // Libs
 import { memo, useCallback, useMemo, useState } from 'react';
-import { Box, Td, Tr } from '@chakra-ui/react';
+import { Box, Center, Flex, Hide, Show, Td, Tr, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -66,38 +66,84 @@ const CartItem = ({
     <>
       <Tr>
         <Td pl={0}>
-          <Box
-            textAlign="left"
-            cursor="pointer"
-            w="fit-content"
-            color="removeProduct"
-            onClick={handleOpenConfirmModal}
-          >
-            x
-          </Box>
+          <Flex gap={5} alignContent="center">
+            <Center
+              textAlign="left"
+              cursor="pointer"
+              w="fit-content"
+              color="removeProduct"
+              onClick={handleOpenConfirmModal}
+            >
+              x
+            </Center>
+
+            <Hide above="md">
+              <Box w={20} h={20} pos="relative">
+                <Image
+                  src={image}
+                  alt="Product Image"
+                  fill
+                  objectFit="cover"
+                  sizes="(max-width: 768px) 25vw, 22vw"
+                  priority
+                />
+              </Box>
+
+              <Flex flexDir="column" gap={2} w="full">
+                <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id.toString())}>
+                  <Text fontFamily="baloo" style={{ fontWeight: 'bold' }}>
+                    {name}
+                  </Text>
+                </Link>
+
+                <Flex
+                  alignItems="center"
+                  justifyContent="space-between"
+                  w="full"
+                >
+                  <Text> {formattedPrice}</Text>
+
+                  <Counter
+                    initialQuantity={quantity}
+                    onQuantityChange={handleQuantityChange}
+                  />
+                </Flex>
+
+                <Text color="cart.totalAmount">Total: {formattedTotal}</Text>
+              </Flex>
+            </Hide>
+          </Flex>
         </Td>
-        <Td>
-          <Image
-            src={image}
-            alt="Product Image"
-            width={48}
-            height={56}
-            priority
-          />
-        </Td>
-        <Td style={{ fontWeight: 'bold' }}>
-          <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id.toString())}>
-            {name}
-          </Link>
-        </Td>
-        <Td>{formattedPrice}</Td>
-        <Td>
-          <Counter
-            initialQuantity={quantity}
-            onQuantityChange={handleQuantityChange}
-          />
-        </Td>
-        <Td>{formattedTotal}</Td>
+
+        <Show above="md">
+          <Td>
+            <Box w={12} h={14} pos="relative">
+              <Image
+                src={image}
+                alt="Product Image"
+                fill
+                objectFit="cover"
+                sizes="(max-width: 768px) 25vw, 22vw"
+                priority
+              />
+            </Box>
+          </Td>
+          <Td>
+            <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id.toString())}>
+              <Text fontFamily="baloo" style={{ fontWeight: 'bold' }}>
+                {name}
+              </Text>
+            </Link>
+          </Td>
+          <Td>{formattedPrice}</Td>
+          <Td>
+            <Counter
+              initialQuantity={quantity}
+              onQuantityChange={handleQuantityChange}
+            />
+          </Td>
+          <Td color="cart.totalAmount">{formattedTotal}</Td>
+        </Show>
       </Tr>
       {isOpen && (
         <ConfirmModal

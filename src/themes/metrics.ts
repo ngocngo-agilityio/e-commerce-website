@@ -9,6 +9,7 @@ export const spacing = {
 
 export const borderRadius = {
   none: '0px',
+  sm: '6px',
   base: '102px',
 };
 
