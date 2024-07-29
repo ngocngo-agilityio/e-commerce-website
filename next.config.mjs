@@ -8,6 +8,21 @@ const nextConfig = {
         pathname: '/v0/b/ecommerce-fashion-16e2e.appspot.com/o/**',
       },
     ],
+    formats: ['image/avif', 'image/webp'],
+  },
+  async headers() {
+    return [
+      {
+        source: '/:all*(svg|jpg|png |webp)',
+        locale: false,
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=86400, must-revalidate',
+          },
+        ],
+      },
+    ];
   },
 };
 
