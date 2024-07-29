@@ -4,30 +4,43 @@
 import { useState, useCallback, memo, useMemo } from 'react';
 import { Flex, Center, Text, Button } from '@chakra-ui/react';
 import { AddIcon, MinusIcon } from '@chakra-ui/icons';
+import { useDebounceCallback } from 'usehooks-ts';
+
+// Constants
+import { COUNTER_DEBOUNCE_TIME } from '@constants';
 
 interface Props {
   initialQuantity: number;
   onQuantityChange: (qty: number) => void;
+  debounceTime?: number;
 }
 
-const Counter = ({ initialQuantity, onQuantityChange }: Props): JSX.Element => {
+const Counter = ({
+  initialQuantity,
+  debounceTime = COUNTER_DEBOUNCE_TIME,
+  onQuantityChange,
+}: Props): JSX.Element => {
   const [quantity, setQuantity] = useState(initialQuantity);
 
   const isDecrementDisable = useMemo(() => {
     return quantity === 1;
   }, [quantity]);
 
+  const handleQuantityChange = useDebounceCallback((quantity: number) => {
+    onQuantityChange(quantity);
+  }, debounceTime);
+
   const handleChange = useCallback(
     (step: number) => {
       setQuantity((prevQuantity) => {
         const updateCount = prevQuantity + step;
 
-        onQuantityChange(updateCount);
+        handleQuantityChange(updateCount);
 
         return updateCount;
       });
     },
-    [onQuantityChange],
+    [handleQuantityChange],
   );
 
   const handleDecrement = useCallback(() => {

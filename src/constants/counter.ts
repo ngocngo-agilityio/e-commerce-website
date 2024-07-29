@@ -1,0 +1,1 @@
+export const COUNTER_DEBOUNCE_TIME = 500;
