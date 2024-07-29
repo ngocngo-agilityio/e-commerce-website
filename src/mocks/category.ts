@@ -1,27 +1,30 @@
-export const MOCK_CATEGORIES = [
+// Types
+import { Category } from '@types';
+
+export const MOCK_CATEGORIES: Category[] = [
   {
     name: 'Women',
-    id: '1',
+    id: 1,
   },
   {
     name: 'Men',
-    id: '2',
+    id: 2,
   },
   {
     name: 'Polo',
-    id: '3',
+    id: 3,
   },
   {
     name: 'Jacket',
-    id: '4',
+    id: 4,
   },
   {
     name: 'Casual',
-    id: '5',
+    id: 5,
   },
   {
     name: 'Formal',
-    id: '6',
+    id: 6,
   },
 ];
 
