@@ -1,49 +1,54 @@
 // Libs
 import Image from 'next/image';
-import { Button, Container, Flex, Heading } from '@chakra-ui/react';
+import { Box, Button, Container, Flex, Heading } from '@chakra-ui/react';
 
 // Constants
 import { BANNER_BG } from '@constants';
 
 const SaleBanner = (): JSX.Element => {
   return (
-    <Container pos="relative" maxW="1367px">
-      <Container display="flex" justifyContent="end" h="648px">
-        <Flex w="40%" flexDir="column" alignItems="center" pr="39px" pt="202px">
-          <Heading
-            size="lg"
-            textTransform="uppercase"
-            color="bannerHeading"
-            fontFamily="lato"
-            fontWeight="extrabold"
-            textAlign="center"
-          >
-            stylist picks beat the heat
-          </Heading>
-          <Button
-            variant="outline"
-            size="lg"
-            fontWeight="bold"
-            mt="48px"
-            w="fit-content"
-          >
-            SHOP NOW
-          </Button>
-        </Flex>
+    <Container pos="relative" maxW="1440px" p={0}>
+      <Box pos="relative" w="100%" aspectRatio="1367/648" zIndex={-1}>
         <Image
           src={BANNER_BG}
           alt="Banner Image"
-          style={{
-            position: 'absolute',
-            zIndex: -1,
-            justifyItems: 'center',
-            left: 0,
-          }}
-          height={648}
-          width={1367}
+          fill
+          objectFit="cover"
+          objectPosition="cover"
           priority
         />
-      </Container>
+      </Box>
+
+      <Flex
+        position="absolute"
+        flexDir="column"
+        alignItems="center"
+        zIndex={2}
+        right={{ base: '5%', md: '7%' }}
+        gap={{ base: 4, sm: 6, lg: 12 }}
+        top={{ base: '15%', sm: '18%', md: '31%' }}
+        left={{ base: '5%', md: 'auto' }}
+      >
+        <Heading
+          textTransform="uppercase"
+          color="bannerHeading"
+          fontFamily="lato"
+          fontWeight="extrabold"
+          textAlign="center"
+          fontSize={{ base: '2xl', sm: '3xl', md: '4xl', lg: '5xl' }}
+        >
+          stylist picks beat the heat
+        </Heading>
+        <Button
+          variant="outline"
+          fontWeight="bold"
+          fontSize={{ base: 'md', md: 'xl', lg: '2xl' }}
+          w={{ base: '120px', md: '150px', lg: '176px' }}
+          h={{ base: '40px', md: '50px', lg: '58px' }}
+        >
+          SHOP NOW
+        </Button>
+      </Flex>
     </Container>
   );
 };

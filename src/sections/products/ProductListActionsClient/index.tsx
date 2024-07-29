@@ -70,8 +70,12 @@ const ProductListActionsClient = ({ categories }: Props): JSX.Element => {
   );
 
   return (
-    <Flex py="24px" gap="20px">
-      <Box maxW="239px">
+    <Flex
+      py={{ base: '30px', md: '24px' }}
+      flexDir={{ base: 'column', md: 'row' }}
+      gap={{ base: '16px', md: '20px' }}
+    >
+      <Box w={{ base: 'full', md: '245px' }}>
         <SearchInput defaultValue={name} onChange={handleSearchProducts} />
       </Box>
 

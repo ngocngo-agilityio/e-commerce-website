@@ -1,15 +1,19 @@
 // Libs
-import { Skeleton, Wrap, WrapItem } from '@chakra-ui/react';
+import { Skeleton, Grid, GridItem } from '@chakra-ui/react';
 
 const SkeletonProductList = (): JSX.Element => {
   return (
-    <Wrap justify="space-between" spacingY="48px">
+    <Grid
+      templateColumns={{ base: 'repeat(1, 1fr)', md: 'repeat(4, 1fr)' }}
+      rowGap={{ base: '20px', md: '48px' }}
+      columnGap="20px"
+    >
       {Array.from({ length: 8 }, (_, index) => (
-        <WrapItem key={index}>
-          <Skeleton w="295px" h="410px" />
-        </WrapItem>
+        <GridItem key={index}>
+          <Skeleton w="full" aspectRatio={{ base: '382/133', md: '295/410' }} />
+        </GridItem>
       ))}
-    </Wrap>
+    </Grid>
   );
 };
 

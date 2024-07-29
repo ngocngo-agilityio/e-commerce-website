@@ -5,6 +5,7 @@ import { extendTheme } from '@chakra-ui/react';
 import { fonts, fontWeights, fontSizes, lineHeights } from './typographies';
 import { borderRadius, sizes } from './metrics';
 import { colors } from './colors';
+import { breakpoints } from './breakpoints';
 import * as components from './components';
 
 export const theme = extendTheme({
@@ -18,6 +19,7 @@ export const theme = extendTheme({
   radii: borderRadius,
   sizes,
   colors,
+  breakpoints,
   styles: {
     global: {
       'html, body': {

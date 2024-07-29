@@ -34,7 +34,7 @@ const Products = ({ searchParams }: Props) => {
     <Box as="main">
       <Banner />
 
-      <Container py="43px">
+      <Container py={{ base: '30px', md: '43px' }}>
         <Heading as="h2" size="md" textAlign="center">
           Discover NEW Arrivals
         </Heading>

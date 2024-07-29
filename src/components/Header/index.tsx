@@ -1,5 +1,5 @@
 // Libs
-import { Box, Container, HStack } from '@chakra-ui/react';
+import { Box, Container, HStack, Show, Hide, Flex } from '@chakra-ui/react';
 
 // Assets
 import { HamburgerIcon } from '@assets';
@@ -19,25 +19,32 @@ const Header = async (): Promise<JSX.Element> => {
     <Container
       as="header"
       display="flex"
-      alignContent="center"
-      flexWrap="wrap"
-      justifyContent="space-between"
+      flexDir="column"
+      gap={2}
       pt="34px"
-      pb="16px"
+      pb={{ base: 5, md: 4 }}
     >
-      <HStack spacing="150px" wrap="wrap">
-        <Logo />
+      <Flex alignContent="center" justifyContent="space-between">
+        <HStack spacing={{ md: '100px', lg: '150px' }} wrap="wrap">
+          <Logo />
+          <Show above="md">
+            <Navigation />
+          </Show>
+        </HStack>
+
+        <HStack spacing="25px" alignContent="center">
+          <UserProfile />
+          <ShoppingCart cartItemQuantity={cartItemQuantity} />
+
+          <Box cursor="pointer">
+            <HamburgerIcon />
+          </Box>
+        </HStack>
+      </Flex>
+
+      <Hide above="md">
         <Navigation />
-      </HStack>
-
-      <HStack spacing="25px" alignContent="center">
-        <UserProfile />
-        <ShoppingCart cartItemQuantity={cartItemQuantity} />
-
-        <Box cursor="pointer">
-          <HamburgerIcon />
-        </Box>
-      </HStack>
+      </Hide>
     </Container>
   );
 };
