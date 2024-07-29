@@ -22,8 +22,8 @@ import { Category } from '@types';
 interface Props {
   options: Category[];
   placeholder?: string;
-  defaultValue?: string[];
-  onChange: (value: string[]) => void;
+  defaultValue?: number[];
+  onChange: (value: number[]) => void;
 }
 
 const Filter = ({
@@ -51,12 +51,12 @@ const Filter = ({
       <MenuList>
         <CheckboxGroup onChange={onChange} defaultValue={defaultValue}>
           {options.map((item) => {
-            const { id, name } = item || {};
+            const { id, name = '' } = item || {};
 
             return (
               <MenuItem key={id}>
                 <Checkbox
-                  value={id?.toString()}
+                  value={id}
                   colorScheme="orange"
                   textTransform="capitalize"
                 >

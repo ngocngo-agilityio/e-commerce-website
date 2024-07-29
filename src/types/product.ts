@@ -1,11 +1,11 @@
 export interface ProductSize {
-  id: string;
+  id: number;
   size: string;
   symbol: string;
 }
 
 export interface Product {
-  id: string;
+  id: number;
   name: string;
   image: string;
   price: number;
