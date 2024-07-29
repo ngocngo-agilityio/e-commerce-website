@@ -3,37 +3,36 @@
 exports[`SaleBanner components should match snapshot for SaleBanner 1`] = `
 <div>
   <div
-    class="chakra-container css-1t87sz9"
+    class="chakra-container css-1h4v61j"
   >
     <div
-      class="chakra-container css-3w6ije"
+      class="css-1je0irw"
     >
-      <div
-        class="css-cpk5wh"
-      >
-        <h2
-          class="chakra-heading css-rrcadk"
-        >
-          stylist picks beat the heat
-        </h2>
-        <button
-          class="chakra-button css-1u2i1wc"
-          type="button"
-        >
-          SHOP NOW
-        </button>
-      </div>
       <img
         alt="Banner Image"
-        data-nimg="1"
+        data-nimg="fill"
         decoding="async"
         fetchpriority="high"
-        height="648"
+        sizes="100vw"
         src="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=3840&q=75"
-        srcset="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1920&q=75 1x, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=3840&q=75 2x"
-        style="color: transparent; position: absolute; z-index: -1; justify-items: center; left: 0px;"
-        width="1367"
+        srcset="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=3840&q=75 3840w"
+        style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; object-position: cover; color: transparent;"
       />
+    </div>
+    <div
+      class="css-1ebsets"
+    >
+      <h2
+        class="chakra-heading css-1cq01ou"
+      >
+        stylist picks beat the heat
+      </h2>
+      <button
+        class="chakra-button css-17rt4m6"
+        type="button"
+      >
+        SHOP NOW
+      </button>
     </div>
   </div>
 </div>

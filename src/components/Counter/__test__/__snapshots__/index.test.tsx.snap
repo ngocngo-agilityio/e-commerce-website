@@ -3,37 +3,53 @@
 exports[`Counter component should match snapshot for Counter 1`] = `
 <div>
   <div
-    class="css-wpwawf"
+    class="css-6myvwv"
   >
-    <div
-      class="css-1en42kf"
+    <button
+      class="chakra-button css-22uwrg"
+      type="button"
     >
-      <button
-        class="chakra-button css-15ey06b"
-        type="button"
+      <svg
+        class="chakra-icon css-11up8ym"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        -
-      </button>
-    </div>
+        <g
+          fill="currentColor"
+        >
+          <rect
+            height="4"
+            width="20"
+            x="2"
+            y="10"
+          />
+        </g>
+      </svg>
+    </button>
     <div
-      class="css-1en42kf"
+      class="css-ocfx7j"
     >
       <span
-        class="chakra-text css-uh9d7y"
+        class="chakra-text css-1vec9xb"
       >
         2
       </span>
     </div>
-    <div
-      class="css-1en42kf"
+    <button
+      class="chakra-button css-22uwrg"
+      type="button"
     >
-      <button
-        class="chakra-button css-d83nk5"
-        type="button"
+      <svg
+        class="chakra-icon css-11up8ym"
+        focusable="false"
+        viewBox="0 0 24 24"
       >
-        +
-      </button>
-    </div>
+        <path
+          d="M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
   </div>
 </div>
 `;

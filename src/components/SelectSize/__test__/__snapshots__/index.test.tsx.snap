@@ -40,7 +40,7 @@ exports[`SelectSize component should match snapshot for SelectSize 1`] = `
       class="chakra-menu__menu-list css-sjt5nk"
       id="menu-list-:r7:"
       role="menu"
-      style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+      style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8);"
       tabindex="-1"
     >
       <button

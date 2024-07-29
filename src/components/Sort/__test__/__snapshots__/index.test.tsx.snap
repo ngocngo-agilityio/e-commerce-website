@@ -13,12 +13,13 @@ exports[`Sort component should match snapshot for Sort 1`] = `
       class="css-xl71ch"
     >
       <div
-        class="chakra-input__group css-z8weaz"
+        class="chakra-input__group css-1brjfbh"
         data-group="true"
       >
         <input
           class="chakra-input css-1lqcdac"
           placeholder="Sort by"
+          value=""
         />
         <div
           class="chakra-input__right-element css-8p9vs9"
@@ -106,7 +107,7 @@ exports[`Sort component should match snapshot for Sort 1`] = `
       class="chakra-menu__menu-list css-sjt5nk"
       id="menu-list-:r8:"
       role="menu"
-      style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+      style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8);"
       tabindex="-1"
     >
       <div

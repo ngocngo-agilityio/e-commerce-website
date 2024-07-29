@@ -6,13 +6,18 @@ exports[`ErrorBoundary Component Should render ErrorBoundary Component correctly
   "baseElement": <body>
     <div>
       <div
-        class="css-16vpizs"
+        class="chakra-stack css-1ts0oy9"
       >
         <h2
           class="chakra-heading css-0"
         >
           Something went wrong!
         </h2>
+        <p
+          class="chakra-text css-tokvmb"
+        >
+          Test Error
+        </p>
         <button
           class="chakra-button css-4xx2wk"
           type="button"
@@ -24,13 +29,18 @@ exports[`ErrorBoundary Component Should render ErrorBoundary Component correctly
   </body>,
   "container": <div>
     <div
-      class="css-16vpizs"
+      class="chakra-stack css-1ts0oy9"
     >
       <h2
         class="chakra-heading css-0"
       >
         Something went wrong!
       </h2>
+      <p
+        class="chakra-text css-tokvmb"
+      >
+        Test Error
+      </p>
       <button
         class="chakra-button css-4xx2wk"
         type="button"

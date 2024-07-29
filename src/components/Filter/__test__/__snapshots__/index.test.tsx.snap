@@ -13,7 +13,7 @@ exports[`Filter component should match snapshot for Filter 1`] = `
       class="css-xl71ch"
     >
       <div
-        class="chakra-input__group css-z8weaz"
+        class="chakra-input__group css-1brjfbh"
         data-group="true"
       >
         <input
@@ -106,11 +106,11 @@ exports[`Filter component should match snapshot for Filter 1`] = `
       class="chakra-menu__menu-list css-sjt5nk"
       id="menu-list-:r6:"
       role="menu"
-      style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8) translateZ(0);"
+      style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8);"
       tabindex="-1"
     >
       <button
-        class="chakra-menu__menuitem css-1k756t9"
+        class="chakra-menu__menuitem css-wg7anz"
         data-index="0"
         id="menu-list-:r6:-menuitem-:r7:"
         role="menuitem"
@@ -118,7 +118,7 @@ exports[`Filter component should match snapshot for Filter 1`] = `
         type="button"
       >
         <label
-          class="chakra-checkbox css-zfploq"
+          class="chakra-checkbox css-t4fzte"
         >
           <input
             class="chakra-checkbox__input"
@@ -138,7 +138,7 @@ exports[`Filter component should match snapshot for Filter 1`] = `
         </label>
       </button>
       <button
-        class="chakra-menu__menuitem css-1k756t9"
+        class="chakra-menu__menuitem css-wg7anz"
         data-index="1"
         id="menu-list-:r6:-menuitem-:r8:"
         role="menuitem"
@@ -146,7 +146,7 @@ exports[`Filter component should match snapshot for Filter 1`] = `
         type="button"
       >
         <label
-          class="chakra-checkbox css-zfploq"
+          class="chakra-checkbox css-t4fzte"
         >
           <input
             class="chakra-checkbox__input"
@@ -166,7 +166,7 @@ exports[`Filter component should match snapshot for Filter 1`] = `
         </label>
       </button>
       <button
-        class="chakra-menu__menuitem css-1k756t9"
+        class="chakra-menu__menuitem css-wg7anz"
         data-index="2"
         id="menu-list-:r6:-menuitem-:r9:"
         role="menuitem"
@@ -174,7 +174,7 @@ exports[`Filter component should match snapshot for Filter 1`] = `
         type="button"
       >
         <label
-          class="chakra-checkbox css-zfploq"
+          class="chakra-checkbox css-t4fzte"
         >
           <input
             class="chakra-checkbox__input"

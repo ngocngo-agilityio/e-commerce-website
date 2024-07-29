@@ -90,7 +90,7 @@ const CartItem = ({
               </Box>
 
               <Flex flexDir="column" gap={2} w="full">
-                <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id.toString())}>
+                <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id?.toString())}>
                   <Text fontFamily="baloo" style={{ fontWeight: 'bold' }}>
                     {name}
                   </Text>
@@ -129,7 +129,7 @@ const CartItem = ({
             </Box>
           </Td>
           <Td>
-            <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id.toString())}>
+            <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id?.toString())}>
               <Text fontFamily="baloo" style={{ fontWeight: 'bold' }}>
                 {name}
               </Text>

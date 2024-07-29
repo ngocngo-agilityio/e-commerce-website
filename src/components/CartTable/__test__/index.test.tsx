@@ -1,6 +1,9 @@
 // Libs
 import { render, screen } from '@testing-library/react';
 
+// Types
+import { CartItem as ICartItem } from '@types';
+
 // Components
 import CartTable from '..';
 
@@ -14,13 +17,6 @@ const mockProps = {
 };
 
 describe('CartTable component', () => {
-  test('should render CartTable component successfully', () => {
-    const { container, getByText } = render(<CartTable {...mockProps} />);
-
-    expect(container).toBeInTheDocument();
-    expect(getByText(MOCK_CART_ITEMS[0].name)).toBeInTheDocument();
-  });
-
   test('should match snapshot for CartTable component', () => {
     const { container } = render(<CartTable {...mockProps} />);
 
@@ -31,5 +27,13 @@ describe('CartTable component', () => {
     render(<CartTable {...mockProps} cart={[]} />);
 
     expect(screen.getByText('No products in your cart.')).toBeInTheDocument();
+  });
+
+  test('should render CartTable component successfully when has null item', () => {
+    const { container } = render(
+      <CartTable {...mockProps} cart={[null] as unknown as ICartItem[]} />,
+    );
+
+    expect(container).toBeInTheDocument();
   });
 });
