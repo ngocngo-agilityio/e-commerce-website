@@ -33,7 +33,7 @@ const Filter = ({
   onChange,
 }: Props): JSX.Element => {
   return (
-    <Menu closeOnSelect={false} size="base">
+    <Menu size="base" closeOnSelect={false}>
       <MenuButton>
         <InputGroup w={{ base: 'full', md: '245px' }}>
           <Input
@@ -54,8 +54,12 @@ const Filter = ({
             const { id, name = '' } = item || {};
 
             return (
-              <MenuItem key={id}>
+              <MenuItem key={id} p={0}>
                 <Checkbox
+                  w="full"
+                  h="full"
+                  py={3}
+                  px={4}
                   value={id}
                   colorScheme="orange"
                   textTransform="capitalize"
