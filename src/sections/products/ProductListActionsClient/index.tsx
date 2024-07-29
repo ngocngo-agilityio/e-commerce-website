@@ -12,7 +12,7 @@ import { Category, ITag } from '@types';
 import { getSearchParams, updateSearchParams } from '@utils';
 
 // Constants
-import { SORT_OPTIONS } from '@constants';
+import { DEFAULT_PAGE, SEARCH_QUERIES, SORT_OPTIONS } from '@constants';
 
 // Components
 import { SearchInput, Filter, Sort, TagList } from '@components';
@@ -62,10 +62,14 @@ const ProductListActionsClient = ({ categories }: Props): JSX.Element => {
       );
       let updatedParams = updateSearchParams(
         searchParams,
-        'categoryIds',
+        SEARCH_QUERIES.CATEGORIES,
         categoryIdsAfterRemove.toString(),
       );
-      updatedParams = updateSearchParams(updatedParams, 'page', '1');
+      updatedParams = updateSearchParams(
+        updatedParams,
+        SEARCH_QUERIES.PAGE,
+        DEFAULT_PAGE.toString(),
+      );
 
       replace(`${pathname}?${updatedParams.toString()}`, { scroll: false });
     },
@@ -75,8 +79,16 @@ const ProductListActionsClient = ({ categories }: Props): JSX.Element => {
   const handleSearchProducts = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       const value = e.target.value;
-      let updatedParams = updateSearchParams(searchParams, 'name', value);
-      updatedParams = updateSearchParams(updatedParams, 'page', '1');
+      let updatedParams = updateSearchParams(
+        searchParams,
+        SEARCH_QUERIES.NAME,
+        value,
+      );
+      updatedParams = updateSearchParams(
+        updatedParams,
+        SEARCH_QUERIES.PAGE,
+        DEFAULT_PAGE.toString(),
+      );
 
       replace(`${pathname}?${updatedParams.toString()}`, { scroll: false });
     },
@@ -85,7 +97,11 @@ const ProductListActionsClient = ({ categories }: Props): JSX.Element => {
 
   const handleSortProducts = useCallback(
     (value: string) => {
-      const updatedParams = updateSearchParams(searchParams, 'order', value);
+      const updatedParams = updateSearchParams(
+        searchParams,
+        SEARCH_QUERIES.ORDER,
+        value,
+      );
 
       replace(`${pathname}?${updatedParams.toString()}`, { scroll: false });
     },
@@ -98,10 +114,14 @@ const ProductListActionsClient = ({ categories }: Props): JSX.Element => {
 
       let updatedParams = updateSearchParams(
         searchParams,
-        'categoryIds',
+        SEARCH_QUERIES.CATEGORIES,
         values.toString(),
       );
-      updatedParams = updateSearchParams(updatedParams, 'page', '1');
+      updatedParams = updateSearchParams(
+        updatedParams,
+        SEARCH_QUERIES.PAGE,
+        DEFAULT_PAGE.toString(),
+      );
 
       replace(`${pathname}?${updatedParams.toString()}`, { scroll: false });
     },

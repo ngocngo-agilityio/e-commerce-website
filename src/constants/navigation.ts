@@ -42,3 +42,10 @@ export const CART_PAGE_BREADCRUMB: IBreadcrumbItem[] = [
   { label: 'Home', href: APP_ROUTERS.HOME_PAGE },
   { label: 'Cart', href: APP_ROUTERS.CART_PAGE, isCurrentPage: true },
 ];
+
+export const SEARCH_QUERIES = {
+  PAGE: 'page',
+  CATEGORIES: 'categoryIds',
+  NAME: 'name',
+  ORDER: 'order',
+};
