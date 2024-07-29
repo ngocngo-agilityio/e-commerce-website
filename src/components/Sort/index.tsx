@@ -46,6 +46,12 @@ const Sort = ({
     [onChange],
   );
 
+  const getLabelByValue = (): string => {
+    const option = options.find((option) => option.value === selectedOption);
+
+    return option ? option.label : '';
+  };
+
   return (
     <Menu closeOnSelect={false} size="base">
       <MenuButton>
@@ -55,6 +61,7 @@ const Sort = ({
             size="base"
             borderRadius="base"
             placeholder={placeholder}
+            value={getLabelByValue()}
           />
           <InputRightElement h="24px" my="12px" mr="7px">
             <FilterIcon />

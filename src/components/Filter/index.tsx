@@ -22,8 +22,8 @@ import { Category } from '@types';
 interface Props {
   options: Category[];
   placeholder?: string;
-  defaultValue?: string[];
-  onChange: (value: string[]) => void;
+  defaultValue?: number[];
+  onChange: (value: number[]) => void;
 }
 
 const Filter = ({
@@ -33,7 +33,7 @@ const Filter = ({
   onChange,
 }: Props): JSX.Element => {
   return (
-    <Menu closeOnSelect={false} size="base">
+    <Menu size="base" closeOnSelect={false}>
       <MenuButton>
         <InputGroup w={{ base: 'full', md: '245px' }}>
           <Input
@@ -51,12 +51,16 @@ const Filter = ({
       <MenuList>
         <CheckboxGroup onChange={onChange} defaultValue={defaultValue}>
           {options.map((item) => {
-            const { id, name } = item || {};
+            const { id, name = '' } = item || {};
 
             return (
-              <MenuItem key={id}>
+              <MenuItem key={id} p={0}>
                 <Checkbox
-                  value={id?.toString()}
+                  w="full"
+                  h="full"
+                  py={3}
+                  px={4}
+                  value={id}
                   colorScheme="orange"
                   textTransform="capitalize"
                 >

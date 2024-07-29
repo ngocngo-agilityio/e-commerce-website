@@ -38,7 +38,7 @@ const Products = ({ searchParams }: Props) => {
         <Heading as="h2" size="md" textAlign="center">
           Discover NEW Arrivals
         </Heading>
-        <Text textAlign="center" size="2xl" lineHeight="48px">
+        <Text textAlign="center" size="2xl" lineHeight="48px" mb={4}>
           Recently added shirts!
         </Text>
 

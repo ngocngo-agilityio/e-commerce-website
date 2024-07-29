@@ -1,9 +1,9 @@
 export interface Category {
-  id: string;
+  id: number;
   name: string;
 }
 
 export interface Tag {
-  id: string;
+  id: number;
   name: string;
 }

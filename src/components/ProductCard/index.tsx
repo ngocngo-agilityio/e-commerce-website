@@ -11,7 +11,7 @@ import { APP_ROUTERS, FALL_BACK_IMAGE } from '@constants';
 import { formatCurrency } from '@utils';
 
 interface Props {
-  id: string;
+  id: number;
   name: string;
   image: string;
   price: number;
@@ -27,7 +27,7 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
       _hover={{ transform: 'scale(1.02)' }}
     >
       <CardBody>
-        <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id)} scroll={true}>
+        <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id.toString())} scroll>
           <Flex flexDir={{ base: 'row', md: 'column' }} gap="16px">
             <Box
               width={{ base: '30%', md: '100%' }}

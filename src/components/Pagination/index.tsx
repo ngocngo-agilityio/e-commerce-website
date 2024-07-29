@@ -17,6 +17,9 @@ import {
 // Utils
 import { getSearchParams, updateSearchParams } from '@utils';
 
+// Constants
+import { DEFAULT_PAGE, SEARCH_QUERIES } from '@constants';
+
 interface Props {
   pagesQuantity: number;
 }
@@ -27,7 +30,7 @@ const Pagination = ({ pagesQuantity }: Props): JSX.Element => {
   const { replace } = useRouter();
 
   const { page } = getSearchParams(searchParams);
-  const selectedPage = parseInt(page) || 1;
+  const selectedPage = parseInt(page) || DEFAULT_PAGE;
 
   const { currentPage, setCurrentPage, pagesCount, pages } = usePagination({
     pagesCount: pagesQuantity,
@@ -40,7 +43,7 @@ const Pagination = ({ pagesQuantity }: Props): JSX.Element => {
 
       const updatedParams = updateSearchParams(
         searchParams,
-        'page',
+        SEARCH_QUERIES.PAGE,
         page.toString(),
       );
 
