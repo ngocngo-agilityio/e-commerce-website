@@ -46,14 +46,14 @@ export const updateSearchParams = (
  */
 export const formatUrlWithQuery = (
   endpoint: string,
-  query: Record<string, string | string[] | number | undefined>,
+  query: Record<string, string | string[] | number | number[] | undefined>,
 ): string => {
   const params = new URLSearchParams(
     Object.entries(query)
       .filter(([, value]) => value !== undefined)
       .flatMap(([key, value]) =>
         Array.isArray(value)
-          ? value.map((val) => [key, val])
+          ? value.map((val) => [key, String(val)])
           : [[key, String(value)]],
       ),
   );

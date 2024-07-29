@@ -15,7 +15,7 @@ import { API_PATH, ERROR_MESSAGES } from '@constants';
 type AddToCartRequest = {
   product: Product;
   quantity: number;
-  cartId?: string;
+  cartId?: number;
 };
 
 type AddItemToCardRequest = Omit<CartItem, 'id' | 'total'>;
@@ -24,7 +24,7 @@ type UpdateToCardRequest = {
   quantity: number;
 };
 
-type UpdateCartQuantityRequest = { quantity: number; cartId: string };
+type UpdateCartQuantityRequest = { quantity: number; cartId: number };
 
 export const addItem = (
   payload: AddItemToCardRequest,
@@ -34,7 +34,7 @@ export const addItem = (
     body: payload,
   });
 
-export const updateQuantity = (id: string, quantity: number) => {
+export const updateQuantity = (id: number, quantity: number) => {
   const endpoint = `${API_PATH.CARTS}/${id}`;
   const payload = {
     quantity: quantity,
@@ -92,7 +92,7 @@ export const updateCartItemQuantity = async ({
 };
 
 export const removeCartItem = async (
-  cartId: string,
+  cartId: number,
 ): Promise<{ error: string } | void> => {
   try {
     const endpoint = `${API_PATH.CARTS}/${cartId}`;

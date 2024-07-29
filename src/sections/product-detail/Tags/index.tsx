@@ -5,7 +5,7 @@ import { Flex, Text } from '@chakra-ui/react';
 import { getTagList } from '@apis';
 
 interface Props {
-  tagIds: string[];
+  tagIds: number[];
 }
 
 const Tags = async ({ tagIds }: Props): Promise<JSX.Element> => {

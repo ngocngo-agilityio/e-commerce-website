@@ -54,7 +54,7 @@ const AddToCartActionClient = ({
       const res = await addToCart({
         product,
         quantity: existingCartItems ? existingCartItems?.quantity + 1 : 1,
-        cartId: existingCartItems?.id || '',
+        cartId: existingCartItems?.id,
       });
 
       const { error } = res || {};

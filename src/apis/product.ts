@@ -11,8 +11,8 @@ import { Product } from '@types';
 import { formatUrlWithQuery } from '@utils';
 
 interface ProductDataResponse extends Product {
-  categoryIds: string[];
-  tagIds: string[];
+  categoryIds: number[];
+  tagIds: number[];
 }
 
 interface Configs {

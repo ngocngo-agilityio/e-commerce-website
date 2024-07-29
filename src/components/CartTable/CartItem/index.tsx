@@ -18,13 +18,13 @@ import { Counter } from '@components';
 const ConfirmModal = dynamic(() => import('../../ConfirmModal'));
 
 interface Props {
-  id: string;
+  id: number;
   name: string;
   image: string;
   price: number;
   quantity: number;
-  onRemoveProduct: (id: string) => void;
-  onQuantityChange: (id: string, quantity: number) => void;
+  onRemoveProduct: (id: number) => void;
+  onQuantityChange: (id: number, quantity: number) => void;
 }
 
 const CartItem = ({
@@ -86,7 +86,9 @@ const CartItem = ({
           />
         </Td>
         <Td style={{ fontWeight: 'bold' }}>
-          <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id)}>{name}</Link>
+          <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id.toString())}>
+            {name}
+          </Link>
         </Td>
         <Td>{formattedPrice}</Td>
         <Td>

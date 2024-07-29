@@ -33,7 +33,7 @@ const CartItemsClient = ({ cartItems }: CartItemClientProps): JSX.Element => {
   const handleCheckout = () => {};
 
   const handleRemoveCartItem = useCallback(
-    async (cartId: string) => {
+    async (cartId: number) => {
       const res = await removeCartItem(cartId);
 
       const { error } = res || {};
@@ -46,7 +46,7 @@ const CartItemsClient = ({ cartItems }: CartItemClientProps): JSX.Element => {
   );
 
   const handleChangeQuantity = useCallback(
-    async (cartId: string, quantity: number) => {
+    async (cartId: number, quantity: number) => {
       const res = await updateCartItemQuantity({ quantity, cartId });
 
       const { error } = res || {};
