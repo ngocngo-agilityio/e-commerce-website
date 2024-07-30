@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonProductActions component should match snapshot 1`] = `
+<div>
+  <div
+    class="css-120eo6q"
+  >
+    <div
+      class="chakra-skeleton css-vdyamp"
+    />
+    <div
+      class="chakra-skeleton css-vdyamp"
+    />
+    <div
+      class="chakra-skeleton css-vdyamp"
+    />
+  </div>
+</div>
+`;

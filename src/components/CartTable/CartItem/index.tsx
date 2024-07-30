@@ -1,7 +1,7 @@
 'use client';
 
 // Libs
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 import { Box, Center, Flex, Hide, Show, Td, Tr, Text } from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -38,9 +38,9 @@ const CartItem = ({
 }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const total = useMemo(() => price * quantity, [price, quantity]);
-  const formattedPrice = useMemo(() => formatCurrency(price), [price]);
-  const formattedTotal = useMemo(() => formatCurrency(total), [total]);
+  const total = price * quantity;
+  const formattedPrice = formatCurrency(price);
+  const formattedTotal = formatCurrency(total);
 
   const handleOpenConfirmModal = useCallback(() => {
     setIsOpen(true);

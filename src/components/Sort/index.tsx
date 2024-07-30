@@ -1,7 +1,7 @@
 'use client';
 
 // Libs
-import { memo, useState, MouseEvent, useCallback } from 'react';
+import { memo, useState, MouseEvent, useCallback, useMemo } from 'react';
 import {
   Input,
   InputGroup,
@@ -46,11 +46,11 @@ const Sort = ({
     [onChange],
   );
 
-  const getLabelByValue = (): string => {
+  const getLabelByValue = useMemo(() => {
     const option = options.find((option) => option.value === selectedOption);
 
     return option ? option.label : '';
-  };
+  }, [options, selectedOption]);
 
   return (
     <Menu closeOnSelect={false} size="base">
@@ -61,7 +61,7 @@ const Sort = ({
             size="base"
             borderRadius="base"
             placeholder={placeholder}
-            value={getLabelByValue()}
+            value={getLabelByValue}
           />
           <InputRightElement h="24px" my="12px" mr="7px">
             <FilterIcon />

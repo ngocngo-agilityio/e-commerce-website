@@ -30,7 +30,7 @@ const SelectSize = ({ options = [], onChange }: Props): JSX.Element => {
   const handleOnChange = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
       const value = e.currentTarget.value;
-      const selectedOption = options.find((item) => item.id === +value);
+      const selectedOption = options.find((item) => item?.id === +value);
 
       setSelectedOption(selectedOption);
 
@@ -48,7 +48,7 @@ const SelectSize = ({ options = [], onChange }: Props): JSX.Element => {
       </MenuButton>
       <MenuList>
         {options.map((item) => {
-          const { id, size, symbol } = item || {};
+          const { id, size = '', symbol = '' } = item || {};
 
           return (
             <MenuItem

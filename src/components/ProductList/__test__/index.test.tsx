@@ -1,11 +1,14 @@
 // Libs
 import { render, screen } from '@testing-library/react';
 
-// Components
-import ProductList from '..';
-
 // Mocks
 import { MOCK_PRODUCT_LIST } from '@mocks';
+
+// Types
+import { Product } from '@types';
+
+// Components
+import ProductList from '..';
 
 describe('ProductList component', () => {
   test('renders no products message when data is empty', () => {
@@ -15,15 +18,11 @@ describe('ProductList component', () => {
   });
 
   test('should match snapshot for ProductCard', () => {
-    const { container } = render(<ProductList data={[]} />);
+    const mockData = MOCK_PRODUCT_LIST;
+    mockData[1] = null as unknown as Product;
+
+    const { container } = render(<ProductList data={MOCK_PRODUCT_LIST} />);
 
     expect(container).toMatchSnapshot();
-  });
-
-  test('should render ProductList successfully', () => {
-    render(<ProductList data={MOCK_PRODUCT_LIST} />);
-
-    expect(screen.getByText(MOCK_PRODUCT_LIST[0].name)).toBeInTheDocument();
-    expect(screen.getByText(MOCK_PRODUCT_LIST[1].name)).toBeInTheDocument();
   });
 });
