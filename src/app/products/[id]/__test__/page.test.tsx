@@ -1,59 +1,56 @@
 // Libs
-import { render, screen, waitFor } from '@testing-library/react';
+import { render } from '@testing-library/react';
 
-// Apis
-import { getCategoryList, getProductDetail, getTagList } from '@apis';
-
-// Mocks
-import { MOCK_PRODUCT_LIST, MOCK_CATEGORIES, MOCK_TAGS } from '@mocks';
-
-// Components
+// Sections
 import ProductDetail from '../page';
 
-jest.mock('@apis');
+// Mocks
+import { MOCK_PRODUCT_LIST } from '@mocks';
 
-(
-  getProductDetail as jest.MockedFunction<typeof getProductDetail>
-).mockResolvedValue({ data: MOCK_PRODUCT_LIST[0] });
+// Apis
+import { getProductDetail } from '@apis';
 
-(
-  getCategoryList as jest.MockedFunction<typeof getCategoryList>
-).mockResolvedValue({
-  data: MOCK_CATEGORIES,
-});
-
-(getTagList as jest.MockedFunction<typeof getTagList>).mockResolvedValue({
-  data: MOCK_TAGS,
-});
-
-jest.mock('../Tags', () => ({
-  __esModule: true,
-  default: () => <div>Tags</div>,
+jest.mock('@components', () => ({
+  Rating: () => <div>Rating</div>,
+  SkeletonAddCartAction: () => <div>SkeletonAddCartAction</div>,
+  SkeletonProductCategories: () => <div>SkeletonProductCategories</div>,
 }));
 
-jest.mock('../Categories', () => ({
-  __esModule: true,
-  default: () => <div>Categories</div>,
+jest.mock('@sections', () => ({
+  AddCartAction: () => <div>AddCartAction</div>,
+  Categories: () => <div>Categories</div>,
+  Tags: () => <div>Tags</div>,
+}));
+
+jest.mock('@apis', () => ({
+  ...jest.requireActual('@apis'),
+  getProductDetail: jest.fn(),
 }));
 
 describe('ProductDetail page', () => {
-  test('should render ProductDetail page successfully', async () => {
-    const productDetailPage = await ProductDetail({ params: { id: '2' } });
-
-    render(productDetailPage);
-
-    await waitFor(() => {
-      expect(screen.getByText(MOCK_PRODUCT_LIST[0].name)).toBeInTheDocument();
-    });
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  test('should match snapshot for ProductDetail page', async () => {
-    const productDetailPage = await ProductDetail({ params: { id: '2' } });
-
-    const { container } = render(productDetailPage);
-
-    await waitFor(() => {
-      expect(container).toMatchSnapshot();
+  it('Should render match with snapshot.', async () => {
+    (getProductDetail as jest.Mock).mockReturnValue({
+      data: MOCK_PRODUCT_LIST[0],
     });
+
+    const { container } = render(await ProductDetail({ params: { id: '1' } }));
+
+    expect(container).toMatchSnapshot();
+  });
+
+  it('Should render ProductDetail correctly', async () => {
+    (getProductDetail as jest.Mock).mockReturnValue({
+      data: null,
+    });
+
+    const { container } = render(
+      await ProductDetail({ params: null as unknown as { id: string } }),
+    );
+
+    expect(container).toMatchSnapshot();
   });
 });
