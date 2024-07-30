@@ -1,17 +1,19 @@
 // Libs
 import { fireEvent, render, waitFor } from '@testing-library/react';
 
+// Mocks
+import { MOCK_TAG } from '@mocks';
+
 // Components
 import Tag from '..';
 
 const mockProps = {
-  id: 1,
-  label: 'Women',
+  ...MOCK_TAG,
   onClose: jest.fn(),
 };
 
-describe('Sort component', () => {
-  test('should match snapshot for Sort', () => {
+describe('Tag component', () => {
+  test('should match snapshot', () => {
     const { container } = render(<Tag {...mockProps} />);
 
     expect(container).toMatchSnapshot();

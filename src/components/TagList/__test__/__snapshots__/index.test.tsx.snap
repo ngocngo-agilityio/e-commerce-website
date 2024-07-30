@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sort component should match snapshot for Sort 1`] = `
+exports[`Sort component should match snapshot 1`] = `
 <div>
   <span
     class="css-1ehzxp"
@@ -28,18 +28,13 @@ exports[`Sort component should match snapshot for Sort 1`] = `
       </svg>
     </button>
   </span>
-</div>
-`;
-
-exports[`Tag component should match snapshot 1`] = `
-<div>
   <span
     class="css-1ehzxp"
   >
     <span
       class="css-zvlevn"
     >
-      Women
+      Man
     </span>
     <button
       aria-label="close"
