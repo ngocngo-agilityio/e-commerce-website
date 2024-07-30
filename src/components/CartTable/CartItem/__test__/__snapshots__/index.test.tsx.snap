@@ -60,6 +60,7 @@ exports[`CartItem components should match snapshot for CartItem 1`] = `
               >
                 <button
                   class="chakra-button css-22uwrg"
+                  data-testid="minus-btn"
                   type="button"
                 >
                   <svg
@@ -90,6 +91,7 @@ exports[`CartItem components should match snapshot for CartItem 1`] = `
                 </div>
                 <button
                   class="chakra-button css-22uwrg"
+                  data-testid="increment-btn"
                   type="button"
                 >
                   <svg

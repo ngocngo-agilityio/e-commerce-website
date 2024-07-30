@@ -67,6 +67,7 @@ const Counter = ({
         h={{ base: '28px', md: '34px' }}
         onClick={handleDecrement}
         isDisabled={isDecrementDisable}
+        data-testid="minus-btn"
       >
         <MinusIcon boxSize={2} />
       </Button>
@@ -93,6 +94,7 @@ const Counter = ({
         h={{ base: '28px', md: '34px' }}
         variant="unstyled"
         onClick={handleIncrement}
+        data-testid="increment-btn"
       >
         <AddIcon boxSize={2} />
       </Button>

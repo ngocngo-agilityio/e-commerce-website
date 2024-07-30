@@ -56,15 +56,13 @@ const config: Config = {
     '@apis': '<rootDir>/src/apis',
     '@hooks': '<rootDir>/src/hooks',
     '@stores': '<rootDir>/src/stores',
+    '@sections': '<rootDir>/src/sections',
+    '@actions': '<rootDir>/src/actions',
+    '@components/*': '<rootDir>/src/components/*',
   },
 
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
-
-  // A map from regular expressions to paths to transformers
-  transform: {
-    '^.+\\.(js|jsx|ts|tsx)$': ['babel-jest', { presets: ['next/babel'] }],
-  },
 
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   roots: ['<rootDir>/src'],
