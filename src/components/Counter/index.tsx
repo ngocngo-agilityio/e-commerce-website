@@ -61,6 +61,7 @@ const Counter = ({
       borderRadius={{ base: '4px', md: '8px' }}
     >
       <Button
+        aria-label="minus-btn"
         variant="unstyled"
         minW={5}
         w={{ base: '25px', md: '30px' }}
@@ -89,6 +90,7 @@ const Counter = ({
       </Center>
 
       <Button
+        aria-label="increment-btn"
         minW={5}
         w={{ base: '25px', md: '30px' }}
         h={{ base: '28px', md: '34px' }}

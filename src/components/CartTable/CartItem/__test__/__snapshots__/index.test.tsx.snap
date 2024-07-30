@@ -59,6 +59,7 @@ exports[`CartItem components should match snapshot for CartItem 1`] = `
                 class="css-6myvwv"
               >
                 <button
+                  aria-label="minus-btn"
                   class="chakra-button css-22uwrg"
                   data-testid="minus-btn"
                   type="button"
@@ -90,6 +91,7 @@ exports[`CartItem components should match snapshot for CartItem 1`] = `
                   </span>
                 </div>
                 <button
+                  aria-label="increment-btn"
                   class="chakra-button css-22uwrg"
                   data-testid="increment-btn"
                   type="button"
