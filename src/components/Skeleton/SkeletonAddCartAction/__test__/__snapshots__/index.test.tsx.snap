@@ -10,14 +10,3 @@ exports[`SkeletonAddCartAction component should match snapshot 1`] = `
   />
 </div>
 `;
-
-exports[`SkeletonAddCartAction component should match snapshot for SkeletonProductCategories 1`] = `
-<div>
-  <div
-    class="chakra-skeleton css-axgwne"
-  />
-  <div
-    class="chakra-skeleton css-1lw11jq"
-  />
-</div>
-`;

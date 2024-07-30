@@ -5,7 +5,7 @@ const BASE = {
   prussianBlue: '#013050',
   orient: '#024E82',
   opal: '#9DB9C1',
-  redDamask: '#D6763C',
+  redDamask: '#B35D28',
   tuscany: '#B85E27',
   black: '#000000',
   alabaster: '#FBFBFB',
