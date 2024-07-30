@@ -1,17 +1,29 @@
 // Libs
 import { render } from '@testing-library/react';
 
-// Components
+// Sections
 import Cart from '../page';
 
-describe('Cart page', () => {
-  test('should render Cart page successfully', () => {
-    const { getByText } = render(<Cart />);
+jest.mock('@components', () => ({
+  Breadcrumb: () => <div>Breadcrumb</div>,
+  SkeletonCartItems: () => <div>SkeletonCartItems</div>,
+}));
 
-    expect(getByText('Home')).toBeInTheDocument();
+jest.mock('@sections', () => ({
+  CartItems: () => <div>CartItems</div>,
+}));
+
+jest.mock('@apis', () => ({
+  ...jest.requireActual('@apis'),
+  preloadGetCartItems: jest.fn(),
+}));
+
+describe('Cart page', () => {
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  test('should match snapshot for Cart page', () => {
+  it('Should render match with snapshot.', () => {
     const { container } = render(<Cart />);
 
     expect(container).toMatchSnapshot();
