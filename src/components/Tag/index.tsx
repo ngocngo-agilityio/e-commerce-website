@@ -25,7 +25,7 @@ const Tag = ({ id, label, onClose }: TagProps): JSX.Element => {
       colorScheme="orange"
     >
       <TagLabel>{label}</TagLabel>
-      <TagCloseButton onClick={handleClose} />
+      <TagCloseButton onClick={handleClose} data-testid="close-btn" />
     </TagChakra>
   );
 };
