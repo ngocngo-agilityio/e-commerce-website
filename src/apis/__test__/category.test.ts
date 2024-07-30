@@ -1,137 +1,80 @@
-// Libs
-import { AxiosResponse } from 'axios';
+// Mocks
+import {
+  MOCK_ERROR_MESSAGES,
+  MOCK_CATEGORIES,
+  MOCK_CATEGORIES_QUERY_CONFIGS,
+  MOCK_ERROR_RESPONSE,
+  MOCK_TAGS,
+  MOCK_TAGS_QUERY_CONFIGS,
+} from '@mocks';
 
-// Apis
+// APIs
 import { getCategoryList, getTagList } from '../category';
 
 // Services
-import { HttpRequestService } from '@services';
+import { httpClient, ResponseData } from '@services';
 
-// Mocks
-import { MOCK_CATEGORIES, MOCK_TAGS } from '@mocks';
+// Types
+import { Category, Tag } from '@types';
 
-jest.mock('@services');
-
-describe('Categories apis', () => {
+describe('Categories APIs', () => {
   describe('getCategoryList', () => {
-    const queryConfig = {
-      name: 'test',
-      sortDirection: 'desc',
-      sortBy: 'name',
-      categoryIds: ['1'],
-      page: '1',
-      limit: 10,
-    };
+    test('get categories successfully', async () => {
+      jest
+        .spyOn(httpClient, 'getRequest')
+        .mockResolvedValue({ data: MOCK_CATEGORIES, totalCount: 6 });
 
-    test('getCategoryList success', async () => {
-      const expectedResponse = {
-        data: MOCK_CATEGORIES,
-        status: 200,
-        statusText: 'OK',
-        headers: {},
-      } as AxiosResponse;
+      const res = await getCategoryList(MOCK_CATEGORIES_QUERY_CONFIGS);
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockResolvedValue(expectedResponse);
-
-      const response = await getCategoryList(queryConfig);
-
-      expect(response.data).toEqual(expectedResponse.data);
+      expect(res.data).toEqual(MOCK_CATEGORIES);
     });
 
-    test('getCategoryList response is empty object', async () => {
-      const expectedResponse = null as unknown as AxiosResponse;
+    test('get categories with response is null value', async () => {
+      jest
+        .spyOn(httpClient, 'getRequest')
+        .mockResolvedValue(null as unknown as ResponseData<Category[]>);
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockResolvedValue(expectedResponse);
+      const res = await getCategoryList();
 
-      const response = await getCategoryList(queryConfig);
-
-      expect(response).toBeNull;
+      expect(res.data).toEqual([]);
     });
 
-    test('getCategoryList is failed', async () => {
-      const errorMessage = 'Failed to get data';
-      const error = new Error(errorMessage);
+    test('get categories failed', async () => {
+      jest
+        .spyOn(httpClient, 'getRequest')
+        .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockRejectedValue(error);
-
-      try {
-        await getCategoryList(queryConfig);
-      } catch (error) {
-        expect(error).toEqual(error);
-      }
+      await expect(getCategoryList()).rejects.toThrow(MOCK_ERROR_MESSAGES);
     });
   });
 
   describe('getTagList', () => {
-    const queryConfig = {
-      name: 'test',
-      sortDirection: 'desc',
-      sortBy: 'name',
-      categoryIds: ['1'],
-      page: '1',
-      limit: 10,
-    };
+    test('get tags successfully', async () => {
+      jest
+        .spyOn(httpClient, 'getRequest')
+        .mockResolvedValue({ data: MOCK_TAGS, totalCount: MOCK_TAGS.length });
 
-    test('getTagList success', async () => {
-      const expectedResponse = {
-        data: MOCK_TAGS,
-        status: 200,
-        statusText: 'OK',
-        headers: {},
-      } as AxiosResponse;
+      const res = await getTagList(MOCK_TAGS_QUERY_CONFIGS);
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockResolvedValue(expectedResponse);
-
-      const response = await getTagList(queryConfig);
-
-      expect(response.data).toEqual(expectedResponse.data);
+      expect(res.data).toEqual(MOCK_TAGS);
     });
 
-    test('getTagList response is empty object', async () => {
-      const expectedResponse = null as unknown as AxiosResponse;
+    test('get tags with response is null value', async () => {
+      jest
+        .spyOn(httpClient, 'getRequest')
+        .mockResolvedValue(null as unknown as ResponseData<Tag[]>);
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockResolvedValue(expectedResponse);
+      const res = await getTagList();
 
-      const response = await getTagList(queryConfig);
-
-      expect(response).toBeNull;
+      expect(res.data).toEqual([]);
     });
 
-    test('getTagList is failed', async () => {
-      const errorMessage = 'Failed to get data';
-      const error = new Error(errorMessage);
+    test('get tags failed', async () => {
+      jest
+        .spyOn(httpClient, 'getRequest')
+        .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockRejectedValue(error);
-
-      try {
-        await getTagList(queryConfig);
-      } catch (error) {
-        expect(error).toEqual(error);
-      }
+      await expect(getTagList()).rejects.toThrow(MOCK_ERROR_MESSAGES);
     });
   });
 });

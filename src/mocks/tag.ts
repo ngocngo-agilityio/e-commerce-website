@@ -16,3 +16,12 @@ export const MOCK_TAG_LIST: ITag[] = [
     label: 'Man',
   },
 ];
+
+export const MOCK_TAGS_QUERY_CONFIGS = {
+  name: 'test',
+  sortDirection: 'desc',
+  sortBy: 'name',
+  ids: [1],
+  page: '1',
+  limit: 10,
+};

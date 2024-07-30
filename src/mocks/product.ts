@@ -106,3 +106,12 @@ export const MOCK_PRODUCT_SIZES: SizeOption[] = [
     symbol: 'XL',
   },
 ];
+
+export const MOCK_PRODUCTS_QUERY_CONFIGS = {
+  name: 'test',
+  sortDirection: 'desc',
+  sortBy: 'name',
+  categoryIds: ['1'],
+  page: '1',
+  limit: 10,
+};
