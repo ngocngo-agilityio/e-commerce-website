@@ -1,5 +1,5 @@
 // Types
-import { Product } from '@types';
+import { Product, SizeOption } from '@types';
 
 export const MOCK_PRODUCT_CARD = {
   id: '1',
@@ -84,24 +84,24 @@ export const MOCK_PRODUCT_LIST: Product[] = [
   },
 ];
 
-export const MOCK_PRODUCT_SIZES = [
+export const MOCK_PRODUCT_SIZES: SizeOption[] = [
   {
-    id: '1',
+    id: 1,
     size: 'Small',
     symbol: 'S',
   },
   {
-    id: '2',
+    id: 2,
     size: 'Medium',
     symbol: 'M',
   },
   {
-    id: '3',
+    id: 3,
     size: 'Large',
     symbol: 'L',
   },
   {
-    id: '4',
+    id: 4,
     size: 'Extra Large',
     symbol: 'XL',
   },

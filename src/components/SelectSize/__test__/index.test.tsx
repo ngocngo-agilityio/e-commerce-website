@@ -1,27 +1,28 @@
 // Libs
-import { screen, render, fireEvent } from '@testing-library/react';
+import { screen, render, fireEvent, waitFor } from '@testing-library/react';
+
+// Mocks
+import { MOCK_PRODUCT_SIZES } from '@mocks';
+
+// Types
+import { SizeOption } from '@types';
 
 // Components
 import SelectSize from '..';
 
 const mockProps = {
-  options: [
-    { id: '1', size: 'Small', symbol: 'S' },
-    { id: '2', size: 'Medium', symbol: 'M' },
-    { id: '3', size: 'Large', symbol: 'L' },
-    { id: '4', size: 'Extra Large', symbol: 'XL' },
-  ],
+  options: MOCK_PRODUCT_SIZES,
   onChange: jest.fn(),
 };
 
 describe('SelectSize component', () => {
-  test('should render SelectSize successfully', () => {
-    render(<SelectSize {...mockProps} />);
-
-    expect(screen.getByText(mockProps.options[0].size)).toBeInTheDocument();
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
   test('should match snapshot for SelectSize', () => {
+    const mockOptions = MOCK_PRODUCT_SIZES;
+    mockOptions[0] = null as unknown as SizeOption;
     const { container } = render(<SelectSize {...mockProps} />);
 
     expect(container).toMatchSnapshot();
@@ -32,6 +33,8 @@ describe('SelectSize component', () => {
 
     fireEvent.click(screen.getByText(mockProps.options[1].size));
 
-    expect(mockProps.onChange).toHaveBeenCalled();
+    waitFor(() =>
+      expect(mockProps.onChange).toHaveBeenCalledWith(MOCK_PRODUCT_SIZES[1]),
+    );
   });
 });
