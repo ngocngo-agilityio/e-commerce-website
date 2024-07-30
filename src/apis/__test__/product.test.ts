@@ -1,130 +1,82 @@
-// Libs
-import { AxiosResponse } from 'axios';
+// Mocks
+import {
+  ERROR_MESSAGES,
+  MOCK_PRODUCTS_QUERY_CONFIGS,
+  MOCK_ERROR_RESPONSE,
+  MOCK_PRODUCT_LIST,
+} from '@mocks';
 
-// Apis
-import { getProductDetail, getProductList } from '../product';
+// APIs
+import { getProductList, getProductDetail } from '../product';
 
 // Services
-import { HttpRequestService } from '@services';
+import { httpClient, ResponseData } from '@services';
 
-// Mocks
-import { MOCK_PRODUCT_LIST } from '@mocks';
+// Types
+import { Category, Tag } from '@types';
 
-jest.mock('@services');
-
-describe('Products apis', () => {
+describe('Products APIs', () => {
   describe('getProductList', () => {
-    const queryConfig = {
-      name: 'test',
-      sortDirection: 'desc',
-      sortBy: 'name',
-      categoryIds: ['1'],
-      page: '1',
-      limit: 10,
-    };
-
-    test('getProductList success', async () => {
-      const expectedResponse = {
+    test('get products successfully', async () => {
+      jest.spyOn(httpClient, 'getRequest').mockResolvedValue({
         data: MOCK_PRODUCT_LIST,
-        status: 200,
-        statusText: 'OK',
-        headers: {},
-      } as AxiosResponse;
+        totalCount: MOCK_PRODUCT_LIST.length,
+      });
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockResolvedValue(expectedResponse);
+      const res = await getProductList(MOCK_PRODUCTS_QUERY_CONFIGS);
 
-      const response = await getProductList(queryConfig);
-
-      expect(response.data).toEqual(expectedResponse.data);
+      expect(res.data).toEqual(MOCK_PRODUCT_LIST);
     });
 
-    test('getProductList response is empty object', async () => {
-      const expectedResponse = null as unknown as AxiosResponse;
+    test('get products with response is null value', async () => {
+      jest
+        .spyOn(httpClient, 'getRequest')
+        .mockResolvedValue(null as unknown as ResponseData<Category[]>);
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockResolvedValue(expectedResponse);
+      const res = await getProductList();
 
-      const response = await getProductList(queryConfig);
-
-      expect(response).toBeNull;
+      expect(res.data).toEqual([]);
     });
 
-    test('getProductList is failed', async () => {
-      const errorMessage = 'Failed to get data';
-      const error = new Error(errorMessage);
+    test('get products failed', async () => {
+      jest
+        .spyOn(httpClient, 'getRequest')
+        .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockRejectedValue(error);
-
-      try {
-        await getProductList(queryConfig);
-      } catch (error) {
-        expect(error).toEqual(error);
-      }
+      await expect(getProductList()).rejects.toThrow(ERROR_MESSAGES);
     });
   });
 
   describe('getProductDetail', () => {
-    const id = '1';
-
-    test('getProductDetail success', async () => {
-      const expectedResponse = {
+    test('get product details successfully', async () => {
+      jest.spyOn(httpClient, 'getRequest').mockResolvedValue({
         data: MOCK_PRODUCT_LIST[0],
-        status: 200,
-        statusText: 'OK',
-        headers: {},
-      } as AxiosResponse;
+        totalCount: 1,
+      });
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockResolvedValue(expectedResponse);
+      const res = await getProductDetail(MOCK_PRODUCT_LIST[0].id.toString());
 
-      const response = await getProductDetail(id);
-
-      expect(response.data).toEqual(expectedResponse.data);
+      expect(res.data).toEqual(MOCK_PRODUCT_LIST[0]);
     });
 
-    test('getProductDetail response is empty object', async () => {
-      const expectedResponse = null as unknown as AxiosResponse;
+    test('get tags with response is null value', async () => {
+      jest
+        .spyOn(httpClient, 'getRequest')
+        .mockResolvedValue(null as unknown as ResponseData<Tag[]>);
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockResolvedValue(expectedResponse);
+      const res = await getProductDetail(MOCK_PRODUCT_LIST[0].id.toString());
 
-      const response = await getProductDetail(id);
-
-      expect(response).toBeNull;
+      expect(res.data).toEqual(undefined);
     });
 
-    test('getProductDetail is failed', async () => {
-      const errorMessage = 'Failed to get data';
-      const error = new Error(errorMessage);
+    test('get tags failed', async () => {
+      jest
+        .spyOn(httpClient, 'getRequest')
+        .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-      (
-        HttpRequestService.get as jest.MockedFunction<
-          typeof HttpRequestService.get
-        >
-      ).mockRejectedValue(error);
-
-      try {
-        await getProductDetail(id);
-      } catch (error) {
-        expect(error).toEqual(error);
-      }
+      await expect(
+        getProductDetail(MOCK_PRODUCT_LIST[0].id.toString()),
+      ).rejects.toThrow(ERROR_MESSAGES);
     });
   });
 });
