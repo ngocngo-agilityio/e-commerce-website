@@ -1,5 +1,9 @@
 // Mocks
-import { ERROR_MESSAGES, MOCK_CART_ITEMS, MOCK_ERROR_RESPONSE } from '@mocks';
+import {
+  MOCK_ERROR_MESSAGES,
+  MOCK_CART_ITEMS,
+  MOCK_ERROR_RESPONSE,
+} from '@mocks';
 
 // APIs
 import { getCartItems, preloadGetCartItems } from '../cart';
@@ -37,7 +41,7 @@ describe('Cart APIs', () => {
         .spyOn(httpClient, 'getRequest')
         .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-      await expect(getCartItems()).rejects.toThrow(ERROR_MESSAGES);
+      await expect(getCartItems()).rejects.toThrow(MOCK_ERROR_MESSAGES);
     });
   });
 

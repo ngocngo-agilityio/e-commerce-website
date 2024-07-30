@@ -1,6 +1,6 @@
 // Mocks
 import {
-  ERROR_MESSAGES,
+  MOCK_ERROR_MESSAGES,
   MOCK_PRODUCTS_QUERY_CONFIGS,
   MOCK_ERROR_RESPONSE,
   MOCK_PRODUCT_LIST,
@@ -43,7 +43,7 @@ describe('Products APIs', () => {
         .spyOn(httpClient, 'getRequest')
         .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-      await expect(getProductList()).rejects.toThrow(ERROR_MESSAGES);
+      await expect(getProductList()).rejects.toThrow(MOCK_ERROR_MESSAGES);
     });
   });
 
@@ -76,7 +76,7 @@ describe('Products APIs', () => {
 
       await expect(
         getProductDetail(MOCK_PRODUCT_LIST[0].id.toString()),
-      ).rejects.toThrow(ERROR_MESSAGES);
+      ).rejects.toThrow(MOCK_ERROR_MESSAGES);
     });
   });
 });

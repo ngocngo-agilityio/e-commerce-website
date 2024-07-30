@@ -35,6 +35,7 @@ const config: Config = {
     '!src/hooks/index.ts',
     '!src/providers/index.ts',
     '!src/apis/index.ts',
+    '!src/actions/index.ts',
   ],
 
   // The directory where Jest should output its coverage files

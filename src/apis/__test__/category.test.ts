@@ -1,6 +1,6 @@
 // Mocks
 import {
-  ERROR_MESSAGES,
+  MOCK_ERROR_MESSAGES,
   MOCK_CATEGORIES,
   MOCK_CATEGORIES_QUERY_CONFIGS,
   MOCK_ERROR_RESPONSE,
@@ -44,7 +44,7 @@ describe('Categories APIs', () => {
         .spyOn(httpClient, 'getRequest')
         .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-      await expect(getCategoryList()).rejects.toThrow(ERROR_MESSAGES);
+      await expect(getCategoryList()).rejects.toThrow(MOCK_ERROR_MESSAGES);
     });
   });
 
@@ -74,7 +74,7 @@ describe('Categories APIs', () => {
         .spyOn(httpClient, 'getRequest')
         .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-      await expect(getTagList()).rejects.toThrow(ERROR_MESSAGES);
+      await expect(getTagList()).rejects.toThrow(MOCK_ERROR_MESSAGES);
     });
   });
 });
