@@ -72,7 +72,7 @@ const Sort = ({
       <MenuList>
         <RadioGroup value={selectedOption}>
           {options.map((item) => {
-            const { value, label } = item || {};
+            const { value = '', label = '' } = item || {};
 
             return (
               <MenuItem key={value} value={value} onClick={handleOnChange}>
