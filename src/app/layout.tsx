@@ -12,7 +12,10 @@ import { HEADER_HEIGHT, FOOTER_HEIGHT } from '@constants';
 import MainLayout from './MainLayout';
 
 export const metadata: Metadata = {
-  title: 'E-commerce Fashion',
+  title: {
+    template: '%s | E-commerce Fashion',
+    default: 'E-commerce Fashion',
+  },
   description:
     'Discover the latest trends and shop your favorite styles on our innovative e-commerce platform designed for fashion enthusiasts.',
   icons: {
