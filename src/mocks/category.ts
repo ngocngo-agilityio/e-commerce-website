@@ -46,3 +46,12 @@ export const MOCK_TAGS = [
     id: '4',
   },
 ];
+
+export const MOCK_CATEGORIES_QUERY_CONFIGS = {
+  name: 'test',
+  sortDirection: 'desc',
+  sortBy: 'name',
+  categoryIds: [1],
+  page: '1',
+  limit: 10,
+};
