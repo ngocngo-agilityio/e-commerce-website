@@ -4,21 +4,20 @@ import { fireEvent, render, screen } from '@testing-library/react';
 // Components
 import Filter from '..';
 
+// Types
+import { Category } from '@types';
+
+// Mocks
+import { MOCK_CATEGORIES } from '@mocks';
+
 const mockProps = {
-  options: [
-    { id: '1', name: 'Women' },
-    { id: '2', name: 'Man' },
-    { id: '3', name: 'Casual' },
-  ],
+  options: MOCK_CATEGORIES,
   onChange: jest.fn(),
 };
 
 describe('Filter component', () => {
-  test('should render Filter successfully', () => {
-    const { container } = render(<Filter {...mockProps} />);
-
-    expect(container).toBeInTheDocument();
-  });
+  const mockOptions = mockProps.options;
+  mockOptions[2] = null as unknown as Category;
 
   test('should match snapshot for Filter', () => {
     const { container } = render(<Filter {...mockProps} />);

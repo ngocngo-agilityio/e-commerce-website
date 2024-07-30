@@ -9,155 +9,151 @@ exports[`Footer component should match snapshot for Footer 1`] = `
       class="chakra-container css-0"
     >
       <div
-        class="css-1eepplo"
+        class="css-f58nlu"
       >
         <div
-          class="css-1hnm2jq"
+          class="css-0"
         >
-          <div
-            class="css-0"
+          <p
+            class="chakra-text css-1h9aq40"
+          >
+            Company info
+          </p>
+          <a
+            href="#"
           >
             <p
-              class="chakra-text css-1h9aq40"
+              class="chakra-text css-1ovweji"
             >
-              Company info
+              About us
             </p>
-            <a
-              href="#"
-            >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                About us
-              </p>
-            </a>
-            <a
-              href="#"
-            >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Latest Posts
-              </p>
-            </a>
-            <a
-              href="#"
-            >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Contact Us
-              </p>
-            </a>
-            <a
-              href="#"
-            >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Shop
-              </p>
-            </a>
-          </div>
-          <div
-            class="css-0"
+          </a>
+          <a
+            href="#"
           >
             <p
-              class="chakra-text css-1h9aq40"
+              class="chakra-text css-1ovweji"
             >
-              Help links
+              Latest Posts
             </p>
-            <a
-              href="#"
-            >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Tracking
-              </p>
-            </a>
-            <a
-              href="#"
-            >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Order Status
-              </p>
-            </a>
-            <a
-              href="#"
-            >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Delivery 
-              </p>
-            </a>
-            <a
-              href="#"
-            >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Shipping Info
-              </p>
-            </a>
-            <a
-              href="#"
-            >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                FAQ
-              </p>
-            </a>
-          </div>
-          <div
-            class="css-0"
+          </a>
+          <a
+            href="#"
           >
             <p
-              class="chakra-text css-1h9aq40"
+              class="chakra-text css-1ovweji"
             >
-              Useful links
+              Contact Us
             </p>
-            <a
-              href="#"
+          </a>
+          <a
+            href="#"
+          >
+            <p
+              class="chakra-text css-1ovweji"
             >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Special Offers
-              </p>
-            </a>
-            <a
-              href="#"
+              Shop
+            </p>
+          </a>
+        </div>
+        <div
+          class="css-0"
+        >
+          <p
+            class="chakra-text css-1h9aq40"
+          >
+            Help links
+          </p>
+          <a
+            href="#"
+          >
+            <p
+              class="chakra-text css-1ovweji"
             >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Gift Cards
-              </p>
-            </a>
-            <a
-              href="#"
+              Tracking
+            </p>
+          </a>
+          <a
+            href="#"
+          >
+            <p
+              class="chakra-text css-1ovweji"
             >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Advertising
-              </p>
-            </a>
-            <a
-              href="#"
+              Order Status
+            </p>
+          </a>
+          <a
+            href="#"
+          >
+            <p
+              class="chakra-text css-1ovweji"
             >
-              <p
-                class="chakra-text css-1ovweji"
-              >
-                Term Of Use
-              </p>
-            </a>
-          </div>
+              Delivery 
+            </p>
+          </a>
+          <a
+            href="#"
+          >
+            <p
+              class="chakra-text css-1ovweji"
+            >
+              Shipping Info
+            </p>
+          </a>
+          <a
+            href="#"
+          >
+            <p
+              class="chakra-text css-1ovweji"
+            >
+              FAQ
+            </p>
+          </a>
+        </div>
+        <div
+          class="css-0"
+        >
+          <p
+            class="chakra-text css-1h9aq40"
+          >
+            Useful links
+          </p>
+          <a
+            href="#"
+          >
+            <p
+              class="chakra-text css-1ovweji"
+            >
+              Special Offers
+            </p>
+          </a>
+          <a
+            href="#"
+          >
+            <p
+              class="chakra-text css-1ovweji"
+            >
+              Gift Cards
+            </p>
+          </a>
+          <a
+            href="#"
+          >
+            <p
+              class="chakra-text css-1ovweji"
+            >
+              Advertising
+            </p>
+          </a>
+          <a
+            href="#"
+          >
+            <p
+              class="chakra-text css-1ovweji"
+            >
+              Term Of Use
+            </p>
+          </a>
         </div>
         <div
           class="css-0"
@@ -171,7 +167,7 @@ exports[`Footer component should match snapshot for Footer 1`] = `
             class="chakra-stack css-1igwmid"
           >
             <input
-              class="chakra-input css-dnva2j"
+              class="chakra-input css-g3x0k4"
               placeholder="Enter email"
             />
             <svg
@@ -193,7 +189,7 @@ exports[`Footer component should match snapshot for Footer 1`] = `
         class="chakra-divider css-1upb9tn"
       />
       <div
-        class="css-152pghs"
+        class="css-1gwad6r"
       >
         <div
           class="css-0"
@@ -227,7 +223,7 @@ exports[`Footer component should match snapshot for Footer 1`] = `
           </div>
         </div>
         <div
-          class="chakra-stack css-1ski9r"
+          class="css-1dqpc7h"
         >
           <a
             aria-label="visa"

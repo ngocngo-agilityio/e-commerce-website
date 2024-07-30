@@ -32,7 +32,13 @@ const CartTable = ({
       <Tbody>
         {cart.length > 0 ? (
           cart.map((item) => {
-            const { id, name, image, price, quantity } = item || {};
+            const {
+              id,
+              name = '',
+              image = '',
+              price = 0,
+              quantity = 0,
+            } = item || {};
             return (
               <CartItem
                 key={id}
