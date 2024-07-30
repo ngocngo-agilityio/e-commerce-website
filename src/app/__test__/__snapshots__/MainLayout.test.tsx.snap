@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainLayout should match snapshot 1`] = `
+<div>
+  <div
+    data-testid="header"
+  >
+    Header
+  </div>
+  <div>
+    Children component
+  </div>
+  <div
+    data-testid="footer"
+  >
+    Footer
+  </div>
+</div>
+`;

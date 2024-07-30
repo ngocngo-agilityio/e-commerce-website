@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`HomeLoading should match snapshot 1`] = `
+<div>
+  <html>
+    <body>
+      <div
+        class="chakra-stack css-1ts0oy9"
+      >
+        <h2
+          class="chakra-heading css-0"
+        >
+          Something went wrong!
+        </h2>
+        <p
+          class="chakra-text css-tokvmb"
+        >
+          Request failed
+        </p>
+        <button
+          class="chakra-button css-4xx2wk"
+          type="button"
+        >
+          Try again
+        </button>
+      </div>
+    </body>
+  </html>
+</div>
+`;

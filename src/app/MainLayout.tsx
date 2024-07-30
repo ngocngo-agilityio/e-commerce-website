@@ -7,7 +7,7 @@ interface Props {
   children: ReactNode;
 }
 
-export const MainLayout = async ({ children }: Props) => {
+export const MainLayout = ({ children }: Props) => {
   return (
     <>
       <Header />

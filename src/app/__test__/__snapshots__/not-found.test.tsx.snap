@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NotFound should match snapshot 1`] = `
+<div>
+  <div
+    class="css-1vdmlwr"
+  >
+    <h2
+      class="chakra-heading css-0"
+    >
+      Not Found
+    </h2>
+    <p
+      class="chakra-text css-0"
+    >
+      Could not find requested resource
+    </p>
+    <a
+      href="/"
+      style="text-decoration: underline;"
+    >
+      Return Home
+    </a>
+  </div>
+</div>
+`;
