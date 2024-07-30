@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SkeletonCartItems component should match snapshot 1`] = `
+<div>
+  <div
+    class="css-1ndtkor"
+  >
+    <div
+      class="chakra-skeleton css-1w3kri6"
+    />
+    <div
+      class="chakra-skeleton css-1w3kri6"
+    />
+    <div
+      class="chakra-skeleton css-1w3kri6"
+    />
+    <div
+      class="chakra-skeleton css-1w3kri6"
+    />
+  </div>
+  <div
+    class="chakra-skeleton css-18h6sy6"
+  />
+  <div
+    class="css-15g4dvl"
+  >
+    <div
+      class="chakra-skeleton css-1nc58od"
+    />
+    <div
+      class="chakra-skeleton css-1nc58od"
+    />
+    <div
+      class="chakra-skeleton css-1nc58od"
+    />
+  </div>
+  <div
+    class="chakra-skeleton css-6vl96b"
+  />
+</div>
+`;
