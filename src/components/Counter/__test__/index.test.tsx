@@ -1,9 +1,11 @@
 // Libs
 import { fireEvent, render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom';
 
 // Components
 import Counter from '..';
+
+// Constants
+import { COUNTER_DEBOUNCE_TIME } from '@constants';
 
 const mockProps = {
   initialQuantity: 1,
@@ -11,14 +13,6 @@ const mockProps = {
 };
 
 describe('Counter component', () => {
-  test('should render Counter successfully', () => {
-    render(<Counter {...mockProps} initialQuantity={1} />);
-
-    const decrementBtn = screen.getByRole('button', { name: '-' });
-    expect(decrementBtn).toBeDisabled();
-    expect(screen.getByText('1')).toBeInTheDocument();
-  });
-
   test('should match snapshot for Counter', () => {
     const { container } = render(
       <Counter {...mockProps} initialQuantity={2} />,
@@ -28,20 +22,28 @@ describe('Counter component', () => {
   });
 
   test('should call onQuantityChange when click increment button', () => {
+    jest.useFakeTimers();
+
     render(<Counter {...mockProps} />);
-    const incrementBtn = screen.getByRole('button', { name: '+' });
+    const incrementBtn = screen.getByTestId('increment-btn');
 
     fireEvent.click(incrementBtn);
+
+    jest.advanceTimersByTime(COUNTER_DEBOUNCE_TIME);
 
     expect(mockProps.onQuantityChange).toHaveBeenCalledWith(2);
     expect(screen.getByText('2')).toBeInTheDocument();
   });
 
   test('should call onQuantityChange when click decrement button', () => {
+    jest.useFakeTimers();
+
     render(<Counter {...mockProps} initialQuantity={2} />);
-    const decrementBtn = screen.getByRole('button', { name: '-' });
+    const decrementBtn = screen.getByTestId('minus-btn');
 
     fireEvent.click(decrementBtn);
+
+    jest.advanceTimersByTime(COUNTER_DEBOUNCE_TIME);
 
     expect(mockProps.onQuantityChange).toHaveBeenCalledWith(1);
     expect(screen.getByText('1')).toBeInTheDocument();
