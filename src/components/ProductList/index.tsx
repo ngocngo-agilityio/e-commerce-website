@@ -23,7 +23,7 @@ const ProductList = ({ data = [] }: Props): JSX.Element => {
           columnGap="20px"
         >
           {data.map((product) => {
-            const { id, name, image, price } = product || {};
+            const { id, name = '', image = '', price = 0 } = product || {};
 
             return (
               <GridItem key={id}>

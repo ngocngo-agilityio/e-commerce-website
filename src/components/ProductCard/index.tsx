@@ -27,7 +27,7 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
       _hover={{ transform: 'scale(1.02)' }}
     >
       <CardBody>
-        <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id.toString())} scroll>
+        <Link href={APP_ROUTERS.PRODUCT_DETAIL_PAGE(id?.toString())} scroll>
           <Flex flexDir={{ base: 'row', md: 'column' }} gap="16px">
             <Box
               width={{ base: '30%', md: '100%' }}

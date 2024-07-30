@@ -14,4 +14,6 @@ export interface Product {
   voteNumber: number;
   introduction: string;
   sizes: ProductSize[];
+  categoryIds: number[];
+  tagIds: number[];
 }
