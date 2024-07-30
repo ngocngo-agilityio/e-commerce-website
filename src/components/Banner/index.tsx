@@ -15,6 +15,7 @@ const SaleBanner = (): JSX.Element => {
           fill
           objectFit="cover"
           objectPosition="cover"
+          sizes="100vw"
           priority
         />
       </Box>
