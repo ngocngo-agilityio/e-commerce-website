@@ -2,17 +2,13 @@
 
 exports[`MainLayout should match snapshot 1`] = `
 <div>
-  <div
-    data-testid="header"
-  >
+  <div>
     Header
   </div>
   <div>
     Children component
   </div>
-  <div
-    data-testid="footer"
-  >
+  <div>
     Footer
   </div>
 </div>

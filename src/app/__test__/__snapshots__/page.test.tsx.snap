@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Products page Should render match with snapshot. 1`] = `
+<div>
+  <main
+    class="css-0"
+  >
+    <div>
+      Banner
+    </div>
+    <div
+      class="chakra-container css-590aei"
+    >
+      <h2
+        class="chakra-heading css-xi606m"
+      >
+        Discover NEW Arrivals
+      </h2>
+      <p
+        class="chakra-text css-1muv9mg"
+      >
+        Recently added shirts!
+      </p>
+      <div>
+        ProductListActions
+      </div>
+      <div>
+        ProductList
+      </div>
+    </div>
+  </main>
+</div>
+`;

@@ -60,6 +60,7 @@ const config: Config = {
     '@sections': '<rootDir>/src/sections',
     '@actions': '<rootDir>/src/actions',
     '@components/*': '<rootDir>/src/components/*',
+    '@sections/*': '<rootDir>/src/sections/*',
   },
 
   // The test environment that will be used for testing
