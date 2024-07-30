@@ -1,8 +1,6 @@
 // Component
 import { LoadingIndicator } from '@components';
 
-const HomeLoading = (): JSX.Element => {
-  return <LoadingIndicator />;
-};
+const HomeLoading = (): JSX.Element => <LoadingIndicator />;
 
 export default HomeLoading;

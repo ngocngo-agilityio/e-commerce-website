@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RootLayout should match snapshot 1`] = `
+<div>
+  <html
+    lang="en"
+  >
+    <body>
+      <div>
+        <div>
+          <div
+            class="css-1krfyzo"
+          >
+            <div>
+              Children component
+            </div>
+          </div>
+        </div>
+      </div>
+    </body>
+  </html>
+</div>
+`;
