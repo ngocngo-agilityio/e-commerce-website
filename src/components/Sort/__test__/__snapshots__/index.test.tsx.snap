@@ -3,11 +3,11 @@
 exports[`Sort component should match snapshot for Sort 1`] = `
 <div>
   <button
-    aria-controls="menu-list-:r8:"
+    aria-controls="menu-list-:r1:"
     aria-expanded="false"
     aria-haspopup="menu"
     class="chakra-menu__menu-button css-1eqi7qs"
-    id="menu-button-:r8:"
+    id="menu-button-:r1:"
   >
     <span
       class="css-xl71ch"
@@ -105,7 +105,7 @@ exports[`Sort component should match snapshot for Sort 1`] = `
     <div
       aria-orientation="vertical"
       class="chakra-menu__menu-list css-sjt5nk"
-      id="menu-list-:r8:"
+      id="menu-list-:r1:"
       role="menu"
       style="transform-origin: var(--popper-transform-origin); opacity: 0; visibility: hidden; transform: scale(0.8);"
       tabindex="-1"
@@ -117,7 +117,7 @@ exports[`Sort component should match snapshot for Sort 1`] = `
         <button
           class="chakra-menu__menuitem css-1k756t9"
           data-index="0"
-          id="menu-list-:r8:-menuitem-:ra:"
+          id="menu-list-:r1:-menuitem-:r3:"
           role="menuitem"
           tabindex="-1"
           type="button"
@@ -128,8 +128,8 @@ exports[`Sort component should match snapshot for Sort 1`] = `
           >
             <input
               class="chakra-radio__input"
-              id="radio-:rb:"
-              name="radio-:r9:"
+              id="radio-:r4:"
+              name="radio-:r2:"
               style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
               type="radio"
               value="1"
@@ -148,7 +148,7 @@ exports[`Sort component should match snapshot for Sort 1`] = `
         <button
           class="chakra-menu__menuitem css-1k756t9"
           data-index="1"
-          id="menu-list-:r8:-menuitem-:rc:"
+          id="menu-list-:r1:-menuitem-:r5:"
           role="menuitem"
           tabindex="-1"
           type="button"
@@ -159,8 +159,8 @@ exports[`Sort component should match snapshot for Sort 1`] = `
           >
             <input
               class="chakra-radio__input"
-              id="radio-:rd:"
-              name="radio-:r9:"
+              id="radio-:r6:"
+              name="radio-:r2:"
               style="border: 0px; clip: rect(0px, 0px, 0px, 0px); height: 1px; width: 1px; margin: -1px; padding: 0px; overflow: hidden; white-space: nowrap; position: absolute;"
               type="radio"
               value="2"
