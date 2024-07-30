@@ -8,3 +8,4 @@ export * from './search';
 export * from './sort';
 export * from './pagination';
 export * from './counter';
+export * from './meta';
