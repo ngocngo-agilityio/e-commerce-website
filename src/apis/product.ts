@@ -54,9 +54,7 @@ export const getProductList = async (
   }
 };
 
-export const getProductDetail = async (
-  id: string,
-): Promise<{ data: ProductDataResponse }> => {
+export const getProductDetail = async (id: string) => {
   try {
     const res = await httpClient.getRequest<ProductDataResponse>({
       endpoint: `${API_PATH.PRODUCTS}/${id}`,
@@ -66,6 +64,6 @@ export const getProductDetail = async (
 
     return { data };
   } catch (error) {
-    throw error;
+    return { error };
   }
 };

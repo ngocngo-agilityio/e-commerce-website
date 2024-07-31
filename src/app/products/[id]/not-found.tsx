@@ -15,8 +15,8 @@ export default function NotFound() {
       mt="100px"
       minHeight={`calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT})`}
     >
-      <Heading>Not Found</Heading>
-      <Text>Could not find requested resource</Text>
+      <Heading>404 Not Found</Heading>
+      <Text>Could not find the requested product.</Text>
       <Link
         href={APP_ROUTERS.HOME_PAGE}
         style={{ textDecoration: 'underline' }}

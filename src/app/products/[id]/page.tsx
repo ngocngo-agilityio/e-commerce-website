@@ -10,6 +10,7 @@ import {
   Text,
 } from '@chakra-ui/react';
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 
 // Apis
 import { getProductDetail } from '@apis';
@@ -39,6 +40,10 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
 
   // Fetch data for product details
   const { data: product } = await getProductDetail(productId);
+
+  if (!product) {
+    return notFound();
+  }
 
   const {
     name,
