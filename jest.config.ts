@@ -37,6 +37,7 @@ const config: Config = {
     '!src/apis/index.ts',
     '!src/actions/index.ts',
     '!src/sections/index.ts',
+    '!src/app/robots.ts',
   ],
 
   // The directory where Jest should output its coverage files
