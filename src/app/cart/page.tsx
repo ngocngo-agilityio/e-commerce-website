@@ -1,5 +1,6 @@
 // Libs
 import { Suspense } from 'react';
+import { Metadata } from 'next';
 import { Container } from '@chakra-ui/react';
 
 // Apis
@@ -13,6 +14,12 @@ import { Breadcrumb, SkeletonCartItems } from '@components';
 
 // Sections
 import { CartItems } from '@sections';
+
+export const metadata: Metadata = {
+  title: 'Cart',
+  description:
+    'Review the items in your cart and proceed to checkout quickly and securely.',
+};
 
 const Cart = (): JSX.Element => {
   preloadGetCartItems();
