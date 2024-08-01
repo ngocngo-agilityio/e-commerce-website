@@ -10,13 +10,6 @@ jest.mock('@providers', () => ({
   ),
 }));
 
-jest.mock('../MainLayout', () => ({
-  __esModule: true,
-  default: ({ children }: { children: React.ReactNode }) => (
-    <div>{children}</div>
-  ),
-}));
-
 describe('RootLayout', () => {
   it('should match snapshot', () => {
     const { container } = render(
