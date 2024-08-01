@@ -10,6 +10,10 @@ export const Input = defineStyleConfig({
       _placeholder: {
         color: 'placeholderInput',
       },
+      _focus: {
+        borderColor: 'focusInputBorder',
+        boxShadow: 'none',
+      },
     },
   },
 
