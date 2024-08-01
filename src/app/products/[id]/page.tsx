@@ -11,6 +11,7 @@ import {
 } from '@chakra-ui/react';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { Metadata, ResolvingMetadata } from 'next';
 
 // Apis
 import { getProductDetail } from '@apis';
@@ -33,6 +34,29 @@ import { AddCartAction, Categories, Tags } from '@sections';
 
 interface Props {
   params: { id: string };
+}
+
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata,
+): Promise<Metadata> {
+  const productId = params.id;
+
+  // Fetch data
+  const { data: product } = await getProductDetail(productId);
+
+  const { name = '', image = '', introduction = '' } = product || {};
+
+  // Optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  return {
+    title: name,
+    description: introduction,
+    openGraph: {
+      images: [image, ...previousImages],
+    },
+  };
 }
 
 const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {

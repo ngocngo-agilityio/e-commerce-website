@@ -1,5 +1,6 @@
 // Libs
 import { Suspense } from 'react';
+import { Metadata } from 'next';
 import { Box, Container, Heading, Text } from '@chakra-ui/react';
 
 // Components
@@ -11,6 +12,12 @@ import {
 
 // Sections
 import { ProductList, ProductListActions } from '@sections';
+
+export const metadata: Metadata = {
+  title: 'Product list',
+  description:
+    'Discover the latest trends and shop your favorite styles on our innovative e-commerce platform designed for fashion enthusiasts.',
+};
 
 interface Props {
   searchParams?: {
