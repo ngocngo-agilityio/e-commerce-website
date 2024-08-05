@@ -11,6 +11,7 @@
     "eslint-plugin-storybook",
     "react",
     "@typescript-eslint",
-    "react-refresh"
+    "react-refresh",
+    "eslint-plugin-jsx-a11y"
   ]
 }
