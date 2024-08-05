@@ -26,3 +26,4 @@ export { default as Breadcrumb } from './Breadcrumb';
 export { default as SkeletonCartItems } from './Skeleton/SkeletonCartItems';
 export { default as Tag } from './Tag';
 export { default as TagList } from './TagList';
+export { default as LoginForm } from './LoginForm';

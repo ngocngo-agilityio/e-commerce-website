@@ -10,6 +10,9 @@ export const Input = defineStyleConfig({
       _placeholder: {
         color: 'placeholderInput',
       },
+      _focus: {
+        borderColor: 'borderColorInput',
+      },
     },
   },
 
@@ -29,14 +32,6 @@ export const Input = defineStyleConfig({
           borderColor: 'outlineInput.focusBorder',
           boxShadow: 'none',
         },
-      },
-    },
-    quantity: {
-      field: {
-        fontSize: 'xl',
-        border: '2px solid',
-        color: '#555555',
-        borderRadius: 'none',
       },
     },
   },

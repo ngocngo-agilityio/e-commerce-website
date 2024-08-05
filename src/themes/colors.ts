@@ -4,7 +4,7 @@ const BASE = {
   white: '#FFFFFF',
   prussianBlue: '#013050',
   orient: '#024E82',
-  opal: '#9DB9C1',
+  endeavour: '#0265A7',
   redDamask: '#B35D28',
   tuscany: '#B85E27',
   black: '#000000',
@@ -29,7 +29,7 @@ export const colors = {
   solidBtn: {
     bg: BASE.orient,
     color: BASE.white,
-    disableBg: BASE.opal,
+    disableBg: BASE.endeavour,
     hoverBg: BASE.prussianBlue,
   },
 
@@ -90,6 +90,7 @@ export const colors = {
   // Input
   placeholderInput: BASE.submarine,
   valueInput: BASE.codGray,
+  borderColorInput: BASE.orient,
 
   // Flushed Input
   flushedInput: {
@@ -146,4 +147,11 @@ export const colors = {
   cart: {
     totalAmount: BASE.codGray,
   },
+
+  // Form
+  formLabel: BASE.black,
+
+  // Auth form
+  signUpLink: BASE.orient,
+  authFormBg: BASE.alabaster,
 };
