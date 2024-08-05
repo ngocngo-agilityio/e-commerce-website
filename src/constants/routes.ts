@@ -5,4 +5,5 @@ export const APP_ROUTERS = {
     return `/products/${id}`;
   },
   SIGN_IN: 'sign-in',
+  SIGN_UP: 'sign-up',
 };
