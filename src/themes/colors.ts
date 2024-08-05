@@ -90,7 +90,6 @@ export const colors = {
   // Input
   placeholderInput: BASE.submarine,
   valueInput: BASE.codGray,
-  focusInputBorder: BASE.orient,
 
   // Flushed Input
   flushedInput: {
