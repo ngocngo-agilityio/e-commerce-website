@@ -32,7 +32,8 @@
       "@stores": ["./src/stores"],
       "@sections": ["./src/sections"],
       "@actions": ["./src/actions"],
-      "@components/*": ["./src/components/*"]
+      "@components/*": ["./src/components/*"],
+      "@auth/*": ["./src/auth/*"]
     }
   },
   "include": [

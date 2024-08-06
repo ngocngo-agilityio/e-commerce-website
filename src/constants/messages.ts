@@ -11,9 +11,12 @@ export const ERROR_MESSAGES = {
   PASSWORD_NOT_LONG: 'Password must be at least 8 characters.',
   PASSWORD_NOT_MATCH: 'Password and Confirm password do not match.',
   EMAIL_EXIST: 'Email already exists',
+  INVALID_CREDENTIALS: 'Invalid credentials.',
+  UNKNOWN_ERROR: 'Something went wrong.',
 };
 
 export const SUCCESS_MESSAGES = {
   ADD_CART: 'Adding product to your cart successfully.',
-  SIGN_UP: 'Your account just created successfully',
+  SIGN_UP: 'Your account just created successfully.',
+  LOGIN: 'Login successfully.',
 };

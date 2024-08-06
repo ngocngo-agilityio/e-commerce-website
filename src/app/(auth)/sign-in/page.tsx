@@ -5,8 +5,8 @@ import Link from 'next/link';
 // Constants
 import { APP_ROUTERS } from '@constants';
 
-// Components
-import { LoginForm } from '@components';
+// Section
+import { LoginForm } from '@sections';
 
 const SignIn = () => (
   <>

@@ -107,7 +107,7 @@ export const removeCartItem = async (
 
 export const createCart = async (
   cartItems: ICartItem[],
-  userId?: number,
+  userId: string,
 ): Promise<{ error: string } | void> => {
   try {
     await httpClient.postRequest({
