@@ -16,7 +16,7 @@ export const AuthLayout = ({ children }: MainLayoutProps) => (
       flexDirection="column"
       px={4}
       mt={{ base: '80px', md: '150px' }}
-      pb={8}
+      pb={10}
     >
       {children}
     </Center>

@@ -18,6 +18,9 @@ import {
 // Constants
 import { ERROR_MESSAGES, REGEX } from '@constants';
 
+// Utils
+import { isEnableSubmitButton } from '@utils';
+
 export interface ISignUpForm {
   firstName: string;
   lastName: string;
@@ -26,25 +29,13 @@ export interface ISignUpForm {
   confirmPassword: string;
 }
 
-const SIGN_UP_VALIDATION_RULE = {
-  firstName: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('First Name'),
-  },
-  lastName: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Last Name'),
-  },
-  email: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Email'),
-    pattern: {
-      value: REGEX.EMAIL,
-      message: ERROR_MESSAGES.FIELD_INVALID('Email'),
-    },
-  },
-  password: {
-    required: ERROR_MESSAGES.FIELD_REQUIRED('Password'),
-    minLength: { value: 8, message: ERROR_MESSAGES.PASSWORD_NOT_LONG },
-  },
-};
+const REQUIRE_FIELDS = [
+  'firstName',
+  'lastName',
+  'email',
+  'password',
+  'confirmPassword',
+];
 
 const SignUpForm = (): JSX.Element => {
   const { isOpen: isShowPassword, onToggle: onTogglePassword } =
@@ -56,15 +47,53 @@ const SignUpForm = (): JSX.Element => {
     handleSubmit,
     control,
     clearErrors,
-    formState: { isSubmitting, isValid },
+    watch,
+    formState: { isSubmitting, dirtyFields, errors },
   } = useForm<ISignUpForm>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
     defaultValues: {
+      firstName: '',
+      lastName: '',
       email: '',
       password: '',
+      confirmPassword: '',
     },
   });
+
+  const SIGN_UP_VALIDATION_RULE = {
+    firstName: {
+      required: ERROR_MESSAGES.FIELD_REQUIRED('First Name'),
+    },
+    lastName: {
+      required: ERROR_MESSAGES.FIELD_REQUIRED('Last Name'),
+    },
+    email: {
+      required: ERROR_MESSAGES.FIELD_REQUIRED('Email'),
+      pattern: {
+        value: REGEX.EMAIL,
+        message: ERROR_MESSAGES.FIELD_INVALID('Email'),
+      },
+    },
+    password: {
+      required: ERROR_MESSAGES.FIELD_REQUIRED('Password'),
+      minLength: { value: 8, message: ERROR_MESSAGES.PASSWORD_NOT_LONG },
+    },
+    confirmPassword: {
+      required: ERROR_MESSAGES.FIELD_REQUIRED('Confirm Password'),
+      validate: (value: string) => {
+        if (watch('password') !== value) {
+          return ERROR_MESSAGES.PASSWORD_NOT_MATCH;
+        }
+      },
+    },
+  };
+
+  const dirtyItems = Object.keys(dirtyFields).filter(
+    (key) => dirtyFields[key as keyof ISignUpForm],
+  );
+  const shouldEnable = isEnableSubmitButton(REQUIRE_FIELDS, dirtyItems, errors);
+  const isDisableSubmit = !shouldEnable || isSubmitting;
 
   // Clear error when typing that field.
   const handleOnChange = useCallback(
@@ -86,7 +115,7 @@ const SignUpForm = (): JSX.Element => {
       gap={7}
       onSubmit={handleSubmit(handleSignIn)}
     >
-      <Flex gap={5}>
+      <Flex gap={5} flexDir={{ base: 'column', md: 'row' }}>
         <Flex flexDir="column" flex={1}>
           <FormLabel>First Name</FormLabel>
 
@@ -219,7 +248,7 @@ const SignUpForm = (): JSX.Element => {
         <Controller
           name="confirmPassword"
           control={control}
-          rules={SIGN_UP_VALIDATION_RULE.password}
+          rules={SIGN_UP_VALIDATION_RULE.confirmPassword}
           render={({ field: { onChange, ...rest }, fieldState: { error } }) => (
             <FormControl isInvalid={!!error}>
               <InputGroup>
@@ -259,7 +288,7 @@ const SignUpForm = (): JSX.Element => {
         borderRadius="sm"
         w="full"
         fontSize="xl"
-        isDisabled={!isValid || isSubmitting}
+        isDisabled={isDisableSubmit}
         isLoading={isSubmitting}
       >
         Sign up
