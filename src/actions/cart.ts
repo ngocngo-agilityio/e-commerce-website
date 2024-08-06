@@ -7,7 +7,7 @@ import { revalidateTag } from 'next/cache';
 import { httpClient, ResponseData } from '@services';
 
 // Types
-import { CartItem, Product } from '@types';
+import { CartItem, ICartItem, Product } from '@types';
 
 // Constants
 import { API_PATH, ERROR_MESSAGES } from '@constants';
@@ -102,5 +102,21 @@ export const removeCartItem = async (
     revalidateTag(API_PATH.CARTS);
   } catch (error) {
     return { error: ERROR_MESSAGES.REMOVE_CART_ITEM };
+  }
+};
+
+export const createCart = async (
+  cartItems: ICartItem[],
+  userId?: number,
+): Promise<{ error: string } | void> => {
+  try {
+    await httpClient.postRequest({
+      endpoint: API_PATH.CARTS,
+      body: { userId, cartItems },
+    });
+
+    revalidateTag(API_PATH.CARTS);
+  } catch (error) {
+    return { error: ERROR_MESSAGES.CREATE_CART };
   }
 };

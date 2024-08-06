@@ -37,7 +37,7 @@ class HttpClient {
     const res = await fetch(this.baseApi + endpoint, configOptions);
 
     if (!res?.ok) {
-      throw new Error(`An error has occurred: ${res?.statusText}`);
+      throw new Error(res?.statusText);
     }
 
     const contentType = res.headers.get('Content-Type') || '';

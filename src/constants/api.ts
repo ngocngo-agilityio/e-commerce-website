@@ -5,4 +5,6 @@ export const API_PATH = {
   CATEGORIES: '/categories',
   TAGS: '/tags',
   CARTS: '/carts',
+  USERS: '/users',
+  SIGN_UP: '/signup',
 };

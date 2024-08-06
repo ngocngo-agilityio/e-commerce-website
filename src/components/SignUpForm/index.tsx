@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useTransition } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import {
@@ -21,6 +21,9 @@ import { ERROR_MESSAGES, REGEX } from '@constants';
 // Utils
 import { isEnableSubmitButton } from '@utils';
 
+// Types
+import { IUser } from '@types';
+
 export interface ISignUpForm {
   firstName: string;
   lastName: string;
@@ -37,7 +40,12 @@ const REQUIRE_FIELDS = [
   'confirmPassword',
 ];
 
-const SignUpForm = (): JSX.Element => {
+export interface ISignUpFormProps {
+  onSignUp: (data: Omit<IUser, 'id'>) => void;
+}
+
+const SignUpForm = ({ onSignUp }: ISignUpFormProps): JSX.Element => {
+  const [isSubmitting, startTransition] = useTransition();
   const { isOpen: isShowPassword, onToggle: onTogglePassword } =
     useDisclosure();
   const { isOpen: isShowConfirmPassword, onToggle: onToggleConfirmPassword } =
@@ -48,7 +56,7 @@ const SignUpForm = (): JSX.Element => {
     control,
     clearErrors,
     watch,
-    formState: { isSubmitting, dirtyFields, errors },
+    formState: { dirtyFields, errors },
   } = useForm<ISignUpForm>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
@@ -103,9 +111,23 @@ const SignUpForm = (): JSX.Element => {
     [clearErrors],
   );
 
-  const handleSignIn = (data: ISignUpForm) => {
-    console.log('data', data);
-  };
+  const handleSignUp = useCallback(
+    (data: ISignUpForm) => {
+      startTransition(() => {
+        const { firstName, lastName, email, password } = data;
+
+        const payload = {
+          firstName,
+          lastName,
+          email,
+          password,
+        };
+
+        onSignUp(payload);
+      });
+    },
+    [onSignUp],
+  );
 
   return (
     <Flex
@@ -113,7 +135,7 @@ const SignUpForm = (): JSX.Element => {
       flexDir="column"
       w={{ base: 'full', md: '460px' }}
       gap={7}
-      onSubmit={handleSubmit(handleSignIn)}
+      onSubmit={handleSubmit(handleSignUp)}
     >
       <Flex gap={5} flexDir={{ base: 'column', md: 'row' }}>
         <Flex flexDir="column" flex={1}>

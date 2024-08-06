@@ -5,15 +5,17 @@ import Link from 'next/link';
 // Constants
 import { APP_ROUTERS } from '@constants';
 
-// Components
-import { SignUpForm } from '@components';
+// Sections
+import { SignUpForm } from '@sections';
 
 const SignUp = () => (
   <>
     <Heading size={{ base: 'md', md: 'lg' }} fontFamily="lato" mb="80px">
       Get Started Now
     </Heading>
+
     <SignUpForm />
+
     <Text fontSize="md" mt={5}>
       Have an account?&nbsp;
       <Text as="span" fontSize="md" color="signUpLink" fontWeight="bold">
