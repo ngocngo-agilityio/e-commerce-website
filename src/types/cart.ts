@@ -1,3 +1,5 @@
+import { Product } from './product';
+
 export interface CartItem {
   id: number;
   productId: number;
@@ -7,3 +9,8 @@ export interface CartItem {
   quantity: number;
   total: number;
 }
+
+export type ICartItem = {
+  product: Product;
+  quantity: number;
+};

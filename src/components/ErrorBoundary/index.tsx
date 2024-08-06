@@ -30,7 +30,7 @@ const ErrorBoundary = ({ error, reset }: ErrorProps) => {
       minHeight={`calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT})`}
     >
       <Heading>Something went wrong!</Heading>
-      <Text color="red">{error?.message}</Text>
+      <Text color="red">An error has occurred: {error?.message}</Text>
       <Button onClick={handleReset}>Try again</Button>
     </VStack>
   );
