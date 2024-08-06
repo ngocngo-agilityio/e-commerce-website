@@ -15,5 +15,6 @@ export const ERROR_MESSAGES = {
 
 export const SUCCESS_MESSAGES = {
   ADD_CART: 'Adding product to your cart successfully.',
-  SIGN_UP: 'Your account just created successfully',
+  SIGN_UP: 'Your account just created successfully.',
+  LOGIN: 'Login successfully.',
 };

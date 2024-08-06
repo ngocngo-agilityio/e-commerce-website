@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback } from 'react';
+import { memo, useCallback, useTransition } from 'react';
 import Link from 'next/link';
 import { Controller, useForm } from 'react-hook-form';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
@@ -44,7 +44,12 @@ const SIGN_IN_VALIDATION_RULE = {
   },
 };
 
-const LoginForm = (): JSX.Element => {
+export interface ISignInFormProps {
+  onSignIn: (data: ISignInForm) => void;
+}
+
+const LoginForm = ({ onSignIn }: ISignInFormProps): JSX.Element => {
+  const [isSubmitting, startTransition] = useTransition();
   const { isOpen: isShowPassword, onToggle: onTogglePassword } =
     useDisclosure();
 
@@ -52,7 +57,7 @@ const LoginForm = (): JSX.Element => {
     handleSubmit,
     control,
     clearErrors,
-    formState: { isSubmitting, dirtyFields, errors },
+    formState: { dirtyFields, errors },
   } = useForm<ISignInForm>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
@@ -76,9 +81,14 @@ const LoginForm = (): JSX.Element => {
     [clearErrors],
   );
 
-  const handleSignIn = (data: ISignInForm) => {
-    console.log('data', data);
-  };
+  const handleSignIn = useCallback(
+    (data: ISignInForm) => {
+      startTransition(() => {
+        onSignIn(data);
+      });
+    },
+    [onSignIn],
+  );
 
   return (
     <Flex
