@@ -8,6 +8,7 @@ export const ERROR_MESSAGES = {
   FIELD_REQUIRED: (fieldName: string) => `${fieldName} is required`,
   FIELD_INVALID: (fieldName: string) => `Invalid format of ${fieldName}.`,
   PASSWORD_NOT_LONG: 'Password must be at least 8 characters.',
+  PASSWORD_NOT_MATCH: 'Password and Confirm password do not match.',
 };
 
 export const SUCCESS_MESSAGES = {

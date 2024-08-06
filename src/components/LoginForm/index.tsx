@@ -20,10 +20,15 @@ import {
 // Constants
 import { ERROR_MESSAGES, REGEX } from '@constants';
 
+// Utils
+import { isEnableSubmitButton } from '@utils';
+
 export interface ISignInForm {
   email: string;
   password: string;
 }
+
+const REQUIRE_FIELDS = ['email', 'password'];
 
 const SIGN_IN_VALIDATION_RULE = {
   email: {
@@ -47,7 +52,7 @@ const LoginForm = (): JSX.Element => {
     handleSubmit,
     control,
     clearErrors,
-    formState: { isSubmitting, isValid },
+    formState: { isSubmitting, dirtyFields, errors },
   } = useForm<ISignInForm>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
@@ -56,6 +61,12 @@ const LoginForm = (): JSX.Element => {
       password: '',
     },
   });
+
+  const dirtyItems = Object.keys(dirtyFields).filter(
+    (key) => dirtyFields[key as keyof ISignInForm],
+  );
+  const shouldEnable = isEnableSubmitButton(REQUIRE_FIELDS, dirtyItems, errors);
+  const isDisableSubmit = !shouldEnable || isSubmitting;
 
   // Clear error when typing that field.
   const handleOnChange = useCallback(
@@ -160,7 +171,7 @@ const LoginForm = (): JSX.Element => {
         borderRadius="sm"
         w="full"
         fontSize="xl"
-        isDisabled={!isValid || isSubmitting}
+        isDisabled={isDisableSubmit}
         isLoading={isSubmitting}
       >
         Sign in
