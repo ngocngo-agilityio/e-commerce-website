@@ -10,9 +10,6 @@ export const authConfig = {
         nextUrl.pathname === APP_ROUTERS.SIGN_IN ||
         nextUrl.pathname === APP_ROUTERS.SIGN_UP;
 
-      console.log('isLoggedIn', isLoggedIn);
-      console.log('isPublicPage', isPublicPage);
-
       // If use has not logged in and access to Dashboard pages, navigate to Login Page
       if (!isLoggedIn && !isPublicPage) {
         return Response.redirect(new URL(APP_ROUTERS.SIGN_IN, nextUrl));

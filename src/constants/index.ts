@@ -10,3 +10,4 @@ export * from './pagination';
 export * from './counter';
 export * from './meta';
 export * from './regex';
+export * from './auth';

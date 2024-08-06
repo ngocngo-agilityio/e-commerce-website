@@ -6,7 +6,12 @@ import { AuthError } from 'next-auth';
 import { signIn } from '@auth/index';
 
 // Constants
-import { API_PATH, ERROR_MESSAGES } from '@constants';
+import {
+  API_PATH,
+  AUTH_METHODS,
+  ERROR_MESSAGES,
+  ERROR_TYPES,
+} from '@constants';
 
 // Services
 import { httpClient } from '@services';
@@ -43,14 +48,14 @@ export const signUp = async (
 
 export const signInWithEmail = async (payload: ISignInPayload) => {
   try {
-    await signIn('credentials', payload);
+    await signIn(AUTH_METHODS.CREDENTIALS, payload);
   } catch (error) {
     if (error instanceof AuthError) {
       switch (error.type) {
-        case 'CredentialsSignin':
-          return 'Invalid credentials.';
+        case ERROR_TYPES.CREDENTIALS_SIGN_IN:
+          return ERROR_MESSAGES.INVALID_CREDENTIALS;
         default:
-          return 'Something went wrong.';
+          return ERROR_MESSAGES.UNKNOWN_ERROR;
       }
     }
 
