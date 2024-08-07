@@ -5,7 +5,7 @@ import { useCallback, useMemo } from 'react';
 import { Box, Flex, Heading, Text, Divider, Button } from '@chakra-ui/react';
 
 // Actions
-import { updateCartItemQuantity, removeCartItem } from '@actions';
+import { updateMyCart } from '@actions';
 
 // Hooks
 import { useCustomToast } from '@hooks';
@@ -20,10 +20,14 @@ import { calculateTotalPrice, formatCurrency } from '@utils';
 import { CartTable } from '@components';
 
 interface CartItemClientProps {
+  cartId: number;
   cartItems: ICartItem[];
 }
 
-const CartItemsClient = ({ cartItems }: CartItemClientProps): JSX.Element => {
+const CartItemsClient = ({
+  cartItems,
+  cartId,
+}: CartItemClientProps): JSX.Element => {
   const { showToast } = useCustomToast();
 
   const total = useMemo(() => calculateTotalPrice(cartItems), [cartItems]);
@@ -33,8 +37,14 @@ const CartItemsClient = ({ cartItems }: CartItemClientProps): JSX.Element => {
   const handleCheckout = () => {};
 
   const handleRemoveCartItem = useCallback(
-    async (cartId: number) => {
-      const res = await removeCartItem(cartId);
+    async (productId: number) => {
+      const newCartItems = cartItems.filter((cartItem) => {
+        const { product } = cartItem || {};
+        const { id } = product || {};
+
+        return id !== productId;
+      });
+      const res = await updateMyCart(cartId, newCartItems);
 
       const { error } = res || {};
 
@@ -42,12 +52,26 @@ const CartItemsClient = ({ cartItems }: CartItemClientProps): JSX.Element => {
         showToast(error);
       }
     },
-    [showToast],
+    [cartId, cartItems, showToast],
   );
 
   const handleChangeQuantity = useCallback(
-    async (cartId: number, quantity: number) => {
-      const res = await updateCartItemQuantity({ quantity, cartId });
+    async (productId: number, quantity: number) => {
+      const newCartItems = cartItems.map((cartItem) => {
+        const { product } = cartItem || {};
+        const { id } = product || {};
+
+        if (id === productId) {
+          return {
+            ...cartItem,
+            quantity: quantity,
+          };
+        }
+
+        return cartItem;
+      });
+
+      const res = await updateMyCart(cartId, newCartItems);
 
       const { error } = res || {};
 
@@ -55,7 +79,7 @@ const CartItemsClient = ({ cartItems }: CartItemClientProps): JSX.Element => {
         showToast(error);
       }
     },
-    [showToast],
+    [cartId, cartItems, showToast],
   );
 
   return (

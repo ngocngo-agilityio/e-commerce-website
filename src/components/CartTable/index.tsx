@@ -14,8 +14,8 @@ import CartItem from './CartItem';
 
 interface Props {
   cart: ICartItem[];
-  onCartItemRemove: (cartId: number) => void;
-  onQuantityChange: (cartId: number, quantity: number) => void;
+  onCartItemRemove: (productId: number) => void;
+  onQuantityChange: (productId: number, quantity: number) => void;
 }
 
 const CartTable = ({
