@@ -5,9 +5,11 @@ import { getCartItems } from '@apis';
 import CartItemsClient from '../CartItemsClient';
 
 const CarItems = async (): Promise<JSX.Element> => {
-  const { data } = await getCartItems();
+  const { data: myCart } = await getCartItems();
 
-  return <CartItemsClient cartItems={data} />;
+  const { cartItems = [], id } = myCart || {};
+
+  return <CartItemsClient cartItems={cartItems} cartId={id} />;
 };
 
 export default CarItems;

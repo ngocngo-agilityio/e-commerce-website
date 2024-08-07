@@ -6,7 +6,7 @@ import isEqual from 'react-fast-compare';
 import { Button } from '@chakra-ui/react';
 
 // Actions
-import { addToCart } from '@actions';
+import { updateMyCart } from '@actions';
 
 // Hooks
 import { useCustomToast } from '@hooks';
@@ -15,7 +15,7 @@ import { useCustomToast } from '@hooks';
 import { ERROR_MESSAGES, SUCCESS_MESSAGES } from '@constants';
 
 // Types
-import { SizeOption, Product, CartItem } from '@types';
+import { SizeOption, Product, ICartItem } from '@types';
 
 // Components
 import { SelectSize as SelectSizeComponent } from '@components';
@@ -23,17 +23,21 @@ import { SelectSize as SelectSizeComponent } from '@components';
 interface Props {
   sizes: SizeOption[];
   product: Product;
-  cartItems?: CartItem[];
+  cartId: number;
+  cartItems?: ICartItem[];
 }
 
 const AddToCartActionClient = ({
   sizes,
   product,
+  cartId,
   cartItems = [],
 }: Props): JSX.Element => {
   const [selectedSize, setSelectedSize] = useState<SizeOption>();
   const { showToast } = useCustomToast();
   const [isSubmitting, startTransition] = useTransition();
+
+  const { id: productId = '' } = product || {};
 
   const handleSelectSize = useCallback((size: SizeOption) => {
     setSelectedSize(size);
@@ -46,16 +50,23 @@ const AddToCartActionClient = ({
       return;
     }
 
-    const existingCartItems = cartItems.find(
-      (item) => item.productId == product.id,
-    );
-
     startTransition(async () => {
-      const res = await addToCart({
-        product,
-        quantity: existingCartItems ? existingCartItems?.quantity + 1 : 1,
-        cartId: existingCartItems?.id,
+      const newCartItems = [...cartItems];
+
+      const itemExist = newCartItems.find((cartItem) => {
+        const { product: productItem } = cartItem || {};
+        const { id } = productItem || {};
+
+        return id === productId;
       });
+
+      if (itemExist) {
+        itemExist.quantity = itemExist.quantity + 1;
+      } else {
+        newCartItems.push({ product, quantity: 1 });
+      }
+
+      const res = await updateMyCart(cartId, newCartItems);
 
       const { error } = res || {};
 
@@ -65,7 +76,7 @@ const AddToCartActionClient = ({
         showToast(SUCCESS_MESSAGES.ADD_CART, 'success');
       }
     });
-  }, [cartItems, product, selectedSize, showToast]);
+  }, [cartId, cartItems, product, productId, selectedSize, showToast]);
 
   return (
     <>

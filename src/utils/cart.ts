@@ -1,9 +1,11 @@
 // Types
-import { CartItem } from '@types';
+import { ICartItem } from '@types';
 
-export const calculateTotalPrice = (cartItems: CartItem[] = []) =>
+export const calculateTotalPrice = (cartItems: ICartItem[] = []) =>
   cartItems.reduce((acc, cartItem) => {
-    const { price = 0, quantity = 1 } = cartItem || {};
+    const { product, quantity = 1 } = cartItem || {};
+    const { price = 0 } = product || {};
+
     const itemPrice = price * quantity;
 
     return acc + itemPrice;

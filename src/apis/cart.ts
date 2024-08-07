@@ -2,26 +2,36 @@
 import { httpClient } from '@services';
 
 // Types
-import { CartItem } from '@types';
+import { ICart } from '@types';
 
 // Constants
 import { API_PATH } from '@constants';
 
-export const getCartItems = async (): Promise<{ data: CartItem[] }> => {
+// Utils
+import { formatUrlWithQuery } from '@utils';
+
+// Auth configs
+import { auth } from '@auth';
+
+export const getCartItems = async (): Promise<{ data: ICart }> => {
   try {
-    const res = await httpClient.getRequest<CartItem[]>({
-      endpoint: API_PATH.CARTS,
+    const session = await auth();
+
+    const userId = session?.user?.id || '';
+
+    const endpoint = formatUrlWithQuery(API_PATH.CARTS, { userId });
+
+    const res = await httpClient.getRequest<ICart[]>({
+      endpoint,
       configOptions: { next: { tags: [API_PATH.CARTS] } },
     });
 
-    const { data = [] } = res || {};
+    const { data: carts = [] } = res || {};
 
-    return { data };
+    const cart = carts[0] || {};
+
+    return { data: cart };
   } catch (error) {
     throw error;
   }
-};
-
-export const preloadGetCartItems = (): void => {
-  getCartItems();
 };
