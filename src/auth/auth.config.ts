@@ -1,6 +1,7 @@
+import type { NextAuthConfig } from 'next-auth';
+
 // Libs
 import { APP_ROUTERS } from '@constants';
-import type { NextAuthConfig } from 'next-auth';
 
 export const authConfig = {
   callbacks: {
@@ -22,6 +23,20 @@ export const authConfig = {
 
       return true;
     },
+    async jwt({ user, token }) {
+      if (token) Object.assign(token, user);
+
+      return token;
+    },
+
+    session({ session, token }) {
+      Object.assign(session.user, token);
+
+      return session;
+    },
+  },
+  session: {
+    maxAge: 60 * 60 * 24 * 5,
   },
   trustHost: true,
   providers: [],

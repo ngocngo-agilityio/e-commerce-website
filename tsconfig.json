@@ -33,7 +33,8 @@
       "@sections": ["./src/sections"],
       "@actions": ["./src/actions"],
       "@components/*": ["./src/components/*"],
-      "@auth/*": ["./src/auth/*"]
+      "@auth/*": ["./src/auth/*"],
+      "@auth": ["./src/auth/"]
     }
   },
   "include": [

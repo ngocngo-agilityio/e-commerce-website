@@ -6,7 +6,7 @@ import isEqual from 'react-fast-compare';
 import { Show, Table, Tbody, Td, Tr } from '@chakra-ui/react';
 
 // Types
-import { CartItem as ICartItem } from '@types';
+import { ICartItem } from '@types';
 
 // Components
 import CartTableHeader from './CartTableHeader';
@@ -32,13 +32,9 @@ const CartTable = ({
       <Tbody>
         {cart.length > 0 ? (
           cart.map((item) => {
-            const {
-              id,
-              name = '',
-              image = '',
-              price = 0,
-              quantity = 0,
-            } = item || {};
+            const { product, quantity = 0 } = item || {};
+            const { id, name = '', image = '', price = 0 } = product || {};
+
             return (
               <CartItem
                 key={id}

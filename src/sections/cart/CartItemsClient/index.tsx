@@ -11,7 +11,7 @@ import { updateCartItemQuantity, removeCartItem } from '@actions';
 import { useCustomToast } from '@hooks';
 
 // Types
-import { CartItem } from '@types';
+import { ICartItem } from '@types';
 
 // Utils
 import { calculateTotalPrice, formatCurrency } from '@utils';
@@ -20,7 +20,7 @@ import { calculateTotalPrice, formatCurrency } from '@utils';
 import { CartTable } from '@components';
 
 interface CartItemClientProps {
-  cartItems: CartItem[];
+  cartItems: ICartItem[];
 }
 
 const CartItemsClient = ({ cartItems }: CartItemClientProps): JSX.Element => {

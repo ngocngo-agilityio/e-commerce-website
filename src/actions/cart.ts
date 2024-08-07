@@ -120,3 +120,19 @@ export const createCart = async (
     return { error: ERROR_MESSAGES.CREATE_CART };
   }
 };
+
+export const updateMyCart = async (
+  cartId: number,
+  cartItems: ICartItem[],
+): Promise<{ error: string } | void> => {
+  try {
+    await httpClient.patchRequest({
+      endpoint: `${API_PATH.CARTS}/${cartId}`,
+      body: { cartItems },
+    });
+
+    revalidateTag(API_PATH.CARTS);
+  } catch (error) {
+    return { error: ERROR_MESSAGES.ADD_CART };
+  }
+};

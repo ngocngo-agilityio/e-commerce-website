@@ -3,9 +3,6 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 import { Container } from '@chakra-ui/react';
 
-// Apis
-import { preloadGetCartItems } from '@apis';
-
 // Constants
 import { CART_PAGE_BREADCRUMB } from '@constants';
 
@@ -21,18 +18,14 @@ export const metadata: Metadata = {
     'Review the items in your cart and proceed to checkout quickly and securely.',
 };
 
-const Cart = (): JSX.Element => {
-  preloadGetCartItems();
+const Cart = (): JSX.Element => (
+  <Container pt="67px" pb="106px">
+    <Breadcrumb breadcrumb={CART_PAGE_BREADCRUMB} />
 
-  return (
-    <Container pt="67px" pb="106px">
-      <Breadcrumb breadcrumb={CART_PAGE_BREADCRUMB} />
-
-      <Suspense fallback={<SkeletonCartItems />}>
-        <CartItems />
-      </Suspense>
-    </Container>
-  );
-};
+    <Suspense fallback={<SkeletonCartItems />}>
+      <CartItems />
+    </Suspense>
+  </Container>
+);
 
 export default Cart;
