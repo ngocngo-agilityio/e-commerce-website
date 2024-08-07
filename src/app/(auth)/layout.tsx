@@ -4,23 +4,29 @@ import { Box, Center } from '@chakra-ui/react';
 // Components
 import { Logo } from '@components';
 
-interface MainLayoutProps {
+interface AuthLayoutProps {
   children: ReactNode;
 }
 
-export const AuthLayout = ({ children }: MainLayoutProps) => (
-  <Box maxW="full" pt={7} bg="authFormBg" px={{ base: 4, md: 12 }} minH="100vh">
-    <Logo />
-    <Center
-      display="flex"
-      flexDirection="column"
-      px={4}
-      mt={{ base: '80px', md: '150px' }}
-      pb={10}
+export default function AuthLayout({ children }: AuthLayoutProps) {
+  return (
+    <Box
+      maxW="full"
+      pt={7}
+      bg="authFormBg"
+      px={{ base: 4, md: 12 }}
+      minH="100vh"
     >
-      {children}
-    </Center>
-  </Box>
-);
-
-export default AuthLayout;
+      <Logo />
+      <Center
+        display="flex"
+        flexDirection="column"
+        px={4}
+        mt={{ base: '80px', md: '150px' }}
+        pb={10}
+      >
+        {children}
+      </Center>
+    </Box>
+  );
+}
