@@ -3,7 +3,7 @@
 import { AuthError } from 'next-auth';
 
 // Auth configs
-import { signIn, signOut } from '@auth';
+import { signIn, signOut } from '@configs';
 
 // Constants
 import {

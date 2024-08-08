@@ -11,7 +11,7 @@ import { API_PATH } from '@constants';
 import { formatUrlWithQuery } from '@utils';
 
 // Auth configs
-import { auth } from '@auth';
+import { auth } from '@configs';
 
 export const getCartItems = async (): Promise<{ data: ICart }> => {
   try {
