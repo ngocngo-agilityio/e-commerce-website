@@ -28,6 +28,7 @@ const config: Config = {
     '!src/types/**',
     '!src/mocks/**',
     '!src/constants/**',
+    '!src/configs/**',
     '!src/components/index.ts',
     '!src/utils/index.ts',
     '!src/stores/index.ts',
@@ -38,6 +39,9 @@ const config: Config = {
     '!src/actions/index.ts',
     '!src/sections/index.ts',
     '!src/app/robots.ts',
+    '!src/app/sitemap.ts',
+    '!src/middleware.ts',
+    '!__test__/mocks/**',
   ],
 
   // The directory where Jest should output its coverage files

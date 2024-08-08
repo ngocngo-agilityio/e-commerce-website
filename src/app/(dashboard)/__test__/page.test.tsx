@@ -2,7 +2,7 @@
 import { render } from '@testing-library/react';
 
 // Sections
-import Products from '../(dashboard)/page';
+import Products from '../page';
 
 jest.mock('@components', () => ({
   Banner: () => <div>Banner</div>,

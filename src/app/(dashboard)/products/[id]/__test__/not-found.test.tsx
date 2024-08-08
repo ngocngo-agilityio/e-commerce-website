@@ -1,11 +1,11 @@
 import { render } from '@testing-library/react';
 
 // Components
-import Loading from '../loading';
+import NotFound from '../not-found';
 
-describe('Loading', () => {
+describe('NotFound', () => {
   it('should match snapshot', () => {
-    const { container } = render(<Loading />);
+    const { container } = render(<NotFound />);
 
     expect(container).toMatchSnapshot();
   });
