@@ -65,6 +65,10 @@ const config: Config = {
     '@components/*': '<rootDir>/src/components/*',
     '@sections/*': '<rootDir>/src/sections/*',
     '@configs/*': '<rootDir>/src/configs/*',
+    '@/auth': '<rootDir>/__test__/mocks/auth.ts',
+    'next-auth/providers/credentials':
+      '<rootDir>/__test__/mocks/next-auth-providers-credentials.ts',
+    'next-auth': '<rootDir>/__test__/mocks/next-auth.ts',
   },
 
   // The test environment that will be used for testing
