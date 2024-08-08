@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DashboardLayout should match snapshot 1`] = `
+<div>
+  <div>
+    Header
+  </div>
+  <div
+    class="css-1krfyzo"
+  >
+    <div>
+      Children component
+    </div>
+  </div>
+  <div>
+    Footer
+  </div>
+</div>
+`;

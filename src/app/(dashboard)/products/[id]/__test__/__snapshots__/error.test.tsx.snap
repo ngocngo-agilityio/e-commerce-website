@@ -13,6 +13,7 @@ exports[`Error should match snapshot 1`] = `
     <p
       class="chakra-text css-tokvmb"
     >
+      An error has occurred: 
       Request failed
     </p>
     <button

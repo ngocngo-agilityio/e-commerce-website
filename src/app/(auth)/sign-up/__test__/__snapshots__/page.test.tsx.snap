@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignInPage page Should render match with snapshot. 1`] = `
+<div>
+  <h2
+    class="chakra-heading css-g0bx3n"
+  >
+    Get Started Now
+  </h2>
+  <div>
+    SignUpForm
+  </div>
+  <p
+    class="chakra-text css-qbqnjq"
+  >
+    Have an account? 
+    <span
+      class="chakra-text css-1kz23e"
+    >
+      <a
+        href="/sign-in"
+      >
+        Sign In
+      </a>
+    </span>
+  </p>
+</div>
+`;

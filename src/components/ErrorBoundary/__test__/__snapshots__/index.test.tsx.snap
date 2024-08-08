@@ -16,6 +16,7 @@ exports[`ErrorBoundary Component Should render ErrorBoundary Component correctly
         <p
           class="chakra-text css-tokvmb"
         >
+          An error has occurred: 
           Test Error
         </p>
         <button
@@ -39,6 +40,7 @@ exports[`ErrorBoundary Component Should render ErrorBoundary Component correctly
       <p
         class="chakra-text css-tokvmb"
       >
+        An error has occurred: 
         Test Error
       </p>
       <button
