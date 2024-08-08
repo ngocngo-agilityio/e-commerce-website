@@ -4,6 +4,7 @@ export const ERROR_MESSAGES = {
   SELECT_SIZE: 'Please select size to add this product to cart.',
   CREATE_CART: 'Your cart creation failed',
   ADD_CART: 'Adding product to your cart failed.',
+  UPDATE_CART: 'Updating your cart failed.',
   UPDATE_QUANTITY: 'Updating quantity to your cart failed',
   REMOVE_CART_ITEM: 'Removing this product from your cart failed',
   FIELD_REQUIRED: (fieldName: string) => `${fieldName} is required`,

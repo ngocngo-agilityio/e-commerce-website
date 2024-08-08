@@ -40,6 +40,6 @@ export const updateMyCart = async (
 
     revalidateTag(API_PATH.CARTS);
   } catch (error) {
-    return { error: ERROR_MESSAGES.ADD_CART };
+    return { error: ERROR_MESSAGES.UPDATE_CART };
   }
 };
