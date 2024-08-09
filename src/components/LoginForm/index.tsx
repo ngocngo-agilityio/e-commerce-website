@@ -149,6 +149,7 @@ const LoginForm = ({ onSignIn }: ISignInFormProps): JSX.Element => {
                 <InputRightElement
                   onClick={onTogglePassword}
                   style={{ cursor: 'pointer' }}
+                  data-testid="view-icon"
                 >
                   {isShowPassword ? (
                     <ViewOffIcon boxSize={5} />

@@ -250,6 +250,7 @@ const SignUpForm = ({ onSignUp }: ISignUpFormProps): JSX.Element => {
                 <InputRightElement
                   onClick={onTogglePassword}
                   style={{ cursor: 'pointer' }}
+                  data-testid="toggle-password-icon"
                 >
                   {isShowPassword ? (
                     <ViewOffIcon boxSize={5} />
@@ -289,6 +290,7 @@ const SignUpForm = ({ onSignUp }: ISignUpFormProps): JSX.Element => {
                 <InputRightElement
                   onClick={onToggleConfirmPassword}
                   style={{ cursor: 'pointer' }}
+                  data-testid="toggle-confirm-password-icon"
                 >
                   {isShowConfirmPassword ? (
                     <ViewOffIcon boxSize={5} />
