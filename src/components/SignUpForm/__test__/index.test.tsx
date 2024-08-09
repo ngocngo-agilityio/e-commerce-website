@@ -13,20 +13,18 @@ import { MOCK_SIGN_UP_PAYLOAD } from '@mocks';
 import { ERROR_MESSAGES } from '@constants';
 
 // Components
-import SignUpForm from '../index';
+import SignUpForm, { ISignUpForm } from '../index';
 
 describe('SignUpForm', () => {
   const mockOnSignUp = jest.fn();
 
-  test('should match with snapshot', () => {
-    const { container } = render(<SignUpForm onSignUp={mockOnSignUp} />);
-
-    expect(container).toMatchSnapshot();
-  });
-
-  test('should call onSignUp when submit the valid form', () => {
-    render(<SignUpForm onSignUp={mockOnSignUp} />);
-
+  const submitForm = ({
+    firstName,
+    lastName,
+    email,
+    password,
+    confirmPassword,
+  }: ISignUpForm) => {
     const FIRST_NAME = screen.getByPlaceholderText('First name');
     const LAST_NAME = screen.getByPlaceholderText('Last name');
     const EMAIL_FIELD = screen.getByPlaceholderText('Email');
@@ -39,36 +37,56 @@ describe('SignUpForm', () => {
     );
     const SUBMIT_BTN = screen.getByText('Sign up');
 
-    // Change form
     act(() => {
       // Change First name field
       fireEvent.change(FIRST_NAME, {
-        target: { value: MOCK_SIGN_UP_PAYLOAD.firstName },
+        target: { value: firstName },
       });
+      fireEvent.blur(FIRST_NAME);
 
       // Change Last name field
       fireEvent.change(LAST_NAME, {
-        target: { value: MOCK_SIGN_UP_PAYLOAD.lastName },
+        target: { value: lastName },
       });
+      fireEvent.blur(LAST_NAME);
 
       // Change Email field
       fireEvent.change(EMAIL_FIELD, {
-        target: { value: MOCK_SIGN_UP_PAYLOAD.email },
+        target: { value: email },
       });
+      fireEvent.blur(EMAIL_FIELD);
 
       // Change Password field
       fireEvent.change(PASSWORD_FIELD, {
-        target: { value: MOCK_SIGN_UP_PAYLOAD.password },
+        target: { value: password },
       });
+      fireEvent.blur(PASSWORD_FIELD);
       fireEvent.click(TOGGLE_PASSWORD_ICON);
 
       // Change Confirm Password field
       fireEvent.change(CONFIRM_PASSWORD_FIELD, {
-        target: { value: MOCK_SIGN_UP_PAYLOAD.password },
+        target: { value: confirmPassword },
       });
+      fireEvent.blur(CONFIRM_PASSWORD_FIELD);
       fireEvent.click(TOGGLE_CONFIRM_PASSWORD_ICON);
 
       fireEvent.click(SUBMIT_BTN);
+    });
+  };
+
+  test('should match with snapshot', () => {
+    const { container } = render(<SignUpForm onSignUp={mockOnSignUp} />);
+
+    expect(container).toMatchSnapshot();
+  });
+
+  test('should call onSignUp when submit the valid form', () => {
+    render(<SignUpForm onSignUp={mockOnSignUp} />);
+
+    // Change form
+    submitForm({
+      ...MOCK_SIGN_UP_PAYLOAD,
+      confirmPassword: MOCK_SIGN_UP_PAYLOAD.password,
     });
 
     waitFor(() => {
@@ -79,44 +97,13 @@ describe('SignUpForm', () => {
   test('should show errors when blur with the invalid field', async () => {
     render(<SignUpForm onSignUp={mockOnSignUp} />);
 
-    const FIRST_NAME = screen.getByPlaceholderText('First name');
-    const LAST_NAME = screen.getByPlaceholderText('Last name');
-    const EMAIL_FIELD = screen.getByPlaceholderText('Email');
-    const PASSWORD_FIELD = screen.getByPlaceholderText('Password');
-    const CONFIRM_PASSWORD_FIELD =
-      screen.getByPlaceholderText('Confirm password');
-
     // Change form
-    act(() => {
-      // Change First name field
-      fireEvent.change(FIRST_NAME, {
-        target: { value: '' },
-      });
-      fireEvent.blur(FIRST_NAME);
-
-      // Change Last name field
-      fireEvent.change(LAST_NAME, {
-        target: { value: '' },
-      });
-      fireEvent.blur(LAST_NAME);
-
-      // Change Email field
-      fireEvent.change(EMAIL_FIELD, {
-        target: { value: 'user1' },
-      });
-      fireEvent.blur(EMAIL_FIELD);
-
-      // Change Password field
-      fireEvent.change(PASSWORD_FIELD, {
-        target: { value: 'Abcd' },
-      });
-      fireEvent.blur(PASSWORD_FIELD);
-
-      // Change Confirm Password field
-      fireEvent.change(CONFIRM_PASSWORD_FIELD, {
-        target: { value: 'Abc' },
-      });
-      fireEvent.blur(CONFIRM_PASSWORD_FIELD);
+    submitForm({
+      firstName: '',
+      lastName: '',
+      email: 'user1',
+      password: 'Abcd',
+      confirmPassword: 'Abc',
     });
 
     await waitFor(() => {
