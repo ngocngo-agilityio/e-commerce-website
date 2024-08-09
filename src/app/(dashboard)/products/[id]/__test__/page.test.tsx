@@ -27,30 +27,41 @@ jest.mock('@apis', () => ({
   getProductDetail: jest.fn(),
 }));
 
+const mockNotFound = jest.fn();
+
+jest.mock('next/navigation', () => ({
+  ...jest.requireActual('next/navigation'),
+  notFound: () => mockNotFound(),
+}));
+
 describe('ProductDetail page', () => {
   afterEach(() => {
     jest.clearAllMocks();
   });
 
-  it('Should render match with snapshot.', async () => {
-    (getProductDetail as jest.Mock).mockReturnValue({
-      data: MOCK_PRODUCT_LIST[0],
+  describe('Product Detail page', () => {
+    it('Should render match with snapshot.', async () => {
+      (getProductDetail as jest.Mock).mockReturnValue({
+        data: MOCK_PRODUCT_LIST[0],
+      });
+
+      const { container } = render(
+        await ProductDetail({ params: { id: '1' } }),
+      );
+
+      expect(container).toMatchSnapshot();
     });
 
-    const { container } = render(await ProductDetail({ params: { id: '1' } }));
+    it('Should navigate to notFound when no have product', async () => {
+      (getProductDetail as jest.Mock).mockReturnValue({
+        data: null,
+      });
 
-    expect(container).toMatchSnapshot();
-  });
+      render(
+        await ProductDetail({ params: null as unknown as { id: string } }),
+      );
 
-  it('Should render ProductDetail correctly', async () => {
-    (getProductDetail as jest.Mock).mockReturnValue({
-      data: null,
+      expect(mockNotFound).toHaveBeenCalled();
     });
-
-    const { container } = render(
-      await ProductDetail({ params: null as unknown as { id: string } }),
-    );
-
-    expect(container).toMatchSnapshot();
   });
 });
