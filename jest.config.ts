@@ -62,7 +62,6 @@ const config: Config = {
     '@services': '<rootDir>/src/services',
     '@apis': '<rootDir>/src/apis',
     '@hooks': '<rootDir>/src/hooks',
-    '@stores': '<rootDir>/src/stores',
     '@sections': '<rootDir>/src/sections',
     '@actions': '<rootDir>/src/actions',
     '@configs': '<rootDir>/src/configs',
