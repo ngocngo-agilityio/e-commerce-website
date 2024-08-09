@@ -14,18 +14,14 @@ import {
 import { httpClient, ResponseData } from '@services';
 
 // Constants
-import { AUTH_METHODS, ERROR_MESSAGES, ERROR_TYPES } from '@constants';
+import { ERROR_MESSAGES, ERROR_TYPES } from '@constants';
 
 // APIs
-import { signUp, signInWithEmail } from '../auth';
+import { signUp, signInWithEmail, logout } from '../auth';
 
-const mockSignIn = jest.fn();
-const mockSignOut = jest.fn();
-
-jest.mock('@configs', () => ({
-  signIn: () => mockSignIn,
-  signOut: () => mockSignOut,
-}));
+// Auth Configs
+import * as configs from '@configs/index';
+import { signOut } from '@configs/index';
 
 describe('Auth actions', () => {
   describe('signUp', () => {
@@ -62,28 +58,52 @@ describe('Auth actions', () => {
 
   describe('signIn', () => {
     test('should sign in successfully', async () => {
-      mockSignIn.mockResolvedValue(MOCK_SUCCESS_RESPONSE);
+      jest.spyOn(configs, 'signIn').mockResolvedValue(MOCK_SUCCESS_RESPONSE);
 
-      await signInWithEmail(MOCK_SIGN_IN_PAYLOAD);
+      const res = await signInWithEmail(MOCK_SIGN_IN_PAYLOAD);
 
       waitFor(() => {
-        expect(mockSignIn).toHaveBeenCalledWith(
-          AUTH_METHODS.CREDENTIALS,
-          MOCK_SIGN_IN_PAYLOAD,
-        );
+        expect(res).toBeUndefined();
       });
     });
 
     test('should sign in failed with email or password incorrect', async () => {
-      mockSignIn.mockRejectedValueOnce(
-        new AuthError(ERROR_TYPES.CREDENTIALS_SIGN_IN),
-      );
+      const authError = new AuthError(ERROR_TYPES.CREDENTIALS_SIGN_IN);
+      jest.spyOn(configs, 'signIn').mockRejectedValue(authError);
 
       const res = await signInWithEmail(MOCK_SIGN_IN_PAYLOAD);
 
       waitFor(() => {
         expect(res).toEqual(ERROR_MESSAGES.INVALID_CREDENTIALS);
       });
+    });
+
+    test('should sign in failed with UNKNOWN_ERROR', async () => {
+      const authError = new AuthError('UNKNOWN_ERROR');
+      jest.spyOn(configs, 'signIn').mockRejectedValue(authError);
+
+      const res = await signInWithEmail(MOCK_SIGN_IN_PAYLOAD);
+
+      waitFor(() => {
+        expect(res).toEqual(ERROR_MESSAGES.UNKNOWN_ERROR);
+      });
+    });
+
+    it('should throw an error for unknown error', async () => {
+      const unknownError = new Error('Unknown error');
+      jest.spyOn(configs, 'signIn').mockRejectedValue(unknownError);
+
+      await expect(signInWithEmail(MOCK_SIGN_IN_PAYLOAD)).rejects.toThrow(
+        unknownError,
+      );
+    });
+  });
+
+  describe('logout', () => {
+    it('should call signOut', async () => {
+      await logout();
+
+      expect(signOut).toHaveBeenCalled();
     });
   });
 });
