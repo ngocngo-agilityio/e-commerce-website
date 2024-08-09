@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Box, Button, Container, Flex, Heading } from '@chakra-ui/react';
 
 // Constants
-import { BANNER_BG } from '@constants';
+import { BANNER_BG, BANNER_BG_BLUR } from '@constants';
 
 const SaleBanner = (): JSX.Element => {
   return (
@@ -16,6 +16,8 @@ const SaleBanner = (): JSX.Element => {
           objectFit="cover"
           objectPosition="cover"
           sizes="100vw"
+          placeholder="blur"
+          blurDataURL={BANNER_BG_BLUR}
           priority
         />
       </Box>
