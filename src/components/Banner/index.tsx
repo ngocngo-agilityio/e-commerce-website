@@ -9,14 +9,14 @@ const SaleBanner = (): JSX.Element => {
   return (
     <Container pos="relative" maxW="1367px" p={0}>
       <Image
+        priority
         src={BANNER_BG}
         alt="Banner Image"
-        width={1367}
-        height={648}
-        objectFit="cover"
         placeholder="blur"
         blurDataURL={BANNER_BG_BLUR}
-        priority
+        width={1367}
+        height={648}
+        style={{ objectFit: 'cover' }}
       />
 
       <Flex
