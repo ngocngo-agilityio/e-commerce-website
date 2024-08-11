@@ -15,7 +15,7 @@ import { UserIcon } from '@assets';
 import { APP_ROUTERS } from '@constants';
 
 // Components
-import { LoadingIndicator } from '@components';
+import LoadingIndicator from '@components/LoadingIndicator';
 
 const UserProfile = (): JSX.Element => {
   const [isLogout, startTransition] = useTransition();
