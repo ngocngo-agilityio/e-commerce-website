@@ -5,7 +5,7 @@ import { Box, Container, HStack, Show, Hide, Flex } from '@chakra-ui/react';
 import { HamburgerIcon } from '@assets';
 
 // APIs
-// import { getCartItems } from '@apis';
+import { getCartItems } from '@apis';
 
 // Components
 import { Logo, Navigation, ShoppingCart, UserProfile } from '@components';
@@ -13,11 +13,10 @@ import { Logo, Navigation, ShoppingCart, UserProfile } from '@components';
 const Header = async (): Promise<JSX.Element> => {
   // Get my cart
 
-  // const { data: myCart } = await getCartItems();
+  const { data: myCart } = await getCartItems();
 
-  // const { cartItems = [] } = myCart || {};
-  const cartItemQuantity = 1;
-  // cartItems.length || 0
+  const { cartItems = [] } = myCart || {};
+  const cartItemQuantity = cartItems.length || 0;
 
   return (
     <Container
