@@ -18,6 +18,16 @@ const SITEMAP_BASE: MetadataRoute.Sitemap = [
     lastModified: new Date(),
     priority: 0.8,
   },
+  {
+    url: `${WEBSITE_DOMAIN}${APP_ROUTERS.SIGN_IN}`,
+    lastModified: new Date(),
+    priority: 0.8,
+  },
+  {
+    url: `${WEBSITE_DOMAIN}${APP_ROUTERS.SIGN_UP}`,
+    lastModified: new Date(),
+    priority: 0.8,
+  },
 ];
 
 // Dynamic sitemap
