@@ -3,7 +3,7 @@
 exports[`SaleBanner components should match snapshot for SaleBanner 1`] = `
 <div>
   <div
-    class="chakra-container css-1h4v61j"
+    class="chakra-container css-uzs7tq"
   >
     <div
       class="css-1je0irw"
@@ -14,8 +14,8 @@ exports[`SaleBanner components should match snapshot for SaleBanner 1`] = `
         decoding="async"
         fetchpriority="high"
         sizes="100vw"
-        src="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=3840&q=75"
-        srcset="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fbanner.webp%3Falt%3Dmedia&w=3840&q=75 3840w"
+        src="/_next/image?url=%2Fbanner-image.webp&w=3840&q=75"
+        srcset="/_next/image?url=%2Fbanner-image.webp&w=640&q=75 640w, /_next/image?url=%2Fbanner-image.webp&w=750&q=75 750w, /_next/image?url=%2Fbanner-image.webp&w=828&q=75 828w, /_next/image?url=%2Fbanner-image.webp&w=1080&q=75 1080w, /_next/image?url=%2Fbanner-image.webp&w=1200&q=75 1200w, /_next/image?url=%2Fbanner-image.webp&w=1920&q=75 1920w, /_next/image?url=%2Fbanner-image.webp&w=2048&q=75 2048w, /_next/image?url=%2Fbanner-image.webp&w=3840&q=75 3840w"
         style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; object-position: cover; color: transparent;"
       />
     </div>

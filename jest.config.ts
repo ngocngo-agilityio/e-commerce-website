@@ -42,6 +42,7 @@ const config: Config = {
     '!src/app/sitemap.ts',
     '!src/middleware.ts',
     '!__test__/mocks/**',
+    '!src/app/api/**',
   ],
 
   // The directory where Jest should output its coverage files

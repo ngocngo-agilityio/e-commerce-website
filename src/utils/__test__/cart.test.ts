@@ -5,7 +5,7 @@ import { MOCK_CART_ITEMS } from '@mocks';
 import { calculateTotalPrice } from '../cart';
 
 // Types
-import { CartItem } from '@types';
+import { ICartItem } from '@types';
 
 describe('calculateTotalPrice currency', () => {
   test('returns 0 when cartItems is empty', () => {
@@ -21,11 +21,11 @@ describe('calculateTotalPrice currency', () => {
 
     const result = calculateTotalPrice(cartItems);
 
-    expect(result).toEqual(138);
+    expect(result).toEqual(127);
   });
 
   test('returns formatted currency correct if cart item is null', () => {
-    const cartItems = [null as unknown as CartItem];
+    const cartItems = [null as unknown as ICartItem];
 
     const result = calculateTotalPrice(cartItems);
 

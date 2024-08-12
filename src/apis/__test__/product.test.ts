@@ -74,9 +74,9 @@ describe('Products APIs', () => {
         .spyOn(httpClient, 'getRequest')
         .mockRejectedValue(MOCK_ERROR_RESPONSE);
 
-      await expect(
-        getProductDetail(MOCK_PRODUCT_LIST[0].id.toString()),
-      ).rejects.toThrow(MOCK_ERROR_MESSAGES);
+      const res = await getProductDetail(MOCK_PRODUCT_LIST[0].id.toString());
+
+      expect(res.error).toEqual(MOCK_ERROR_RESPONSE);
     });
   });
 });

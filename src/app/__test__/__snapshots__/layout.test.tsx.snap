@@ -8,7 +8,9 @@ exports[`RootLayout should match snapshot 1`] = `
     <body>
       <div>
         <div>
-          Children component
+          <div>
+            Children component
+          </div>
         </div>
       </div>
     </body>
