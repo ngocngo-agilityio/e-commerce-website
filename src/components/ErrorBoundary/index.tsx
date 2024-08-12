@@ -5,7 +5,12 @@ import { useEffect } from 'react';
 import { Button, Heading, Text, VStack } from '@chakra-ui/react';
 
 // Constants
-import { FOOTER_HEIGHT, HEADER_HEIGHT } from '@constants';
+import {
+  DESKTOP_FOOTER_HEIGHT,
+  DESKTOP_HEADER_HEIGHT,
+  MOBILE_FOOTER_HEIGHT,
+  MOBILE_HEADER_HEIGHT,
+} from '@constants';
 
 interface ErrorProps {
   error: Error & { digest?: string };
@@ -27,7 +32,10 @@ const ErrorBoundary = ({ error, reset }: ErrorProps) => {
     <VStack
       justifyContent="center"
       gap="50px"
-      minHeight={`calc(100vh - ${HEADER_HEIGHT} - ${FOOTER_HEIGHT})`}
+      minHeight={{
+        base: `calc(100vh - ${MOBILE_HEADER_HEIGHT} - ${MOBILE_FOOTER_HEIGHT})`,
+        md: `calc(100vh - ${DESKTOP_HEADER_HEIGHT} - ${DESKTOP_FOOTER_HEIGHT})`,
+      }}
     >
       <Heading>Something went wrong!</Heading>
       <Text color="red">An error has occurred: {error?.message}</Text>
