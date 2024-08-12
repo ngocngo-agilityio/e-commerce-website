@@ -1,5 +1,6 @@
 // Libs
 import type { Metadata } from 'next';
+import { SessionProvider } from 'next-auth/react';
 
 // Providers
 import { ChakraUIProvider } from '@providers';
@@ -24,7 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ChakraUIProvider>{children}</ChakraUIProvider>
+        <SessionProvider>
+          <ChakraUIProvider>{children}</ChakraUIProvider>
+        </SessionProvider>
       </body>
     </html>
   );

@@ -7,13 +7,19 @@ import { HamburgerIcon } from '@assets';
 // APIs
 import { getCartItems } from '@apis';
 
+// Auth configs
+import { auth } from '@configs';
+
 // Components
 import { Logo, Navigation, ShoppingCart, UserProfile } from '@components';
 
 const Header = async (): Promise<JSX.Element> => {
-  // Get my cart
+  const session = await auth();
 
-  const { data: myCart } = await getCartItems();
+  const userId = session?.user?.id || '';
+
+  // Get my cart
+  const { data: myCart } = await getCartItems(userId);
 
   const { cartItems = [] } = myCart || {};
   const cartItemQuantity = cartItems.length || 0;
