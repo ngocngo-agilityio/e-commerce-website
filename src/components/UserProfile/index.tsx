@@ -4,6 +4,7 @@
 import { memo, useCallback, useTransition } from 'react';
 import { useRouter } from 'next/navigation';
 import { Menu, MenuButton, MenuItem, MenuList } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 
 // Actions
 import { logout } from '@actions';
@@ -14,8 +15,7 @@ import { UserIcon } from '@assets';
 // Constants
 import { APP_ROUTERS } from '@constants';
 
-// Components
-import { LoadingIndicator } from '@components';
+const LoadingIndicator = dynamic(() => import('@components/LoadingIndicator'));
 
 const UserProfile = (): JSX.Element => {
   const [isLogout, startTransition] = useTransition();
