@@ -6,7 +6,7 @@ exports[`ErrorBoundary Component Should render ErrorBoundary Component correctly
   "baseElement": <body>
     <div>
       <div
-        class="chakra-stack css-1ts0oy9"
+        class="chakra-stack css-1tagycd"
       >
         <h2
           class="chakra-heading css-0"
@@ -30,7 +30,7 @@ exports[`ErrorBoundary Component Should render ErrorBoundary Component correctly
   </body>,
   "container": <div>
     <div
-      class="chakra-stack css-1ts0oy9"
+      class="chakra-stack css-1tagycd"
     >
       <h2
         class="chakra-heading css-0"

@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should match snapshot for Header 1`] = `
+<div>
+  <header
+    class="chakra-container css-9uj2mi"
+  >
+    <div
+      class="css-4kyngj"
+    >
+      <div
+        class="chakra-stack css-1mra35c"
+      >
+        <div>
+          Logo
+        </div>
+      </div>
+      <div
+        class="chakra-stack css-erq1zg"
+      >
+        <div>
+          UserProfile
+        </div>
+        <div>
+          ShoppingCart
+        </div>
+        <div
+          class="css-4g6ai3"
+        >
+          <svg
+            class="chakra-icon css-1t7rsys"
+            focusable="false"
+            viewBox="0 0 24 25"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M3 12.4761H21"
+              stroke="#1D1D1D"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M3 6.47607H21"
+              stroke="#1D1D1D"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+            <path
+              d="M3 18.4761H21"
+              stroke="#1D1D1D"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div>
+      Navigation
+    </div>
+  </header>
+</div>
+`;

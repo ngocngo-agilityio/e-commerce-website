@@ -4,8 +4,11 @@ import { render } from '@testing-library/react';
 import DashboardLayout from '../layout';
 
 jest.mock('@components', () => ({
-  Header: () => <div>Header</div>,
   Footer: () => <div>Footer</div>,
+}));
+
+jest.mock('@sections', () => ({
+  Header: () => <div>Header</div>,
 }));
 
 describe('DashboardLayout', () => {

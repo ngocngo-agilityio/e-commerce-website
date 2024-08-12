@@ -30,7 +30,9 @@ exports[`CartTable component should match snapshot for CartTable component 1`] =
                 data-nimg="fill"
                 decoding="async"
                 fetchpriority="high"
-                src=""
+                sizes="(max-width: 768px) 25vw, 22vw"
+                src="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=3840&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fblack-polo-shirt.webp%3Falt%3Dmedia&w=3840&q=75 3840w"
                 style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
               />
             </div>
@@ -38,12 +40,14 @@ exports[`CartTable component should match snapshot for CartTable component 1`] =
               class="css-1yb9dhg"
             >
               <a
-                href="/products/undefined"
+                href="/products/2"
               >
                 <p
                   class="chakra-text css-9gr7i"
                   style="font-weight: bold;"
-                />
+                >
+                  Black Polo Shirt
+                </p>
               </a>
               <div
                 class="css-hf6y80"
@@ -52,7 +56,7 @@ exports[`CartTable component should match snapshot for CartTable component 1`] =
                   class="chakra-text css-0"
                 >
                    
-                  $0.00
+                  $49.00
                 </p>
                 <div
                   class="css-6myvwv"
@@ -112,7 +116,122 @@ exports[`CartTable component should match snapshot for CartTable component 1`] =
                 class="chakra-text css-invgr4"
               >
                 Total: 
-                $0.00
+                $98.00
+              </p>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr
+        class="css-0"
+      >
+        <td
+          class="css-1a88wtd"
+        >
+          <div
+            class="css-2ondir"
+          >
+            <div
+              class="css-b49dgf"
+            >
+              x
+            </div>
+            <div
+              class="css-1mwdyhb"
+            >
+              <img
+                alt="Product Image"
+                data-nimg="fill"
+                decoding="async"
+                fetchpriority="high"
+                sizes="(max-width: 768px) 25vw, 22vw"
+                src="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=3840&q=75"
+                srcset="/_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=256&q=75 256w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=384&q=75 384w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=640&q=75 640w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=750&q=75 750w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=828&q=75 828w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=1080&q=75 1080w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=1200&q=75 1200w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=1920&q=75 1920w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=2048&q=75 2048w, /_next/image?url=https%3A%2F%2Ffirebasestorage.googleapis.com%2Fv0%2Fb%2Fecommerce-fashion-16e2e.appspot.com%2Fo%2Fplain-white-shirt.webp%3Falt%3Dmedia&w=3840&q=75 3840w"
+                style="position: absolute; height: 100%; width: 100%; left: 0px; top: 0px; right: 0px; bottom: 0px; object-fit: cover; color: transparent;"
+              />
+            </div>
+            <div
+              class="css-1yb9dhg"
+            >
+              <a
+                href="/products/3"
+              >
+                <p
+                  class="chakra-text css-9gr7i"
+                  style="font-weight: bold;"
+                >
+                  Plain White Shirt
+                </p>
+              </a>
+              <div
+                class="css-hf6y80"
+              >
+                <p
+                  class="chakra-text css-0"
+                >
+                   
+                  $29.00
+                </p>
+                <div
+                  class="css-6myvwv"
+                >
+                  <button
+                    aria-label="minus-btn"
+                    class="chakra-button css-22uwrg"
+                    data-testid="minus-btn"
+                    disabled=""
+                    type="button"
+                  >
+                    <svg
+                      class="chakra-icon css-11up8ym"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <g
+                        fill="currentColor"
+                      >
+                        <rect
+                          height="4"
+                          width="20"
+                          x="2"
+                          y="10"
+                        />
+                      </g>
+                    </svg>
+                  </button>
+                  <div
+                    class="css-ocfx7j"
+                  >
+                    <span
+                      class="chakra-text css-1vec9xb"
+                    >
+                      1
+                    </span>
+                  </div>
+                  <button
+                    aria-label="increment-btn"
+                    class="chakra-button css-22uwrg"
+                    data-testid="increment-btn"
+                    type="button"
+                  >
+                    <svg
+                      class="chakra-icon css-11up8ym"
+                      focusable="false"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M0,12a1.5,1.5,0,0,0,1.5,1.5h8.75a.25.25,0,0,1,.25.25V22.5a1.5,1.5,0,0,0,3,0V13.75a.25.25,0,0,1,.25-.25H22.5a1.5,1.5,0,0,0,0-3H13.75a.25.25,0,0,1-.25-.25V1.5a1.5,1.5,0,0,0-3,0v8.75a.25.25,0,0,1-.25.25H1.5A1.5,1.5,0,0,0,0,12Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+              <p
+                class="chakra-text css-invgr4"
+              >
+                Total: 
+                $29.00
               </p>
             </div>
           </div>
