@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useTransition } from 'react';
+import { memo, useCallback } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import {
@@ -41,11 +41,14 @@ const REQUIRE_FIELDS = [
 ];
 
 export interface ISignUpFormProps {
+  isSubmitting?: boolean;
   onSignUp: (data: Omit<IUser, 'id'>) => void;
 }
 
-const SignUpForm = ({ onSignUp }: ISignUpFormProps): JSX.Element => {
-  const [isSubmitting, startTransition] = useTransition();
+const SignUpForm = ({
+  isSubmitting = false,
+  onSignUp,
+}: ISignUpFormProps): JSX.Element => {
   const { isOpen: isShowPassword, onToggle: onTogglePassword } =
     useDisclosure();
   const { isOpen: isShowConfirmPassword, onToggle: onToggleConfirmPassword } =
@@ -113,18 +116,16 @@ const SignUpForm = ({ onSignUp }: ISignUpFormProps): JSX.Element => {
 
   const handleSignUp = useCallback(
     (data: ISignUpForm) => {
-      startTransition(() => {
-        const { firstName, lastName, email, password } = data;
+      const { firstName, lastName, email, password } = data;
 
-        const payload = {
-          firstName,
-          lastName,
-          email,
-          password,
-        };
+      const payload = {
+        firstName,
+        lastName,
+        email,
+        password,
+      };
 
-        onSignUp(payload);
-      });
+      onSignUp(payload);
     },
     [onSignUp],
   );

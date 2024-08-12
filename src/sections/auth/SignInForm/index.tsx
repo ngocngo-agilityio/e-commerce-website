@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 
 // Actions
 import { signInWithEmail } from '@actions';
@@ -17,12 +17,17 @@ import { LoginForm } from '@components';
 import { ISignInForm } from '@components/LoginForm';
 
 const SignIn = (): JSX.Element => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { showToast } = useCustomToast();
   const router = useRouter();
 
   const handleSignIn = useCallback(
     async (data: ISignInForm) => {
+      setIsSubmitting(true);
+
       const res = await signInWithEmail(data);
+
+      setIsSubmitting(false);
 
       if (typeof res === 'string') {
         showToast(res);
@@ -35,7 +40,7 @@ const SignIn = (): JSX.Element => {
     [router, showToast],
   );
 
-  return <LoginForm onSignIn={handleSignIn} />;
+  return <LoginForm onSignIn={handleSignIn} isSubmitting={isSubmitting} />;
 };
 
 export default SignIn;

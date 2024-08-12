@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useCallback, useTransition } from 'react';
+import { memo, useCallback } from 'react';
 import Link from 'next/link';
 import { Controller, useForm } from 'react-hook-form';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
@@ -45,11 +45,14 @@ const SIGN_IN_VALIDATION_RULE = {
 };
 
 export interface ISignInFormProps {
+  isSubmitting?: boolean;
   onSignIn: (data: ISignInForm) => void;
 }
 
-const LoginForm = ({ onSignIn }: ISignInFormProps): JSX.Element => {
-  const [isSubmitting, startTransition] = useTransition();
+const LoginForm = ({
+  isSubmitting = false,
+  onSignIn,
+}: ISignInFormProps): JSX.Element => {
   const { isOpen: isShowPassword, onToggle: onTogglePassword } =
     useDisclosure();
 
@@ -82,11 +85,7 @@ const LoginForm = ({ onSignIn }: ISignInFormProps): JSX.Element => {
   );
 
   const handleSignIn = useCallback(
-    (data: ISignInForm) => {
-      startTransition(() => {
-        onSignIn(data);
-      });
-    },
+    (data: ISignInForm) => onSignIn(data),
     [onSignIn],
   );
 

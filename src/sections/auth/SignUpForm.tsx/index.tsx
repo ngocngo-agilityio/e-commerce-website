@@ -1,6 +1,6 @@
 'use client';
 
-import { useCallback } from 'react';
+import { useCallback, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 // Actions
@@ -19,11 +19,14 @@ import { IUser } from '@types';
 import { SignUpForm } from '@components';
 
 const SignUp = (): JSX.Element => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { showToast } = useCustomToast();
   const router = useRouter();
 
   const handleSignUp = useCallback(
     async (data: Omit<IUser, 'id'>) => {
+      setIsSubmitting(true);
+
       const signUpRes = await signUp(data);
 
       const { error: signUpError, user } = signUpRes || {};
@@ -35,6 +38,8 @@ const SignUp = (): JSX.Element => {
       const { id: userId = '' } = user || {};
 
       const createCartRes = await createCart([], userId);
+
+      setIsSubmitting(false);
 
       const { error: createCartError } = createCartRes || {};
 
@@ -49,7 +54,7 @@ const SignUp = (): JSX.Element => {
     [router, showToast],
   );
 
-  return <SignUpForm onSignUp={handleSignUp} />;
+  return <SignUpForm onSignUp={handleSignUp} isSubmitting={isSubmitting} />;
 };
 
 export default SignUp;
