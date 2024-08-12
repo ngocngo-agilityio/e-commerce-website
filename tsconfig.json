@@ -29,11 +29,11 @@
       "@services": ["./src/services"],
       "@apis": ["./src/apis"],
       "@hooks": ["./src/hooks"],
-      "@stores": ["./src/stores"],
       "@sections": ["./src/sections"],
       "@actions": ["./src/actions"],
       "@components/*": ["./src/components/*"],
-      "@auth/*": ["./src/auth/*"]
+      "@configs/*": ["./src/configs/*"],
+      "@configs": ["./src/configs"]
     }
   },
   "include": [

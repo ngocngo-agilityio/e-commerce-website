@@ -28,6 +28,7 @@ const config: Config = {
     '!src/types/**',
     '!src/mocks/**',
     '!src/constants/**',
+    '!src/configs/**',
     '!src/components/index.ts',
     '!src/utils/index.ts',
     '!src/stores/index.ts',
@@ -38,6 +39,9 @@ const config: Config = {
     '!src/actions/index.ts',
     '!src/sections/index.ts',
     '!src/app/robots.ts',
+    '!src/app/sitemap.ts',
+    '!src/middleware.ts',
+    '!__test__/mocks/**',
   ],
 
   // The directory where Jest should output its coverage files
@@ -58,11 +62,16 @@ const config: Config = {
     '@services': '<rootDir>/src/services',
     '@apis': '<rootDir>/src/apis',
     '@hooks': '<rootDir>/src/hooks',
-    '@stores': '<rootDir>/src/stores',
     '@sections': '<rootDir>/src/sections',
     '@actions': '<rootDir>/src/actions',
+    '@configs': '<rootDir>/src/configs',
     '@components/*': '<rootDir>/src/components/*',
     '@sections/*': '<rootDir>/src/sections/*',
+    '@configs/*': '<rootDir>/src/configs/*',
+    '@/auth': '<rootDir>/__test__/mocks/auth.ts',
+    'next-auth/providers/credentials':
+      '<rootDir>/__test__/mocks/next-auth-providers-credentials.ts',
+    'next-auth': '<rootDir>/__test__/mocks/next-auth.ts',
   },
 
   // The test environment that will be used for testing
