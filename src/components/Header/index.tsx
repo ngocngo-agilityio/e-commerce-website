@@ -1,29 +1,22 @@
 // Libs
-import { Box, Container, HStack, Show, Hide, Flex } from '@chakra-ui/react';
+import {
+  Box,
+  Container,
+  HStack,
+  Show,
+  Hide,
+  Flex,
+  Skeleton,
+} from '@chakra-ui/react';
+import { Suspense } from 'react';
 
 // Assets
 import { HamburgerIcon } from '@assets';
 
-// APIs
-import { getCartItems } from '@apis';
-
-// Auth configs
-import { auth } from '@configs';
-
 // Components
 import { Logo, Navigation, ShoppingCart, UserProfile } from '@components';
 
-const Header = async (): Promise<JSX.Element> => {
-  const session = await auth();
-
-  const userId = session?.user?.id || '';
-
-  // Get my cart
-  const { data: myCart } = await getCartItems(userId);
-
-  const { cartItems = [] } = myCart || {};
-  const cartItemQuantity = cartItems.length || 0;
-
+const Header = (): JSX.Element => {
   return (
     <Container
       as="header"
@@ -43,7 +36,9 @@ const Header = async (): Promise<JSX.Element> => {
 
         <HStack spacing="25px" alignContent="center">
           <UserProfile />
-          <ShoppingCart cartItemQuantity={cartItemQuantity} />
+          <Suspense fallback={<Skeleton w="24px" h="24px" />}>
+            <ShoppingCart />
+          </Suspense>
 
           <Box cursor="pointer">
             <HamburgerIcon />

@@ -9,13 +9,20 @@ import { CartIcon } from '@assets';
 // Constants
 import { APP_ROUTERS } from '@constants';
 
-interface ShoppingCartProps {
-  cartItemQuantity?: number;
-}
+// Apis
+import { getCartItems } from '@apis';
 
-const ShoppingCart = ({
-  cartItemQuantity = 0,
-}: ShoppingCartProps): JSX.Element => {
+// interface ShoppingCartProps {
+//   cartItemQuantity?: number;
+// }
+
+const ShoppingCart = async (): Promise<JSX.Element> => {
+  // Get my cart
+  const { data: myCart } = await getCartItems();
+
+  const { cartItems = [] } = myCart || {};
+  const cartItemQuantity = cartItems.length || 0;
+
   return (
     <Box pos="relative">
       <Link href={APP_ROUTERS.CART_PAGE} aria-label="cart-icon">
