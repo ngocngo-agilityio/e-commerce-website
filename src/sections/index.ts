@@ -7,3 +7,5 @@ export { default as ProductListActionsClient } from './products/ProductListActio
 export { default as ProductListActions } from './products/ProductListActions';
 export { default as SignUpForm } from './auth/SignUpForm.tsx';
 export { default as LoginForm } from './auth/SignInForm';
+export { default as ShoppingCart } from './layout/ShoppingCart';
+export { default as Header } from './layout/Header';

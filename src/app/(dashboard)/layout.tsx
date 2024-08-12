@@ -2,7 +2,10 @@ import { ReactNode } from 'react';
 import { Box } from '@chakra-ui/react';
 
 // Components
-import { Header, Footer } from '@components';
+import { Footer } from '@components';
+
+// Sections
+import { Header } from '@sections';
 
 // Constants
 import { FOOTER_HEIGHT, HEADER_HEIGHT } from '@constants';
