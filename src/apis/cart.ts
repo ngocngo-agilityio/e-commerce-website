@@ -11,13 +11,14 @@ import { API_PATH } from '@constants';
 import { formatUrlWithQuery } from '@utils';
 
 // Auth configs
-import { auth } from '@auth';
+// import { auth } from '@auth';
 
 export const getCartItems = async (): Promise<{ data: ICart }> => {
   try {
-    const session = await auth();
+    // const session = await auth();
 
-    const userId = session?.user?.id || '';
+    const userId = '1';
+    //  session?.user?.id || '';
 
     const endpoint = formatUrlWithQuery(API_PATH.CARTS, { userId });
 
