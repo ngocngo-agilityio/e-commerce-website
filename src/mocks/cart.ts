@@ -1,8 +1,9 @@
 // Types
-import { ICartItem } from '@types';
+import { ICart, ICartItem } from '@types';
 
 // Mocks
 import { MOCK_PRODUCT_LIST } from './product';
+import { MOCK_USERS } from './user';
 
 export const MOCK_CART_ITEM = {
   id: 1,
@@ -41,4 +42,10 @@ export const CREATE_CART_PAYLOAD = {
 export const UPDATE_CART_PAYLOAD = {
   cartItems: MOCK_CART_ITEMS,
   cartId: 2,
+};
+
+export const MOCK_CART: ICart = {
+  id: 1,
+  userId: MOCK_USERS[0].id,
+  cartItems: MOCK_CART_ITEMS,
 };
