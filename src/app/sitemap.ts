@@ -9,22 +9,22 @@ import { getProductList } from '@apis';
 // Base sitemap
 const SITEMAP_BASE: MetadataRoute.Sitemap = [
   {
-    url: `${WEBSITE_DOMAIN}${APP_ROUTERS.HOME_PAGE}`,
-    lastModified: new Date(),
-    priority: 1,
-  },
-  {
-    url: `${WEBSITE_DOMAIN}${APP_ROUTERS.CART_PAGE}`,
-    lastModified: new Date(),
-    priority: 0.8,
-  },
-  {
     url: `${WEBSITE_DOMAIN}${APP_ROUTERS.SIGN_IN}`,
     lastModified: new Date(),
     priority: 0.8,
   },
   {
     url: `${WEBSITE_DOMAIN}${APP_ROUTERS.SIGN_UP}`,
+    lastModified: new Date(),
+    priority: 0.8,
+  },
+  {
+    url: `${WEBSITE_DOMAIN}${APP_ROUTERS.HOME_PAGE}`,
+    lastModified: new Date(),
+    priority: 1,
+  },
+  {
+    url: `${WEBSITE_DOMAIN}${APP_ROUTERS.CART_PAGE}`,
     lastModified: new Date(),
     priority: 0.8,
   },
@@ -35,7 +35,7 @@ const generateProductSitemap = async () => {
   const { data: productList } = await getProductList();
 
   const sitemap: MetadataRoute.Sitemap = productList.map(({ id }) => ({
-    url: `${WEBSITE_DOMAIN}${APP_ROUTERS.HOME_PAGE}/${id}`,
+    url: `${WEBSITE_DOMAIN}${APP_ROUTERS.PRODUCT_DETAIL_PAGE(id.toString())}}`,
     lastModified: new Date(),
     priority: 0.8,
   }));
