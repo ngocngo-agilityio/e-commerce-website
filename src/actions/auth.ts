@@ -53,7 +53,7 @@ export const signInWithEmail = async (payload: ISignInPayload) => {
     if (error instanceof AuthError) {
       switch (error.type) {
         case ERROR_TYPES.CREDENTIALS_SIGN_IN:
-          return ERROR_MESSAGES.INVALID_CREDENTIALS;
+          return ERROR_MESSAGES.USER_NOT_FOUND;
         default:
           return ERROR_MESSAGES.UNKNOWN_ERROR;
       }

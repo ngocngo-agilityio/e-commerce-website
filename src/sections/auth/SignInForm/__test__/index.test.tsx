@@ -72,14 +72,14 @@ describe('SignInSection', () => {
   });
 
   test('should sign in failed', () => {
-    mockSignInWithEmail.mockResolvedValue(ERROR_MESSAGES.INVALID_CREDENTIALS);
+    mockSignInWithEmail.mockResolvedValue(ERROR_MESSAGES.USER_NOT_FOUND);
     const { getByText } = render(<SignInSection />);
 
     submitForm();
 
     waitFor(() => {
       expect(mockSignInWithEmail).toHaveBeenCalledWith(MOCK_SIGN_IN_PAYLOAD);
-      expect(getByText(ERROR_MESSAGES.INVALID_CREDENTIALS)).toBeInTheDocument();
+      expect(getByText(ERROR_MESSAGES.USER_NOT_FOUND)).toBeInTheDocument();
     });
   });
 });

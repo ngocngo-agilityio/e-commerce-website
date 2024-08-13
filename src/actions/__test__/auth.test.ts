@@ -74,7 +74,7 @@ describe('Auth actions', () => {
       const res = await signInWithEmail(MOCK_SIGN_IN_PAYLOAD);
 
       waitFor(() => {
-        expect(res).toEqual(ERROR_MESSAGES.INVALID_CREDENTIALS);
+        expect(res).toEqual(ERROR_MESSAGES.USER_NOT_FOUND);
       });
     });
 
