@@ -19,23 +19,23 @@ interface MainLayoutProps {
   children: ReactNode;
 }
 
-export default function MainLayout({ children }: MainLayoutProps) {
-  return (
-    <>
-      <Header />
-      {/*
+const MainLayout = ({ children }: MainLayoutProps) => (
+  <>
+    <Header />
+    {/*
     This Box component ensures that the content area takes up at least
     the height of the viewport minus the heights of the header and footer
   */}
-      <Box
-        minHeight={{
-          base: `calc(100vh - ${MOBILE_HEADER_HEIGHT} - ${MOBILE_FOOTER_HEIGHT})`,
-          md: `calc(100vh - ${DESKTOP_HEADER_HEIGHT} - ${DESKTOP_FOOTER_HEIGHT})`,
-        }}
-      >
-        {children}
-      </Box>
-      <Footer />
-    </>
-  );
-}
+    <Box
+      minHeight={{
+        base: `calc(100vh - ${MOBILE_HEADER_HEIGHT} - ${MOBILE_FOOTER_HEIGHT})`,
+        md: `calc(100vh - ${DESKTOP_HEADER_HEIGHT} - ${DESKTOP_FOOTER_HEIGHT})`,
+      }}
+    >
+      {children}
+    </Box>
+    <Footer />
+  </>
+);
+
+export default MainLayout;
