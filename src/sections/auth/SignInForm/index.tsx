@@ -17,19 +17,18 @@ import { LoginForm } from '@components';
 import { ISignInForm } from '@components/LoginForm';
 
 const SignIn = (): JSX.Element => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isPending, setIsPending] = useState(false);
   const { showToast } = useCustomToast();
   const router = useRouter();
 
   const handleSignIn = useCallback(
     async (data: ISignInForm) => {
-      setIsSubmitting(true);
+      setIsPending(true);
 
       const res = await signInWithEmail(data);
 
-      setIsSubmitting(false);
-
       if (typeof res === 'string') {
+        setIsPending(false);
         showToast(res);
       } else {
         showToast(SUCCESS_MESSAGES.LOGIN, 'success');
@@ -40,7 +39,7 @@ const SignIn = (): JSX.Element => {
     [router, showToast],
   );
 
-  return <LoginForm onSignIn={handleSignIn} isSubmitting={isSubmitting} />;
+  return <LoginForm onSignIn={handleSignIn} isPending={isPending} />;
 };
 
 export default SignIn;

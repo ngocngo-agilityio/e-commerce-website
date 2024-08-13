@@ -44,12 +44,12 @@ const SIGN_IN_VALIDATION_RULE = {
 };
 
 export interface ISignInFormProps {
-  isSubmitting?: boolean;
+  isPending?: boolean;
   onSignIn: (data: ISignInForm) => void;
 }
 
 const LoginForm = ({
-  isSubmitting = false,
+  isPending = false,
   onSignIn,
 }: ISignInFormProps): JSX.Element => {
   const { isOpen: isShowPassword, onToggle: onTogglePassword } =
@@ -59,7 +59,7 @@ const LoginForm = ({
     handleSubmit,
     control,
     clearErrors,
-    formState: { dirtyFields, errors },
+    formState: { dirtyFields, errors, isSubmitting },
   } = useForm<ISignInForm>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
@@ -73,7 +73,7 @@ const LoginForm = ({
     (key) => dirtyFields[key as keyof ISignInForm],
   );
   const shouldEnable = isEnableSubmitButton(REQUIRE_FIELDS, dirtyItems, errors);
-  const isDisableSubmit = !shouldEnable || isSubmitting;
+  const isDisableSubmit = !shouldEnable || isPending;
 
   // Clear error when typing that field.
   const handleOnChange = useCallback(
@@ -108,7 +108,7 @@ const LoginForm = ({
               <Input
                 {...rest}
                 placeholder="Your email"
-                isDisabled={isSubmitting}
+                isDisabled={isPending}
                 onChange={(e) => {
                   const value = e.target?.value;
 
@@ -136,7 +136,7 @@ const LoginForm = ({
                   {...rest}
                   type={isShowPassword ? 'text' : 'password'}
                   placeholder="Enter password"
-                  isDisabled={isSubmitting}
+                  isDisabled={isPending}
                   onChange={(e) => {
                     const value = e.target?.value;
 
