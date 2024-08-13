@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import UserProfile from '.';
+// Components
+import LoginForm from '.';
 
 const meta = {
-  title: 'UserProfile',
-  component: UserProfile,
+  title: 'LoginForm',
+  component: LoginForm,
   parameters: {
     layout: 'centered',
     nextjs: {
@@ -12,13 +13,14 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof UserProfile>;
+} satisfies Meta<typeof LoginForm>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    onLogout: () => {},
+    isSubmitting: false,
+    onSignIn: () => {},
   },
 };

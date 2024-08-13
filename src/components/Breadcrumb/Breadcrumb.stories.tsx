@@ -1,24 +1,25 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import UserProfile from '.';
+// Components
+import Breadcrumb from '.';
+
+// Constants
+import { CART_PAGE_BREADCRUMB } from '@constants';
 
 const meta = {
-  title: 'UserProfile',
-  component: UserProfile,
+  title: 'Breadcrumb',
+  component: Breadcrumb,
   parameters: {
     layout: 'centered',
-    nextjs: {
-      appDirectory: true,
-    },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof UserProfile>;
+} satisfies Meta<typeof Breadcrumb>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    onLogout: () => {},
+    breadcrumb: [...CART_PAGE_BREADCRUMB],
   },
 };

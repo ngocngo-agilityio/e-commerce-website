@@ -1,10 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import UserProfile from '.';
+// Components
+import Counter from '.';
 
 const meta = {
-  title: 'UserProfile',
-  component: UserProfile,
+  title: 'Counter',
+  component: Counter,
   parameters: {
     layout: 'centered',
     nextjs: {
@@ -12,13 +13,14 @@ const meta = {
     },
   },
   tags: ['autodocs'],
-} satisfies Meta<typeof UserProfile>;
+} satisfies Meta<typeof Counter>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {
-    onLogout: () => {},
+    initialQuantity: 1,
+    onQuantityChange: () => {},
   },
 };

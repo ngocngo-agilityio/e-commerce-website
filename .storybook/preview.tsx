@@ -15,6 +15,14 @@ const preview: Preview = {
     nextRouter: {
       Provider: AppRouterContext.Provider,
     },
+    nextjs: {
+      navigation: {
+        pathname: '/products',
+        query: {
+          user: '1',
+        },
+      },
+    },
     chakra: {
       theme,
     },
