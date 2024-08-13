@@ -77,15 +77,11 @@ exports[`LoginForm should match with snapshot 1`] = `
         </div>
       </div>
     </div>
-    <a
-      href="#"
+    <p
+      class="chakra-text css-s0uli3"
     >
-      <p
-        class="chakra-text css-s0uli3"
-      >
-        Forgot password
-      </p>
-    </a>
+      Forgot password
+    </p>
     <button
       class="chakra-button css-g5yz1r"
       disabled=""

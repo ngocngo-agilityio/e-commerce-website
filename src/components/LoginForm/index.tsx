@@ -1,7 +1,6 @@
 'use client';
 
 import { memo, useCallback } from 'react';
-import Link from 'next/link';
 import { Controller, useForm } from 'react-hook-form';
 import { ViewIcon, ViewOffIcon } from '@chakra-ui/icons';
 import {
@@ -164,17 +163,15 @@ const LoginForm = ({
         />
       </Flex>
 
-      <Link href="#">
-        <Text
-          pt={3}
-          textAlign="end"
-          color="black"
-          fontWeight="bold"
-          fontSize="md"
-        >
-          Forgot password
-        </Text>
-      </Link>
+      <Text
+        pt={3}
+        textAlign="end"
+        color="black"
+        fontWeight="bold"
+        fontSize="md"
+      >
+        Forgot password
+      </Text>
 
       <Button
         type="submit"
