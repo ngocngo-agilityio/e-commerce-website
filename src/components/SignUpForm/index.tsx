@@ -41,12 +41,12 @@ const REQUIRE_FIELDS = [
 ];
 
 export interface ISignUpFormProps {
-  isSubmitting?: boolean;
+  isPending?: boolean;
   onSignUp: (data: Omit<IUser, 'id'>) => void;
 }
 
 const SignUpForm = ({
-  isSubmitting = false,
+  isPending = false,
   onSignUp,
 }: ISignUpFormProps): JSX.Element => {
   const { isOpen: isShowPassword, onToggle: onTogglePassword } =
@@ -59,7 +59,7 @@ const SignUpForm = ({
     control,
     clearErrors,
     watch,
-    formState: { dirtyFields, errors },
+    formState: { dirtyFields, errors, isSubmitting },
   } = useForm<ISignUpForm>({
     mode: 'onBlur',
     reValidateMode: 'onBlur',
@@ -104,7 +104,7 @@ const SignUpForm = ({
     (key) => dirtyFields[key as keyof ISignUpForm],
   );
   const shouldEnable = isEnableSubmitButton(REQUIRE_FIELDS, dirtyItems, errors);
-  const isDisableSubmit = !shouldEnable || isSubmitting;
+  const isDisableSubmit = !shouldEnable || isPending || isSubmitting;
 
   // Clear error when typing that field.
   const handleOnChange = useCallback(
@@ -125,7 +125,7 @@ const SignUpForm = ({
         password,
       };
 
-      onSignUp(payload);
+      return onSignUp(payload);
     },
     [onSignUp],
   );
@@ -154,7 +154,7 @@ const SignUpForm = ({
                 <Input
                   {...rest}
                   placeholder="First name"
-                  isDisabled={isSubmitting}
+                  isDisabled={isPending || isSubmitting}
                   onChange={(e) => {
                     const value = e.target?.value;
 
@@ -184,7 +184,7 @@ const SignUpForm = ({
                 <Input
                   {...rest}
                   placeholder="Last name"
-                  isDisabled={isSubmitting}
+                  isDisabled={isPending || isSubmitting}
                   onChange={(e) => {
                     const value = e.target?.value;
 
@@ -212,7 +212,7 @@ const SignUpForm = ({
               <Input
                 {...rest}
                 placeholder="Email"
-                isDisabled={isSubmitting}
+                isDisabled={isPending || isSubmitting}
                 onChange={(e) => {
                   const value = e.target?.value;
 
@@ -240,7 +240,7 @@ const SignUpForm = ({
                   {...rest}
                   type={isShowPassword ? 'text' : 'password'}
                   placeholder="Password"
-                  isDisabled={isSubmitting}
+                  isDisabled={isPending || isSubmitting}
                   onChange={(e) => {
                     const value = e.target?.value;
 
@@ -280,7 +280,7 @@ const SignUpForm = ({
                   {...rest}
                   type={isShowConfirmPassword ? 'text' : 'password'}
                   placeholder="Confirm password"
-                  isDisabled={isSubmitting}
+                  isDisabled={isPending || isSubmitting}
                   onChange={(e) => {
                     const value = e.target?.value;
 

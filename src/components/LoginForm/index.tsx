@@ -73,7 +73,7 @@ const LoginForm = ({
     (key) => dirtyFields[key as keyof ISignInForm],
   );
   const shouldEnable = isEnableSubmitButton(REQUIRE_FIELDS, dirtyItems, errors);
-  const isDisableSubmit = !shouldEnable || isPending;
+  const isDisableSubmit = !shouldEnable || isPending || isSubmitting;
 
   // Clear error when typing that field.
   const handleOnChange = useCallback(
@@ -108,7 +108,7 @@ const LoginForm = ({
               <Input
                 {...rest}
                 placeholder="Your email"
-                isDisabled={isPending}
+                isDisabled={isPending || isSubmitting}
                 onChange={(e) => {
                   const value = e.target?.value;
 
@@ -136,7 +136,7 @@ const LoginForm = ({
                   {...rest}
                   type={isShowPassword ? 'text' : 'password'}
                   placeholder="Enter password"
-                  isDisabled={isPending}
+                  isDisabled={isPending || isSubmitting}
                   onChange={(e) => {
                     const value = e.target?.value;
 
