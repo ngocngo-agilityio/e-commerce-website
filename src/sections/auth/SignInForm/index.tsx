@@ -10,7 +10,7 @@ import { signInWithEmail } from '@actions';
 import { useCustomToast } from '@hooks';
 
 // Constants
-import { APP_ROUTERS, SUCCESS_MESSAGES } from '@constants';
+import { APP_ROUTERS } from '@constants';
 
 // Components
 import { LoginForm } from '@components';
@@ -29,12 +29,11 @@ const SignIn = (): JSX.Element => {
 
       if (typeof res === 'string') {
         setIsPending(false);
-        showToast(res);
-      } else {
-        showToast(SUCCESS_MESSAGES.LOGIN, 'success');
 
-        return router.push(APP_ROUTERS.HOME_PAGE);
+        return showToast(res);
       }
+
+      return router.push(APP_ROUTERS.HOME_PAGE);
     },
     [router, showToast],
   );
