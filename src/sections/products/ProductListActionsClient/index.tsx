@@ -1,6 +1,7 @@
 'use client';
 
 // Libs
+import isEqual from 'react-fast-compare';
 import { ChangeEvent, memo, useCallback, useMemo } from 'react';
 import { Flex, Box } from '@chakra-ui/react';
 import { useSearchParams, usePathname, useRouter } from 'next/navigation';
@@ -152,4 +153,4 @@ const ProductListActionsClient = ({ categories }: Props): JSX.Element => {
   );
 };
 
-export default memo(ProductListActionsClient);
+export default memo(ProductListActionsClient, isEqual);

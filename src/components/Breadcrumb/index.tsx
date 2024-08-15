@@ -1,7 +1,5 @@
 // Libs
 import { Breadcrumb as BreadcrumbChakra } from '@chakra-ui/react';
-import isEqual from 'react-fast-compare';
-import { memo } from 'react';
 
 // Components
 import BreadcrumbItem from './BreadcrumbItem/BreadcrumbItem';
@@ -29,4 +27,4 @@ const Breadcrumb = ({ breadcrumb = [] }: BreadcrumbItemProps): JSX.Element => (
     })}
   </BreadcrumbChakra>
 );
-export default memo(Breadcrumb, isEqual);
+export default Breadcrumb;

@@ -1,4 +1,5 @@
 // Libs
+import { memo } from 'react';
 import { Th, Thead, Tr } from '@chakra-ui/react';
 
 const CartTableHeader = () => {
@@ -16,4 +17,4 @@ const CartTableHeader = () => {
   );
 };
 
-export default CartTableHeader;
+export default memo(CartTableHeader);

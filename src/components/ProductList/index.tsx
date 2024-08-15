@@ -1,6 +1,4 @@
 // Libs
-import { memo } from 'react';
-import isEqual from 'react-fast-compare';
 import { Text, Grid, GridItem } from '@chakra-ui/react';
 
 // Types
@@ -45,4 +43,4 @@ const ProductList = ({ data = [] }: Props): JSX.Element => {
   );
 };
 
-export default memo(ProductList, isEqual);
+export default ProductList;

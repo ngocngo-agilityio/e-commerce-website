@@ -1,4 +1,5 @@
 // Libs
+import { memo } from 'react';
 import { Flex, Text } from '@chakra-ui/react';
 import Link from 'next/link';
 
@@ -30,4 +31,4 @@ const Navigation = (): JSX.Element => {
   );
 };
 
-export default Navigation;
+export default memo(Navigation);

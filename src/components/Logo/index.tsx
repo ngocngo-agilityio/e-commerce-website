@@ -1,4 +1,5 @@
 // Libs
+import { memo } from 'react';
 import { Heading } from '@chakra-ui/react';
 import Link from 'next/link';
 
@@ -13,4 +14,4 @@ const Logo = (): JSX.Element => {
   );
 };
 
-export default Logo;
+export default memo(Logo);
