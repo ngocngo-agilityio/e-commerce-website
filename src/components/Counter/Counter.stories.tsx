@@ -22,5 +22,6 @@ export const Default: Story = {
   args: {
     initialQuantity: 1,
     onQuantityChange: () => {},
+    onOpenConfirmModal: () => {},
   },
 };

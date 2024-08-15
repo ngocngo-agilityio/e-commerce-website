@@ -13,7 +13,6 @@ import {
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
-import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
 
@@ -21,10 +20,14 @@ import dynamic from 'next/dynamic';
 import { formatCurrency } from '@utils';
 
 // Constants
-import { APP_ROUTERS } from '@constants';
+import {
+  APP_ROUTERS,
+  FALL_BACK_IMAGE_PRODUCT,
+  PLACEHOLDER_IMAGE,
+} from '@constants';
 
 // Components
-import { Counter } from '@components';
+import { Counter, Image } from '@components';
 const ConfirmModal = dynamic(() => import('@components/ConfirmModal'));
 
 interface Props {
@@ -88,10 +91,12 @@ const CartItem = ({
                 <Image
                   src={image}
                   alt="Product Image"
+                  placeholder={PLACEHOLDER_IMAGE}
+                  fallbackSrc={FALL_BACK_IMAGE_PRODUCT}
                   fill
-                  objectFit="cover"
-                  sizes="(max-width: 768px) 25vw, 22vw"
                   priority
+                  sizes="(max-width: 768px) 25vw, 22vw"
+                  style={{ objectFit: 'cover' }}
                 />
               </Box>
 
@@ -128,10 +133,12 @@ const CartItem = ({
               <Image
                 src={image}
                 alt="Product Image"
+                placeholder={PLACEHOLDER_IMAGE}
+                fallbackSrc={FALL_BACK_IMAGE_PRODUCT}
                 fill
-                objectFit="cover"
-                sizes="(max-width: 768px) 25vw, 22vw"
                 priority
+                sizes="(max-width: 768px) 25vw, 22vw"
+                style={{ objectFit: 'cover' }}
               />
             </Box>
           </Td>

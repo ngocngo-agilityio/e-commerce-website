@@ -2,13 +2,19 @@
 import { useMemo, memo } from 'react';
 import { Card, CardBody, Heading, Flex, Text, Box } from '@chakra-ui/react';
 import Link from 'next/link';
-import Image from 'next/image';
 
 // Constants
-import { APP_ROUTERS, FALL_BACK_IMAGE } from '@constants';
+import {
+  APP_ROUTERS,
+  FALL_BACK_IMAGE_PRODUCT,
+  PLACEHOLDER_IMAGE,
+} from '@constants';
 
 // Utils
 import { formatCurrency } from '@utils';
+
+// Components
+import { Image } from '@components';
 
 interface Props {
   id: number;
@@ -37,11 +43,12 @@ const ProductCard = ({ id, name, image, price }: Props): JSX.Element => {
               <Image
                 src={image}
                 alt="Product Image"
-                border-radius="none"
-                placeholder={FALL_BACK_IMAGE}
+                placeholder={PLACEHOLDER_IMAGE}
+                fallbackSrc={FALL_BACK_IMAGE_PRODUCT}
                 fill
-                objectFit="cover"
+                priority
                 sizes="(max-width: 768px) 25vw, 10vw"
+                style={{ objectFit: 'cover' }}
               />
             </Box>
 
