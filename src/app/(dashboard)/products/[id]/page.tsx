@@ -9,7 +9,6 @@ import {
   Heading,
   Text,
 } from '@chakra-ui/react';
-import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Metadata, ResolvingMetadata } from 'next';
 
@@ -20,13 +19,14 @@ import { getProductDetail } from '@apis';
 import { formatCurrency } from '@utils';
 
 // Constants
-import { FALL_BACK_IMAGE } from '@constants';
+import { FALL_BACK_IMAGE_PRODUCT, PLACEHOLDER_IMAGE } from '@constants';
 
 // Components
 import {
   Rating,
   SkeletonAddCartAction,
   SkeletonProductCategories,
+  Image,
 } from '@components';
 
 // Sections
@@ -96,11 +96,12 @@ const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
             <Image
               src={image}
               alt="Product Image"
-              placeholder={FALL_BACK_IMAGE}
+              placeholder={PLACEHOLDER_IMAGE}
+              fallbackSrc={FALL_BACK_IMAGE_PRODUCT}
               fill
-              objectFit="cover"
-              sizes="(max-width: 768px) 100vw, 50vw"
               priority
+              sizes="(max-width: 768px) 100vw, 50vw"
+              style={{ objectFit: 'cover' }}
             />
           </Box>
         </GridItem>

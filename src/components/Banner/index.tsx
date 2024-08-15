@@ -1,12 +1,11 @@
 // Libs
-import Image from 'next/image';
 import { Box, Button, Container, Flex, Heading } from '@chakra-ui/react';
 
 // Constants
-import {
-  BANNER_BG,
-  // BANNER_BG_BLUR
-} from '@constants';
+import { BANNER_BG } from '@constants';
+
+// Components
+import { Image } from '@components';
 
 const SaleBanner = (): JSX.Element => {
   return (
@@ -14,14 +13,12 @@ const SaleBanner = (): JSX.Element => {
       <Box pos="relative" w="100%" aspectRatio="1367/648" zIndex={-1}>
         <Image
           priority
-          src={BANNER_BG}
-          alt="Banner Image"
           fill
-          objectFit="cover"
-          objectPosition="cover"
+          src={BANNER_BG}
+          fallbackSrc={BANNER_BG}
+          alt="Banner Image"
           sizes="100vw"
-          // placeholder="blur"
-          // blurDataURL={BANNER_BG_BLUR}
+          style={{ objectFit: 'cover' }}
         />
       </Box>
 
