@@ -1,8 +1,18 @@
 'use client';
 
 // Libs
-import { memo, useCallback, useState } from 'react';
-import { Box, Center, Flex, Hide, Show, Td, Tr, Text } from '@chakra-ui/react';
+import { memo, useCallback } from 'react';
+import {
+  Box,
+  Center,
+  Flex,
+  Hide,
+  Show,
+  Td,
+  Tr,
+  Text,
+  useDisclosure,
+} from '@chakra-ui/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -15,7 +25,7 @@ import { APP_ROUTERS } from '@constants';
 
 // Components
 import { Counter } from '@components';
-const ConfirmModal = dynamic(() => import('../../ConfirmModal'));
+const ConfirmModal = dynamic(() => import('@components/ConfirmModal'));
 
 interface Props {
   id: number;
@@ -36,24 +46,20 @@ const CartItem = ({
   onRemoveProduct,
   onQuantityChange,
 }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const {
+    isOpen: isOpenConfirmModal,
+    onToggle: onToggleConfirmModal,
+    onOpen: onOpenConfirmModal,
+  } = useDisclosure();
 
   const total = price * quantity;
   const formattedPrice = formatCurrency(price);
   const formattedTotal = formatCurrency(total);
 
-  const handleOpenConfirmModal = useCallback(() => {
-    setIsOpen(true);
-  }, []);
-
-  const handleCancel = useCallback(() => {
-    setIsOpen(false);
-  }, []);
-
   const handleRemoveCartItem = useCallback(() => {
     onRemoveProduct(id);
-    setIsOpen(false);
-  }, [id, onRemoveProduct]);
+    onToggleConfirmModal();
+  }, [id, onRemoveProduct, onToggleConfirmModal]);
 
   const handleQuantityChange = useCallback(
     (quantity: number) => {
@@ -72,7 +78,7 @@ const CartItem = ({
               cursor="pointer"
               w="fit-content"
               color="removeProduct"
-              onClick={handleOpenConfirmModal}
+              onClick={onToggleConfirmModal}
             >
               x
             </Center>
@@ -106,6 +112,7 @@ const CartItem = ({
                   <Counter
                     initialQuantity={quantity}
                     onQuantityChange={handleQuantityChange}
+                    onOpenConfirmModal={onOpenConfirmModal}
                   />
                 </Flex>
 
@@ -140,19 +147,22 @@ const CartItem = ({
             <Counter
               initialQuantity={quantity}
               onQuantityChange={handleQuantityChange}
+              onOpenConfirmModal={onOpenConfirmModal}
             />
           </Td>
-          <Td color="cart.totalAmount">{formattedTotal}</Td>
+          <Td color="cart.totalAmount" w={{ md: '150px', xl: '230px' }}>
+            {formattedTotal}
+          </Td>
         </Show>
       </Tr>
-      {isOpen && (
+      {isOpenConfirmModal && (
         <ConfirmModal
           title="Delete"
           textCancel="No"
           textSubmit="Yes"
           message="Are you sure remove this product from your cart?"
           onSubmit={handleRemoveCartItem}
-          onClose={handleCancel}
+          onClose={onToggleConfirmModal}
         />
       )}
     </>
