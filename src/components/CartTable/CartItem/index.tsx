@@ -150,7 +150,9 @@ const CartItem = ({
               onOpenConfirmModal={onOpenConfirmModal}
             />
           </Td>
-          <Td color="cart.totalAmount">{formattedTotal}</Td>
+          <Td color="cart.totalAmount" w={{ md: '150px', xl: '230px' }}>
+            {formattedTotal}
+          </Td>
         </Show>
       </Tr>
       {isOpenConfirmModal && (
