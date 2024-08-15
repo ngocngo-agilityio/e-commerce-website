@@ -36,10 +36,10 @@ interface Props {
   params: { id: string };
 }
 
-export async function generateMetadata(
+export const generateMetadata = async (
   { params }: Props,
   parent: ResolvingMetadata,
-): Promise<Metadata> {
+): Promise<Metadata> => {
   const productId = params.id;
 
   // Fetch data
@@ -57,7 +57,7 @@ export async function generateMetadata(
       images: [image, ...previousImages],
     },
   };
-}
+};
 
 const ProductDetail = async ({ params }: Props): Promise<JSX.Element> => {
   const { id: productId } = params || {};

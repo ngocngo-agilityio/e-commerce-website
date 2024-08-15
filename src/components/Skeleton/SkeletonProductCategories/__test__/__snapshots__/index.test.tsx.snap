@@ -3,7 +3,7 @@
 exports[`SkeletonProductCategories component should match snapshot for SkeletonProductCategories 1`] = `
 <div>
   <div
-    class="chakra-skeleton css-rjqado"
+    class="chakra-skeleton css-1aoc9k"
   />
 </div>
 `;

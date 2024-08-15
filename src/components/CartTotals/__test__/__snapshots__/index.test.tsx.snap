@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CartTotals page Should render match with snapshot. 1`] = `
+<div>
+  <h2
+    class="chakra-heading css-1vq0cl1"
+  >
+    Cart Totals
+  </h2>
+  <div
+    class="css-1ebl0dg"
+  >
+    <div
+      class="css-19y425s"
+    >
+      <p
+        class="chakra-text css-0"
+      >
+        Subtotal
+      </p>
+      <p
+        class="chakra-text css-0"
+      >
+        $12.30
+      </p>
+    </div>
+    <hr
+      aria-orientation="horizontal"
+      class="chakra-divider css-1upb9tn"
+    />
+    <div
+      class="css-19y425s"
+    >
+      <p
+        class="chakra-text css-0"
+      >
+        ShippingFree
+      </p>
+      <p
+        class="chakra-text css-0"
+      >
+        FREE!!!
+      </p>
+    </div>
+    <hr
+      aria-orientation="horizontal"
+      class="chakra-divider css-1upb9tn"
+    />
+    <div
+      class="css-19y425s"
+    >
+      <p
+        class="chakra-text css-19q2mny"
+      >
+        Total
+      </p>
+      <p
+        class="chakra-text css-0"
+      >
+        $12.30
+      </p>
+    </div>
+  </div>
+  <button
+    class="chakra-button css-1jbx1h7"
+    type="button"
+  >
+    Proceed to Checkout
+  </button>
+</div>
+`;

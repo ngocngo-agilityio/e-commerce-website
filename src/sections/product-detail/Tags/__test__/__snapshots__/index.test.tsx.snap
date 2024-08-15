@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Tags section should match with snapshot 1`] = `
+<div>
+  <div
+    class="css-k008qs"
+  >
+    <span
+      class="chakra-text css-1c9wxup"
+    >
+      Tags: 
+    </span>
+    <p
+      class="chakra-text css-1wsccn1"
+    >
+      Modern, Classic, Design, Cotton
+    </p>
+  </div>
+</div>
+`;
