@@ -8,25 +8,19 @@ interface AuthLayoutProps {
   children: ReactNode;
 }
 
-export default function AuthLayout({ children }: AuthLayoutProps) {
-  return (
-    <Box
-      maxW="full"
-      pt={7}
-      bg="authFormBg"
-      px={{ base: 4, md: 12 }}
-      minH="100vh"
+const AuthLayout = ({ children }: AuthLayoutProps): JSX.Element => (
+  <Box maxW="full" pt={7} bg="authFormBg" px={{ base: 4, md: 12 }} minH="100vh">
+    <Logo />
+    <Center
+      display="flex"
+      flexDirection="column"
+      px={4}
+      mt={{ base: '80px', md: '150px' }}
+      pb={10}
     >
-      <Logo />
-      <Center
-        display="flex"
-        flexDirection="column"
-        px={4}
-        mt={{ base: '80px', md: '150px' }}
-        pb={10}
-      >
-        {children}
-      </Center>
-    </Box>
-  );
-}
+      {children}
+    </Center>
+  </Box>
+);
+
+export default AuthLayout;
