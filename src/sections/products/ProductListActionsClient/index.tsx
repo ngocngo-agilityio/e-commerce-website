@@ -9,7 +9,7 @@ import { useSearchParams, usePathname, useRouter } from 'next/navigation';
 import { Category, ITag } from '@types';
 
 // Utils
-import { getSearchParams, updateSearchParams } from '@utils';
+import { getSearchParams, parseCategoryIds, updateSearchParams } from '@utils';
 
 // Constants
 import { DEFAULT_PAGE, SEARCH_QUERIES, SORT_OPTIONS } from '@constants';
@@ -29,11 +29,7 @@ const ProductListActionsClient = ({ categories }: Props): JSX.Element => {
   const { name, order, categoryIds = '' } = getSearchParams(searchParams);
 
   const filterDefaultValues = useMemo(
-    () =>
-      categoryIds
-        .split(',')
-        .filter((item) => item.toString() !== '')
-        .map((item) => +item),
+    () => parseCategoryIds(categoryIds),
     [categoryIds],
   );
 
