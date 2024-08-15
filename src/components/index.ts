@@ -28,3 +28,4 @@ export { default as TagList } from './TagList';
 export { default as LoginForm } from './LoginForm';
 export { default as SignUpForm } from './SignUpForm';
 export { default as Image } from './Image';
+export { default as CartTotals } from './CartTotals';

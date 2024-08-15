@@ -1,7 +1,3 @@
-// Libs
-import { memo } from 'react';
-import isEqual from 'react-fast-compare';
-
 // Types
 import { ITag } from '@types';
 
@@ -25,4 +21,4 @@ const TagList = ({ tags, onClose }: TagListProps): JSX.Element => {
   );
 };
 
-export default memo(TagList, isEqual);
+export default TagList;

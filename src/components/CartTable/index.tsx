@@ -1,8 +1,6 @@
 'use client';
 
 // Libs
-import { memo } from 'react';
-import isEqual from 'react-fast-compare';
 import { Show, Table, Tbody, Td, Tr } from '@chakra-ui/react';
 
 // Types
@@ -60,4 +58,4 @@ const CartTable = ({
   );
 };
 
-export default memo(CartTable, isEqual);
+export default CartTable;

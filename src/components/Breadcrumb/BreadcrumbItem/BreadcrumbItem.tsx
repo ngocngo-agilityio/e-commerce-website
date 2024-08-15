@@ -1,5 +1,6 @@
 // Libs
 import Link from 'next/link';
+import { memo } from 'react';
 import { BreadcrumbItem as BreadcrumbItemChakra } from '@chakra-ui/react';
 
 // Types
@@ -17,4 +18,4 @@ const BreadcrumbItem = ({
     <Link href={href}>{label}</Link>
   </BreadcrumbItemChakra>
 );
-export default BreadcrumbItem;
+export default memo(BreadcrumbItem);

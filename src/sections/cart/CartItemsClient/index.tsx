@@ -2,7 +2,7 @@
 
 // Libs
 import { useCallback, useMemo } from 'react';
-import { Box, Flex, Heading, Text, Divider, Button } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 
 // Actions
 import { updateMyCart } from '@actions';
@@ -14,10 +14,10 @@ import { useCustomToast } from '@hooks';
 import { ICartItem } from '@types';
 
 // Utils
-import { calculateTotalPrice, formatCurrency } from '@utils';
+import { calculateTotalPrice } from '@utils';
 
 // Components
-import { CartTable } from '@components';
+import { CartTable, CartTotals } from '@components';
 
 interface CartItemClientProps {
   cartId: number;
@@ -31,7 +31,6 @@ const CartItemsClient = ({
   const { showToast } = useCustomToast();
 
   const total = useMemo(() => calculateTotalPrice(cartItems), [cartItems]);
-  const formattedTotal = formatCurrency(total);
 
   // TODO: Update later
   const handleCheckout = () => {};
@@ -89,37 +88,7 @@ const CartItemsClient = ({
         onCartItemRemove={handleRemoveCartItem}
         onQuantityChange={handleChangeQuantity}
       />
-      <Heading mt="83px" mb="38px" fontSize={{ base: '3xl', md: '4xl' }}>
-        Cart Totals
-      </Heading>
-      <Box w={{ base: 'full', md: '531px' }} mb="41px">
-        <Flex justifyContent="space-between" py="17px">
-          <Text>Subtotal</Text>
-          <Text>{formattedTotal}</Text>
-        </Flex>
-        <Divider />
-        <Flex justifyContent="space-between" py="17px">
-          <Text>ShippingFree</Text>
-          <Text>FREE!!!</Text>
-        </Flex>
-        <Divider />
-        <Flex justifyContent="space-between" py="17px">
-          <Text fontFamily="arimo" fontWeight="bold">
-            Total
-          </Text>
-          <Text>{formattedTotal}</Text>
-        </Flex>
-      </Box>
-
-      <Button
-        variant="checkoutBtn"
-        w={{ base: '200px', md: '262px' }}
-        h={{ base: '40px', md: '58px' }}
-        fontSize={{ base: 'md', md: 'xl' }}
-        onClick={handleCheckout}
-      >
-        Proceed to Checkout
-      </Button>
+      <CartTotals total={total} onCheckout={handleCheckout} />
     </Box>
   );
 };
