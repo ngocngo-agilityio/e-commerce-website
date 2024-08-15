@@ -1,7 +1,7 @@
 'use client';
 
 // Libs
-import { useState, useCallback, memo, useMemo } from 'react';
+import { useState, useCallback, memo } from 'react';
 import { Flex, Center, Text, Button } from '@chakra-ui/react';
 import { AddIcon, MinusIcon } from '@chakra-ui/icons';
 import { useDebounceCallback } from 'usehooks-ts';
@@ -9,22 +9,20 @@ import { useDebounceCallback } from 'usehooks-ts';
 // Constants
 import { COUNTER_DEBOUNCE_TIME } from '@constants';
 
-interface Props {
+interface CounterProps {
   initialQuantity: number;
-  onQuantityChange: (qty: number) => void;
   debounceTime?: number;
+  onQuantityChange: (qty: number) => void;
+  onOpenConfirmModal: () => void;
 }
 
 const Counter = ({
   initialQuantity,
   debounceTime = COUNTER_DEBOUNCE_TIME,
   onQuantityChange,
-}: Props): JSX.Element => {
+  onOpenConfirmModal,
+}: CounterProps): JSX.Element => {
   const [quantity, setQuantity] = useState(initialQuantity);
-
-  const isDecrementDisable = useMemo(() => {
-    return quantity === 1;
-  }, [quantity]);
 
   const handleQuantityChange = useDebounceCallback((quantity: number) => {
     onQuantityChange(quantity);
@@ -44,8 +42,12 @@ const Counter = ({
   );
 
   const handleDecrement = useCallback(() => {
-    handleChange(-1);
-  }, [handleChange]);
+    if (quantity > 1) {
+      return handleChange(-1);
+    }
+
+    return onOpenConfirmModal();
+  }, [handleChange, onOpenConfirmModal, quantity]);
 
   const handleIncrement = useCallback(() => {
     handleChange(1);
@@ -67,7 +69,6 @@ const Counter = ({
         w={{ base: '25px', md: '30px' }}
         h={{ base: '28px', md: '34px' }}
         onClick={handleDecrement}
-        isDisabled={isDecrementDisable}
         data-testid="minus-btn"
       >
         <MinusIcon boxSize={2} />
