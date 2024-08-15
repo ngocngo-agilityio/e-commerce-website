@@ -4,17 +4,22 @@ import { Flex, Text } from '@chakra-ui/react';
 // Apis
 import { getCategoryList } from '@apis';
 
-interface Props {
+// Utils
+import { getNamesFromList } from '@utils';
+
+interface CategoriesProps {
   categoryIds: number[];
 }
 
-const Categories = async ({ categoryIds }: Props): Promise<JSX.Element> => {
+const Categories = async ({
+  categoryIds,
+}: CategoriesProps): Promise<JSX.Element> => {
   // Fetch data for categories
   const { data: categoryList = [] } = await getCategoryList({
     ids: categoryIds,
   });
 
-  const categories = categoryList.map((item) => item.name).join(', ');
+  const categories = getNamesFromList(categoryList);
 
   return (
     <Flex>
