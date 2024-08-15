@@ -19,7 +19,7 @@ interface MainLayoutProps {
   children: ReactNode;
 }
 
-const MainLayout = ({ children }: MainLayoutProps) => (
+const MainLayout = ({ children }: MainLayoutProps): JSX.Element => (
   <>
     <Header />
     {/*

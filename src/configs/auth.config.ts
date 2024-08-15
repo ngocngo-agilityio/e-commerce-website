@@ -5,7 +5,7 @@ import { APP_ROUTERS } from '@constants';
 
 export const authConfig = {
   callbacks: {
-    authorized({ auth, request: { nextUrl } }) {
+    authorized: ({ auth, request: { nextUrl } }) => {
       const isLoggedIn = !!auth?.user;
       const isPublicPage =
         nextUrl.pathname === APP_ROUTERS.SIGN_IN ||
@@ -23,13 +23,13 @@ export const authConfig = {
 
       return true;
     },
-    async jwt({ user, token }) {
+    jwt: async ({ user, token }) => {
       if (token) Object.assign(token, user);
 
       return token;
     },
 
-    session({ session, token }) {
+    session: ({ session, token }) => {
       Object.assign(session.user, token);
 
       return session;
