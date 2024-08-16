@@ -6,7 +6,7 @@ import { Box, Button, Container, Flex, Heading } from '@chakra-ui/react';
 import { BANNER_BG } from '@constants';
 
 // Components
-import { Image } from '@components';
+import Image from '@components/Image';
 
 const SaleBanner = (): JSX.Element => {
   return (

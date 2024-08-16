@@ -14,7 +14,7 @@ import {
 import { formatCurrency } from '@utils';
 
 // Components
-import { Image } from '@components';
+import Image from '@components/Image';
 
 interface Props {
   id: number;
