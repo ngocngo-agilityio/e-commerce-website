@@ -1,12 +1,17 @@
 // Libs
 import { Heading, Text } from '@chakra-ui/react';
 import Link from 'next/link';
+import { Metadata } from 'next';
 
 // Constants
 import { APP_ROUTERS } from '@constants';
 
 // Section
 import { LoginForm } from '@sections';
+
+export const metadata: Metadata = {
+  title: 'Sign in',
+};
 
 const SignIn = () => (
   <>
