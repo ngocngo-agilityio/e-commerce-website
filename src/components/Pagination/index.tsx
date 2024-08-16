@@ -65,10 +65,6 @@ const Pagination = ({ pagesQuantity }: Props): JSX.Element => {
             bg="pagination.color"
             color="pagination.bg"
             _hover={{ bg: 'pagination.color', color: 'pagination.hoverBg' }}
-            _disabled={{
-              bg: 'pagination.color',
-              color: 'pagination.bg',
-            }}
           >
             <ArrowLeftIcon />
           </PaginationPrevious>
@@ -81,11 +77,15 @@ const Pagination = ({ pagesQuantity }: Props): JSX.Element => {
                   page={page}
                   w="25px"
                   h="25px"
-                  bg="pagination.bg"
-                  color="pagination.color"
+                  bg="transparent"
+                  color="pagination.defaultColor"
+                  border="none"
                   fontSize="md"
                   fontWeight="normal"
-                  _hover={{ bg: 'pagination.hoverBg' }}
+                  _hover={{
+                    bg: 'pagination.hoverBg',
+                    color: 'pagination.color',
+                  }}
                   _current={{
                     w: '25px',
                     h: '25px',
@@ -108,7 +108,6 @@ const Pagination = ({ pagesQuantity }: Props): JSX.Element => {
             bg="pagination.color"
             color="pagination.bg"
             _hover={{ bg: 'pagination.color', color: 'pagination.hoverBg' }}
-            _disabled={{ bg: 'pagination.color', color: 'pagination.bg' }}
           >
             <ArrowRightIcon />
           </PaginationNext>

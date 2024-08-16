@@ -115,6 +115,7 @@ export const colors = {
 
   // Pagination:
   pagination: {
+    defaultColor: BASE.codGray,
     color: BASE.white,
     bg: BASE.redDamask,
     hoverBg: BASE.tuscany,
