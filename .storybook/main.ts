@@ -18,6 +18,12 @@ const config: StorybookConfig = {
   docs: {
     autodocs: 'tag',
   },
+  refs: {
+    '@chakra-ui/react': {
+      disable: true,
+    },
+  },
+  staticDirs: ['../public'],
   webpackFinal: async (config) => {
     if (config.resolve) {
       config.resolve.plugins = [
