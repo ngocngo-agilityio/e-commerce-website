@@ -27,7 +27,8 @@ import {
 } from '@constants';
 
 // Components
-import { Counter, Image } from '@components';
+import Counter from '@components/Counter';
+import Image from '@components/Image';
 const ConfirmModal = dynamic(() => import('@components/ConfirmModal'));
 
 interface Props {
